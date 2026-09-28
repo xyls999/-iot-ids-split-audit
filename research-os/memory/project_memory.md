@@ -12,6 +12,10 @@ The local Downloads folder contains quadruped-robot and sim-to-real material, in
 
 Pi, Git, Python, Node, pdftotext, pypdf, python-docx, and DOCX text extraction are available. Browser automation, Brave API search, OCR/PDF rendering, LibreOffice, and Pandoc are not verified. Zotero MCP and PaperQA2 are not installed; only their reviewed configuration boundaries are recorded.
 
+## Scope override checkpoint
+
+The user explicitly excluded all quadruped/robot-dog work. The active scope is now electronics, measurement/instrumentation, power engineering, laser/optics, microelectronics/computer systems, IoT, and soil/environmental sensing. The screenshot venue list is transcribed at `literature/screenshot-venue-transcription.md`.
+
 ## Venue research checkpoint
 
 A source-backed preliminary shortlist is stored in `literature/venue-direction-brief.md` and `literature_matrix/venue-shortlist.csv`. The lowest-risk legitimate route is conditional on having the robot and logs: RGB-D quadruped visual/task navigation. It is not an acceptance prediction. Current fees, deadlines, indexing and the image-derived list still require verification.

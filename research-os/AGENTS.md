@@ -30,6 +30,10 @@ Then reconstruct state, inspect `state/next_action.yaml`, and only execute the r
 
 A substantive task is incomplete until its artifact is saved, verified, registered in `state/manifest.yaml`, and followed by updates to decisions/memory/next-action/session handoff. If the manifest is not updated, the task is not complete.
 
+## Active scope override
+
+The current project excludes quadruped robots, robot dogs, legged-robot sim-to-real, and robot-dog visual navigation. Historical files may remain for provenance, but they are inactive and must not drive literature searches, ideas, venue selection, or manuscript claims unless the user explicitly reactivates them.
+
 ## Research integrity
 
 - Never invent papers, venues, metrics, citations, acceptance rates, fees, or indexing.

@@ -15,11 +15,14 @@ decisions:
     decision: "retrieval/evidence aid only; Artifact DAG remains authoritative"
     status: accepted
   - id: ecc
-    decision: "defer ECC until a separate hook/memory conflict review"
+    decision: "ECC is not enabled; defer until explicit approval and conflict review"
     status: accepted
   - id: venue-integrity
     decision: "do not target predatory, deceptive, or guaranteed-acceptance venues"
     status: accepted
   - id: screenshot
-    decision: "requested screenshot unavailable at supplied path"
-    status: blocked
+    decision: "Screenshot visually verified; venue names transcribed to literature/screenshot-venue-transcription.md"
+    status: accepted
+  - id: scope-exclusion-robot-dog
+    decision: "Exclude quadruped robots, robot dogs, legged sim-to-real and robot-dog navigation from the active project"
+    status: accepted

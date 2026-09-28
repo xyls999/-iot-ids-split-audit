@@ -6,6 +6,12 @@
 - Official evidence saved under `evidence/journal-candidates/`.
 - Manifest updated with venue shortlist artifact.
 
+## Scope override
+
+Quadruped robotics, robot dogs, legged sim-to-real and robot-dog navigation are explicitly excluded. Previous robotics artifacts are historical only.
+
+The screenshot was successfully read and transcribed to `literature/screenshot-venue-transcription.md`.
+
 ## Current blockers
 
 1. Requested screenshot missing.

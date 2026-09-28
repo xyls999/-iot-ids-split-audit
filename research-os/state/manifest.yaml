@@ -1,7 +1,7 @@
 project:
   id: research-os-water-paper
   title: ""
-  research_area: "quadruped robotics / sim-to-real / data-driven control"
+  research_area: "electronics / instrumentation / power / laser / microelectronics / IoT / soil sensing"
   target_language: zh-CN
   created_at: 2026-09-28
   status: PARTIALLY_CONFIGURED
@@ -14,7 +14,7 @@ target:
 
 workflow:
   current_stage: discovery_readonly
-  current_task: "verify setup and identify a legitimate, scope-matched venue"
+  current_task: "verify screenshot venues and identify a legitimate, scope-matched non-robot-dog direction"
   auto_continue: false
   status: blocked_pending_inputs
 
@@ -41,6 +41,8 @@ blocked_tasks:
     reason: "The requested JPG was not found at the supplied Downloads path."
   - task_id: research-profile-missing
     reason: "Author expertise, available data, target deadline, APC budget, and acceptable language are not yet recorded."
+  - task_id: scope-exclusion
+    reason: "Quadruped/robot-dog directions are explicitly excluded by the user."
 
 pending_decisions:
   - id: venue-policy
@@ -62,7 +64,8 @@ artifacts:
   venue_shortlist: artifacts/journal-candidates-source-review.md
   venue_direction_brief: literature/venue-direction-brief.md
   venue_matrix: literature_matrix/venue-shortlist.csv
-  screenshot: null
+  screenshot: literature/screenshot-venue-transcription.md
+  scope_override: literature/scope-override-2026-09-28.md
 
 literature:
   total: 0
@@ -86,5 +89,5 @@ review:
 
 last_checkpoint:
   timestamp: 2026-09-28T22:40:00+08:00
-  summary: "Venue and direction synthesis completed; RGB-D quadruped navigation is the conditional lowest-risk legitimate route, while sim-to-real has higher execution and novelty risk."
-  next_action: "Collect missing screenshot/profile, then select a target venue/direction and build a full literature matrix before novelty claims."
+  summary: "Screenshot venue list visually verified; active scope changed to electronics/instrumentation/power/laser/microelectronics/IoT/soil sensing; quadruped and robot-dog work explicitly excluded."
+  next_action: "Collect research profile, then verify the screenshot venues and recent papers using official sources."

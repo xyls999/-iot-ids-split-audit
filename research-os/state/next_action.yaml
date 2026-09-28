@@ -2,11 +2,11 @@ next_action:
   id: intake-profile-and-target-selection
   status: blocked
   prerequisites:
-    - re-upload the missing screenshot or provide its exact path
-    - record author skills, available robot/data, deadline, budget, and language preference
-    - confirm intended paper direction: robotics/sim-to-real/control vs water-AI/remote-sensing
+    - record author skills, available data/equipment, deadline, budget, and language preference
+    - confirm one active domain from the screenshot list
+    - exclude quadruped/robot-dog directions from all future searches
   steps:
-    - map the confirmed topic/data to the journal shortlist in artifacts/journal-candidates-source-review.md
-    - verify APC/budget and author instructions again before choosing target
+    - verify current scope, level, fees and recent papers for the screenshot venues
+    - compare legitimate C/B options with transparent evidence
     - choose one primary target and 1-2 backups
     - checkpoint manifest and Git
