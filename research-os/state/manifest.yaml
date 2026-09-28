@@ -14,7 +14,7 @@ target:
 
 workflow:
   current_stage: literature
-  current_task: "select one low-cost, public-data water research direction from the Hohai catalog"
+  current_task: "select one low-burden, legitimate, non-water, non-robot-dog topic and venue from the screenshot/PDF catalog"
   auto_continue: false
   status: running
 
@@ -36,17 +36,17 @@ completed_tasks:
     artifact: literature/venue-direction-brief.md
 
 active_tasks:
-  - task_id: water-direction-shortlist
+  - task_id: low-burden-venue-research
     status: running
-    run_id: water-direction-shortlist-mulbfwo1-0ozbwi
-    scope: "water/hydrology/water-AI only"
+    run_id: low-burden-venue-research-mulboum8-xugjvr
+    scope: "public-data, no-special-hardware, non-water, non-robot-dog"
 blocked_tasks:
-  - task_id: screenshot-missing
-    reason: "The requested JPG was not found at the supplied Downloads path."
   - task_id: research-profile-missing
     reason: "Author expertise, available data, target deadline, APC budget, and acceptable language are not yet recorded."
   - task_id: scope-exclusion
     reason: "Quadruped/robot-dog directions are explicitly excluded by the user."
+  - task_id: venue-scope-clarification
+    reason: "The user clarified that the goal is a relatively low-burden legitimate publication route, not water research."
 
 pending_decisions:
   - id: venue-policy
@@ -93,5 +93,5 @@ review:
 
 last_checkpoint:
   timestamp: 2026-09-28T22:40:00+08:00
-  summary: "Screenshot venue list visually verified; active scope is now the water/hydrology subset of the catalog; quadruped and robot-dog work explicitly excluded. Water-direction research is running."
-  next_action: "Await water-direction shortlist, then run a two-week public-data feasibility test before selecting a target venue."
+  summary: "User clarified that the goal is a relatively low-burden legitimate paper/conference, not water research; the water-direction task was stopped."
+  next_action: "Verify screenshot venues and PDF C/B venues for low-cost, public-data, non-hardware topics."
