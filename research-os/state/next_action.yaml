@@ -1,12 +1,13 @@
 next_action:
-  id: intake-profile-and-target-selection
+  id: confirm-low-burden-route
   status: blocked
   prerequisites:
-    - record author skills, available data/equipment, deadline, budget, and language preference
-    - confirm one active domain from the screenshot list
-    - exclude quadruped/robot-dog directions from all future searches
+    - confirm or reject public-data air-quality sensor calibration under temporal drift
+    - record available Python/compute environment, deadline, budget, and language preference
+    - keep water and quadruped/robot-dog directions excluded
   steps:
-    - verify current scope, level, fees and recent papers for the screenshot venues
-    - compare legitimate C/B options with transparent evidence
-    - choose one primary target and 1-2 backups
-    - checkpoint manifest and Git
+    - download and checksum the UCI Air Quality dataset
+    - run chronological baseline experiments
+    - test drift and missingness robustness
+    - verify current author instructions and fees
+    - checkpoint the feasibility result before any manuscript drafting

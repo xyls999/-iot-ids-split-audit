@@ -16,7 +16,7 @@ workflow:
   current_stage: literature
   current_task: "select one low-burden, legitimate, non-water, non-robot-dog topic and venue from the screenshot/PDF catalog"
   auto_continue: false
-  status: running
+  status: blocked_pending_user_direction
 
 completed_tasks:
   - task_id: setup-scaffold
@@ -35,11 +35,7 @@ completed_tasks:
     status: completed
     artifact: literature/venue-direction-brief.md
 
-active_tasks:
-  - task_id: low-burden-venue-research
-    status: running
-    run_id: low-burden-venue-research-mulboum8-xugjvr
-    scope: "public-data, no-special-hardware, non-water, non-robot-dog"
+active_tasks: []
 blocked_tasks:
   - task_id: research-profile-missing
     reason: "Author expertise, available data, target deadline, APC budget, and acceptable language are not yet recorded."
@@ -47,6 +43,8 @@ blocked_tasks:
     reason: "Quadruped/robot-dog directions are explicitly excluded by the user."
   - task_id: venue-scope-clarification
     reason: "The user clarified that the goal is a relatively low-burden legitimate publication route, not water research."
+  - task_id: route-selection
+    reason: "A primary route is recommended but requires user confirmation of topic, data and target venue."
 
 pending_decisions:
   - id: venue-policy
@@ -70,6 +68,7 @@ artifacts:
   venue_matrix: literature_matrix/venue-shortlist.csv
   screenshot: literature/screenshot-venue-transcription.md
   scope_override: literature/scope-override-2026-09-28.md
+  low_burden_route: literature/low-burden-route-brief.md
 
 literature:
   total: 0
@@ -93,5 +92,5 @@ review:
 
 last_checkpoint:
   timestamp: 2026-09-28T22:40:00+08:00
-  summary: "User clarified that the goal is a relatively low-burden legitimate paper/conference, not water research; the water-direction task was stopped."
-  next_action: "Verify screenshot venues and PDF C/B venues for low-cost, public-data, non-hardware topics."
+  summary: "Low-burden venue research completed; public-data air-quality sensor calibration is the recommended route for 电子测量与仪器学报, pending user confirmation."
+  next_action: "Confirm or reject the air-quality sensor-calibration route, then run a 2-week feasibility test before drafting."
