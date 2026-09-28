@@ -1,0 +1,77 @@
+https://icpr2026.org/calls.html
+STATUS 200 FINAL https://icpr2026.org/calls.html
+ICPR 2026 : main call for papers | ICPR2026website 
+ 28 th - International Conference on Pattern Recognition
+ Lyon, France August, 17-22, 2026
+ International Convention Center
+ Home 
+ Program 
+ Home 
+ People
+ Conference Committee 
+ Local Organization 
+ Reviewers 
+ Reproducible Badge Reviewers 
+ Important Dates 
+ Dates 
+ Dates 
+ Calls
+ Main Call 
+ Call for Competitions 
+ Call for Doctoral Consortium 
+ Call for Tutorials 
+ Call for Workshops 
+ Program
+ Main Program 
+ Tutorials Program 
+ Workshop Program 
+ Search Papers 
+ Proceedings 
+ Workshop Papers 
+ Events
+ Competitions 
+ Tutorials 
+ Workshops 
+ S+SSPR 2026 
+ Instructions
+ Instructions for Authors 
+ Submit a Paper 
+ Instructions for Reviewers 
+ Camera-ready instructions 
+ Instructions for Oral presentation 
+ Instructions for Poster presentation 
+ Instructions for Session Chair 
+ Registration 
+ Local 
+ Local information overview 
+ Getting to Lyon 
+ TCL tickets & fares 
+ Conference venue 
+ Workshop & tutorial venue 
+ Hotels 
+ Lunch Box 
+ Practical Informations 
+ Visit Lyon 
+ Sponsors 
+ News & FAQ 
+ Certificates of presence at ICPR 2026 and Satellite Events (updated) 
+ Certificates of presence will start being sent on Wednesday, 2 September by Robin from
+ contactcolloque@insavalor.fr .
+ Main Call
+ The International Conference on Pattern Recognition (ICPR) is the leading event of the International
+ Association for Pattern Recognition, recognized as a top conference in the field. It encompasses a wide range of
+ topics where Pattern Recognition methods are applied in fields including Computer Vision, Machine Learning,
+ Image Processing, Speech and Natural Language Processing, and Sensor Pattern Processing. The 28th ICPR, to be
+ held in 2026, offers an excellent platform for students, academics, and industry researchers to foster new ideas
+ and collaborations.
+ Main topics of interest
+ Artificial Intelligence, Pattern Recognition and Machine Learning
+ Computer and Robot Vision
+ Image, Speech, Signal and Video Processing
+ Biometrics and Human Computer Interaction
+ Document Analysis and Recognition
+ Biomedical Imaging and Bioinformatics
+ Flyers of Call For Papers 
+ The main flyer of the call for papers is available here (with extended deadline):
+ last modified : 
+ 03 March 2026

@@ -1,0 +1,13 @@
+venue,catalog_level,direction,scope_fit,official_source_basis,cost_status,review_status,recognition_status,fit_risk,verification_status
+Robotics and Autonomous Systems,B,quadruped navigation/control/sim2real,high,Elsevier ScienceDirect/JournalFinder,current fee recheck required,peer review official workflow,school catalog B; indexing recheck,strong evidence required,preliminary
+Autonomous Robots,C,real-robot autonomy/navigation,high,Springer official journal page,current APC/subscription recheck required,peer review official workflow,Scopus/SCIE/EI claims recheck,real robot evidence required,preliminary
+Pattern Recognition Letters,C,robot perception method,medium,Elsevier/IAPR official pages,current fee recheck required,peer review official workflow,indexing recheck,not pure integration,preliminary
+Neural Computing and Applications,C,applied ML/control/perception,medium,Springer official page,current APC/subscription recheck required,peer review official workflow,indexing recheck,needs substantive validation,preliminary
+Engineering Applications of Artificial Intelligence,C,applied intelligent systems,medium,Elsevier official page,current fee recheck required,peer review official workflow,indexing recheck,engineering contribution required,preliminary
+Water Science and Engineering,B,water engineering AI,low for robotics,Elsevier official page,current fee recheck required,peer review official workflow,school catalog B; indexing recheck,only genuine water paper,preliminary
+IEEE/RSJ IROS,C,quadruped control/navigation/perception,high,official IROS CFP and IEEE Xplore,current registration/deadline recheck,reviewed conference CFP,proceedings/indexing recheck,in-person/budget risk,preliminary
+IEEE ICRA,B,strong robotics contribution,high,official ICRA CFP and IEEE Xplore,current registration/deadline recheck,reviewed conference CFP,proceedings/indexing recheck,competitive,preliminary
+3DV,C,RGB-D/3D perception/SLAM,medium-high,official 3DV and IEEE CS pages,current fee/deadline recheck,reviewed CFP,proceedings/indexing recheck,perception must dominate,preliminary
+BMVC,C,computer vision method,medium,official BMVA pages,current fee/deadline recheck,reviewed CFP,proceedings/indexing recheck,not full system integration,preliminary
+ICPR,C,pattern recognition/CV,medium,official ICPR/Springer pages,current fee/deadline recheck,reviewed CFP,proceedings/indexing recheck,broad fit,preliminary
+IEEE ICIP,C,image/video/signal processing,medium,official ICIP/IEEE pages,current fee/deadline recheck,reviewed CFP,proceedings/indexing recheck,image core required,preliminary

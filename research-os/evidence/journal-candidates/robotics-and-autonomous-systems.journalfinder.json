@@ -1,0 +1,1754 @@
+{
+  "results": [
+    {
+      "ranking": 1,
+      "title": "Robotics and Autonomous Systems",
+      "acronym": "ROBOT",
+      "emAcronym": "ROBOT",
+      "issn": "0921-8890",
+      "subjectAreas": [
+        "Artificial Intelligence",
+        "Computational Mechanics",
+        "Control and Systems Engineering",
+        "Computer Science Applications"
+      ],
+      "articleTypes": [
+        "Research Paper",
+        "Short Communication",
+        "Mini-Review",
+        "VSI: Layered Embodied Learning"
+      ],
+      "cover": "http://secure-ecsd.elsevier.com/covers/80/Tango2/large/09218890.jpg",
+      "links": {
+        "submission": "https://submit.elsevier.com/ROBOT",
+        "guideForAuthors": "https://www.sciencedirect.com/journal/robotics-and-autonomous-systems/publish/guide-for-authors"
+      },
+      "insights": {
+        "citeScore": {
+          "value": 9.9
+        },
+        "impactFactor": {
+          "value": 5.2
+        },
+        "timeToFirstDecision": {
+          "value": 32
+        },
+        "timeToAcceptance": {
+          "value": 9
+        }
+      },
+      "scope": "<p>Affiliated with the Intelligent Autonomous Systems (IAS) Society</p><p><i>Robotics and Autonomous Systems</i> will carry articles describing fundamental developments in the field of <b>robotics</b>, with special emphasis on <b>autonomous systems</b>. An important goal of this journal is to extend the state of the art in both <b>symbolic</b> and <b>sensory</b> based <b>robot control</b> and <b>learning</b> in the context of autonomous systems.</p><p><i>Robotics and Autonomous Systems</i> will carry articles on the theoretical, computational and experimental aspects of autonomous systems, or modules of such systems.</p><p><b>Benefits to authors:</b><br/>We also provide many author benefits, such as free PDFs, a liberal copyright policy, special discounts on Elsevier publications and much more. Please click here for more information on our <a href=\"https://www.elsevier.com/authors/author-services\">author services</a>.</p><p>Please see our <a href=\"https://www.elsevier.com/journals/robotics-and-autonomous-systems/0921-8890/guide-for-authors\">Guide for Authors</a> for information on article submission. If you require any further information or help, please visit our <a href=\"https://service.elsevier.com/app/home/supporthub/publishing/\">Support Center</a></p>",
+      "openAccessType": "HYBRID",
+      "editorInChief": "Biswas | Gini | Petrović | Takahashi",
+      "casInformation": {
+        "minorRanking": [
+          {
+            "name": "COMPUTER SCIENCE, ARTIFICIAL INTELLIGENCE",
+            "tier": 3
+          },
+          {
+            "name": "AUTOMATION & CONTROL SYSTEMS",
+            "tier": 2
+          },
+          {
+            "name": "ROBOTICS",
+            "tier": 2
+          }
+        ],
+        "majorRanking": {
+          "name": "Computer Science",
+          "tier": 2,
+          "top": false
+        }
+      },
+      "goldOpenAccessFee": {
+        "value": 3140,
+        "currency": "USD",
+        "discountedValue": null,
+        "discountExpiryDate": null
+      },
+      "hasAgreements": false
+    },
+    {
+      "ranking": 2,
+      "title": "Mechatronics",
+      "acronym": "MECH",
+      "emAcronym": "MECH",
+      "issn": "0957-4158",
+      "subjectAreas": [
+        "Electrical and Electronic Engineering",
+        "Mechanical Engineering",
+        "Control and Systems Engineering"
+      ],
+      "articleTypes": [
+        "Regular paper – Mechatronics",
+        "Regular paper – Robotics",
+        "Review Articles",
+        "Letters – Robotics & Mechatronics",
+        "VSI: MECH_SCR",
+        "VSI: Property-control"
+      ],
+      "cover": "http://secure-ecsd.elsevier.com/covers/80/Tango2/large/09574158.jpg",
+      "links": {
+        "submission": "https://submit.elsevier.com/MECH",
+        "guideForAuthors": "https://www.sciencedirect.com/journal/mechatronics/publish/guide-for-authors"
+      },
+      "insights": {
+        "citeScore": {
+          "value": 6.9
+        },
+        "impactFactor": {
+          "value": 3.1
+        },
+        "timeToFirstDecision": {
+          "value": 5
+        },
+        "timeToAcceptance": {
+          "value": 16
+        }
+      },
+      "scope": "<p><b><i>Mechatronics</i></b><b>: The Science of Intelligent Machines</b></p><p>A journal of IFAC, The <a href=\"https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.ifac-control.org%2F&data=05%7C02%7Ce.moise%40elsevier.com%7C2ee47c139d0e4232433208dddb21dfee%7C9274ee3f94254109a27f9fb15c10675d%7C0%7C0%7C638907660718138092%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=7dSx%2BUPADk1CsCx01BcmlkdYsnvXbVlzHklZj1dMyXI%3D&reserved=0\">International Federation of Automatic Control</a>.</p><p><i>Mechatronics</i> is an international refereed journal that publishes articles that report advances in the state-of-the-art in Mechatronics and Robotics. We welcome original submissions that report creative or innovative methodology and solutions with a synergistic combination of mechanical engineering, electrical and electronic engineering, control systems, data engineering and AI for intelligent machines or robotic systems. Submitted manuscripts are expected to report experimental results obtained from laboratory or full-scale mechatronic apparatus. </p><p>Some of the topics addressed in the published articles include:</p><ul><li><p><b><i>Mechatronics</i></b><b>:</b></p></li></ul><p>Modeling, identification and control of mechatronic systems; motion and vibration control; solutions for machines towards autonomy; micro/nano systems and devices; automotive systems; biomedical mechatronic systems; and advanced manufacturing equipment and processes.</p><ul><li><p><b><i>Robotics</i></b><b>:</b></p></li></ul><p>Modeling, control, learning and system issues related to: autonomous vehicles and robots, marine, underwater, and aerial robots, legged robots, soft robots, field robots, industrial robots, medical robots; human-robot interaction; collaborative and autonomous systems; teleoperation; haptics; and multi-robot systems.</p><p></p>",
+      "openAccessType": "HYBRID",
+      "editorInChief": "Professor Oliver Sawodny",
+      "casInformation": {
+        "minorRanking": [
+          {
+            "name": "ENGINEERING, MECHANICAL",
+            "tier": 3
+          },
+          {
+            "name": "AUTOMATION & CONTROL SYSTEMS",
+            "tier": 3
+          },
+          {
+            "name": "ROBOTICS",
+            "tier": 3
+          },
+          {
+            "name": "ENGINEERING, ELECTRICAL & ELECTRONIC",
+            "tier": 3
+          }
+        ],
+        "majorRanking": {
+          "name": "Computer Science",
+          "tier": 3,
+          "top": false
+        }
+      },
+      "goldOpenAccessFee": {
+        "value": 2790,
+        "currency": "USD",
+        "discountedValue": null,
+        "discountExpiryDate": null
+      },
+      "hasAgreements": false
+    },
+    {
+      "ranking": 3,
+      "title": "Embodied Intelligence in Physical Systems",
+      "acronym": "EIPS",
+      "emAcronym": "EIPS",
+      "issn": "3118-023X",
+      "subjectAreas": [
+        "Computer Science Applications",
+        "Computer Networks and Communications",
+        "Electrical and Electronic Engineering"
+      ],
+      "articleTypes": [
+        "Editorial",
+        "Original software publication",
+        "Research Article",
+        "Review Article",
+        "Short Communication",
+        "Data Article",
+        "Protocol"
+      ],
+      "cover": "http://secure-ecsd.elsevier.com/covers/80/Tango2/large/3118023X.jpg",
+      "links": {
+        "submission": "https://www.editorialmanager.com/eips/default2.aspx",
+        "guideForAuthors": null
+      },
+      "insights": {
+        "citeScore": {
+          "value": 37.8
+        },
+        "timeToFirstDecision": {
+          "value": 8
+        },
+        "timeToAcceptance": {
+          "value": 12
+        }
+      },
+      "scope": "<p><i>Embodied Intelligence in Physical Systems</i> (EIPS) is an international, peer-reviewed, open-access journal dedicated to publishing high-quality original research articles, authoritative reviews, and perspectives. It serves as a premier forum for researchers and practitioners to advance the field of embodied intelligence, which focuses on the deep integration of perception, cognition, and action within physical systems.</p><p>The journal&#39;s core mission is to explore how intelligent behaviors emerge from and are shaped by the dynamic interaction between an agent&#39;s physical body and its environment. We welcome submissions addressing the fundamental challenges of enabling autonomous systems—from robots and autonomous vehicles to ubiquitous computing devices—to perceive, learn, reason, and act adaptively in complex, unstructured real-world settings.</p><p>Key areas of interest include, but are not limited to:</p><p><b>Theoretical Foundations of Embodied Intelligence</b>: Research on embodied cognition, morphological computation, perception-action loops, and principles of intelligence arising from agent-environment interaction.</p><p><b>Embodied AI and Cognitive Architectures</b>: Studies on large language models (LLMs), vision-language models (VLMs), and Vision-Language-Action (VLA) models as cognitive engines for physical systems. This includes world models, task planning, symbolic reasoning, and embodied foundation models that bridge digital and physical intelligence.</p><p><b>Human-Robot-Physical World Integration</b>: Technologies and frameworks enabling seamless collaboration between humans, robots, and the environment to support efficient and natural teamwork.</p><p><b>Learning, Adaptation, and Evolution in Physical Systems</b>: Applications of deep reinforcement learning, imitation learning, evolutionary algorithms, and self-supervised methods that allow systems to learn and improve through interaction.</p><p><b>Simulation to Reality (Sim2Real) and Virtual Training Platforms</b>: Development of high-fidelity simulators, digital twins, and transfer learning techniques to overcome data efficiency and safety barriers in real-world training.</p><p><b>Sensing, Actuation, and Embodied Morphology</b>: Advances in sensor fusion (visual, tactile, auditory), actuator design, and the role of physical morphology in facilitating intelligent behavior and control.</p><p><b>Edge Computing and Autonomous System Architectures</b>: Computing paradigms supporting low-latency, high-reliability demands of real-time perception-decision-action cycles at the edge.</p><p><b>Security and Privacy of Embodied AI Systems</b>: Addressing vulnerabilities unique to intelligent physical systems, including robustness against adversarial attacks on sensors or models, secure multi-agent collaboration, privacy-preserving sensing in IoT environments, and behavioral safety to prevent physical harm.</p><p><b>Applications and Deployment</b>: Reports on real-world applications in smart manufacturing, intelligent logistics, service robots, smart homes, healthcare, autonomous driving, and other domains.</p><p><b>Ethics, Safety, and Human-Agent Alignment</b>: Frameworks to ensure the safety, reliability, trustworthiness, and ethical behavior of autonomous embodied systems operating in human-centric environments.</p><p>EIPS is committed to advancing intelligence grounded in physical reality, providing a critical platform for interdisciplinary research that converges artificial intelligence, robotics, cognitive science, and cyber-physical systems on the path toward Artificial General Intelligence (AGI).</p><p><a href=\"https://www.keaipublishing.com/en/journals/embodied-intelligence-in-physical-systems/editorial-board/\">Editorial Board</a> </p>",
+      "openAccessType": "SUBSIDISED",
+      "goldOpenAccessFee": {
+        "value": 700,
+        "currency": "USD",
+        "discountedValue": null,
+        "discountExpiryDate": null
+      },
+      "hasAgreements": false
+    },
+    {
+      "ranking": 4,
+      "title": "Control Engineering Practice",
+      "acronym": "CONPRA",
+      "emAcronym": "CONENGPRAC",
+      "issn": "0967-0661",
+      "subjectAreas": [
+        "Industrial and Manufacturing Engineering",
+        "Aerospace Engineering",
+        "Electrical and Electronic Engineering",
+        "Automotive Engineering",
+        "Control and Systems Engineering"
+      ],
+      "articleTypes": [
+        "Regular article",
+        "VSI: CONPRA_Precision Motion Systems&Control"
+      ],
+      "cover": "http://secure-ecsd.elsevier.com/covers/80/Tango2/large/09670661.jpg",
+      "links": {
+        "submission": "https://submit.elsevier.com/CONENGPRAC",
+        "guideForAuthors": "https://www.sciencedirect.com/journal/control-engineering-practice/publish/guide-for-authors"
+      },
+      "insights": {
+        "citeScore": {
+          "value": 9.7
+        },
+        "impactFactor": {
+          "value": 4.6
+        },
+        "timeToFirstDecision": {
+          "value": 2
+        },
+        "timeToAcceptance": {
+          "value": 15
+        }
+      },
+      "scope": "<p>A journal of IFAC, The <a href=\"https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.ifac-control.org%2F&data=05%7C02%7CA.Maas%40elsevier.com%7Ce38d3b3ca3514283e17408ddea330507%7C9274ee3f94254109a27f9fb15c10675d%7C0%7C0%7C638924227049935470%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=EDRo0JkR%2BrGheH3GcP1JyzF8MDFtpbEAcgWKMv%2BRQwg%3D&reserved=0\">International Federation of Automatic Control</a>. </p><p><i>Control Engineering Practice</i> strives to meet the needs of industrial practitioners and industrially related academics and researchers. It publishes papers which illustrate the direct application of <b>control theory</b> and its supporting tools in all possible areas of <b>automation</b>. As a result, the journal only contains papers which can be considered to have made significant contributions to the application of advanced <b>control techniques</b>. It is normally expected that practical results should be included, but where simulation only studies are available, it is necessary to demonstrate that the simulation model is representative of a genuine application. Strictly theoretical papers will find a more appropriate home in <i>Control Engineering Practice&#39;s</i> sister publication, <i>Automatica</i>. It is also expected that papers are innovative with respect to the state of the art and are sufficiently detailed for a reader to be able to duplicate the main results of the paper (supplementary material, including datasets, tables, code and any relevant interactive material can be made available and downloaded from the website). The benefits of the presented methods must be made very clear and the new techniques must be compared and contrasted with results obtained using existing methods. Moreover, a thorough analysis of failures that may happen in the design process and implementation can also be part of the paper.</p><p>The scope of <i>Control Engineering Practice</i> matches the activities of IFAC.</p><p>Papers demonstrating the contribution of automation and control in <b>improving </b>the <b>performance</b>, <b>quality</b>, <b>productivity</b>, <b>sustainability</b>, <b>resource and energy efficiency</b>, and the <b>manageability</b> of systems and processes for the benefit of mankind and are relevant to <b>industrial practitioners</b> are most welcome.</p><p><b><i>Fields of applications in control and automation:</i></b> •Automotive Systems •Aerospace Applications •Marine Systems •Intelligent Transportation Systems and Traffic Control •Autonomous Vehicles •Robotics •Human Machine Systems •Mechatronic Systems •Scientific Instrumentation •Micro- and Nanosystems •Fluid Power Systems •Gas Turbines and Fluid Machinery •Machine Tools •Manufacturing Technology and Production Engineering •Logistics •Power Electronics •Electrical Drives •Internet of Things •Communication Systems •Power and Energy Systems •Biomedical Engineering and Medical Applications •Biosystems and Bioprocesses •Biotechnology •Chemical Engineering •Pulp and Paper Processing •Mining, Mineral and Metal Processing •Water/Gas/Oil Reticulation Systems •Environmental Engineering •Agricultural Systems •Food Engineering •Other Emerging Control Applications</p><p><b><i>Applicable methods, theories and technologies:</i></b> •Modeling, Simulation and Experimental Model Validation •System Identification and Parameter Estimation •Observer Design and State Estimation •Soft Sensing •Sensor Fusion •Optimization •Adaptive and Robust Control •Learning Control •Nonlinear Control •Control of Distributed-Parameter Systems •Model-based Control Techniques •Optimal Control and Model Predictive Control •Controller Tuning •PID Control •Feedforward Control and Trajectory Planning •Networked Control •Stochastic Systems •Fault Detection and Isolation •Diagnosis and Supervision •Actuator and Sensor Design •Measurement Technology in Control •Software Engineering Techniques •Real-time and Distributed Computing •Intelligent Components and Instruments •Architectures and Algorithms for Control •Real-time Algorithms •Computer-aided Systems Analysis and Design •Implementation of Automation Systems •Machine Learning •Artificial Intelligence Techniques •Discrete Event and Hybrid Systems •Production Planning and Scheduling •Automation •Data Mining •Data Analytic •Performance Monitoring •Experimental Design •Other Emerging Control Theories and Related Technologies</p><p>For more details on the International Federation of Automatic Control (IFAC), visit their <a href=\"https://nam11.safelinks.protection.outlook.com/?url=http%3A%2F%2Fwww.ifac-control.org%2F&data=05%7C02%7CA.Maas%40elsevier.com%7Ce38d3b3ca3514283e17408ddea330507%7C9274ee3f94254109a27f9fb15c10675d%7C0%7C0%7C638924227049970519%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=R01JkRVl44c2zPapWas0YO3gJtPjt5QExZKHnxhDFCI%3D&reserved=0\">home page</a>.</p>",
+      "openAccessType": "HYBRID",
+      "editorInChief": "Professor Knut Graichen",
+      "casInformation": {
+        "minorRanking": [
+          {
+            "name": "AUTOMATION & CONTROL SYSTEMS",
+            "tier": 2
+          },
+          {
+            "name": "ENGINEERING, ELECTRICAL & ELECTRONIC",
+            "tier": 2
+          }
+        ],
+        "majorRanking": {
+          "name": "Computer Science",
+          "tier": 2,
+          "top": false
+        }
+      },
+      "goldOpenAccessFee": {
+        "value": 2950,
+        "currency": "USD",
+        "discountedValue": null,
+        "discountExpiryDate": null
+      },
+      "hasAgreements": false
+    },
+    {
+      "ranking": 5,
+      "title": "Intelligent Systems with Applications",
+      "acronym": "ISWA",
+      "emAcronym": "ISWA",
+      "issn": "2667-3053",
+      "subjectAreas": [
+        "Computer Science Applications",
+        "Artificial Intelligence",
+        "Computer Networks and Communications"
+      ],
+      "articleTypes": [
+        "Discussion",
+        "Full length article",
+        "Review article",
+        "Short communication",
+        "Short review"
+      ],
+      "cover": "http://secure-ecsd.elsevier.com/covers/80/Tango2/large/26673053.jpg",
+      "links": {
+        "submission": "https://www.editorialmanager.com/iswa/default.aspx",
+        "guideForAuthors": "https://www.sciencedirect.com/journal/intelligent-systems-with-applications/publish/guide-for-authors"
+      },
+      "insights": {
+        "citeScore": {
+          "value": 8.3
+        },
+        "impactFactor": {
+          "value": 4.3
+        },
+        "timeToFirstDecision": {
+          "value": 2
+        },
+        "timeToAcceptance": {
+          "value": 8
+        }
+      },
+      "scope": "<p><i>Intelligent Systems with Applications</i> (ISWA) is a peer reviewed open-access journal which focuses on the achievements of <b>research and applications</b> related to <b>intelligent systems</b> (IS). IS can be applied to all aspects of human enterprize, such as business &amp; finance, manufacturing &amp; supply chains, agriculture, transportation, engineering, medicine and health, education, entertainment, culture, travel, media, the Internet, etc. ISWA covers a broad spectrum of applications in the community, including <b>industry</b>, <b>government</b>, and <b>academia</b>.</p><p>The journal aims to publish papers dealing with, but not limited to, the following research fields: <br/> Knowledge Representation and Reasoning, Machine Learning (ML) and Neural Computing, Evolutionary Computation, Fuzzy Systems, Intelligent Information Processing, Intelligent Control and Robotics, Multi-agent Systems and Programming.</p><p>The journal welcomes submissions of IS-applications in various areas: <br/> Intelligent Cities, Industries, Consuming, Medical Treatment and Health, Agriculture, Business and Finance, Internet of Things (IoT). Research addressing IS-applications in other fields is also encouraged.</p><p>Submissions must be novel, technically sound, and clearly presented. ISWA accepts both regular papers and survey articles. Submissions meeting journal criteria will undergo a single-blind review process, utilizing a minimum of two (2) external referees. Our dedicated editorial team, together with active researchers from related fields, will ensure that papers move through the evaluation and review as rapidly as possible without compromising on the quality of the process.</p><p>The journal audience comprises academia, industry, and practitioners. Authors are strongly encouraged to make their datasets and software publicly accessible via a repository of their choosing. Please see our Guide for Authors for information on article submission. If you require any further information or help, please visit our <a href=\"https://service.elsevier.com/app/home/supporthub/publishing\">Support Center</a>.</p><p><b>Software Publication</b></p><p>We invite you to convert your open source software into an additional journal publication in <a href=\"https://www.journals.elsevier.com/software-impacts\"><i>Software Impacts</i></a>, a multi-disciplinary open access journal. <i>Software Impacts</i> provides a scholarly reference to software that has been used to address a research challenge. The journal disseminates impactful and re-usable scientific software through Original Software Publications which describe the application of the software to research and the published outputs.</p><p>For more information contact us at: <a href=\"http://www.elsevier.com/mailto:software.impacts@elsevier.com\">software.impacts@elsevier.com</a></p><p><b>Focal points include, but are not limited to innovative applications of:</b></p><p><b>Basic Theory</b></p><ul><li><p>Knowledge Representation and Reasoning</p></li><li><p>Machine Learning (ML) and Neural Computing</p></li><li><p>Evolutionary Computation</p></li><li><p>Fuzzy Systems</p></li></ul><p><b>Intelligent Methodology</b></p><ul><li><p>Intelligent Information Processing (Video, Image, Audio, Language and other Multi-modal Information)</p><ul><li><p>Data Ming and Knowledge Discovery</p></li><li><p>Pattern Recognition (PR) and Computer Vision (CV)</p></li><li><p>Audio Signal Processing</p></li><li><p>Natural Language Processing (NLP)</p></li></ul></li><li><p>Intelligent Control and Robotics</p></li><li><p>Multi-agent Systems and Programming</p></li></ul><p><b>Intelligent Applications</b></p><ul><li><p>Intelligent Cities</p><ul><li><p>Intelligent Transportation</p></li><li><p>Intelligent Systems for Security and Management</p></li></ul></li><li><p>Intelligent Systems for Industry</p><ul><li><p>Intelligent Supply Chain</p></li><li><p>Unmanned factory and flexible manufacturing</p></li><li><p>Unmanned Warehouse</p></li><li><p>Service Robot</p></li></ul></li><li><p>Intelligent Systems for Consuming</p><ul><li><p>Intelligent Hardware and Smart Wearable Devices</p></li><li><p>Intelligent Furniture</p></li><li><p>New Retails</p></li><li><p>Unmanned Driving and Autonomous Systems</p></li></ul></li><li><p>Intelligent Systems for Medical Treatment and Health</p></li><li><p>Intelligent Systems for Agriculture</p></li><li><p>Intelligent Systems for Business and Finance</p></li><li><p>Internet of Things and its Applications</p></li></ul><p></p>",
+      "openAccessType": "FULL",
+      "editorInChief": "Hua Xu",
+      "casInformation": {
+        "minorRanking": [
+          {
+            "name": "COMPUTER SCIENCE, INTERDISCIPLINARY APPLICATIONS",
+            "tier": 3
+          },
+          {
+            "name": "COMPUTER SCIENCE, ARTIFICIAL INTELLIGENCE",
+            "tier": 3
+          },
+          {
+            "name": "COMPUTER SCIENCE, INFORMATION SYSTEMS",
+            "tier": 3
+          }
+        ],
+        "majorRanking": {
+          "name": "Computer Science",
+          "tier": 3,
+          "top": false
+        }
+      },
+      "goldOpenAccessFee": {
+        "value": 2300,
+        "currency": "USD",
+        "discountedValue": null,
+        "discountExpiryDate": null
+      },
+      "hasAgreements": false
+    },
+    {
+      "ranking": 6,
+      "title": "e-Prime – Nexus of Electrical, Electronic, and Intelligent Engineering",
+      "acronym": "EPRIME",
+      "emAcronym": "EPRIME",
+      "issn": "3117-5112",
+      "subjectAreas": [
+        "Electrical and Electronic Engineering"
+      ],
+      "articleTypes": [
+        "Full Length Article"
+      ],
+      "cover": "http://secure-ecsd.elsevier.com/covers/80/Tango2/large/31175112.jpg",
+      "links": {
+        "submission": "https://submit.elsevier.com/EPRIME/",
+        "guideForAuthors": null
+      },
+      "insights": {
+        "citeScore": {
+          "value": 4.2
+        },
+        "timeToFirstDecision": {
+          "value": 3
+        },
+        "timeToAcceptance": {
+          "value": 4
+        }
+      },
+      "scope": "<p><i>e-Prime </i>serves as a premier multidisciplinary platform and a distinctive, in-depth publication venue for engineers, scientists, and practitioners across academia and industry. It facilitates the dissemination of cutting-edge research and documents the innovation and disruptive transformation driven by electrical, electronic, and intelligent engineering systems.</p><p>We welcome original research articles, reviews, and perspectives that make significant contributions to the development, integration, and optimization of smart technologies. A meaningful and valuable advancement of the current state of knowledge is essential, and it is crucial that papers are presented in a manner that appeals to both academic researchers and industry professionals.</p><p>Submissions must demonstrate a clear and proven advancement in scientific or technological knowledge. Papers that focus solely on theoretical analysis or modeling, without demonstrating practical technological impact, are less likely to be accepted, as our emphasis is on impactful, real-world engineering contributions.</p><p>The journal covers a broad spectrum of topics including, but not limited to:</p><p><b>Electrical &amp; Power Systems</b></p><ul><li><p><b>Electric Power Systems: </b>Generation, transmission, distribution, and control.</p></li><li><p><b>Smart Grids &amp; Applications: </b>Intelligent electricity management, demand response, and smart infrastructure.</p></li><li><p><b>Electric Infrastructure &amp; Applications: </b>Electric transportation, charging systems, and industrial electrification, and electrical machines and drives.</p></li><li><p><b>Electricity Storage &amp; Energy Conversion: </b>Advanced storage technologies, renewables integration, and energy harvesting.</p></li><li><p><b>Green Power Markets &amp; Policy: </b>Economic, policy, and market mechanisms for sustainable electricity, including decarbonization and renewable energy integration.</p></li></ul><p><b>Electronic &amp; Communication Systems</b></p><ul><li><p><b>Circuits and Systems:</b> Design, analysis, and implementation of integrated circuits, electronic systems, power electronics, and nanotechnology and materials for electronic engineering.</p></li><li><p><b>Core 5G/6G &amp; Next-Gen Wireless:</b> Advanced wireless communication, emerging concepts, and specific communication scenarios.</p></li><li><p><b>IoT Applications &amp; Services:</b> Design, deployment, and management of Internet of Things solutions.</p></li><li><p><b>Sensing, Imaging &amp; Measurement:</b> Development and application of sensors, imaging techniques, and measurement systems.</p></li><li><p><b>Signal Processing:</b> Theory, algorithms, and applications for communication, sensing, and data analysis. </p></li></ul><p><b>Computing, AI &amp; Automation</b></p><ul><li><p><b>Core AI &amp; Machine Learning:</b> Foundational AI research and applications in specific domains.</p></li><li><p><b>Big Data &amp; Data Analytics:</b> Methodologies for processing, analyzing, and extracting insights from large datasets.</p></li><li><p><b>Software &amp; Networking Systems:</b> Operating systems, middleware, network software, and distributed applications.</p></li><li><p><b>Robotics, Automation &amp; Control:</b> Theory and application of robotics, autonomous systems, digital twins, mechatronics, manufacturing automation and advanced control.</p></li></ul><p></p>",
+      "openAccessType": "FULL",
+      "editorInChief": "Abdelkhalick Mohammad",
+      "isGuaranteedPeerReview": true,
+      "goldOpenAccessFee": {
+        "value": 1520,
+        "currency": "USD",
+        "discountedValue": null,
+        "discountExpiryDate": null
+      },
+      "hasAgreements": false
+    },
+    {
+      "ranking": 7,
+      "title": "Nonlinear Analysis: Hybrid Systems",
+      "acronym": "NAHS",
+      "emAcronym": "NAHS",
+      "issn": "1751-570X",
+      "subjectAreas": [
+        "Control and Optimization",
+        "Control and Systems Engineering",
+        "Computational Mathematics",
+        "Applied Mathematics",
+        "Analysis"
+      ],
+      "articleTypes": [
+        "Research Paper"
+      ],
+      "cover": "http://secure-ecsd.elsevier.com/covers/80/Tango2/large/1751570X.jpg",
+      "links": {
+        "submission": "https://submit.elsevier.com/NAHS",
+        "guideForAuthors": "https://www.sciencedirect.com/journal/nonlinear-analysis-hybrid-systems/publish/guide-for-authors"
+      },
+      "insights": {
+        "citeScore": {
+          "value": 7.9
+        },
+        "impactFactor": {
+          "value": 4.1
+        },
+        "timeToFirstDecision": {
+          "value": 11
+        },
+        "timeToAcceptance": {
+          "value": 15
+        }
+      },
+      "scope": "<p>A journal of <a href=\"http://www.ifac-control.org\">IFAC, the International Federation of Automatic Control</a></p><p>Nonlinear Analysis: Hybrid Systems (NAHS) welcomes all original research papers on mathematical concepts, tools, and techniques from control theory, computer science, and applied mathematics for the modelling, analysis and design of <b>hybrid dynamical systems</b>, i.e., systems involving the interplay between discrete and continuous dynamic behaviors.</p><p>Hybrid systems are ubiquitous in many branches of engineering and science as they can model broad ranges of dynamical systems. In particular, in <b>cyber-physical systems</b>, which integrate sensing, computation, control and communication (cyber) parts into physical objects and infrastructures, hybrid systems play an instrumental role. The description of the behavior of the cyber parts often calls for discrete models (automata, finite-state machines, switching logic, etc.), while the physical (thermal, mechanical, electrical, physical, biological) parts are well captured by continuous modelling formalisms (e.g., differential equations), thereby naturally resulting in hybrid system models such as (stochastic) hybrid automata, timed automata, switched systems, impulsive systems, jump-flow models, piecewise affine systems, non-smooth systems, etc. Also, many physical phenomena can often be well described by non-smooth or hybrid models, including mechanical systems with impacts and friction (walking robots), switched power converters and biological systems (e.g., firing neuron models).</p><p>Hybrid systems can exhibit very rich dynamics and their analysis calls for new and strong theorical foundations to guarantee their stability, safety, functionality, and performance. The development of systematic methods for efficient and reliable design of hybrid systems is therefore a key challenge on the crossroads of control theory and computer science. It is currently of high interest to control engineers, computer scientists and mathematicians in research institutions as well as in many industrial sectors.</p><p>Contributions to Nonlinear Analysis: Hybrid Systems are invited in all areas pertaining to <b>hybrid dynamical systems</b> including: <br/></p><ul><li><p>Modeling, modeling languages and specification;</p></li><li><p>Analysis, computability and complexity;</p></li><li><p>Stochastic hybrid systems;</p></li><li><p>Impulsive systems;</p></li><li><p>Formal verification and abstraction;</p></li><li><p>Optimization and controller synthesis;</p></li><li><p>Control over communication networks including self- and event-triggered control;</p></li><li><p>Network Science and multi-agent systems;</p></li><li><p>Fault diagnosis and fault-tolerant control;</p></li><li><p>Simulation, implementation and tools;</p></li><li><p>Safety, security, privacy, and resilience for cyber-physical systems;</p></li><li><p>Planning and integrated control in dynamical systems.</p></li></ul><p>Contributions on applications of hybrid dynamical systems methods are also encouraged. Fields of interest include: process and manufacturing industries, automotive and mobility systems, avionics, communication networks and networked control systems, energy and power systems, transportation networks, cyber-physical and embedded systems, (synthetic) biology and biomedical applications, life sciences, safety-critical systems, mobile and autonomous robotics, and other related areas.</p>",
+      "openAccessType": "HYBRID",
+      "editorInChief": "Maurice Heemels",
+      "casInformation": {
+        "minorRanking": [
+          {
+            "name": "AUTOMATION & CONTROL SYSTEMS",
+            "tier": 2
+          },
+          {
+            "name": "MATHEMATICS, APPLIED",
+            "tier": 1
+          }
+        ],
+        "majorRanking": {
+          "name": "Computer Science",
+          "tier": 2,
+          "top": false
+        }
+      },
+      "goldOpenAccessFee": {
+        "value": 3580,
+        "currency": "USD",
+        "discountedValue": null,
+        "discountExpiryDate": null
+      },
+      "hasAgreements": false
+    },
+    {
+      "ranking": 8,
+      "title": "Digital Engineering",
+      "acronym": "DTE",
+      "emAcronym": "DTE",
+      "issn": "2950-550X",
+      "subjectAreas": [
+        "Computer Science (General)"
+      ],
+      "articleTypes": [
+        "Comment",
+        "Full Length Article",
+        "Review",
+        "Short Communication",
+        "VSI:DTE_DT for Smart Cities",
+        "VSI:DTE_DigiTwin2025",
+        "VSI:DTE_DigiTwin2026",
+        "VSI:DTE_HRC&HCSM"
+      ],
+      "cover": "http://secure-ecsd.elsevier.com/covers/80/Tango2/large/2950550X.jpg",
+      "links": {
+        "submission": "https://submit.elsevier.com/DTE",
+        "guideForAuthors": "https://www.sciencedirect.com/journal/digital-engineering/publish/guide-for-authors"
+      },
+      "insights": {
+        "acceptanceRate": {
+          "value": 14
+        },
+        "timeToFirstDecision": {
+          "value": 6
+        },
+        "timeToAcceptance": {
+          "value": 1
+        }
+      },
+      "scope": "<p>The <i>Digital Engineering</i> journal is an international, transdisciplinary platform dedicated to the advancement of digital engineering in a wide range of sectors. Our scope covers the theoretical, methodological, technological, and practical advances related to digitalization and digital technologies in multiple domains. We welcome submissions of research and review papers exploring a range of topics in digital engineering, including but not limited to the following areas:</p><ul><li><p><b>Digital Manufacturing</b>: generative design, smart manufacturing, intelligent equipment, advancements in intelligent supply chains, autonomous systems, robotics, big data analysis, and more.</p></li><li><p><b>Digital City</b>: smart cities, urban planning and management, communication technology, smart architecture, digital tourism, and more.</p></li><li><p><b>Digital Aerospace</b>: aerospace equipment, smart satellites, digital flight testing, virtual training, flight scheduling, satellite network optimization, space data analysis, and more.</p></li><li><p><b>Digital Energy</b>: energy networks, renewable energy sources, intelligent nuclear power systems, smart grids, carbon emission control, energy storage technology, and more.</p></li><li><p><b>Digital Healthcare</b>: AI-supported diagnosis, digital humans, personalized medicine, remote surgery, intelligent epidemic prevention, health management, bioinformatics, and health data analysis, and more.</p></li><li><p><b>Digital Economy</b>: sharing economy, digital currency, digital education, intelligent services, smart agriculture, industrial digitalization, consumer data analysis, and more.</p></li><li><p><b>Digital Transportation</b>: electrified vehicles, smart traffic systems, intelligent railways, digital ships, digital logistics systems, vehicle-road network integration, autonomous driving, and more.</p></li><li><p><b>Digital Materials</b>: AI-supported material design, digital functionality verification, material modeling, digital metamaterials, molecular dynamics simulations, nanotechnology, and more.</p></li><li><p><b>Digital Education</b>: remote education, virtual classrooms, intelligent teaching, immersive learning, mobile learning applications, collaborative learning tools, and more.</p></li></ul><p>The <i>Digital Engineering</i> journal aims to serve as an international platform for sharing groundbreaking research results and propelling digital engineering innovations in different research areas. We invite contributions that not only maintain high academic standards but also promise to influence the future at different scales and sectors. We actively encourage papers addressing emerging topics, and we will also consider publishing editorials and special issues dedicated to these emerging areas.</p><p></p>",
+      "openAccessType": "FULL",
+      "editorInChief": "Prof. Dr. Fei Tao",
+      "goldOpenAccessFee": {
+        "value": 1830,
+        "currency": "USD",
+        "discountedValue": 0,
+        "discountExpiryDate": "2026-12-31"
+      },
+      "hasAgreements": false
+    },
+    {
+      "ranking": 9,
+      "title": "Biomimetic Intelligence and Robotics",
+      "acronym": "BIROB",
+      "emAcronym": "BIROB",
+      "issn": "2667-3797",
+      "subjectAreas": [
+        "Engineering (General)",
+        "Artificial Intelligence"
+      ],
+      "articleTypes": [
+        "Full length Article",
+        "Review",
+        "Letter",
+        "VSI: Embodied Medical Robotics_Research article",
+        "VSI: Morphology-Rich Bio-Robotics_Research article",
+        "VSI: Embodied Medical Robotics_Review",
+        "VSI: Morphology-Rich Bio-Robotics_Review",
+        "VSI: Embodied Medical Robotics_Letter",
+        "VSI: Morphology-Rich Bio-Robotics_Letter"
+      ],
+      "cover": "http://secure-ecsd.elsevier.com/covers/80/Tango2/large/26673797.jpg",
+      "links": {
+        "submission": "https://www.editorialmanager.com/birob/default.aspx",
+        "guideForAuthors": "https://www.sciencedirect.com/journal/biomimetic-intelligence-and-robotics/publish/guide-for-authors"
+      },
+      "insights": {
+        "citeScore": {
+          "value": 7.3
+        },
+        "impactFactor": {
+          "value": 5.4
+        },
+        "timeToFirstDecision": {
+          "value": 3
+        },
+        "timeToAcceptance": {
+          "value": 18
+        }
+      },
+      "scope": "<p>An official Journal of the <a href=\"https://en.sdu.edu.cn/\">Shandong University</a></p><p>To promote advances and original contributions to robotics, biomimetics and artificial intelligence, <i>Biomimetic Intelligence and Robotics</i> (BIROB) provides a platform and forum for the exchange and communication of the most innovative and exciting new discoveries and impactful applications in the fields of biomimetic intelligence and robotics.</p><p><i>Biomimetic Intelligence and Robotics</i> (BIROB) publishes original, high-quality, peer-reviewed theoretical and applied research achievements and review articles in the fields of robotics, biomimetics, artificial intelligence, and the innovative integration of them.</p><p>Topics covered by the journal include but are not limited to: autonomous systems, biomimetic actuators, biomimetic and bio-inspired design, biomimetic materials, biomimetics and artificial intelligence, exoskeletons, field robotics, human-robot interaction, humanoids, industrial robotics, kinematics and dynamics, machine learning, material sciences, medical robotics and technology, motion planning and control, micro and nano robotics, multirobot systems, sensors and bionic sensing, service robotics, and soft robotics.</p><p></p><p><b>P-ISSN: </b><b>2097-0242</b></p>",
+      "openAccessType": "SUBSIDISED",
+      "editorInChief": "Dr. Max Q.-H. Meng",
+      "casInformation": {
+        "minorRanking": [
+          {
+            "name": "ROBOTICS",
+            "tier": 3
+          }
+        ],
+        "majorRanking": {
+          "name": "Engineering",
+          "tier": 2,
+          "top": false
+        }
+      },
+      "goldOpenAccessFee": {
+        "value": 1800,
+        "currency": "USD",
+        "discountedValue": null,
+        "discountExpiryDate": null
+      },
+      "hasAgreements": false
+    },
+    {
+      "ranking": 10,
+      "title": "Environmental Management: Smart Solutions",
+      "acronym": "JEMSS",
+      "emAcronym": "JEMSS",
+      "issn": "3117-6496",
+      "subjectAreas": [
+        "Computer Science Applications",
+        "Environmental Science (General)"
+      ],
+      "articleTypes": [
+        "Research Article",
+        "Review Article",
+        "Short Communication",
+        "Case Report"
+      ],
+      "cover": "http://secure-ecsd.elsevier.com/covers/80/Tango2/large/31176496.jpg",
+      "links": {
+        "submission": "https://www.editorialmanager.com/jemss/default2.aspx",
+        "guideForAuthors": null
+      },
+      "insights": {},
+      "scope": "<p><i>Environmental Management: Smart Solutions</i> (JEMSS) is one of the <b>spinoff-journals launched under the </b><a href=\"https://www.sciencedirect.com/journal/journal-of-environmental-management\"><b><i>Journal of Environmental Management</i></b></a><b> (JEM) series</b>, dedicated to publishing cutting-edge research at the intersection of environmental science and digital innovation. As part of the JEM family, JEMSS benefits from the series’ strong reputation and global readership, providing a high-visibility platform for interdisciplinary studies.</p><p>JEMSS focuses on the transformative role of <b>big data, artificial intelligence (AI), machine learning (ML), deep learning, generative AI</b>, conventional simulation modeling and other computational technologies in solving complex environmental challenges. The journal aims to showcase how smart technologies and innovative approaches can enhance environmental monitoring, prediction, decision-making, and sustainable resource management across diverse ecosystems.</p><p>The journal encourages submissions that integrate <b>advanced algorithms, modeling frameworks, and intelligent systems</b> to address real-world problems in pollution control, climate resilience, ecological restoration, and environmental planning. It welcomes both <b>fundamental research</b> and <b>applied studies</b>, promoting scalable solutions that bridge theory and practice.</p><p><b>Topics of Interest Include (but are not limited to):</b></p><ul><li><p><b>AI-enhanced environmental monitoring</b>, using big data, IoT, citizen science and remote sensing</p></li><li><p><b>Machine learning and deep learning models, </b>for environmental prediction, risk assessment, and decision support</p></li><li><p><b>Generative AI and scene-based applications</b>, such as image recognition, automated classification, and pattern detection in ecological data</p></li><li><p><b>Digital twin technologies </b>and simulation models for proactive environmental management</p></li><li><p><b>Smart sensor networks</b>, autonomous systems, and robotics in pollution control and ecosystem surveillance</p></li><li><p><b>Optimization of resource use</b>, energy efficiency, and waste management through data analytics</p></li><li><p><b>Hybrid modeling approaches</b> combining physical, statistical, and AI-based methods</p></li><li><p><b>Smart city and urban sustainability solutions</b>, including transportation, infrastructure, and climate adaptation</p></li><li><p><b>Explainable AI (XAI)</b>, and ethical frameworks for transparent and responsible environmental decision-making</p></li><li><p><b>Data integration and fusion </b>across heterogeneous sources for comprehensive environmental analysis</p></li><li><p><b>Actionable modeling and science </b>that can lead to productive decision making through stakeholder engagement and innovative ways of influencing human behavior and management decisions.</p></li></ul><p></p><p>JEMSS serves a broad audience of <b>scientists, engineers, data scientists, and policymakers</b> working toward sustainable environmental solutions. It supports interdisciplinary collaboration across environmental science, computer science, engineering, and social science domains.</p><p>The journal accepts a variety of article types, including:</p><ul><li><p><b>Full-length research articles</b></p></li><li><p><b>Review articles</b></p></li><li><p><b>Short communications</b></p></li><li><p><b>Opinions and perspectives</b></p></li></ul><p><b>Interested in organizing a Special Issue?</b> We welcome proposals for special issues or virtual special issues within the scope of JEMSS. Please contact <b>Prof. Peter Hooda</b> and refer to the <i>Journal of Environmental Management</i> Guide for Authors for submission guidelines.</p>",
+      "openAccessType": "FULL",
+      "editorInChief": "Professor Alexey Voinov",
+      "goldOpenAccessFee": {
+        "value": 2500,
+        "currency": "USD",
+        "discountedValue": 0,
+        "discountExpiryDate": "2027-12-31"
+      },
+      "hasAgreements": false
+    },
+    {
+      "ranking": 11,
+      "title": "Swarm and Evolutionary Computation",
+      "acronym": "SWEVO",
+      "emAcronym": "SWEVO",
+      "issn": "2210-6502",
+      "subjectAreas": [
+        "Engineering (General)",
+        "Ecology, Evolution, Behavior and Systematics",
+        "Computer Science (General)",
+        "Control and Optimization",
+        "Decision Sciences (General)"
+      ],
+      "articleTypes": [
+        "Full Length Article",
+        "Survey",
+        "VSI:Recent CHTs",
+        "VSI:SI4US",
+        "VSI:SWEVO_ Intelligent Optimization and Scheduling",
+        "VSI:SWEVO_RL & Evol"
+      ],
+      "cover": "http://secure-ecsd.elsevier.com/covers/80/Tango2/large/22106502.jpg",
+      "links": {
+        "submission": "https://submit.elsevier.com/SWEVO",
+        "guideForAuthors": "https://www.sciencedirect.com/journal/swarm-and-evolutionary-computation/publish/guide-for-authors"
+      },
+      "insights": {
+        "citeScore": {
+          "value": 15
+        },
+        "impactFactor": {
+          "value": 8.5
+        },
+        "timeToFirstDecision": {
+          "value": 3
+        },
+        "timeToAcceptance": {
+          "value": 14
+        }
+      },
+      "scope": "<p>Introduction: <br/> To tackle complex real world problems, scientists have been looking into natural processes and creatures - both as model and metaphor - for years. <b>Optimization</b> is at the heart of many natural processes including Darwinian evolution, social group behavior and foraging strategies. Over the last few decades, there has been remarkable growth in the field of nature-inspired search and optimization algorithms. Currently these techniques are applied to a variety of problems, ranging from scientific research to industry and commerce. The two main families of algorithms that primarily constitute this field today are the <b>evolutionary computing</b> methods and the <b>swarm intelligence</b> algorithms. Although both families of algorithms are generally dedicated towards solving search and optimization problems, they are certainly not equivalent, and each has its own distinguishing features. Reinforcing each other&#39;s performance makes powerful hybrid algorithms capable of solving many intractable search and optimization problems.</p><p>About the journal: <br/><i>Swarm and Evolutionary Computation</i> is the first peer-reviewed publication of its kind that aims at reporting the most recent research and developments in the area of <b>nature-inspired intelligent computation</b> based on the principles of <b>swarm</b> and <b>evolutionary</b> algorithms. It publishes advanced, innovative and interdisciplinary research involving the theoretical, experimental and practical aspects of the two paradigms and their hybridizations. <i>Swarm and Evolutionary Computation</i> is committed to timely publication of very high-quality, peer-reviewed, original articles that advance the state-of-the art of all aspects of evolutionary computation and swarm intelligence. Survey papers reviewing the state-of-the-art of timely topics will also be welcomed as well as novel and interesting applications.</p><p>Topics of Interest: <br/>Topics of interest include but are not limited to: Genetic Algorithms, and Genetic Programming, Evolution Strategies, and Evolutionary Programming, Differential Evolution, Artificial Immune Systems, Particle Swarms, Ant Colony, Bacterial Foraging, Artificial Bees, Fireflies Algorithm, Harmony Search, Artificial Life, Digital Organisms, Estimation of Distribution Algorithms, Stochastic Diffusion Search, Quantum Computing, Nano Computing, Membrane Computing, Human-centric Computing, Hybridization of Algorithms, Memetic Computing, Autonomic Computing, Self-organizing systems, Combinatorial, Discrete, Binary, Constrained, Multi-objective, Multi-modal, Dynamic, and Large-scale Optimization.</p><p>Applications: <br/>Furthermore, the journal fosters industrial uptake by publishing interesting and novel applications in fields and industries dealing with challenging search and optimization problems from domains such as (but not limited to): Aerospace, Systems and Control, Robotics, Power Systems, Communication Engineering, Operations Research and Decision Sciences, Financial Services and Engineering, (Management) Information Systems, Business Intelligence, internet computing, Sensors, Image Processing, Computational Chemistry, Manufacturing, Structural and Mechanical Designs, Bioinformatics, Computational Biology, Mathematical and Computational Psychology, Cognitive Neuroscience, Brain-computer Interfacing, Future Computing Devices, Nonlinear statistical and Applied Physics, and Environmental Modeling and Software.</p><p><b>Software publication</b> <br/> We invite you to convert your open source software into an additional journal publication in <a href=\"https://www.journals.elsevier.com/software-impacts\"><i>Software Impacts</i></a>, a multi-disciplinary open access journal. <b><i>Software Impacts</i></b> provides a scholarly reference to software that has been used to address a research challenge. The journal disseminates impactful and re-usable scientific software through Original Software Publications which describe the application of the software to research and the published outputs.</p><p>For more information contact us at: <a href=\"mailto:software.impacts@elsevier.com\">software.impacts@elsevier.com</a></p>",
+      "openAccessType": "HYBRID",
+      "editorInChief": "Ling Wang",
+      "casInformation": {
+        "minorRanking": [
+          {
+            "name": "COMPUTER SCIENCE, THEORY & METHODS",
+            "tier": 1
+          },
+          {
+            "name": "COMPUTER SCIENCE, ARTIFICIAL INTELLIGENCE",
+            "tier": 2
+          }
+        ],
+        "majorRanking": {
+          "name": "Computer Science",
+          "tier": 1,
+          "top": true
+        }
+      },
+      "goldOpenAccessFee": {
+        "value": 3510,
+        "currency": "USD",
+        "discountedValue": null,
+        "discountExpiryDate": null
+      },
+      "hasAgreements": false
+    },
+    {
+      "ranking": 12,
+      "title": "Applied Soft Computing",
+      "acronym": "ASOC",
+      "emAcronym": "ASOC",
+      "issn": "1568-4946",
+      "subjectAreas": [
+        "Control and Systems Engineering",
+        "Computer Science Applications"
+      ],
+      "articleTypes": [
+        "Full Length Article",
+        "Invited Conference Paper",
+        "Review Article",
+        "Letter",
+        "VSI:ASOC_Agentic AI",
+        "VSI:ASOC_ILAA",
+        "VSI:ASOC_MFM",
+        "VSI:ASOC_SC for Machine Health"
+      ],
+      "cover": "http://secure-ecsd.elsevier.com/covers/80/Tango2/large/15684946.jpg",
+      "links": {
+        "submission": "https://submit.elsevier.com/ASOC",
+        "guideForAuthors": "https://www.sciencedirect.com/journal/applied-soft-computing/publish/guide-for-authors"
+      },
+      "insights": {
+        "citeScore": {
+          "value": 14.5
+        },
+        "impactFactor": {
+          "value": 6.6
+        }
+      },
+      "scope": "<p>The Official Journal of the World Federation on Soft Computing (WFSC) <a href=\"http://www.softcomputing.org\">http://www.softcomputing.org</a></p><p><i>Applied Soft Computing</i> is an international journal promoting an integrated view of <b>soft computing</b> to solve real life problems. Soft computing is a collection of methodologies, which aim to exploit tolerance for imprecision, uncertainty and partial truth to achieve tractability, robustness and low solution cost. The focus is to publish the highest quality research in application, advance and convergence of the areas of <b>Fuzzy Logic</b>, <b>Neural Networks</b>, <b>Evolutionary Computing</b>, <b>Swarm Intelligence</b> and other similar techniques to address real world complexities.</p><p><i>Applied Soft Computing</i> is a rolling publication: articles are published as soon as the <a href=\"https://www.sciencedirect.com/journal/applied-soft-computing/about/editorial-board\">editor-in-chief</a> has accepted them. Therefore, the web site will continuously be updated with new articles and the publication time will be short.</p><p>Major Topics:</p><p>The scope of this journal covers the following soft computing and related techniques, interactions between several soft computing techniques, and their industrial applications:</p><ul><li><p>Evolutionary Computing</p></li><li><p>Fuzzy Computing</p></li><li><p>Hybrid Methods</p></li><li><p>Immunological Computing</p></li><li><p>Neuro Computing</p></li><li><p>Swarm Intelligence</p></li><li><p>Machine and Deep Learning</p></li><li><p>Rough Sets</p></li></ul><p>The application areas of interest include but are not limited to applications of soft computing to:</p><ul><li><p>Agricultural Machinery, Smart Farming</p></li><li><p>Autonomous Reasoning</p></li><li><p>Big Data, IoT, Edge Computing</p></li><li><p>Combinatorial Optimization</p></li><li><p>Data Mining</p></li><li><p>Decision Support</p></li><li><p>Engineering Design Optimization</p></li><li><p>Fault Diagnosis</p></li><li><p>Finance</p></li><li><p>Human-Machine Interface</p></li><li><p>Intelligent Agents</p></li><li><p>Manufacturing Systems</p></li><li><p>Power Electronics</p></li><li><p>Multi-objective Optimization</p></li><li><p>Power and Energy</p></li><li><p>Process and System Control</p></li><li><p>Robotics</p></li><li><p>Security</p></li><li><p>Sensor Systems</p></li><li><p>Signal or Image Processing</p></li><li><p>Software Engineering</p></li><li><p>Supply Chain Economy</p></li><li><p>System Identification and Modelling</p></li><li><p>Telecommunications</p></li><li><p>Time Series Prediction</p></li><li><p>Extended Reality, Metaverse, Digital Twins</p></li><li><p>Vision or Pattern Recognition</p></li></ul><p>Authors are welcome to submit <b>letters</b> promoting original soft computing research to <i>Applied Soft Computing&#39;s</i> open access companion title, <a href=\"https://www.sciencedirect.com/journal/systems-and-soft-computing\">Systems and Soft Computing</a>.</p>",
+      "openAccessType": "HYBRID",
+      "editorInChief": "Mario Köppen",
+      "casInformation": {
+        "minorRanking": [
+          {
+            "name": "COMPUTER SCIENCE, INTERDISCIPLINARY APPLICATIONS",
+            "tier": 2
+          },
+          {
+            "name": "COMPUTER SCIENCE, ARTIFICIAL INTELLIGENCE",
+            "tier": 2
+          }
+        ],
+        "majorRanking": {
+          "name": "Computer Science",
+          "tier": 2,
+          "top": true
+        }
+      },
+      "goldOpenAccessFee": {
+        "value": 3560,
+        "currency": "USD",
+        "discountedValue": null,
+        "discountExpiryDate": null
+      },
+      "hasAgreements": false
+    },
+    {
+      "ranking": 13,
+      "title": "Progress in Aerospace Sciences",
+      "acronym": "JPAS",
+      "emAcronym": "RPAS",
+      "issn": "0376-0421",
+      "subjectAreas": [
+        "Aerospace Engineering"
+      ],
+      "articleTypes": [],
+      "cover": "http://secure-ecsd.elsevier.com/covers/80/Tango2/large/03760421.jpg",
+      "links": {
+        "submission": "https://www.editorialmanager.com/rpas/default.aspx",
+        "guideForAuthors": "https://www.sciencedirect.com/journal/progress-in-aerospace-sciences/publish/guide-for-authors"
+      },
+      "insights": {
+        "citeScore": {
+          "value": 26.7
+        },
+        "impactFactor": {
+          "value": 16.2
+        },
+        "acceptanceRate": {
+          "value": 66
+        },
+        "timeToFirstDecision": {
+          "value": 18
+        },
+        "timeToAcceptance": {
+          "value": 13
+        }
+      },
+      "scope": "<p><i>Progress in Aerospace Sciences</i> (JPAS) is an invitation-only international review journal of broad interest to researchers, engineers, and practitioners in aeronautics, astronautics, and aerospace engineering and science across research institutes, industry, and universities. The journal is devoted exclusively to invited critical review articles. As a general rule, papers should be as concise as possible and not exceed 100 pages. </p><p>Authors are encouraged to provide specialist readers with an orderly and concise summary of recent work, with sufficient detail to inform general aerospace readers of developments beyond their own field. Each paper must critically review a minimum of 100 publications. </p><p>The journal covers, but is not limited to, the following topics: </p><p>Aeronautics (Atmospheric Flight): aerodynamics at all flight Mach numbers; gas dynamics; high-speed structures; flight mechanics; stability of flexible dynamic systems; materials; vibrations; aeroelasticity; acoustics; propulsion; avionics; attitude dynamics; guidance, navigation and control (GNC); autonomous flight; AI and machine learning; morphing systems; optimization; advanced computational and non-traditional simulation methods; flight testing; wind engineering; hydrodynamics; sustainable aviation fuels. </p><p>Astronautics (Space Flight): astrodynamics; orbital and attitude guidance, navigation and control; on-board autonomy including physics-informed AI and machine learning; mission analysis and design; structures and mechanisms; planetary and orbital space robotics; space systems engineering; deployable structures and very large space systems; solar sails; innovation and technology transfer; human spaceflight; new space economy; space exploration. </p><p>Aerospace (Atmospheric and Space Flight): aerospace sensors; control systems; software verification; uncertainties; avionics; trajectories; traffic management; acoustic noise control; artificial intelligence in aerospace; augmented solar sailcraft; propellantless propulsion; interplanetary mission architecture; planetary entry, descent, and landing (EDL). </p><p><b>Article Types and Pre-Proposal Submission</b> </p><p>JPAS publishes invited critical review papers only. Authors with a review paper plan are welcome to submit a pre-proposal for suitability review and potential invitation by contacting ONLY ONE of the two editors below (in alphabetical order): </p><p>Dr. Romano — <a href=\"mailto:marcelloromano.jpas@gmail.com\">marcelloromano.jpas@gmail.com</a> </p><p>Dr. Sarigul-Klijn — <a href=\"mailto:nsarigulklijn@ucdavis.edu\">nsarigulklijn@ucdavis.edu</a> </p><p>Please begin the email subject line with JPAS.</p><p>Duplicate submissions will not be reviewed. </p><p>The decision of either editor is final. </p><p>The initial submission must include: </p><p>1. The title and an abstract of at least 400 words. </p><p>2. A detailed table of contents. </p><p>3. The anticipated full manuscript submission date and the corresponding author&#39;s details. </p><p>4. A brief CV for all proposed co-authors, including a list of relevant publications and their affiliation and position.</p>",
+      "openAccessType": "HYBRID",
+      "editorInChief": "Professor Marcello Romano | Professor Nesrin Sarigul-Klijn",
+      "casInformation": {
+        "minorRanking": [
+          {
+            "name": "ENGINEERING, AEROSPACE",
+            "tier": 1
+          }
+        ],
+        "majorRanking": {
+          "name": "Engineering",
+          "tier": 1,
+          "top": true
+        }
+      },
+      "goldOpenAccessFee": {
+        "value": 6000,
+        "currency": "USD",
+        "discountedValue": null,
+        "discountExpiryDate": null
+      },
+      "hasAgreements": false
+    },
+    {
+      "ranking": 14,
+      "title": "Internet of Things",
+      "acronym": "IOT",
+      "emAcronym": "IOT",
+      "issn": "2542-6605",
+      "subjectAreas": [
+        "Computer Science (General)",
+        "Engineering (General)",
+        "Management of Technology and Innovation",
+        "Energy (General)"
+      ],
+      "articleTypes": [
+        "Data source",
+        "Full Length Article",
+        "Software",
+        "Tutorial Article",
+        "White Paper",
+        "Review Article",
+        "Software Update",
+        "VSI: SAIQ-CPPS",
+        "VSI: Semantic-Driven Inte. IoE"
+      ],
+      "cover": "http://secure-ecsd.elsevier.com/covers/80/Tango2/large/25426605.jpg",
+      "links": {
+        "submission": "https://submit.elsevier.com/IOT",
+        "guideForAuthors": "https://www.sciencedirect.com/journal/internet-of-things/publish/guide-for-authors"
+      },
+      "insights": {
+        "citeScore": {
+          "value": 12.4
+        },
+        "impactFactor": {
+          "value": 7.6
+        },
+        "timeToFirstDecision": {
+          "value": 5
+        },
+        "timeToAcceptance": {
+          "value": 10
+        }
+      },
+      "scope": "<p><b><i>Internet of Things; Engineering Cyber Physical Human Systems</i></b> is a comprehensive journal encouraging cross collaboration between researchers, engineers and practitioners in the field of IoT &amp; Cyber Physical Human Systems. The journal offers a unique platform to exchange scientific information on the entire breadth of technology, science, and societal applications of the IoT.</p><p>The journal will place a high priority on timely publication, and provide a home for high quality:</p><ul><li><p>Full Research papers</p></li><li><p>Survey Papers</p></li><li><p>Open Software and Data</p></li><li><p>Tutorials and best practices</p></li><li><p>Case studies</p></li><li><p>Whitepapers</p></li></ul><p>Furthermore, IOT is interested in publishing topical Special Issues on any aspect of IOT. Please submit your SI proposal for IOT through the Elsevier CSSI Portal. Detailed instructions could be found at: <a href=\"https://www.elsevier.com/physical-sciences-and-engineering/computer-science/journals/how-to-prepare-a-special-issue-proposal\">https://www.elsevier.com/physical-sciences-and-engineering/computer-science/journals/how-to-prepare-a-special-issue-proposal</a></p><p>The scope of IoT comprises four main blocks to cover the entire spectrum of the field. From Research to Technology, from Applications to their Consequences for life and society.</p><p><b>Theory and fundamental research</b> <br/>Research that addresses the core underlying scientific principles dealing with the analysis and algorithmics of &quot;IoT ecosystem&quot; as a multicomponent system with complex and dynamic dependences at large-scale, such as:</p><ul><li><p>New formal methods research to create abstractions, formalisms and semantics at IoT layer.</p></li><li><p>Artificial Intelligence of Things (AIoT), Explainable Machine Learning for IoT, Intelligent Edge.</p></li><li><p>Research on the unique IoT challenges in security, reliability and privacy.</p></li><li><p>High-level policy languages for specifying permissible communication patterns.</p></li></ul><p><b>Software development, technology and engineering</b> <br/>Key enabling IoT technologies related to sensors, actuators and machine intelligence. Development and deployment IoT tools and platforms to ensure security, reliability and efficiency, such as:</p><ul><li><p>Device software development, such as minimal operating systems.</p></li><li><p>IoT in Cloud-to-thing-Continuum. Secure communication of IoT with other software layers from edge computing to the Cloud.</p></li><li><p>IoT software designs, including addressing security at design phase.</p></li><li><p>Best practices for IoT (software) development, test beds and quality assurance. Sensors and actuators; Remote Operations and Control; IoT and Digital Twins.</p></li></ul><p><b>Applications of IoT</b> <br/>New Applications of connected products and/or connected business processes to create new business value and business models. We are looking for contributions, and lessons learned, from researchers applying IoT in various domains including but not limited to:</p><ul><li><p>Energy (smart grids, meters &amp; appliances, renewable energy).</p></li><li><p>Transportation and Critical Infrastructures (infrastructures, logistics, road and rail, shipping, aerospace, autonomous vehicles).</p></li><li><p>Manufacturing &amp; industry (smart design &amp; smart manufacturing, advanced robotics; Robotic Process Automation).</p></li><li><p>Business, marketing &amp; finance (e-commerce, finance, advertising &amp; media).</p></li><li><p>Urban life (smart/cyber-cities, home automation, smart buildings).</p></li><li><p>Behavioral Sciences, Well-being Society, Sustainable Digital Transformation.</p></li><li><p>eLearning, Technology-Enhanced Learning, CSCL, Virtual Campuses, Education and Technology.</p></li><li><p>Ecology (precision agriculture, dairy, fishing, wildlife management, water, climate &amp; ecology).</p></li><li><p>Medicine &amp; healthcare (delivery &amp; care systems, decision support, wearables).</p></li><li><p>Nano IoT (personalized precision medicine, Biological IoT, Chemical IoT).</p></li></ul><p><b>Societal aspects of IoT</b> <br/>Keeping humans in the loop is vital. Research in cyber-human systems that reflect human understanding and interaction with the physical world and (semi) autonomous systems.</p><ul><li><p>Societal, political and social impacts of the IoT.</p></li><li><p>Ethics &amp; (proposed) laws &amp; regulations.</p></li><li><p>IoT Governance.</p></li><li><p>IoT Solutions for Pandemics, Disaster Management and Public Safety.</p></li><li><p>Human Technology Interaction - at scale.</p></li><li><p>Emerging standards and technology in human life.</p></li><li><p>And, of course, hot issues, such as auditing, liability and social vulnerabilities.</p></li></ul><p></p>",
+      "openAccessType": "FULL",
+      "editorInChief": "Professor Xhafa",
+      "casInformation": {
+        "minorRanking": [
+          {
+            "name": "TELECOMMUNICATIONS",
+            "tier": 2
+          },
+          {
+            "name": "COMPUTER SCIENCE, INFORMATION SYSTEMS",
+            "tier": 2
+          },
+          {
+            "name": "ENGINEERING, ELECTRICAL & ELECTRONIC",
+            "tier": 2
+          }
+        ],
+        "majorRanking": {
+          "name": "Computer Science",
+          "tier": 2,
+          "top": false
+        }
+      },
+      "goldOpenAccessFee": {
+        "value": 3020,
+        "currency": "USD",
+        "discountedValue": null,
+        "discountExpiryDate": null
+      },
+      "hasAgreements": false
+    },
+    {
+      "ranking": 15,
+      "title": "Ocean Engineering",
+      "acronym": "OE",
+      "emAcronym": "OE",
+      "issn": "0029-8018",
+      "subjectAreas": [
+        "Ocean Engineering",
+        "Environmental Engineering"
+      ],
+      "articleTypes": [
+        "Full length article",
+        "Invited review",
+        "Short communication",
+        "VSI: ADWEC",
+        "VSI: AI in Marine Operations (Research Article)",
+        "VSI: AI in Marine Operations (Review Article)",
+        "VSI: Climate resilience",
+        "VSI: OE_DT Structure Intg",
+        "VSI: OE_Fluid-Struct. Inter",
+        "VSI: OE_Maintenance",
+        "VSI: OE_Marine Hydrodynamic Noise",
+        "VSI: OE_Maritime Object Detection and Tracking",
+        "VSI: OE_Mooring and cable system",
+        "VSI: OE_NCHP of UDFS Subjected to ESL",
+        "VSI: OE_PolarShip",
+        "VSI: Offshore Wind STE",
+        "VSI: Wave resonance phenomena"
+      ],
+      "cover": "http://secure-ecsd.elsevier.com/covers/80/Tango2/large/00298018.jpg",
+      "links": {
+        "submission": "https://submit.elsevier.com/OE",
+        "guideForAuthors": "https://www.sciencedirect.com/journal/ocean-engineering/publish/guide-for-authors"
+      },
+      "insights": {
+        "citeScore": {
+          "value": 8.4
+        },
+        "impactFactor": {
+          "value": 5.5
+        },
+        "acceptanceRate": {
+          "value": 31
+        },
+        "timeToFirstDecision": {
+          "value": 5
+        },
+        "timeToAcceptance": {
+          "value": 9
+        }
+      },
+      "scope": "<p><b>Last updated February 2026</b></p><p><i>Ocean Engineering</i> aims to provide a medium for the publication of original research and development work in the field of ocean engineering.</p><p>The journal seeks papers in the following topics:</p><p><b>Ocean Engineering</b> including: fixed and floating offshore platforms; pipelines and risers; cables and mooring; buoy technology; foundation engineering; ocean mining; marine and offshore renewable energy; aquaculture engineering; environmental protection; subsea engineering; scour and scour protection.</p><p><b>Naval Architecture</b> including: ship and special marine vehicle design; intact and damaged stability; technology for energy efficiency and green shipping; ship production technology; decommissioning and recycling.</p><p><b>Polar and Arctic Engineering</b> including: ice mechanics; ice-structure interaction; polar operations; polar design; environmental protection.</p><p><b>Coastal Engineering:</b> focuses on the analysis and design of coastal and shoreline protection systems, including structures such as seawalls, breakwaters, and beach nourishment schemes. The field addresses coastal flooding, erosion, storm surge impacts, and the resilience of coastal infrastructure.</p><p><b>Harbour Engineering:</b> covers the planning, design, and operation of ports and harbours, including navigation channels, breakwaters, berthing structures, and port logistics. It also includes studies on vessel manoeuvring and safety in confined waters, as well as emerging digital and autonomous tools for port operations.</p><p><b>Automatic Control of Marine Systems</b> including: automatic control; automation and autonomy for marine vehicles and systems</p><p><b>Underwater Technology</b> including: AUV/ROV design; AUV/ROV hydrodynamics; maneuvering and control; underwater-specific communicating and sensing systems for AUV/ROVs.</p><p>In these fields, papers on the following technical topics are welcome.</p><p><b>Hydro- and Aerodynamics</b>: CFD; vortex induced vibrations; fluid-structure interaction; hydroelasticity; linear and non-linear wave mechanics; buoyancy and stability; ship resistance and propulsion; seakeeping and controls; ship maneuvering; ship-radiated noise; wind-assisted propulsion; energy-efficient devices; hydroacoustics; aeroacoustics from offshore wind turbines.</p><p><b>Structural Mechanics</b>: materials selection (steel, composites, concrete), corrosion and other forms of degradation applied to marine structures; limit state prediction and assessments; fatigue; fracture; structural health monitoring; collision and crash worthiness; ship strength.</p><p><b>Stochastic Calculations</b>: stochastic processes; safety and reliability; risk and limit state design.</p><p><b>Experimental Approaches</b>: instrumentation; full-scale measurements; model tests.</p><p><b>Marine equipment</b>: risers; pipelines; ballast water treatment; air emissions treatment; underwater noise mitigation; and associated components or equipment.</p><p><b>Ocean Environmental Predictions</b>: only for the impact of extreme event predictions; extreme statistics; wave groups; tsunamis; short-term environment predictions and impact of climate change on ocean structures and vessel operation and design. Note that manuscripts related to broader physical oceanography or ocean science topics such as climate variability, climate modelling, remote sensing, and oceanic data analysis should be submitted to journals specialising in climate and oceanographic sciences.</p><p><b>Automatic Control of Marine Systems</b>: Papers submitted in this subject area should have genuine value in naval architecture and maritime engineering and should include the validation of results preferably, by full-scale measurements or model-scale tests or, when this is not possible, by high-fidelity simulations. Methods used in papers should be validated in conditions that represent realistic marine environments. Research on civilian applications of underwater imaging, target detection, acoustic target recognition and image enhancement techniques related to marine automation is also within the scope.</p><p><b>Human Factors and Maritime Safety</b> including: Maritime accidents; fatigue management; risk assessment; situational awareness; maritime training; human errors; human performance in operation; human factors in maritime accidents; safety culture; human factors taxonomy; all related to maritime engineering.</p><p><b>Out of scope topics last updated December 2024</b></p><p>Ocean Engineering does <u>not</u> accept submissions on marine engines and auxiliary systems, heating and cooling systems, pumps, valves, underwater explosions, sediment transport, sediment disturbance and erosion, chloride penetration, dam break phenomena, or purely theoretical papers without any application to ocean engineering. Broad material science and corrosion studies without a focus on naval architecture or offshore engineering are also outside the journal&#39;s scope. Furthermore, the journal does not consider studies related to wind turbines unless there is a direct application to offshore engineering (such as offshore wind turbines). Research focusing on the mechanics of robotic devices or wireless power transfer systems also falls outside the journal’s scope.</p><p>Additionally, <i>Ocean Engineering</i> does not accept submissions focusing solely on military applications, including dual-use submissions such as navigation of AUVs for military purposes, the design of propulsion systems and operational conditions related to stealth techniques. While the journal is currently open to papers on submarine hydrodynamics, it must be ensured that no sensitive or military-related content is included. The aim of any manuscript submitted to Ocean Engineering should be the worldwide dissemination of scientific knowledge, focusing on civilian applications that advance the broader field of ocean and maritime engineering.</p><p>*Authors are requested to complete a <a href=\"https://legacyfileshare.elsevier.com/promis_misc/oe-review-proposal-form.pdf\">Review Proposal Form</a> for Editorial approval prior to submission of the review article. Proposals can be submitted to <a href=\"mailto:oe@elsevier.com\">oe@elsevier.com</a> or one of the Editors.</p>",
+      "openAccessType": "HYBRID",
+      "editorInChief": "Jonas W. Ringsberg | Tahsin Tezdogan",
+      "casInformation": {
+        "minorRanking": [
+          {
+            "name": "ENGINEERING, OCEAN",
+            "tier": 1
+          },
+          {
+            "name": "ENGINEERING, CIVIL",
+            "tier": 2
+          },
+          {
+            "name": "ENGINEERING, MARINE",
+            "tier": 1
+          },
+          {
+            "name": "OCEANOGRAPHY",
+            "tier": 1
+          }
+        ],
+        "majorRanking": {
+          "name": "Engineering",
+          "tier": 2,
+          "top": true
+        }
+      },
+      "goldOpenAccessFee": {
+        "value": 4020,
+        "currency": "USD",
+        "discountedValue": null,
+        "discountExpiryDate": null
+      },
+      "hasAgreements": false
+    },
+    {
+      "ranking": 16,
+      "title": "Energy and AI",
+      "acronym": "EGYAI",
+      "emAcronym": "EAI",
+      "issn": "2666-5468",
+      "subjectAreas": [
+        "Engineering (General)",
+        "Energy (General)",
+        "Artificial Intelligence"
+      ],
+      "articleTypes": [
+        "Full Length Article",
+        "Perspective",
+        "Review",
+        "Short Communication",
+        "VSI: AI for Batteries",
+        "VSI: AI in EC Ener. Conversion",
+        "VSI: AI in flow & heat transfer"
+      ],
+      "cover": "http://secure-ecsd.elsevier.com/covers/80/Tango2/large/26665468.jpg",
+      "links": {
+        "submission": "https://www.editorialmanager.com/eai/default.aspx",
+        "guideForAuthors": "https://www.sciencedirect.com/journal/energy-and-ai/publish/guide-for-authors"
+      },
+      "insights": {
+        "citeScore": {
+          "value": 16.5
+        },
+        "impactFactor": {
+          "value": 9.6
+        },
+        "timeToFirstDecision": {
+          "value": 6
+        },
+        "timeToAcceptance": {
+          "value": 5
+        }
+      },
+      "scope": "<p>Official Journal of <a href=\"http://www.tju.edu.cn\">Tianjin University</a> <i><b>Energy and AI</b></i> provides a fast and authoritative open access platform to disseminate the latest research progress in the cross-disciplinary area of energy and artificial intelligence (AI). The journal focuses on innovative applications of AI that address the critical challenges in energy systems, energy materials, energy chemistry, energy utilization &amp; conversion, and energy &amp; society, as well as other important pressing issues in energy research. The journal also considers papers on the development of bespoke AI technologies and methodologies for advancing energy, decarbonization and sustainable development, such as data-driven approaches, optimization algorithms and AI ethics.</p><p><b><i>Energy and AI</i></b> aims to become a leading journal for cutting-edge research at the interface between energy and AI. Papers purely focusing on a single aspect of energy or AI are not suitable for the journal.</p><p>The journal considers full length, short communications, perspective and review articles, and publishes 4 volumes per year.</p><p>Focal points of the journal include, but are not limited to:</p><ul><li><p>Automation of science discovery related to energy materials and chemistry</p></li><li><p>Digital twinning or big data analytics of complex energy processes/systems</p></li><li><p>Data-driven design of energy materials, devices and systems</p></li><li><p>Internet-of-things and cyber-physical energy systems</p></li><li><p>AI for human factors in energy related activities</p></li><li><p>Virtual reality applied to energy and environment</p></li><li><p>Autonomous systems for energy efficiency maximalization</p></li><li><p>Hardware for data collections in energy systems</p></li><li><p>Data Science for energy applications</p></li><li><p>Hybrid data-driven and physical modelling for energy related problems</p></li><li><p>Intelligent control of energy systems</p></li><li><p>AI, energy and society</p></li><li><p>AI safety, reliability and ethics within energy applications</p></li><li><p>AI for life-cycle assessment or energy and decarbonization roadmaps</p></li><li><p>Energy robotics</p></li></ul><p><b>This journal welcomes contributions that support and advance the UN&#39;s </b><a href=\"https://sdgresources.relx.com/\"><b>sustainable development goals</b></a><b>, in particular SDG 7 (Affordable and clean energy)</b></p>",
+      "openAccessType": "FULL",
+      "editorInChief": "Professor Kui Jiao",
+      "casInformation": {
+        "minorRanking": [
+          {
+            "name": "ENERGY & FUELS",
+            "tier": 2
+          },
+          {
+            "name": "COMPUTER SCIENCE, ARTIFICIAL INTELLIGENCE",
+            "tier": 2
+          }
+        ],
+        "majorRanking": {
+          "name": "Engineering",
+          "tier": 2,
+          "top": false
+        }
+      },
+      "goldOpenAccessFee": {
+        "value": 4270,
+        "currency": "USD",
+        "discountedValue": null,
+        "discountExpiryDate": null
+      },
+      "hasAgreements": false
+    }
+  ],
+  "filterHistograms": {
+    "impactFactor": [
+      0,
+      0,
+      0,
+      1,
+      3,
+      3,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "citeScore": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      2,
+      2,
+      2,
+      6
+    ],
+    "publicationTime": [
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      2,
+      1,
+      0,
+      1,
+      1,
+      1,
+      2,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "timeToFirstDecision": [
+      0,
+      2,
+      3,
+      0,
+      4,
+      2,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "totalResults": 16,
+  "institute": {
+    "name": null,
+    "hasAgreements": false
+  }
+}

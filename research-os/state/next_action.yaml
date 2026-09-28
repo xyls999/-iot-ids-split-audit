@@ -1,14 +1,12 @@
 next_action:
-  id: intake-and-venue-research
+  id: intake-profile-and-target-selection
   status: blocked
   prerequisites:
     - re-upload the missing screenshot or provide its exact path
     - record author skills, available robot/data, deadline, budget, and language preference
-    - confirm legitimate peer-reviewed venue policy
+    - confirm intended paper direction: robotics/sim-to-real/control vs water-AI/remote-sensing
   steps:
-    - extract screenshot venues
-    - filter the Hohai catalog to scope-matched B/C venues
-    - verify current scope, indexing, fees, review model, and recent papers from primary sources
-    - build a comparison matrix
-    - run independent novelty/feasibility critique
+    - map the confirmed topic/data to the journal shortlist in artifacts/journal-candidates-source-review.md
+    - verify APC/budget and author instructions again before choosing target
+    - choose one primary target and 1-2 backups
     - checkpoint manifest and Git

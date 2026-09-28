@@ -1,0 +1,70 @@
+https://ecmlpkdd.org/2026/submissions-research-track
+STATUS 200 FINAL https://ecmlpkdd.org/2026/submissions-research-track/
+ecmlpkdd.org
+ Select year 
+ Home 
+ Organisation 
+ Call For Papers 
+ Program 
+ Attending 
+ Sponsorship 
+ FAQs 
+ Research Track
+ The Research Track solicits high-quality research papers in all fields of Machine Learning, Knowledge Discovery, and Data Mining. Papers should demonstrate that they make a substantial contribution to the field (e.g., improve the state-of-the-art or provide new theoretical insights) and will be evaluated based on their contribution to the state of the art, technical excellence, potential impact, and clarity.
+ Authors should adhere to ethics guidelines stated HERE .
+ Key Dates & Deadlines
+ CMT submission system opens
+ 2026-02-05
+ Abstract submission deadline
+ 2026-03-05
+ Paper Submission Deadline 
+ 2026-03-12
+ Author Notification
+ 2026-05-27
+ Camera Ready Submission 
+ 2026-06-20
+ 2026-06-18
+ *All deadlines expire on 23:59 AoE 
+ VIEW OPTIONS
+ Paper format 
+ Authors Policies and Authors- Conference Attendance 
+ Double-blind Review 
+ Submission Process 
+ Proceedings 
+ Reproducible Research Papers 
+ Ethics Considerations 
+ Authors Commit to Reviewing 
+ Dual Submission Policy 
+ Conflict of Interest 
+ Contact 
+ Paper format 
+ Papers must be written in English and formatted in LaTeX, following the outline of our author kit Springer LNCS Template Download . 
+The kit includes a readme document, a LaTeX file template containing author instructions, and style files. The maximum length of papers is 16 pages (including references) in this format. Over-length papers will be rejected without review. Papers that âcheatâ the page limit by, including but not limited to, using smaller than specified margins or font sizes will also be treated as over-length. Note that, for example, negative vspaces are also not allowed by the formatting guidelines; further details can be found in the author kit. Up to 10 MB of additional materials (e.g., proofs, audio, images, video, data, or source code) can be uploaded with your submission. If there is an appendix, ensure it is submitted separately from your paper, which must adhere to the 16-page limit. The reviewers and the program committee reserve the right to judge the paper solely on the basis of the 16 pages of the paper, therefore it has to be self-contained. Looking at any additional material is at the discretion of the reviewers and is not required.
+ Authors Policies and Authors- Conference Attendance 
+ ECML PKDD 2026 subscribes to the European Code of Conduct for Research Integrity . By submitting to ECML PKDD 2026, authors must confirm their awareness of these policies and their commitment to compliance.
+Authors must submit original work that is scientifically sound and relevant to the community. If Large Language Models (LLMs) or other AI tools are used to assist in preparing the paper, they should be employed responsibly to uphold the integrity of the submission. Specifically, when using LLMs to enhance the readability of the text (e.g., for grammar correction or proofreading), authors should be aware that generating text that violates intellectual property rights is plagiarism.
+The authors have to declare if they used Generative AI to support paper writing and to what extent they used such tools in an appropriate section of the paper. The authors, anyway, take full responsibility and accountability for the submitted paper and for any copyright issues the disclosure of the paper content may raise. Any manipulations in the manuscript intended to cheat the review process are forbidden.
+The author list as submitted with the paper is considered final. No changes at a later stage are possible.
+Each accepted paper must have at least one author registered for the conference by the early registration deadline and must be presented in person by one of the authors at the conference.
+ Double-blind Review 
+ Similarly to previous years, we will apply a double-blind review-process (author identities are not known by reviewers or area chairs; reviewers do see each otherâs names). All papers need to be âbest-effortâ anonymized. Papers must not include identifying information of the authors (names, affiliations, etc.), self-references, or links (e.g., GitHub, YouTube) that reveal the authorsâ identities (e.g., references to own work should be given neutrally like other references, not mentioning âour previous workâ or similar). We ask the authors not to use dummy author names but leave the author names blank in the submitted file. We strongly encourage making code and data available anonymously (e.g., in an anonymous Github repository, or Dropbox folder). The authors might have a (non-anonymous) pre-print published online, but it should not be cited in the submitted paper to preserve anonymity. Reviewers will be asked not to search for them. We recognize there are limits to what is feasible with respect to anonymization. For example, if you use data from your own organization and it is relevant to the paper to name this organization, you may do so.
+ Submission Process 
+ Electronic submissions will be handled via CMT available HERE . Submissions will be evaluated by three reviewers on the basis of novelty, technical quality, potential impact, and clarity.
+The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
+ Proceedings 
+ The conference proceedings will be published by Springer in the Lecture Notes in Computer Science Series (LNCS).
+ Reproducible Research Papers 
+ Authors are strongly encouraged to adhere to the best practices of Reproducible Research, by making available data and software tools that would enable others to reproduce the results reported in their papers. We advise the use of standard repository hosting services such as Dataverse, mldata.org, OpenML, figshare, or Zenodo for data sets, and mloss.org, Bitbucket, GitHub, or figshare (where it is possible to assign a DOI) for source code. If data or code gets updated after the paper is published, it is important to enable researchers to access the versions that were used to produce the results reported in the paper. Authors who do not have a preferred repository are advised to consult Springer Natureâs list of recommended repositories and research data policy.
+ Ethics Considerations 
+ Ethics is one of the most important topics to emerge in Machine Learning, Knowledge Discovery and Data Mining. We ask you to think about the ethical implications of your submission â such as those related to the collection and processing of personal data or the inference of personal information, the potential use of your work for law enforcement or the military, and the potential use of your work for crime and violence. You will be asked in the submission form about the ethical implications of your work which will be taken into consideration by the reviewers.
+ Authors Commit to Reviewing 
+ Authors of submitted papers agree to provide the email address of at least one author who holds a PhD to be a potential PC member for ECML PKDD 2025 and may be asked to review papers or perform emergency review for the conference if we have many more submissions than expected. This does not apply to authors who are (a) already contributing to ECML PKDD (e.g., accepted a PC/AC invite, are part of the organizing committee) or (b) not qualified to be ECML PKDD PC members (e.g., limited background in ML or DM).
+ Dual Submission Policy 
+ Papers submitted should report original work. Papers that are identical or substantially similar to papers that have been published or submitted elsewhere may not be submitted to ECML PKDD, and the organizers will reject such papers without review. Authors are also NOT allowed to submit or have submitted their papers elsewhere during the review period. Submitting unpublished technical reports available online (such as on arXiv), or papers presented in workshops without formal proceedings, is allowed, but such reports or presentations should not be cited to preserve anonymity.
+ Conflict of Interest 
+ During the submission process, you must enter the email domains of all institutions with which you have an institutional conflict of interest. You have an institutional conflict of interest if you are currently employed or have been employed by that institution in the past three years, or you have extensively collaborated with the institution within the past three years. Authors should also identify other conflicts of interest, such as co-authorship in the last five years, colleagues in the same institution within the last three years, and advisor/student relations (anytime in the past).
+ Contact 
+ For further information, please contact Mail: ecml-pkdd-2026-research-track-chairs@googlegroups.com
+ Twitter
+ Facebook
+ YouTube

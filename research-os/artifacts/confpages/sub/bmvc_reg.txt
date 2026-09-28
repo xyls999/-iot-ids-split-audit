@@ -1,0 +1,60 @@
+https://bmvc2025.bmva.org/attending/registration/
+STATUS 200 FINAL https://bmvc2025.bmva.org/attending/registration/
+The 36th British Machine Vision Conference 2025: Registration 
+ BMVC 2025 
+ Home 
+ Dates 
+ Gallery 
+ Calls 
+ Call for Papers 
+ Call for Workshops 
+ Call for Papers - Doctoral Consortium 
+ Attending 
+ About the City 
+ Plan Your Visit 
+ Registration 
+ Venue 
+ Programme 
+ Accepted Papers 
+ Keynotes 
+ Reception 
+ Workshops 
+ Conference Schedule 
+ Dinner 
+ Authors 
+ Author Guidelines 
+ Presenting at BMVC 
+ Submit Your Paper 
+ Reviewing Guidelines 
+ Area Chair Guidelines 
+ People 
+ Organisers 
+ Outstanding Reviewers 
+ Sponsors 
+ Proceedings 
+ Proceedings 
+ Workshops Proceedings 
+ The British Machine Vision Association 
+ and Society for Pattern Recognition 
+-->
+ Registration
+ -->
+ REGISTRATION IS NOW CLOSED.
+ Rates and deadlines
+ Early-bird registration rate: £500. Deadline for early-bird registration: 3pm, Monday 10 November, 2025 (GMT).
+ Late registration rate: £550. Deadline for late registration: 11.59pm, Monday 17 November, 2025 (GMT).
+ There will be no registration at the conference venue.
+ If you are only attending the workshop day and not the rest of the conference, the rate is £100. Note: All workshops will take place on Thursday 27th November.
+ Capacity
+ The venue for this year’s conference has a fixed capacity. Thus, all authors of conference contributions are being registered first.
+ Once that is done, we will make a limited number of places available for registration for the conference on a first-come, first-served basis until we reach capacity.
+ Registration links
+ REGISTRATION IS NOW CLOSED.
+ If there is remaining capacity for the conference, these links will become active on Wednesday 8 October 2025. Once capacity is reached, these links will then be removed.
+ Early-bird: No longer available.
+ Late registration.
+ Workshop-only registration.
+ © 2022-2025 The BMVA 
+ bmvc@bmva.org  
+ BMVCconf 
+ The British Machine Vision Conference is organised by The British Machine Vision Association and Society for Pattern Recognition . The Association is a Company limited by guarantee, No.2543446, and a non-profit-making body, registered in England and Wales as Charity No.1002307 (Registered Office: Dept. of Computer Science, Durham University, South Road, Durham, DH1 3LE, UK).

@@ -28,6 +28,12 @@ completed_tasks:
   - task_id: local-pdf-extraction
     status: completed
     artifact: literature/hhue-catalog-extracted.txt
+  - task_id: journal-candidates-source-review
+    status: completed
+    artifact: artifacts/journal-candidates-source-review.md
+  - task_id: venue-direction-synthesis
+    status: completed
+    artifact: literature/venue-direction-brief.md
 
 active_tasks: []
 blocked_tasks:
@@ -52,7 +58,10 @@ artifacts:
   setup_verification: artifacts/setup-verification.json
   p0_review: artifacts/p0-decision-memo.md
   catalog_extract: literature/hhue-catalog-extracted.txt
-  venue_shortlist: null
+  paper_examples_source_review: reviews/source-review-paper-examples.md
+  venue_shortlist: artifacts/journal-candidates-source-review.md
+  venue_direction_brief: literature/venue-direction-brief.md
+  venue_matrix: literature_matrix/venue-shortlist.csv
   screenshot: null
 
 literature:
@@ -76,6 +85,6 @@ review:
   minor_issues: 0
 
 last_checkpoint:
-  timestamp: 2026-09-28T21:00:00+08:00
-  summary: "Phase-1 scaffold created; environment and P0 read-only review completed; research intake blocked by missing screenshot and project profile."
-  next_action: "Read Resume Protocol, request missing screenshot/profile, then run evidence-backed venue and direction comparison."
+  timestamp: 2026-09-28T22:40:00+08:00
+  summary: "Venue and direction synthesis completed; RGB-D quadruped navigation is the conditional lowest-risk legitimate route, while sim-to-real has higher execution and novelty risk."
+  next_action: "Collect missing screenshot/profile, then select a target venue/direction and build a full literature matrix before novelty claims."

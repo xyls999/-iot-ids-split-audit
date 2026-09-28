@@ -1,0 +1,96 @@
+https://icpr2026.org/authors.html
+STATUS 200 FINAL https://icpr2026.org/authors.html
+ICPR 2026: Submit a paper | ICPR2026website 
+ 28 th - International Conference on Pattern Recognition
+ Lyon, France August, 17-22, 2026
+ International Convention Center
+ Home 
+ Program 
+ Home 
+ People
+ Conference Committee 
+ Local Organization 
+ Reviewers 
+ Reproducible Badge Reviewers 
+ Important Dates 
+ Dates 
+ Dates 
+ Calls
+ Main Call 
+ Call for Competitions 
+ Call for Doctoral Consortium 
+ Call for Tutorials 
+ Call for Workshops 
+ Program
+ Main Program 
+ Tutorials Program 
+ Workshop Program 
+ Search Papers 
+ Proceedings 
+ Workshop Papers 
+ Events
+ Competitions 
+ Tutorials 
+ Workshops 
+ S+SSPR 2026 
+ Instructions
+ Instructions for Authors 
+ Submit a Paper 
+ Instructions for Reviewers 
+ Camera-ready instructions 
+ Instructions for Oral presentation 
+ Instructions for Poster presentation 
+ Instructions for Session Chair 
+ Registration 
+ Local 
+ Local information overview 
+ Getting to Lyon 
+ TCL tickets & fares 
+ Conference venue 
+ Workshop & tutorial venue 
+ Hotels 
+ Lunch Box 
+ Practical Informations 
+ Visit Lyon 
+ Sponsors 
+ News & FAQ 
+ Certificates of presence at ICPR 2026 and Satellite Events (updated) 
+ Certificates of presence will start being sent on Wednesday, 2 September by Robin from
+ contactcolloque@insavalor.fr .
+ Submit a Paper 
+ Like the previous edition of ICPR, all accepted papers will be published in the proceedings published in the Lecture Notes in Computer Science (LNCS) series .
+Also for this edition of ICPR, a Special Section of the Elsevier
+Pattern Recognition Letters (PRL) journal will host invited extended
+versions of the best paper and best student paper for each track of
+ICPR 2026. The invited PRL submission will have to include at least
+30% new scientific contribution and will undergo a new regular review
+process.
+ Papers Submission 
+ Please read the following instructions before submission.
+ To submit a paper you should follow this link:
+ Submit a paper
+ Paper Format and Length 
+ Springer LNCS format with maximum 15 pages (including references, figures and tables) during paper submission.
+ Springer LNCS paper formatting instructions and templates for ICPR-2026 are available here DOC and Latex .
+ Manuscripts failing to meet the prescribed formatting requirements will be automatically rejected without review.
+ Submission interface 
+ The Microsoft CMT service was used for managing the
+ peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all
+ expenses, including costs for Azure cloud services as well as for software development and support.
+ Reproducible Research Badge 
+ For the first time, ICPR offers a Reproducible Research badge as part of the submission process. If you would like your paper to be considered for the Reproducible Research in Pattern Recognition (RRPR) badge, please select “Yes” in the corresponding field of the CMT submission form.
+ To apply, please refer to the information provided below.
+ Learn more 
+ ⚠️ Important Notice for Authors
+ Authors are required to follow all submission requirements 
+ as listed on the ICPR 2026 website paying particular attention to the "Instructions for Authors" webpage .
+ Failure to comply with these requirements may result in
+ rejection without review (i.e., a desk rejection ).
+ Questions regarding the submission requirements should be directed to the
+ Program Chairs .
+ By proceeding, you confirm that you have read and understood
+ the submission requirements.
+ Cancel
+ OK – Proceed to CMT
+ last modified : 
+ 22 January 2026

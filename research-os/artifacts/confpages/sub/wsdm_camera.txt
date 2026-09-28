@@ -1,0 +1,93 @@
+https://wsdm-conference.org/2026/index.php/camera-ready-instructions/
+STATUS 200 FINAL https://wsdm-conference.org/2026/index.php/camera-ready-instructions/
+Camera Ready Instructions – WSDM26 
+ Skip to content 
+ WSDM26 
+ Home 
+ Program 
+ Conference Program 
+ Proceedings 
+ Accepted Papers 
+ Tutorials 
+ Workshops 
+ Keynote Speakers 
+ Attend 
+ Registration 
+ Hotel Information 
+ Venue and Travel Information 
+ NSF Travel Award 
+ SIGWEB Travel Grant 
+ SIGIR Travel Grant 
+ Code of Conduct 
+ Visa Support Letters 
+ Attendance Policy 
+ Calls 
+ Camera Ready Instructions 
+ Call for Full Papers 
+ Call for Short Papers 
+ Call for Tutorial Proposals 
+ Call for Workshops 
+ Call for Demonstrations 
+ Call for WSDM Doctoral Consortium 
+ Call for WSDM Day Presentations 
+ Call for Industry Day Talks 
+ Call for WSDM Cup 
+ WSDM Cup 
+ Sponsors 
+ Official Sponsors & Partners 
+ Become a Sponsor 
+ Organizers 
+ WSDM26 
+ Home 
+ Program 
+ Conference Program 
+ Proceedings 
+ Accepted Papers 
+ Tutorials 
+ Workshops 
+ Keynote Speakers 
+ Attend 
+ Registration 
+ Hotel Information 
+ Venue and Travel Information 
+ NSF Travel Award 
+ SIGWEB Travel Grant 
+ SIGIR Travel Grant 
+ Code of Conduct 
+ Visa Support Letters 
+ Attendance Policy 
+ Calls 
+ Camera Ready Instructions 
+ Call for Full Papers 
+ Call for Short Papers 
+ Call for Tutorial Proposals 
+ Call for Workshops 
+ Call for Demonstrations 
+ Call for WSDM Doctoral Consortium 
+ Call for WSDM Day Presentations 
+ Call for Industry Day Talks 
+ Call for WSDM Cup 
+ WSDM Cup 
+ Sponsors 
+ Official Sponsors & Partners 
+ Become a Sponsor 
+ Organizers 
+ © 2025
+ Camera Ready Instructions
+ Link to the preparation instructions: 
+ http://www.scomminc.com/pp/acmsig/wsdm2026.htm  
+ Hard Submission Deadline: December 17th 
+ To expect two emails: 1 from 
+ submissions@scomminc.com  with their submission id# with link to submit/upload their final version –and– 1 from ACM Rightsreview to the lead contact author only for the ACM eform to be completed
+ Length of contributions for the proceedings (by track):
+ (fp) Full Research Paper  = 9 Page Limit + unlimited pages for references and ethical considerations only
+ (sp) Short Paper = 4 Page Limit + unlimited pages for references and ethical considerations only
+ (dp) Demo Paper = 4 Page Limit for all content, no extra pages
+ (wk) Workshop Abstract = 2 Page Limit for all content, no extra pages 
+ (tp) Tutorial Paper = 4 Page Limit for all content, no extra pages
+ (dc) Doctoral Consortium = 3 Page Limit for all content, no extra pages 
+ (id) Industry Day Abstract = 2 Page Limit for all content, no extra pages 
+ (wd) WSDM Day Abstract = 2 Page Limit for all content, no extra pages 
+ (kn) Keynote Talk Abstract = 2 Page Limit for all content, no extra pages
+ © 2026 WSDM26. Created for free using WordPress and
+ Colibri
