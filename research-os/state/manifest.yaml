@@ -13,10 +13,10 @@ target:
   manuscript_type: null
 
 workflow:
-  current_stage: discovery_readonly
-  current_task: "verify screenshot venues and identify a legitimate, scope-matched non-robot-dog direction"
+  current_stage: literature
+  current_task: "select one low-cost, public-data water research direction from the Hohai catalog"
   auto_continue: false
-  status: blocked_pending_inputs
+  status: running
 
 completed_tasks:
   - task_id: setup-scaffold
@@ -35,7 +35,11 @@ completed_tasks:
     status: completed
     artifact: literature/venue-direction-brief.md
 
-active_tasks: []
+active_tasks:
+  - task_id: water-direction-shortlist
+    status: running
+    run_id: water-direction-shortlist-mulbfwo1-0ozbwi
+    scope: "water/hydrology/water-AI only"
 blocked_tasks:
   - task_id: screenshot-missing
     reason: "The requested JPG was not found at the supplied Downloads path."
@@ -89,5 +93,5 @@ review:
 
 last_checkpoint:
   timestamp: 2026-09-28T22:40:00+08:00
-  summary: "Screenshot venue list visually verified; active scope changed to electronics/instrumentation/power/laser/microelectronics/IoT/soil sensing; quadruped and robot-dog work explicitly excluded."
-  next_action: "Collect research profile, then verify the screenshot venues and recent papers using official sources."
+  summary: "Screenshot venue list visually verified; active scope is now the water/hydrology subset of the catalog; quadruped and robot-dog work explicitly excluded. Water-direction research is running."
+  next_action: "Await water-direction shortlist, then run a two-week public-data feasibility test before selecting a target venue."
