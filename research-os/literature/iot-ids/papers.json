@@ -1,0 +1,216 @@
+[
+  {
+    "paper_id": "P01",
+    "doi": "10.1109/mprv.2018.03367731",
+    "title": "N-BaIoT—Network-Based Detection of IoT Botnet Attacks Using Deep Autoencoders",
+    "authors": [
+      "Yair Meidan",
+      "Michael Bohadana",
+      "Yael Mathov",
+      "Yisroel Mirsky",
+      "Asaf Shabtai",
+      "Dominik Breitenbacher",
+      "Yuval Elovici"
+    ],
+    "year": 2018,
+    "venue": "IEEE Pervasive Computing",
+    "pages": "12-22",
+    "url": "https://doi.org/10.1109/mprv.2018.03367731",
+    "type": "journal-article",
+    "abstract": "",
+    "research_os_note": "N-BaIoT foundational botnet detection with deep autoencoders; use for historical baseline and dataset provenance.",
+    "metadata_source": "Crossref API",
+    "metadata_verified": true
+  },
+  {
+    "paper_id": "P02",
+    "doi": "10.1109/tnsm.2020.2966951",
+    "title": "IoT-KEEPER: Detecting Malicious IoT Network Activity Using Online Traffic Analysis at the Edge",
+    "authors": [
+      "Ibbad Hafeez",
+      "Markku Antikainen",
+      "Aaron Yi Ding",
+      "Sasu Tarkoma"
+    ],
+    "year": 2020,
+    "venue": "IEEE Transactions on Network and Service Management",
+    "pages": "45-59",
+    "url": "https://doi.org/10.1109/tnsm.2020.2966951",
+    "type": "journal-article",
+    "abstract": "",
+    "research_os_note": "IoT-KEEPER edge-oriented online traffic analysis; use for resource-aware/edge framing.",
+    "metadata_source": "Crossref API",
+    "metadata_verified": true
+  },
+  {
+    "paper_id": "P03",
+    "doi": "10.1109/access.2020.3022862",
+    "title": "TON_IoT Telemetry Dataset: A New Generation Dataset of IoT and IIoT for Data-Driven Intrusion Detection Systems",
+    "authors": [
+      "Abdullah Alsaedi",
+      "Nour Moustafa",
+      "Zahir Tari",
+      "Abdun Mahmood",
+      "Adnan Anwar"
+    ],
+    "year": 2020,
+    "venue": "IEEE Access",
+    "pages": "165130-165150",
+    "url": "https://doi.org/10.1109/access.2020.3022862",
+    "type": "journal-article",
+    "abstract": "",
+    "research_os_note": "TON_IoT dataset paper; use for heterogeneous telemetry/network data and evaluation scope.",
+    "metadata_source": "Crossref API",
+    "metadata_verified": true
+  },
+  {
+    "paper_id": "P04",
+    "doi": "10.1109/jiot.2020.3002255",
+    "title": "CorrAUC: A Malicious Bot-IoT Traffic Detection Method in IoT Network Using Machine-Learning Techniques",
+    "authors": [
+      "Muhammad Shafiq",
+      "Zhihong Tian",
+      "Ali Kashif Bashir",
+      "Xiaojiang Du",
+      "Mohsen Guizani"
+    ],
+    "year": 2021,
+    "venue": "IEEE Internet of Things Journal",
+    "pages": "3242-3254",
+    "url": "https://doi.org/10.1109/jiot.2020.3002255",
+    "type": "journal-article",
+    "abstract": "",
+    "research_os_note": "CorrAUC malicious Bot-IoT traffic detection; use for feature-correlation and classical ML comparison.",
+    "metadata_source": "Crossref API",
+    "metadata_verified": true
+  },
+  {
+    "paper_id": "P05",
+    "doi": "10.1109/access.2022.3165809",
+    "title": "Edge-IIoTset: A New Comprehensive Realistic Cyber Security Dataset of IoT and IIoT Applications for Centralized and Federated Learning",
+    "authors": [
+      "Mohamed Amine Ferrag",
+      "Othmane Friha",
+      "Djallel Hamouda",
+      "Leandros Maglaras",
+      "Helge Janicke"
+    ],
+    "year": 2022,
+    "venue": "IEEE Access",
+    "pages": "40281-40306",
+    "url": "https://doi.org/10.1109/access.2022.3165809",
+    "type": "journal-article",
+    "abstract": "",
+    "research_os_note": "Edge-IIoTset dataset paper; use for stronger IoT/IIoT benchmark and centralized/federated context.",
+    "metadata_source": "Crossref API",
+    "metadata_verified": true
+  },
+  {
+    "paper_id": "P06",
+    "doi": "10.3390/s23135941",
+    "title": "CICIoT2023: A Real-Time Dataset and Benchmark for Large-Scale Attacks in IoT Environment",
+    "authors": [
+      "Euclides Carlos Pinto Neto",
+      "Sajjad Dadkhah",
+      "Raphael Ferreira",
+      "Alireza Zohourian",
+      "Rongxing Lu",
+      "Ali A. Ghorbani"
+    ],
+    "year": 2023,
+    "venue": "Sensors",
+    "pages": "5941",
+    "url": "https://doi.org/10.3390/s23135941",
+    "type": "journal-article",
+    "abstract": "Nowadays, the Internet of Things (IoT) concept plays a pivotal role in society and brings new capabilities to different industries. The number of IoT solutions in areas such as transportation and healthcare is increasing and new services are under development. In the last decade, society has experienced a drastic increase in IoT connections. In fact, IoT connections will increase in the next few years across different areas. Conversely, several challenges still need to be faced to enable efficient and secure operations (e.g., interoperability, security, and standards). Furthermore, although efforts have been made to produce datasets composed of attacks against IoT devices, several possible attacks are not considered. Most existing efforts do not consider an extensive network topology with real IoT devices. The main goal of this research is to propose a novel and extensive IoT attack dataset to foster the development of security analytics applications in real IoT operations. To accomplish this, 33 attacks are executed in an IoT topology composed of 105 devices. These attacks are classified into seven categories, namely DDoS, DoS, Recon, Web-based, brute force, spoofing, and Mirai. Finally, all attacks are executed by malicious IoT devices targeting other IoT devices. The dataset is available on the CIC Dataset website.",
+    "research_os_note": "CICIoT2023 dataset and benchmark; use for large-scale modern attack taxonomy, not first prototype.",
+    "metadata_source": "Crossref API",
+    "metadata_verified": true
+  },
+  {
+    "paper_id": "P07",
+    "doi": "10.1007/978-3-030-98978-1_5",
+    "title": "Machine Learning Models for Malicious Traffic Detection in IoT Networks /IoT-23 Dataset/",
+    "authors": [
+      "Chibueze Victor Oha",
+      "Fathima Shakoora Farouk",
+      "Pujan Pankaj Patel",
+      "Prithvi Meka",
+      "Sowmya Nekkanti",
+      "Bhageerath Nayini",
+      "Smit Xavier Carvalho",
+      "Nisarg Desai",
+      "Manishkumar Patel",
+      "Sergey Butakov"
+    ],
+    "year": 2022,
+    "venue": "Lecture Notes in Computer Science; Machine Learning for Networking",
+    "pages": "69-84",
+    "url": "https://doi.org/10.1007/978-3-030-98978-1_5",
+    "type": "book-chapter",
+    "abstract": "",
+    "research_os_note": "IoT-23 malicious traffic ML study; use for dataset-specific baseline and leakage caution.",
+    "metadata_source": "Crossref API",
+    "metadata_verified": true
+  },
+  {
+    "paper_id": "P08",
+    "doi": "10.1007/s11042-024-19695-7",
+    "title": "Using the ToN-IoT dataset to develop a new intrusion detection system for industrial IoT devices",
+    "authors": [
+      "Zhong Cao",
+      "Zhicai Zhao",
+      "Wenli Shang",
+      "Shan Ai",
+      "Shen Shen"
+    ],
+    "year": 2024,
+    "venue": "Multimedia Tools and Applications",
+    "pages": "16425-16453",
+    "url": "https://doi.org/10.1007/s11042-024-19695-7",
+    "type": "journal-article",
+    "abstract": "",
+    "research_os_note": "ToN-IoT IDS application study; use as recent applied comparison and baseline reference.",
+    "metadata_source": "Crossref API",
+    "metadata_verified": true
+  },
+  {
+    "paper_id": "P09",
+    "doi": "10.1109/access.2026.3675745",
+    "title": "From Emulated IoT Device to Real-IoT Device Traffic: A Dataset-Centered Cross-Domain Validation Framework for Anomaly-Based Intrusion Detection in Internet of Things",
+    "authors": [
+      "Simran Kaur Hora",
+      "Nikolaj Goranin",
+      "Antanas Čenys"
+    ],
+    "year": 2026,
+    "venue": "IEEE Access",
+    "pages": "47355-47365",
+    "url": "https://doi.org/10.1109/access.2026.3675745",
+    "type": "journal-article",
+    "abstract": "",
+    "research_os_note": "Cross-domain validation from emulated to real IoT traffic; directly relevant to cross-device/domain generalization.",
+    "metadata_source": "Crossref API",
+    "metadata_verified": true
+  },
+  {
+    "paper_id": "P10",
+    "doi": "10.1016/j.iot.2026.102030",
+    "title": "A rule-based label harmonization framework for cross-dataset IoT intrusion detection",
+    "authors": [
+      "María Rodríguez",
+      "Lorena Mehavilla",
+      "Álvaro Alesanco",
+      "José García"
+    ],
+    "year": 2026,
+    "venue": "Internet of Things",
+    "pages": "102030",
+    "url": "https://doi.org/10.1016/j.iot.2026.102030",
+    "type": "journal-article",
+    "abstract": "",
+    "research_os_note": "Rule-based label harmonization for cross-dataset IoT IDS; directly relevant to comparable cross-dataset evaluation.",
+    "metadata_source": "Crossref API",
+    "metadata_verified": true
+  }
+]

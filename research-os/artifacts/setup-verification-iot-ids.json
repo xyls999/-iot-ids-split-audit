@@ -1,0 +1,13 @@
+{
+  "root": "E:\\water paper\\research-os",
+  "missing": [],
+  "checks": {
+    "required_files": true,
+    "manifest_single_source_of_truth": true,
+    "resume_protocol": true,
+    "checkpoint_protocol": true,
+    "manifest_status_present": true,
+    "no_private_runtime_config": true
+  },
+  "passed": true
+}

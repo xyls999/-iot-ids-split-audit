@@ -14,7 +14,7 @@ target:
 
 workflow:
   current_stage: literature
-  current_task: "choose between sensor calibration and lightweight IoT network anomaly detection"
+  current_task: "review the ten-paper IoT IDS collection and choose the bounded feasibility experiment"
   auto_continue: false
   status: blocked_pending_user_direction
 
@@ -34,6 +34,9 @@ completed_tasks:
   - task_id: venue-direction-synthesis
     status: completed
     artifact: literature/venue-direction-brief.md
+  - task_id: iot-ids-ten-paper-collection
+    status: completed
+    artifact: literature/iot-ids/README.md
 
 active_tasks: []
 blocked_tasks:
@@ -69,6 +72,8 @@ artifacts:
   screenshot: literature/screenshot-venue-transcription.md
   scope_override: literature/scope-override-2026-09-28.md
   low_burden_route: literature/low-burden-route-brief.md
+  iot_ids_collection: literature/iot-ids/README.md
+  iot_ids_synthesis: literature/iot-ids/research-synthesis.md
 
 literature:
   total: 0
@@ -91,6 +96,6 @@ review:
   minor_issues: 0
 
 last_checkpoint:
-  timestamp: 2026-09-28T22:40:00+08:00
-  summary: "Low-burden venue research completed; public-data air-quality sensor calibration is the recommended route for 电子测量与仪器学报, pending user confirmation."
-  next_action: "Choose sensor calibration for lower risk or IoT anomaly detection for stronger cyber relevance; then run a bounded 2-week feasibility test."
+  timestamp: 2026-09-28T23:20:00+08:00
+  summary: "Ten DOI-verified IoT IDS papers collected locally; the strongest defensible gap is leakage-controlled cross-device/cross-dataset evaluation with resource metrics."
+  next_action: "Review the ten-paper IoT IDS collection, then choose N-BaIoT feasibility or return to sensor calibration."

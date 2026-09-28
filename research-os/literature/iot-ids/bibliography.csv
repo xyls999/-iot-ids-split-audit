@@ -1,0 +1,11 @@
+﻿paper_id,year,title,venue,doi,url,metadata_verified
+P01,2018,N-BaIoT—Network-Based Detection of IoT Botnet Attacks Using Deep Autoencoders,IEEE Pervasive Computing,10.1109/mprv.2018.03367731,https://doi.org/10.1109/mprv.2018.03367731,true
+P02,2020,IoT-KEEPER: Detecting Malicious IoT Network Activity Using Online Traffic Analysis at the Edge,IEEE Transactions on Network and Service Management,10.1109/tnsm.2020.2966951,https://doi.org/10.1109/tnsm.2020.2966951,true
+P03,2020,TON_IoT Telemetry Dataset: A New Generation Dataset of IoT and IIoT for Data-Driven Intrusion Detection Systems,IEEE Access,10.1109/access.2020.3022862,https://doi.org/10.1109/access.2020.3022862,true
+P04,2021,CorrAUC: A Malicious Bot-IoT Traffic Detection Method in IoT Network Using Machine-Learning Techniques,IEEE Internet of Things Journal,10.1109/jiot.2020.3002255,https://doi.org/10.1109/jiot.2020.3002255,true
+P05,2022,Edge-IIoTset: A New Comprehensive Realistic Cyber Security Dataset of IoT and IIoT Applications for Centralized and Federated Learning,IEEE Access,10.1109/access.2022.3165809,https://doi.org/10.1109/access.2022.3165809,true
+P06,2023,CICIoT2023: A Real-Time Dataset and Benchmark for Large-Scale Attacks in IoT Environment,Sensors,10.3390/s23135941,https://doi.org/10.3390/s23135941,true
+P07,2022,Machine Learning Models for Malicious Traffic Detection in IoT Networks /IoT-23 Dataset/,Lecture Notes in Computer Science; Machine Learning for Networking,10.1007/978-3-030-98978-1_5,https://doi.org/10.1007/978-3-030-98978-1_5,true
+P08,2024,Using the ToN-IoT dataset to develop a new intrusion detection system for industrial IoT devices,Multimedia Tools and Applications,10.1007/s11042-024-19695-7,https://doi.org/10.1007/s11042-024-19695-7,true
+P09,2026,From Emulated IoT Device to Real-IoT Device Traffic: A Dataset-Centered Cross-Domain Validation Framework for Anomaly-Based Intrusion Detection in Internet of Things,IEEE Access,10.1109/access.2026.3675745,https://doi.org/10.1109/access.2026.3675745,true
+P10,2026,A rule-based label harmonization framework for cross-dataset IoT intrusion detection,Internet of Things,10.1016/j.iot.2026.102030,https://doi.org/10.1016/j.iot.2026.102030,true

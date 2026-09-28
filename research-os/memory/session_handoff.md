@@ -23,6 +23,10 @@ The screenshot was successfully read and transcribed to `literature/screenshot-v
 
 `literature/venue-direction-brief.md` and `literature_matrix/venue-shortlist.csv` rank RGB-D quadruped visual/task navigation as the conditional lowest-risk legitimate route if the robot, D435/Jetson, ROS/ROS2 control, logs and safe test area exist. Sim-to-real adaptation has higher upside but higher novelty and experimental risk. No acceptance promise is made.
 
+## IoT IDS literature checkpoint
+
+Ten DOI-verified papers and local reading notes are at `literature/iot-ids/`. Start with P01/P02/P03/P05/P06, then read P09/P10 for cross-domain and label-harmonization risks. The collection is defensive/offline only.
+
 ## Next action
 
-Collect the missing screenshot/profile and then select a target venue/research direction from the shortlist.
+Review `literature/iot-ids/research-synthesis.md`, then run a bounded N-BaIoT feasibility experiment or return to the lower-risk sensor-calibration route.
