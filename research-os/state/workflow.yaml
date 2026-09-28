@@ -1,0 +1,43 @@
+version: 1
+source_of_truth: state/manifest.yaml
+stages:
+  - id: discovery_readonly
+    entry_gate: setup_verification_passed
+    outputs: [research-os-setup-report.md]
+    next: literature
+  - id: literature
+    entry_gate: gate_a_literature_completeness
+    outputs: [literature/verified_sources.yaml, literature_matrix/matrix.csv]
+    next: gap_mining
+  - id: gap_mining
+    entry_gate: gate_b_novelty_verification
+    outputs: [gaps/active_gap.md, ideas/candidates.yaml]
+    next: hypothesis
+  - id: hypothesis
+    entry_gate: independent_critic_pass
+    outputs: [hypotheses/active.yaml]
+    next: methods
+  - id: methods
+    entry_gate: gate_c_method_validity
+    outputs: [methods/active_protocol.md]
+    next: experiments
+  - id: experiments
+    entry_gate: gate_d_experiment_completeness
+    outputs: [experiments/plan.yaml, results/]
+    next: evidence
+  - id: evidence
+    entry_gate: gate_e_claim_evidence
+    outputs: [evidence/claim_evidence.yaml]
+    next: manuscript
+  - id: manuscript
+    entry_gate: gate_f_citation_integrity
+    outputs: [manuscript/]
+    next: review
+  - id: review
+    entry_gate: gate_g_peer_review
+    outputs: [reviews/merged_review.yaml, revisions/]
+    next: submission
+  - id: submission
+    entry_gate: gate_h_journal_formatting
+    outputs: [submission/]
+    next: archived

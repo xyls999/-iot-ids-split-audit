@@ -1,0 +1,7 @@
+source_id,path,kind,verified,notes
+LOCAL-PDF-HHUE,C:/Users/Administrator/Downloads/附件1《 河海大学高质量论文期刊及学术会议目录（自然科学类）》.pdf,pdf,true,School catalog; verify current policy before submission
+LOCAL-ROBOT-PLAN,C:/Users/Administrator/Downloads/四足机器人_Sim-to-Real_科研计划书_2025-2026文献版.md,markdown,true,Local planning document
+LOCAL-VISION-NAV,C:/Users/Administrator/Downloads/visual_navigation_robot_dog_research.md,markdown,true,Local research note
+LOCAL-WAVELET-GNN,C:/Users/Administrator/Downloads/02_小波图神经网络有效波高预测_完整中文翻译_原文对照 (2).pdf,pdf,true,Local translation; verify against original source before citation
+LOCAL-RMA,C:/Users/Administrator/Downloads/RMA_快速运动适应_完整中文翻译.docx,docx,true,Local translation; verify against original paper
+LOCAL-SIM2REAL,C:/Users/Administrator/Downloads/Sim_to_Real_Full_Chinese_Translation (1).docx,docx,true,Local translation; verify against original paper

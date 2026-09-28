@@ -1,0 +1,81 @@
+project:
+  id: research-os-water-paper
+  title: ""
+  research_area: "quadruped robotics / sim-to-real / data-driven control"
+  target_language: zh-CN
+  created_at: 2026-09-28
+  status: PARTIALLY_CONFIGURED
+
+target:
+  journal: null
+  journal_level: null
+  deadline: null
+  manuscript_type: null
+
+workflow:
+  current_stage: discovery_readonly
+  current_task: "verify setup and identify a legitimate, scope-matched venue"
+  auto_continue: false
+  status: blocked_pending_inputs
+
+completed_tasks:
+  - task_id: setup-scaffold
+    status: completed
+    artifact: artifacts/setup-verification.json
+  - task_id: p0-readonly-review
+    status: completed
+    artifact: artifacts/p0-decision-memo.md
+  - task_id: local-pdf-extraction
+    status: completed
+    artifact: literature/hhue-catalog-extracted.txt
+
+active_tasks: []
+blocked_tasks:
+  - task_id: screenshot-missing
+    reason: "The requested JPG was not found at the supplied Downloads path."
+  - task_id: research-profile-missing
+    reason: "Author expertise, available data, target deadline, APC budget, and acceptable language are not yet recorded."
+
+pending_decisions:
+  - id: venue-policy
+    question: "Confirm that legitimate peer-reviewed venues are required; no predatory or deceptive venue targeting."
+    status: pending
+  - id: corpus-network-policy
+    question: "Approve or reject external model/API access for private literature and data."
+    status: pending
+  - id: project-profile
+    question: "Provide the intended subtopic, available data/robot platform, timeline, and budget."
+    status: pending
+
+artifacts:
+  setup_report: research-os-setup-report.md
+  setup_verification: artifacts/setup-verification.json
+  p0_review: artifacts/p0-decision-memo.md
+  catalog_extract: literature/hhue-catalog-extracted.txt
+  venue_shortlist: null
+  screenshot: null
+
+literature:
+  total: 0
+  verified: 0
+  rejected: 0
+
+ideas:
+  generated: 0
+  rejected: 0
+  surviving: 0
+
+claims:
+  total: 0
+  supported: 0
+  unsupported: 0
+
+review:
+  round: 0
+  major_issues: 0
+  minor_issues: 0
+
+last_checkpoint:
+  timestamp: 2026-09-28T21:00:00+08:00
+  summary: "Phase-1 scaffold created; environment and P0 read-only review completed; research intake blocked by missing screenshot and project profile."
+  next_action: "Read Resume Protocol, request missing screenshot/profile, then run evidence-backed venue and direction comparison."

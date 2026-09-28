@@ -1,0 +1,20 @@
+{
+  "name": "zotero-mcp-readonly",
+  "command": "python",
+  "args": ["-m", "zotero_mcp"],
+  "env": {
+    "ZOTERO_LOCAL": "true",
+    "ZOTERO_MCP_SCHEMA_REFRESH": "0"
+  },
+  "includeTools": [
+    "search_library",
+    "get_item",
+    "get_collections",
+    "get_collection_items",
+    "get_annotations",
+    "get_fulltext"
+  ],
+  "directTools": false,
+  "writeTools": false,
+  "notes": "Template only. Verify package/version and Zotero local API before enabling."
+}

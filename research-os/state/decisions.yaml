@@ -1,0 +1,25 @@
+decisions:
+  - id: manifest-authority
+    decision: "manifest.yaml is the single source of truth"
+    status: accepted
+  - id: phase-1-scope
+    decision: "local disk state + Git + existing Pi capabilities; no orchestrator stack"
+    status: accepted
+  - id: superpowers-boundary
+    decision: "coding/testing/debugging only; never research-methodology authority"
+    status: accepted
+  - id: zotero-boundary
+    decision: "read-only by default; no write tools until separately approved"
+    status: accepted
+  - id: paperqa-boundary
+    decision: "retrieval/evidence aid only; Artifact DAG remains authoritative"
+    status: accepted
+  - id: ecc
+    decision: "defer ECC until a separate hook/memory conflict review"
+    status: accepted
+  - id: venue-integrity
+    decision: "do not target predatory, deceptive, or guaranteed-acceptance venues"
+    status: accepted
+  - id: screenshot
+    decision: "requested screenshot unavailable at supplied path"
+    status: blocked

@@ -1,0 +1,17 @@
+blockers:
+  - id: screenshot-missing
+    severity: medium
+    owner: user
+    resolution: "Re-upload the JPG or provide the correct filename/path."
+  - id: profile-missing
+    severity: high
+    owner: user
+    resolution: "Provide topic, data/platform, timeline, budget, language, and target recognition."
+  - id: browser-search
+    severity: medium
+    owner: environment
+    resolution: "Browser/CDP and Brave API are unavailable; use approved direct primary-source HTTP requests or configure browser/API."
+  - id: pdf-rendering-ocr
+    severity: medium
+    owner: environment
+    resolution: "Install/approve a rendering/OCR stack if scanned Chinese PDFs need visual verification."

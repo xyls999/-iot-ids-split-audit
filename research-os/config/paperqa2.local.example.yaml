@@ -1,0 +1,16 @@
+# Template only; do not add private corpus or credentials here.
+project: research-os-water-paper
+pqa_home: ./artifacts/paperqa2
+network_policy: deny_by_default
+parsing:
+  use_doc_details: false
+corpus:
+  source_manifest: ./literature/source_manifest.csv
+  allowed_extensions: [pdf, docx, txt, md]
+models:
+  provider: local_or_explicitly_approved
+  embedding_provider: local_or_explicitly_approved
+artifact_policy:
+  every_answer_requires_source_ids: true
+  output_to: ./evidence/paperqa2/
+  manifest_authority: research-os/state/manifest.yaml
