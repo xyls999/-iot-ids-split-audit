@@ -14,9 +14,9 @@ target:
 
 workflow:
   current_stage: literature
-  current_task: "assess the difficulty and evidence requirements of lightweight IoT network anomaly detection"
+  current_task: "choose between sensor calibration and lightweight IoT network anomaly detection"
   auto_continue: false
-  status: running
+  status: blocked_pending_user_direction
 
 completed_tasks:
   - task_id: setup-scaffold
@@ -35,11 +35,7 @@ completed_tasks:
     status: completed
     artifact: literature/venue-direction-brief.md
 
-active_tasks:
-  - task_id: iot-ids-difficulty-assessment
-    status: running
-    run_id: iot-ids-difficulty-assessment-mulc9llz-3z9bco
-    scope: "defensive offline public datasets only"
+active_tasks: []
 blocked_tasks:
   - task_id: research-profile-missing
     reason: "Author expertise, available data, target deadline, APC budget, and acceptable language are not yet recorded."
@@ -48,7 +44,7 @@ blocked_tasks:
   - task_id: venue-scope-clarification
     reason: "The user clarified that the goal is a relatively low-burden legitimate publication route, not water research."
   - task_id: route-selection
-    reason: "A primary route is recommended but requires user confirmation of topic, data and target venue."
+    reason: "Choose between the lower-risk sensor calibration route and the more cyber-specific IoT anomaly route."
 
 pending_decisions:
   - id: venue-policy
@@ -97,4 +93,4 @@ review:
 last_checkpoint:
   timestamp: 2026-09-28T22:40:00+08:00
   summary: "Low-burden venue research completed; public-data air-quality sensor calibration is the recommended route for 电子测量与仪器学报, pending user confirmation."
-  next_action: "Confirm or reject the air-quality sensor-calibration route, then run a 2-week feasibility test before drafting."
+  next_action: "Choose sensor calibration for lower risk or IoT anomaly detection for stronger cyber relevance; then run a bounded 2-week feasibility test."
