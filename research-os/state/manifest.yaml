@@ -40,6 +40,9 @@ completed_tasks:
   - task_id: iot-ids-innovation-critique
     status: completed
     artifact: ideas/iot-ids-critic.md
+  - task_id: nbaiot-preflight-experiment
+    status: completed
+    artifact: reports/nbaiot-preflight-report.md
 
 active_tasks: []
 blocked_tasks:
@@ -85,6 +88,8 @@ artifacts:
   iot_ids_cn_full_translations: literature/iot-ids/translations/
   iot_ids_nearest_paper_check: reviews/iot-ids-nearest-paper-check-2026-09-29.md
   n_baiot_official_profile: data/n-baiot-uci-profile.md
+  n_baiot_preflight_manifest: data/n-baiot-preflight-manifest.yaml
+  n_baiot_preflight_report: reports/nbaiot-preflight-report.md
 
 literature:
   total: 0
@@ -107,6 +112,6 @@ review:
   minor_issues: 0
 
 last_checkpoint:
-  timestamp: 2026-09-29T21:40:00+08:00
-  summary: "Three complete Chinese translations were generated; P09/P10 nearest-paper verification remains partly blocked at publisher PDF access, and official UCI N-BaIoT metadata confirms 7,062,606 sequential instances with CC BY 4.0."
-  next_action: "Decide whether to download the 7,062,606-instance official N-BaIoT archive; then run chunked leakage-controlled feasibility, without claiming a new method."
+  timestamp: 2026-09-30T00:30:00+08:00
+  summary: "A bounded leave-one-group-out preflight on a public N-BaIoT-derived mirror showed that benign-only threshold calibration often lowers FPR but can collapse attack recall; file groups lack verified device/time metadata, so the hypothesis remains unvalidated."
+  next_action: "Repeat the preflight on the official UCI archive or an auditable device/time mirror; do not claim the calibration method is validated."

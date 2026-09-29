@@ -1,6 +1,6 @@
 hypothesis:
   id: H-IOT-IDS-01
-  status: conditional_incremental_study_pending_nearest_paper_check
+  status: conditional_incremental_study_preflight_mixed_negative
   statement: "A lightweight IoT traffic detector trained on source devices and calibrated only with a fixed budget of benign target-device traffic can reduce false positives under leave-one-device-out evaluation without materially reducing attack recall or violating a defined resource budget."
   scope: "offline public datasets; defensive detection only"
   novelty_claim: "Do not claim a new method; candidate is an auditable incremental calibration study until nearest-paper checks pass"
@@ -32,8 +32,11 @@ hypothesis:
     - peak_memory_or_documented_proxy
   blockers:
     - full_text_nearest_paper_check_for_P09_P10
+    - official_or_auditable_device_and_time_metadata
     - verify_target_benign_windows_and_time_order
     - verify_dataset_license_and_provenance
+    - repeat_with_official_UCI_archive
+  preflight_result: "On a Kaggle-derived nine-group mirror, benign-only 95th-percentile calibration often reduced FPR but sometimes collapsed attack recall; effect was model/group dependent. This is not evidence of validation."
   failure_conditions:
     - calibration does_not_reduce_false_positives
     - attack_recall_drops_beyond_predeclared_tolerance

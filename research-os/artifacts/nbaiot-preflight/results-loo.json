@@ -1,0 +1,853 @@
+{
+  "source_zip": "E:\\water paper\\research-os\\data\\raw\\n-baiot-final-kaggle.zip",
+  "groups": {
+    "Final/merge_dataframe_1.csv": {
+      "rows": 4000,
+      "benign": 2000,
+      "attack": 2000,
+      "features": 15
+    },
+    "Final/merge_dataframe_2.csv": {
+      "rows": 4000,
+      "benign": 2000,
+      "attack": 2000,
+      "features": 15
+    },
+    "Final/merge_dataframe_3.csv": {
+      "rows": 4000,
+      "benign": 2000,
+      "attack": 2000,
+      "features": 15
+    },
+    "Final/merge_dataframe_4.csv": {
+      "rows": 4000,
+      "benign": 2000,
+      "attack": 2000,
+      "features": 15
+    },
+    "Final/merge_dataframe_5.csv": {
+      "rows": 4000,
+      "benign": 2000,
+      "attack": 2000,
+      "features": 15
+    },
+    "Final/merge_dataframe_6.csv": {
+      "rows": 4000,
+      "benign": 2000,
+      "attack": 2000,
+      "features": 15
+    },
+    "Final/merge_dataframe_7.csv": {
+      "rows": 4000,
+      "benign": 2000,
+      "attack": 2000,
+      "features": 15
+    },
+    "Final/merge_dataframe_8.csv": {
+      "rows": 4000,
+      "benign": 2000,
+      "attack": 2000,
+      "features": 15
+    },
+    "Final/merge_dataframe_9.csv": {
+      "rows": 4000,
+      "benign": 2000,
+      "attack": 2000,
+      "features": 15
+    }
+  },
+  "models": [
+    {
+      "model": "logistic_regression",
+      "source_groups": [
+        "Final/merge_dataframe_2.csv",
+        "Final/merge_dataframe_3.csv",
+        "Final/merge_dataframe_4.csv",
+        "Final/merge_dataframe_5.csv",
+        "Final/merge_dataframe_6.csv",
+        "Final/merge_dataframe_7.csv",
+        "Final/merge_dataframe_8.csv",
+        "Final/merge_dataframe_9.csv"
+      ],
+      "target_group": "Final/merge_dataframe_1.csv",
+      "calibration_rows": 400,
+      "fit_seconds": 0.13962760000140406,
+      "inference_seconds": 0.0016128999995999038,
+      "inference_us_per_row": 0.44802777766664,
+      "serialized_model_bytes": 2317,
+      "fixed_threshold_0.5": {
+        "n": 3600,
+        "accuracy": 0.5563888888888889,
+        "macro_f1": 0.35920577717922364,
+        "attack_recall": 1.0,
+        "fpr": 0.998125,
+        "auroc": 0.70744953125,
+        "tn": 3,
+        "fp": 1597,
+        "fn": 0,
+        "tp": 2000
+      },
+      "benign_quantile_0.95_threshold": 0.5490381568450462,
+      "benign_calibrated": {
+        "n": 3600,
+        "accuracy": 0.4152777777777778,
+        "macro_f1": 0.2934249263984298,
+        "attack_recall": 0.0,
+        "fpr": 0.065625,
+        "auroc": 0.70744953125,
+        "tn": 1495,
+        "fp": 105,
+        "fn": 2000,
+        "tp": 0
+      }
+    },
+    {
+      "model": "random_forest",
+      "source_groups": [
+        "Final/merge_dataframe_2.csv",
+        "Final/merge_dataframe_3.csv",
+        "Final/merge_dataframe_4.csv",
+        "Final/merge_dataframe_5.csv",
+        "Final/merge_dataframe_6.csv",
+        "Final/merge_dataframe_7.csv",
+        "Final/merge_dataframe_8.csv",
+        "Final/merge_dataframe_9.csv"
+      ],
+      "target_group": "Final/merge_dataframe_1.csv",
+      "calibration_rows": 400,
+      "fit_seconds": 0.23960790000273846,
+      "inference_seconds": 0.03264990000752732,
+      "inference_us_per_row": 9.06941666875759,
+      "serialized_model_bytes": 1654452,
+      "fixed_threshold_0.5": {
+        "n": 3600,
+        "accuracy": 0.7327777777777778,
+        "macro_f1": 0.6885965480182827,
+        "attack_recall": 0.9985,
+        "fpr": 0.599375,
+        "auroc": 0.8432790625000001,
+        "tn": 641,
+        "fp": 959,
+        "fn": 3,
+        "tp": 1997
+      },
+      "benign_quantile_0.95_threshold": 0.6936193876760612,
+      "benign_calibrated": {
+        "n": 3600,
+        "accuracy": 0.7319444444444444,
+        "macro_f1": 0.6881563785350693,
+        "attack_recall": 0.996,
+        "fpr": 0.598125,
+        "auroc": 0.8432790625000001,
+        "tn": 643,
+        "fp": 957,
+        "fn": 8,
+        "tp": 1992
+      }
+    },
+    {
+      "model": "logistic_regression",
+      "source_groups": [
+        "Final/merge_dataframe_1.csv",
+        "Final/merge_dataframe_3.csv",
+        "Final/merge_dataframe_4.csv",
+        "Final/merge_dataframe_5.csv",
+        "Final/merge_dataframe_6.csv",
+        "Final/merge_dataframe_7.csv",
+        "Final/merge_dataframe_8.csv",
+        "Final/merge_dataframe_9.csv"
+      ],
+      "target_group": "Final/merge_dataframe_2.csv",
+      "calibration_rows": 400,
+      "fit_seconds": 0.06916889999411069,
+      "inference_seconds": 0.0014281999901868403,
+      "inference_us_per_row": 0.39672221949634456,
+      "serialized_model_bytes": 2317,
+      "fixed_threshold_0.5": {
+        "n": 3600,
+        "accuracy": 0.7880555555555555,
+        "macro_f1": 0.7633584899190872,
+        "attack_recall": 1.0,
+        "fpr": 0.476875,
+        "auroc": 0.7317717187499999,
+        "tn": 837,
+        "fp": 763,
+        "fn": 0,
+        "tp": 2000
+      },
+      "benign_quantile_0.95_threshold": 0.5635026683715362,
+      "benign_calibrated": {
+        "n": 3600,
+        "accuracy": 0.42138888888888887,
+        "macro_f1": 0.2964627711549736,
+        "attack_recall": 0.0,
+        "fpr": 0.051875,
+        "auroc": 0.7317717187499999,
+        "tn": 1517,
+        "fp": 83,
+        "fn": 2000,
+        "tp": 0
+      }
+    },
+    {
+      "model": "random_forest",
+      "source_groups": [
+        "Final/merge_dataframe_1.csv",
+        "Final/merge_dataframe_3.csv",
+        "Final/merge_dataframe_4.csv",
+        "Final/merge_dataframe_5.csv",
+        "Final/merge_dataframe_6.csv",
+        "Final/merge_dataframe_7.csv",
+        "Final/merge_dataframe_8.csv",
+        "Final/merge_dataframe_9.csv"
+      ],
+      "target_group": "Final/merge_dataframe_2.csv",
+      "calibration_rows": 400,
+      "fit_seconds": 0.242389799997909,
+      "inference_seconds": 0.034784499992383644,
+      "inference_us_per_row": 9.662361108995457,
+      "serialized_model_bytes": 1685507,
+      "fixed_threshold_0.5": {
+        "n": 3600,
+        "accuracy": 0.875,
+        "macro_f1": 0.8679108486287679,
+        "attack_recall": 0.996,
+        "fpr": 0.27625,
+        "auroc": 0.940133125,
+        "tn": 1158,
+        "fp": 442,
+        "fn": 8,
+        "tp": 1992
+      },
+      "benign_quantile_0.95_threshold": 0.654720433526069,
+      "benign_calibrated": {
+        "n": 3600,
+        "accuracy": 0.875,
+        "macro_f1": 0.8680537207058898,
+        "attack_recall": 0.994,
+        "fpr": 0.27375,
+        "auroc": 0.940133125,
+        "tn": 1162,
+        "fp": 438,
+        "fn": 12,
+        "tp": 1988
+      }
+    },
+    {
+      "model": "logistic_regression",
+      "source_groups": [
+        "Final/merge_dataframe_1.csv",
+        "Final/merge_dataframe_2.csv",
+        "Final/merge_dataframe_4.csv",
+        "Final/merge_dataframe_5.csv",
+        "Final/merge_dataframe_6.csv",
+        "Final/merge_dataframe_7.csv",
+        "Final/merge_dataframe_8.csv",
+        "Final/merge_dataframe_9.csv"
+      ],
+      "target_group": "Final/merge_dataframe_3.csv",
+      "calibration_rows": 400,
+      "fit_seconds": 0.07702789999893866,
+      "inference_seconds": 0.0015226999821607023,
+      "inference_us_per_row": 0.4229722172668618,
+      "serialized_model_bytes": 2317,
+      "fixed_threshold_0.5": {
+        "n": 3600,
+        "accuracy": 0.6055555555555555,
+        "macro_f1": 0.47012728554251837,
+        "attack_recall": 1.0,
+        "fpr": 0.8875,
+        "auroc": 0.64708359375,
+        "tn": 180,
+        "fp": 1420,
+        "fn": 0,
+        "tp": 2000
+      },
+      "benign_quantile_0.95_threshold": 0.547308987211115,
+      "benign_calibrated": {
+        "n": 3600,
+        "accuracy": 0.4230555555555556,
+        "macro_f1": 0.29808942178553127,
+        "attack_recall": 0.001,
+        "fpr": 0.049375,
+        "auroc": 0.64708359375,
+        "tn": 1521,
+        "fp": 79,
+        "fn": 1998,
+        "tp": 2
+      }
+    },
+    {
+      "model": "random_forest",
+      "source_groups": [
+        "Final/merge_dataframe_1.csv",
+        "Final/merge_dataframe_2.csv",
+        "Final/merge_dataframe_4.csv",
+        "Final/merge_dataframe_5.csv",
+        "Final/merge_dataframe_6.csv",
+        "Final/merge_dataframe_7.csv",
+        "Final/merge_dataframe_8.csv",
+        "Final/merge_dataframe_9.csv"
+      ],
+      "target_group": "Final/merge_dataframe_3.csv",
+      "calibration_rows": 400,
+      "fit_seconds": 0.23627510000369512,
+      "inference_seconds": 0.03274609998334199,
+      "inference_us_per_row": 9.096138884261665,
+      "serialized_model_bytes": 1668381,
+      "fixed_threshold_0.5": {
+        "n": 3600,
+        "accuracy": 0.895,
+        "macro_f1": 0.8902888897990274,
+        "attack_recall": 0.992,
+        "fpr": 0.22625,
+        "auroc": 0.91243921875,
+        "tn": 1238,
+        "fp": 362,
+        "fn": 16,
+        "tp": 1984
+      },
+      "benign_quantile_0.95_threshold": 0.6471313543558588,
+      "benign_calibrated": {
+        "n": 3600,
+        "accuracy": 0.5902777777777778,
+        "macro_f1": 0.5524196270821021,
+        "attack_recall": 0.2695,
+        "fpr": 0.00875,
+        "auroc": 0.91243921875,
+        "tn": 1586,
+        "fp": 14,
+        "fn": 1461,
+        "tp": 539
+      }
+    },
+    {
+      "model": "logistic_regression",
+      "source_groups": [
+        "Final/merge_dataframe_1.csv",
+        "Final/merge_dataframe_2.csv",
+        "Final/merge_dataframe_3.csv",
+        "Final/merge_dataframe_5.csv",
+        "Final/merge_dataframe_6.csv",
+        "Final/merge_dataframe_7.csv",
+        "Final/merge_dataframe_8.csv",
+        "Final/merge_dataframe_9.csv"
+      ],
+      "target_group": "Final/merge_dataframe_4.csv",
+      "calibration_rows": 400,
+      "fit_seconds": 0.08680089999688789,
+      "inference_seconds": 0.001844200014602393,
+      "inference_us_per_row": 0.512277781833998,
+      "serialized_model_bytes": 2317,
+      "fixed_threshold_0.5": {
+        "n": 3600,
+        "accuracy": 0.6133333333333333,
+        "macro_f1": 0.4859641290932486,
+        "attack_recall": 1.0,
+        "fpr": 0.87,
+        "auroc": 0.71377546875,
+        "tn": 208,
+        "fp": 1392,
+        "fn": 0,
+        "tp": 2000
+      },
+      "benign_quantile_0.95_threshold": 0.5562032279301421,
+      "benign_calibrated": {
+        "n": 3600,
+        "accuracy": 0.42583333333333334,
+        "macro_f1": 0.29865575686732904,
+        "attack_recall": 0.0,
+        "fpr": 0.041875,
+        "auroc": 0.71377546875,
+        "tn": 1533,
+        "fp": 67,
+        "fn": 2000,
+        "tp": 0
+      }
+    },
+    {
+      "model": "random_forest",
+      "source_groups": [
+        "Final/merge_dataframe_1.csv",
+        "Final/merge_dataframe_2.csv",
+        "Final/merge_dataframe_3.csv",
+        "Final/merge_dataframe_5.csv",
+        "Final/merge_dataframe_6.csv",
+        "Final/merge_dataframe_7.csv",
+        "Final/merge_dataframe_8.csv",
+        "Final/merge_dataframe_9.csv"
+      ],
+      "target_group": "Final/merge_dataframe_4.csv",
+      "calibration_rows": 400,
+      "fit_seconds": 0.240441700007068,
+      "inference_seconds": 0.03191850002622232,
+      "inference_us_per_row": 8.866250007283977,
+      "serialized_model_bytes": 1647098,
+      "fixed_threshold_0.5": {
+        "n": 3600,
+        "accuracy": 0.9866666666666667,
+        "macro_f1": 0.9864607191614672,
+        "attack_recall": 0.999,
+        "fpr": 0.02875,
+        "auroc": 0.9918239062499999,
+        "tn": 1554,
+        "fp": 46,
+        "fn": 2,
+        "tp": 1998
+      },
+      "benign_quantile_0.95_threshold": 0.1125,
+      "benign_calibrated": {
+        "n": 3600,
+        "accuracy": 0.9822222222222222,
+        "macro_f1": 0.9819245292610803,
+        "attack_recall": 0.9995,
+        "fpr": 0.039375,
+        "auroc": 0.9918239062499999,
+        "tn": 1537,
+        "fp": 63,
+        "fn": 1,
+        "tp": 1999
+      }
+    },
+    {
+      "model": "logistic_regression",
+      "source_groups": [
+        "Final/merge_dataframe_1.csv",
+        "Final/merge_dataframe_2.csv",
+        "Final/merge_dataframe_3.csv",
+        "Final/merge_dataframe_4.csv",
+        "Final/merge_dataframe_6.csv",
+        "Final/merge_dataframe_7.csv",
+        "Final/merge_dataframe_8.csv",
+        "Final/merge_dataframe_9.csv"
+      ],
+      "target_group": "Final/merge_dataframe_5.csv",
+      "calibration_rows": 400,
+      "fit_seconds": 0.06528560002334416,
+      "inference_seconds": 0.0015594000287819654,
+      "inference_us_per_row": 0.43316667466165704,
+      "serialized_model_bytes": 2317,
+      "fixed_threshold_0.5": {
+        "n": 3600,
+        "accuracy": 0.6869444444444445,
+        "macro_f1": 0.618701089453653,
+        "attack_recall": 0.999,
+        "fpr": 0.703125,
+        "auroc": 0.66736921875,
+        "tn": 475,
+        "fp": 1125,
+        "fn": 2,
+        "tp": 1998
+      },
+      "benign_quantile_0.95_threshold": 0.5411236608503053,
+      "benign_calibrated": {
+        "n": 3600,
+        "accuracy": 0.4147222222222222,
+        "macro_f1": 0.29354035361540864,
+        "attack_recall": 0.0005,
+        "fpr": 0.0675,
+        "auroc": 0.66736921875,
+        "tn": 1492,
+        "fp": 108,
+        "fn": 1999,
+        "tp": 1
+      }
+    },
+    {
+      "model": "random_forest",
+      "source_groups": [
+        "Final/merge_dataframe_1.csv",
+        "Final/merge_dataframe_2.csv",
+        "Final/merge_dataframe_3.csv",
+        "Final/merge_dataframe_4.csv",
+        "Final/merge_dataframe_6.csv",
+        "Final/merge_dataframe_7.csv",
+        "Final/merge_dataframe_8.csv",
+        "Final/merge_dataframe_9.csv"
+      ],
+      "target_group": "Final/merge_dataframe_5.csv",
+      "calibration_rows": 400,
+      "fit_seconds": 0.2353376999963075,
+      "inference_seconds": 0.033580000017536804,
+      "inference_us_per_row": 9.327777782649111,
+      "serialized_model_bytes": 1418033,
+      "fixed_threshold_0.5": {
+        "n": 3600,
+        "accuracy": 0.9202777777777778,
+        "macro_f1": 0.9173729194781826,
+        "attack_recall": 0.997,
+        "fpr": 0.175625,
+        "auroc": 0.94008515625,
+        "tn": 1319,
+        "fp": 281,
+        "fn": 6,
+        "tp": 1994
+      },
+      "benign_quantile_0.95_threshold": 0.6364663647220853,
+      "benign_calibrated": {
+        "n": 3600,
+        "accuracy": 0.6469444444444444,
+        "macro_f1": 0.6322763273505773,
+        "attack_recall": 0.4025,
+        "fpr": 0.0475,
+        "auroc": 0.94008515625,
+        "tn": 1524,
+        "fp": 76,
+        "fn": 1195,
+        "tp": 805
+      }
+    },
+    {
+      "model": "logistic_regression",
+      "source_groups": [
+        "Final/merge_dataframe_1.csv",
+        "Final/merge_dataframe_2.csv",
+        "Final/merge_dataframe_3.csv",
+        "Final/merge_dataframe_4.csv",
+        "Final/merge_dataframe_5.csv",
+        "Final/merge_dataframe_7.csv",
+        "Final/merge_dataframe_8.csv",
+        "Final/merge_dataframe_9.csv"
+      ],
+      "target_group": "Final/merge_dataframe_6.csv",
+      "calibration_rows": 400,
+      "fit_seconds": 0.09684549999656156,
+      "inference_seconds": 0.001999900006921962,
+      "inference_us_per_row": 0.5555277797005449,
+      "serialized_model_bytes": 2317,
+      "fixed_threshold_0.5": {
+        "n": 3600,
+        "accuracy": 0.7088888888888889,
+        "macro_f1": 0.6528870326147078,
+        "attack_recall": 0.9995,
+        "fpr": 0.654375,
+        "auroc": 0.766129375,
+        "tn": 553,
+        "fp": 1047,
+        "fn": 1,
+        "tp": 1999
+      },
+      "benign_quantile_0.95_threshold": 0.5516797040515661,
+      "benign_calibrated": {
+        "n": 3600,
+        "accuracy": 0.4216666666666667,
+        "macro_f1": 0.2966002344665885,
+        "attack_recall": 0.0,
+        "fpr": 0.05125,
+        "auroc": 0.766129375,
+        "tn": 1518,
+        "fp": 82,
+        "fn": 2000,
+        "tp": 0
+      }
+    },
+    {
+      "model": "random_forest",
+      "source_groups": [
+        "Final/merge_dataframe_1.csv",
+        "Final/merge_dataframe_2.csv",
+        "Final/merge_dataframe_3.csv",
+        "Final/merge_dataframe_4.csv",
+        "Final/merge_dataframe_5.csv",
+        "Final/merge_dataframe_7.csv",
+        "Final/merge_dataframe_8.csv",
+        "Final/merge_dataframe_9.csv"
+      ],
+      "target_group": "Final/merge_dataframe_6.csv",
+      "calibration_rows": 400,
+      "fit_seconds": 0.23841890000039712,
+      "inference_seconds": 0.03805660002399236,
+      "inference_us_per_row": 10.571277784442323,
+      "serialized_model_bytes": 1493737,
+      "fixed_threshold_0.5": {
+        "n": 3600,
+        "accuracy": 0.9247222222222222,
+        "macro_f1": 0.9223048911842412,
+        "attack_recall": 0.991,
+        "fpr": 0.158125,
+        "auroc": 0.9351125,
+        "tn": 1347,
+        "fp": 253,
+        "fn": 18,
+        "tp": 1982
+      },
+      "benign_quantile_0.95_threshold": 0.6423042987604486,
+      "benign_calibrated": {
+        "n": 3600,
+        "accuracy": 0.9247222222222222,
+        "macro_f1": 0.9224440829867391,
+        "attack_recall": 0.9865,
+        "fpr": 0.1525,
+        "auroc": 0.9351125,
+        "tn": 1356,
+        "fp": 244,
+        "fn": 27,
+        "tp": 1973
+      }
+    },
+    {
+      "model": "logistic_regression",
+      "source_groups": [
+        "Final/merge_dataframe_1.csv",
+        "Final/merge_dataframe_2.csv",
+        "Final/merge_dataframe_3.csv",
+        "Final/merge_dataframe_4.csv",
+        "Final/merge_dataframe_5.csv",
+        "Final/merge_dataframe_6.csv",
+        "Final/merge_dataframe_8.csv",
+        "Final/merge_dataframe_9.csv"
+      ],
+      "target_group": "Final/merge_dataframe_7.csv",
+      "calibration_rows": 400,
+      "fit_seconds": 0.09257080001407303,
+      "inference_seconds": 0.0014876000059302896,
+      "inference_us_per_row": 0.4132222238695249,
+      "serialized_model_bytes": 2317,
+      "fixed_threshold_0.5": {
+        "n": 3600,
+        "accuracy": 0.7755555555555556,
+        "macro_f1": 0.7472890565597117,
+        "attack_recall": 0.999,
+        "fpr": 0.50375,
+        "auroc": 0.919203125,
+        "tn": 794,
+        "fp": 806,
+        "fn": 2,
+        "tp": 1998
+      },
+      "benign_quantile_0.95_threshold": 0.5392365183044924,
+      "benign_calibrated": {
+        "n": 3600,
+        "accuracy": 0.9102777777777777,
+        "macro_f1": 0.9089607360682641,
+        "attack_recall": 0.9275,
+        "fpr": 0.11125,
+        "auroc": 0.919203125,
+        "tn": 1422,
+        "fp": 178,
+        "fn": 145,
+        "tp": 1855
+      }
+    },
+    {
+      "model": "random_forest",
+      "source_groups": [
+        "Final/merge_dataframe_1.csv",
+        "Final/merge_dataframe_2.csv",
+        "Final/merge_dataframe_3.csv",
+        "Final/merge_dataframe_4.csv",
+        "Final/merge_dataframe_5.csv",
+        "Final/merge_dataframe_6.csv",
+        "Final/merge_dataframe_8.csv",
+        "Final/merge_dataframe_9.csv"
+      ],
+      "target_group": "Final/merge_dataframe_7.csv",
+      "calibration_rows": 400,
+      "fit_seconds": 0.23215100000379607,
+      "inference_seconds": 0.031642100017052144,
+      "inference_us_per_row": 8.789472226958928,
+      "serialized_model_bytes": 1705190,
+      "fixed_threshold_0.5": {
+        "n": 3600,
+        "accuracy": 0.9458333333333333,
+        "macro_f1": 0.944425404999861,
+        "attack_recall": 0.9945,
+        "fpr": 0.115,
+        "auroc": 0.9577825,
+        "tn": 1416,
+        "fp": 184,
+        "fn": 11,
+        "tp": 1989
+      },
+      "benign_quantile_0.95_threshold": 0.6396792598481802,
+      "benign_calibrated": {
+        "n": 3600,
+        "accuracy": 0.9438888888888889,
+        "macro_f1": 0.9425076348153272,
+        "attack_recall": 0.989,
+        "fpr": 0.1125,
+        "auroc": 0.9577825,
+        "tn": 1420,
+        "fp": 180,
+        "fn": 22,
+        "tp": 1978
+      }
+    },
+    {
+      "model": "logistic_regression",
+      "source_groups": [
+        "Final/merge_dataframe_1.csv",
+        "Final/merge_dataframe_2.csv",
+        "Final/merge_dataframe_3.csv",
+        "Final/merge_dataframe_4.csv",
+        "Final/merge_dataframe_5.csv",
+        "Final/merge_dataframe_6.csv",
+        "Final/merge_dataframe_7.csv",
+        "Final/merge_dataframe_9.csv"
+      ],
+      "target_group": "Final/merge_dataframe_8.csv",
+      "calibration_rows": 400,
+      "fit_seconds": 0.07857119999243878,
+      "inference_seconds": 0.0023762000200804323,
+      "inference_us_per_row": 0.6600555611334534,
+      "serialized_model_bytes": 2317,
+      "fixed_threshold_0.5": {
+        "n": 3600,
+        "accuracy": 0.5944444444444444,
+        "macro_f1": 0.4467601364153088,
+        "attack_recall": 1.0,
+        "fpr": 0.9125,
+        "auroc": 0.8772040625,
+        "tn": 140,
+        "fp": 1460,
+        "fn": 0,
+        "tp": 2000
+      },
+      "benign_quantile_0.95_threshold": 0.5512279809014092,
+      "benign_calibrated": {
+        "n": 3600,
+        "accuracy": 0.8744444444444445,
+        "macro_f1": 0.8732738310149526,
+        "attack_recall": 0.8735,
+        "fpr": 0.124375,
+        "auroc": 0.8772040625,
+        "tn": 1401,
+        "fp": 199,
+        "fn": 253,
+        "tp": 1747
+      }
+    },
+    {
+      "model": "random_forest",
+      "source_groups": [
+        "Final/merge_dataframe_1.csv",
+        "Final/merge_dataframe_2.csv",
+        "Final/merge_dataframe_3.csv",
+        "Final/merge_dataframe_4.csv",
+        "Final/merge_dataframe_5.csv",
+        "Final/merge_dataframe_6.csv",
+        "Final/merge_dataframe_7.csv",
+        "Final/merge_dataframe_9.csv"
+      ],
+      "target_group": "Final/merge_dataframe_8.csv",
+      "calibration_rows": 400,
+      "fit_seconds": 0.23324979998869821,
+      "inference_seconds": 0.0315196999872569,
+      "inference_us_per_row": 8.755472218682472,
+      "serialized_model_bytes": 1533785,
+      "fixed_threshold_0.5": {
+        "n": 3600,
+        "accuracy": 0.8216666666666667,
+        "macro_f1": 0.8054963932002509,
+        "attack_recall": 0.999,
+        "fpr": 0.4,
+        "auroc": 0.91047453125,
+        "tn": 960,
+        "fp": 640,
+        "fn": 2,
+        "tp": 1998
+      },
+      "benign_quantile_0.95_threshold": 0.6791834894293358,
+      "benign_calibrated": {
+        "n": 3600,
+        "accuracy": 0.8216666666666667,
+        "macro_f1": 0.805699481865285,
+        "attack_recall": 0.9975,
+        "fpr": 0.398125,
+        "auroc": 0.91047453125,
+        "tn": 963,
+        "fp": 637,
+        "fn": 5,
+        "tp": 1995
+      }
+    },
+    {
+      "model": "logistic_regression",
+      "source_groups": [
+        "Final/merge_dataframe_1.csv",
+        "Final/merge_dataframe_2.csv",
+        "Final/merge_dataframe_3.csv",
+        "Final/merge_dataframe_4.csv",
+        "Final/merge_dataframe_5.csv",
+        "Final/merge_dataframe_6.csv",
+        "Final/merge_dataframe_7.csv",
+        "Final/merge_dataframe_8.csv"
+      ],
+      "target_group": "Final/merge_dataframe_9.csv",
+      "calibration_rows": 400,
+      "fit_seconds": 0.09150310000404716,
+      "inference_seconds": 0.001724000001559034,
+      "inference_us_per_row": 0.47888888932195384,
+      "serialized_model_bytes": 2317,
+      "fixed_threshold_0.5": {
+        "n": 3600,
+        "accuracy": 0.575,
+        "macro_f1": 0.40357982046756397,
+        "attack_recall": 1.0,
+        "fpr": 0.95625,
+        "auroc": 0.76433796875,
+        "tn": 70,
+        "fp": 1530,
+        "fn": 0,
+        "tp": 2000
+      },
+      "benign_quantile_0.95_threshold": 0.5477596014144098,
+      "benign_calibrated": {
+        "n": 3600,
+        "accuracy": 0.8086111111111111,
+        "macro_f1": 0.8043546008968738,
+        "attack_recall": 0.8605,
+        "fpr": 0.25625,
+        "auroc": 0.76433796875,
+        "tn": 1190,
+        "fp": 410,
+        "fn": 279,
+        "tp": 1721
+      }
+    },
+    {
+      "model": "random_forest",
+      "source_groups": [
+        "Final/merge_dataframe_1.csv",
+        "Final/merge_dataframe_2.csv",
+        "Final/merge_dataframe_3.csv",
+        "Final/merge_dataframe_4.csv",
+        "Final/merge_dataframe_5.csv",
+        "Final/merge_dataframe_6.csv",
+        "Final/merge_dataframe_7.csv",
+        "Final/merge_dataframe_8.csv"
+      ],
+      "target_group": "Final/merge_dataframe_9.csv",
+      "calibration_rows": 400,
+      "fit_seconds": 0.23116009999648668,
+      "inference_seconds": 0.0322394999966491,
+      "inference_us_per_row": 8.95541666573586,
+      "serialized_model_bytes": 1624671,
+      "fixed_threshold_0.5": {
+        "n": 3600,
+        "accuracy": 0.6366666666666667,
+        "macro_f1": 0.5327086109513381,
+        "attack_recall": 0.9975,
+        "fpr": 0.814375,
+        "auroc": 0.8174879687500001,
+        "tn": 297,
+        "fp": 1303,
+        "fn": 5,
+        "tp": 1995
+      },
+      "benign_quantile_0.95_threshold": 0.7135596229692035,
+      "benign_calibrated": {
+        "n": 3600,
+        "accuracy": 0.7525,
+        "macro_f1": 0.7482638200816188,
+        "attack_recall": 0.5605,
+        "fpr": 0.0075,
+        "auroc": 0.8174879687500001,
+        "tn": 1588,
+        "fp": 12,
+        "fn": 879,
+        "tp": 1121
+      }
+    }
+  ]
+}

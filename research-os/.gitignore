@@ -1,0 +1,7 @@
+# Local research data archives and extracted datasets
+/data/raw/*.zip
+/data/raw/*.mat
+/data/raw/*.csv
+/data/raw/*.part*
+/data/processed/
+/tools/__pycache__/

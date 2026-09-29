@@ -20,6 +20,10 @@ The user explicitly excluded all quadruped/robot-dog work. The active scope is n
 
 A source-backed preliminary shortlist is stored in `literature/venue-direction-brief.md` and `literature_matrix/venue-shortlist.csv`. The lowest-risk legitimate route is conditional on having the robot and logs: RGB-D quadruped visual/task navigation. It is not an acceptance prediction. Current fees, deadlines, indexing and the image-derived list still require verification.
 
+## IoT IDS preflight checkpoint
+
+A bounded leave-one-group-out preflight on a public N-BaIoT-derived Kaggle mirror showed benign-only 95th-percentile calibration often lowers FPR but can severely reduce attack recall; results are model/group dependent. The mirror lacks verified device IDs and timestamps, so H-IOT-IDS-01 remains unvalidated.
+
 ## IoT IDS novelty-audit checkpoint
 
 A reverse peer-review found substantial overlap with BRIDGE/TCH-Net, Edge-IIoTset leakage audit, LiteShield, target-FPR calibration, device uncertainty and lightweight cross-domain bridging. The candidate is retained only as a conditional incremental calibration study; no new-method claim is permitted.

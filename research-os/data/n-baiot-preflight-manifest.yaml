@@ -1,0 +1,25 @@
+official_source:
+  name: UCI Machine Learning Repository dataset 442
+  url: https://archive.ics.uci.edu/dataset/442/detection+of+iot+botnet+attacks+n+ba+iot
+  archive_size_compressed: "1.7 GB"
+  status: download_interrupted
+  observed_failure: "Direct streaming connection terminated after approximately 1.3 GB; partial file was deleted and is not used for results."
+secondary_mirror_used_for_preflight:
+  name: Kaggle public dataset mirror
+  ref: nguynhnhthuy/n-baiot-final
+  download_url: https://www.kaggle.com/api/v1/datasets/download/nguynhnhthuy/n-baiot-final
+  local_file: data/raw/n-baiot-final-kaggle.zip
+  sha256: b715d2771f197f50956631c12c42837eb6fb93bd53ff129129b17d79a7e783d2
+  archive_bytes: 96770124
+  license_as_reported_by_kaggle: unknown
+  status: used_for_preflight_only
+  limitations:
+    - nine CSV group files, treated as temporary group proxies rather than verified devices
+    - no timestamp column observed
+    - no verified capture/device provenance in CSV
+    - 15 numeric features plus Label, not the full official 115-feature layout
+zenodo_attempt:
+  record: 3673877
+  url: https://zenodo.org/records/3673877
+  file: NBaIoT_data.mat
+  status: stopped_before_completion_due_to_low_throughput
