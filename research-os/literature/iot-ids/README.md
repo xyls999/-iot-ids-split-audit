@@ -25,7 +25,8 @@
 - `papers.json`: Crossref metadata and abstracts when supplied.
 - `papers/P01.md` ... `papers/P10.md`: individual reading notes/checklists.
 - `sources/arxiv/`: six publicly accessible original PDFs and extracted text files.
-- `cn-reading-notes.md`: Chinese译读重点（不是整篇版权翻译）。
+- `cn-reading-notes.md`: Chinese译读重点。
+- `translations/`: three complete, non-official Chinese translations of open-licensed arXiv papers, with generated PDFs.
 - `subdirection-recommendation.md`: recommended narrow research direction and feasibility gate.
 - `sources/`: optional downloaded publisher/open-access files; do not add private credentials or unverified copies.
 
