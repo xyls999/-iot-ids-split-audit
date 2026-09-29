@@ -1,0 +1,285 @@
+{
+  "groups": {
+    "Final/merge_dataframe_1.csv": {
+      "rows": 4000,
+      "benign": 2000,
+      "attack": 2000
+    },
+    "Final/merge_dataframe_2.csv": {
+      "rows": 4000,
+      "benign": 2000,
+      "attack": 2000
+    },
+    "Final/merge_dataframe_3.csv": {
+      "rows": 4000,
+      "benign": 2000,
+      "attack": 2000
+    },
+    "Final/merge_dataframe_4.csv": {
+      "rows": 4000,
+      "benign": 2000,
+      "attack": 2000
+    },
+    "Final/merge_dataframe_5.csv": {
+      "rows": 4000,
+      "benign": 2000,
+      "attack": 2000
+    },
+    "Final/merge_dataframe_6.csv": {
+      "rows": 4000,
+      "benign": 2000,
+      "attack": 2000
+    },
+    "Final/merge_dataframe_7.csv": {
+      "rows": 4000,
+      "benign": 2000,
+      "attack": 2000
+    },
+    "Final/merge_dataframe_8.csv": {
+      "rows": 4000,
+      "benign": 2000,
+      "attack": 2000
+    },
+    "Final/merge_dataframe_9.csv": {
+      "rows": 4000,
+      "benign": 2000,
+      "attack": 2000
+    }
+  },
+  "results": [
+    {
+      "target": "Final/merge_dataframe_1.csv",
+      "model": "logistic_regression",
+      "source_recall_threshold": 0.5487393267129079,
+      "target_benign_q95": 0.5494964464218829,
+      "constrained_threshold": 0.5487393267129079,
+      "metrics": {
+        "f1": 0.590116597828868,
+        "recall": 0.9435,
+        "fpr": 0.708125,
+        "auroc": 0.7552096875000001
+      }
+    },
+    {
+      "target": "Final/merge_dataframe_1.csv",
+      "model": "random_forest",
+      "source_recall_threshold": 0.685198133718087,
+      "target_benign_q95": 0.6851981337180871,
+      "constrained_threshold": 0.685198133718087,
+      "metrics": {
+        "f1": 0.6883129149432705,
+        "recall": 0.9915,
+        "fpr": 0.594375,
+        "auroc": 0.84507484375
+      }
+    },
+    {
+      "target": "Final/merge_dataframe_2.csv",
+      "model": "logistic_regression",
+      "source_recall_threshold": 0.5311453613074202,
+      "target_benign_q95": 0.5445184221126208,
+      "constrained_threshold": 0.5311453613074202,
+      "metrics": {
+        "f1": 0.7790890520355689,
+        "recall": 0.935,
+        "fpr": 0.385625,
+        "auroc": 0.76202140625
+      }
+    },
+    {
+      "target": "Final/merge_dataframe_2.csv",
+      "model": "random_forest",
+      "source_recall_threshold": 0.6608006705522114,
+      "target_benign_q95": 0.6608006705522114,
+      "constrained_threshold": 0.6608006705522114,
+      "metrics": {
+        "f1": 0.8559660562951481,
+        "recall": 0.9925,
+        "fpr": 0.29625,
+        "auroc": 0.9339976562500001
+      }
+    },
+    {
+      "target": "Final/merge_dataframe_3.csv",
+      "model": "logistic_regression",
+      "source_recall_threshold": 0.5472107794840013,
+      "target_benign_q95": 0.5528921317075829,
+      "constrained_threshold": 0.5472107794840013,
+      "metrics": {
+        "f1": 0.6754111908629596,
+        "recall": 0.951,
+        "fpr": 0.583125,
+        "auroc": 0.5146240625
+      }
+    },
+    {
+      "target": "Final/merge_dataframe_3.csv",
+      "model": "random_forest",
+      "source_recall_threshold": 0.6388368363023296,
+      "target_benign_q95": 0.6388368363023296,
+      "constrained_threshold": 0.6388368363023296,
+      "metrics": {
+        "f1": 0.5953323035906984,
+        "recall": 0.328,
+        "fpr": 0.01,
+        "auroc": 0.92456359375
+      }
+    },
+    {
+      "target": "Final/merge_dataframe_4.csv",
+      "model": "logistic_regression",
+      "source_recall_threshold": 0.5454190333065164,
+      "target_benign_q95": 0.5473435799361035,
+      "constrained_threshold": 0.5454190333065164,
+      "metrics": {
+        "f1": 0.8480519480519481,
+        "recall": 0.97,
+        "fpr": 0.2875,
+        "auroc": 0.734483125
+      }
+    },
+    {
+      "target": "Final/merge_dataframe_4.csv",
+      "model": "random_forest",
+      "source_recall_threshold": 0.6285181806252083,
+      "target_benign_q95": 0.10002551020408161,
+      "constrained_threshold": 0.10002551020408161,
+      "metrics": {
+        "f1": 0.9799343060484643,
+        "recall": 1.0,
+        "fpr": 0.044375,
+        "auroc": 0.99237875
+      }
+    },
+    {
+      "target": "Final/merge_dataframe_5.csv",
+      "model": "logistic_regression",
+      "source_recall_threshold": 0.5410011209975671,
+      "target_benign_q95": 0.5410040723965364,
+      "constrained_threshold": 0.5410011209975671,
+      "metrics": {
+        "f1": 0.7736085607833204,
+        "recall": 0.96,
+        "fpr": 0.420625,
+        "auroc": 0.7073075
+      }
+    },
+    {
+      "target": "Final/merge_dataframe_5.csv",
+      "model": "random_forest",
+      "source_recall_threshold": 0.6320142822280346,
+      "target_benign_q95": 0.7329917210643572,
+      "constrained_threshold": 0.6320142822280346,
+      "metrics": {
+        "f1": 0.9339684253780081,
+        "recall": 0.9935,
+        "fpr": 0.13625,
+        "auroc": 0.9319898437499999
+      }
+    },
+    {
+      "target": "Final/merge_dataframe_6.csv",
+      "model": "logistic_regression",
+      "source_recall_threshold": 0.5399861299872992,
+      "target_benign_q95": 0.5400765390355678,
+      "constrained_threshold": 0.5399861299872992,
+      "metrics": {
+        "f1": 0.7963007446552967,
+        "recall": 0.949,
+        "fpr": 0.366875,
+        "auroc": 0.77133875
+      }
+    },
+    {
+      "target": "Final/merge_dataframe_6.csv",
+      "model": "random_forest",
+      "source_recall_threshold": 0.6358967801543518,
+      "target_benign_q95": 0.6358967801543518,
+      "constrained_threshold": 0.6358967801543518,
+      "metrics": {
+        "f1": 0.9265830295270692,
+        "recall": 0.9955,
+        "fpr": 0.154375,
+        "auroc": 0.9353253125
+      }
+    },
+    {
+      "target": "Final/merge_dataframe_7.csv",
+      "model": "logistic_regression",
+      "source_recall_threshold": 0.5394342713907788,
+      "target_benign_q95": 0.5394342713908324,
+      "constrained_threshold": 0.5394342713907788,
+      "metrics": {
+        "f1": 0.9113938553352923,
+        "recall": 0.945,
+        "fpr": 0.126875,
+        "auroc": 0.92159515625
+      }
+    },
+    {
+      "target": "Final/merge_dataframe_7.csv",
+      "model": "random_forest",
+      "source_recall_threshold": 0.6428858503206422,
+      "target_benign_q95": 0.6428858503206422,
+      "constrained_threshold": 0.6428858503206422,
+      "metrics": {
+        "f1": 0.9373174727544697,
+        "recall": 0.9875,
+        "fpr": 0.121875,
+        "auroc": 0.959890625
+      }
+    },
+    {
+      "target": "Final/merge_dataframe_8.csv",
+      "model": "logistic_regression",
+      "source_recall_threshold": 0.5512254920674213,
+      "target_benign_q95": 0.5512254920674865,
+      "constrained_threshold": 0.5512254920674213,
+      "metrics": {
+        "f1": 0.757125819157562,
+        "recall": 0.9395,
+        "fpr": 0.43125,
+        "auroc": 0.87288453125
+      }
+    },
+    {
+      "target": "Final/merge_dataframe_8.csv",
+      "model": "random_forest",
+      "source_recall_threshold": 0.6696900897300411,
+      "target_benign_q95": 0.6696900897300411,
+      "constrained_threshold": 0.6696900897300411,
+      "metrics": {
+        "f1": 0.8022047150954834,
+        "recall": 0.9935,
+        "fpr": 0.400625,
+        "auroc": 0.9094939062499999
+      }
+    },
+    {
+      "target": "Final/merge_dataframe_9.csv",
+      "model": "logistic_regression",
+      "source_recall_threshold": 0.5475085958080421,
+      "target_benign_q95": 0.5475085958081173,
+      "constrained_threshold": 0.5475085958080421,
+      "metrics": {
+        "f1": 0.5054745770067766,
+        "recall": 0.9515,
+        "fpr": 0.825625,
+        "auroc": 0.782318125
+      }
+    },
+    {
+      "target": "Final/merge_dataframe_9.csv",
+      "model": "random_forest",
+      "source_recall_threshold": 0.7056453625318364,
+      "target_benign_q95": 0.7056453625318365,
+      "constrained_threshold": 0.7056453625318364,
+      "metrics": {
+        "f1": 0.5358188763047208,
+        "recall": 0.9925,
+        "fpr": 0.808125,
+        "auroc": 0.8091254687500001
+      }
+    }
+  ]
+}

@@ -36,7 +36,7 @@ hypothesis:
     - verify_target_benign_windows_and_time_order
     - verify_dataset_license_and_provenance
     - repeat_with_official_UCI_archive
-  preflight_result: "On a Kaggle-derived nine-group mirror, benign-only 95th-percentile calibration often reduced FPR but sometimes collapsed attack recall; effect was model/group dependent. This is not evidence of validation."
+  preflight_result: "On a Kaggle-derived nine-group mirror, benign-only 95th-percentile calibration often reduced FPR but sometimes collapsed attack recall; a source-recall-constrained threshold variant still failed under group shift. Effect was model/group dependent. This is negative preflight evidence, not validation."
   failure_conditions:
     - calibration does_not_reduce_false_positives
     - attack_recall_drops_beyond_predeclared_tolerance

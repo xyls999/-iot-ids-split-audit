@@ -83,3 +83,13 @@ Full machine-readable output: `research-os/artifacts/nbaiot-preflight/results-lo
 ## Decision
 
 `H-IOT-IDS-01` remains **conditional and not validated**. Before any paper claim, repeat on the official UCI archive or an auditable mirror with verified device IDs and timestamps. The calibration objective should be constrained, for example: minimize FPR subject to attack recall not falling below a predeclared tolerance.
+
+## Additional constrained-threshold check
+
+A second check constrained the threshold by the 5th percentile of source attack scores (intended to preserve approximately 95% source attack recall) and then used the smaller of that threshold and the target benign 95th percentile. This is a safety-oriented variant, not a validated method.
+
+It still failed to guarantee target recall under group shift. For example, held-out group 3 with Random Forest reached FPR 0.010 but attack recall only 0.328; held-out group 9 with Random Forest had FPR 0.808 and recall 0.993. Logistic Regression retained roughly 0.935–0.970 recall on most groups but FPR remained 0.127–0.826.
+
+Machine-readable output: `research-os/artifacts/nbaiot-preflight/constrained-results.json`.
+
+**Updated interpretation:** benign-only threshold calibration alone is not a sufficient contribution. A publishable method would need a domain-shift-aware score normalization or calibration mechanism with explicit recall guarantees, plus verified device/time metadata.

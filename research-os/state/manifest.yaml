@@ -90,6 +90,7 @@ artifacts:
   n_baiot_official_profile: data/n-baiot-uci-profile.md
   n_baiot_preflight_manifest: data/n-baiot-preflight-manifest.yaml
   n_baiot_preflight_report: reports/nbaiot-preflight-report.md
+  n_baiot_constrained_check: artifacts/nbaiot-preflight/constrained-results.json
 
 literature:
   total: 0
@@ -113,5 +114,5 @@ review:
 
 last_checkpoint:
   timestamp: 2026-09-30T00:30:00+08:00
-  summary: "A bounded leave-one-group-out preflight on a public N-BaIoT-derived mirror showed that benign-only threshold calibration often lowers FPR but can collapse attack recall; file groups lack verified device/time metadata, so the hypothesis remains unvalidated."
+  summary: "A bounded leave-one-group-out preflight and a source-recall-constrained threshold check on a public N-BaIoT-derived mirror showed FPR/recall trade-offs and failures under group shift; file groups lack verified device/time metadata, so the hypothesis remains unvalidated."
   next_action: "Repeat the preflight on the official UCI archive or an auditable device/time mirror; do not claim the calibration method is validated."
