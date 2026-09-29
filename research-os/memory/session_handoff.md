@@ -27,6 +27,10 @@ The screenshot was successfully read and transcribed to `literature/screenshot-v
 
 Ten DOI-verified papers and local reading notes are at `literature/iot-ids/`. Start with P01/P02/P03/P05/P06, then read P09/P10 for cross-domain and label-harmonization risks. The collection is defensive/offline only.
 
+## Innovation checkpoint
+
+Candidate ideas: `ideas/iot-ids-candidates.yaml`; independent critique: `ideas/iot-ids-critic.md`; surviving hypothesis: `hypotheses/iot-ids-active.yaml`. Only modified IOT-IDS-01 survived: benign-only target-device threshold calibration under leakage-controlled leave-one-device-out evaluation. Novelty is not yet established.
+
 ## Next action
 
-Review `literature/iot-ids/research-synthesis.md`, then run a bounded N-BaIoT feasibility experiment or return to the lower-risk sensor-calibration route.
+Complete nearest-paper verification for P09/P10, then decide whether modified H-IOT-IDS-01 passes a bounded N-BaIoT feasibility gate.

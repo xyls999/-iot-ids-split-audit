@@ -1,0 +1,41 @@
+hypothesis:
+  id: H-IOT-IDS-01
+  status: pending_feasibility_and_nearest_paper_check
+  statement: "A lightweight IoT traffic detector trained on source devices and calibrated only with a fixed budget of benign target-device traffic can reduce false positives under leave-one-device-out evaluation without materially reducing attack recall or violating a defined resource budget."
+  scope: "offline public datasets; defensive detection only"
+  novelty_claim: "none yet; must verify P09/P10 and current literature first"
+  data:
+    feasibility: N-BaIoT
+    publication_validation: [Edge-IIoTset, CICIoT2023]
+  conditions:
+    - chronological_split
+    - leave_one_device_out
+    - leakage_audit
+    - fixed_benign_calibration_budget
+    - attack_contamination_negative_control
+    - resource_measurement
+  baselines:
+    - source_fixed_threshold_no_calibration
+    - target_benign_quantile_calibration
+    - logistic_regression
+    - random_forest
+    - lightgbm_or_xgboost
+    - small_mlp
+  metrics:
+    - macro_f1
+    - recall
+    - false_positive_rate
+    - auroc_or_auprc
+    - per_device_results
+    - model_size
+    - inference_latency
+    - peak_memory_or_documented_proxy
+  blockers:
+    - full_text_nearest_paper_check_for_P09_P10
+    - verify_target_benign_windows_and_time_order
+    - verify_dataset_license_and_provenance
+  failure_conditions:
+    - calibration does_not_reduce_false_positives
+    - attack_recall_drops_beyond_predeclared_tolerance
+    - performance_depends_on_leaky_features
+    - no_stable_cross_device_effect

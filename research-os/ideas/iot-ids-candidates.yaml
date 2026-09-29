@@ -1,0 +1,75 @@
+ideas:
+  - idea_id: IOT-IDS-01
+    problem: "IoT intrusion models often lose performance when evaluated on a held-out device or changed environment."
+    existing_work: "P09 cross-domain validation; BRIDGE/TCH-Net; P10 label harmonization; P01/P02 edge detection."
+    observed_gap: "A small, device-independent model with explicit benign-only target-device calibration and resource Pareto reporting needs a controlled comparison."
+    proposed_change: "Use leakage-audited protocol-invariant flow features, lightweight classifier, and bounded benign-only threshold calibration on the held-out device."
+    why_it_might_work: "Benign traffic can expose target-device score distribution without requiring attack labels; calibration may reduce false positives under device shift."
+    nearest_papers: [P02, P09, P10, BRIDGE-2604.11324, LEAKAGE-2608.15761, LiteShield-2605.02987]
+    difference_from_nearest_work: "Candidate difference is the bounded benign-only target calibration plus explicit resource Pareto analysis under leave-one-device-out; this is unverified."
+    required_data: [N-BaIoT, Edge-IIoTset_or_CICIoT2023, device_ids, timestamps, feature_provenance]
+    required_experiments: [random_split_warning, time_split, leave_one_device_out, benign_calibration_ablation, feature_count_ablation, resource_measurement]
+    expected_contribution: "A reproducible evaluation protocol and lightweight calibration method, not a large new neural architecture."
+    risks: ["Nearest work may already contain the same calibration idea", "benign target data may be unavailable", "dataset leakage", "label taxonomy mismatch"]
+    failure_conditions: ["No improvement over fixed threshold", "performance collapses across every device", "calibration requires attack labels", "resource cost is not measured"]
+    novelty_status: pending_nearest_paper_search
+
+  - idea_id: IOT-IDS-02
+    problem: "Feature selection can reduce cost but may remove device-general signals."
+    existing_work: "LiteShield-2605.02987 and common MI/RFECV/PCA approaches."
+    observed_gap: "Compare feature stability across devices, not only feature importance on one random split."
+    proposed_change: "Select features by cross-device stability and compare against accuracy-only feature selection."
+    why_it_might_work: "Features stable across devices may transfer better than high-importance features tied to one capture source."
+    nearest_papers: [LiteShield-2605.02987, BRIDGE-2604.11324, LEAKAGE-2608.15761]
+    difference_from_nearest_work: "Stability criterion across held-out devices; unverified."
+    required_data: [N-BaIoT, Edge-IIoTset]
+    required_experiments: [feature_stability, leave_one_device_out, cost_curve, leakage_audit]
+    expected_contribution: "Device-stable feature-selection protocol and transfer/cost analysis."
+    risks: ["May be an incremental benchmark", "feature stability can be dataset-specific"]
+    failure_conditions: ["No stable feature subset", "no transfer benefit"]
+    novelty_status: pending_nearest_paper_search
+
+  - idea_id: IOT-IDS-03
+    problem: "Static detectors degrade as benign device behaviour drifts over time."
+    existing_work: "IoT-KEEPER online edge analysis and online/anomaly-detection literature."
+    observed_gap: "A low-cost, label-free drift detector plus threshold update may be feasible on flow statistics."
+    proposed_change: "Use rolling benign reference windows and a conservative threshold update with rollback."
+    why_it_might_work: "The benign score distribution can shift even when attack labels are unavailable."
+    nearest_papers: [P02, IoT-KEEPER, recent_online_AD]
+    difference_from_nearest_work: "Explicit rollback-safe threshold policy under device holdout; unverified."
+    required_data: [time_ordered_device_traffic, benign_windows, attack_windows_for_evaluation]
+    required_experiments: [temporal_split, drift_injection, no_label_adaptation, rollback_ablation]
+    expected_contribution: "An auditable label-free drift-handling protocol."
+    risks: ["Needs reliable time ordering", "can adapt to attacks incorrectly", "harder safety analysis"]
+    failure_conditions: ["false positives increase", "attack traffic is absorbed as benign"]
+    novelty_status: pending_nearest_paper_search
+
+  - idea_id: IOT-IDS-04
+    problem: "Heavy neural models are difficult to deploy on constrained devices."
+    existing_work: "2403.15509 self-distillation; 2406.02768 CNN-BiLSTM; 2605.02987 LiteShield."
+    observed_gap: "A transparent Pareto benchmark of classical models, small MLP and compressed model under identical splits."
+    proposed_change: "Benchmark accuracy, memory, latency and feature cost under device/time splits."
+    why_it_might_work: "Many papers report accuracy but use inconsistent splits and omit resource measurements."
+    nearest_papers: [P02, 2403.15509, 2406.02768, LiteShield-2605.02987]
+    difference_from_nearest_work: "Protocol consistency and cross-device evaluation; likely incremental."
+    required_data: [N-BaIoT, Edge-IIoTset]
+    required_experiments: [same_split_all_models, feature_cost, latency, memory, cross_device]
+    expected_contribution: "Reproducible benchmark, not a new classifier."
+    risks: ["Could be judged as engineering evaluation only", "hardware proxy may be weak"]
+    failure_conditions: ["no stable Pareto winner", "resource measures unavailable"]
+    novelty_status: likely_incremental
+
+  - idea_id: IOT-IDS-05
+    problem: "Unseen attack categories are not handled by closed-set classifiers."
+    existing_work: "Recent open-set, zero-day and cross-domain IoT IDS papers."
+    observed_gap: "A small open-set detector with calibrated unknown rejection may be useful."
+    proposed_change: "Train on selected attack categories and reject unseen categories using reconstruction/energy score."
+    why_it_might_work: "Unknown rejection may reduce confident misclassification of unseen attacks."
+    nearest_papers: [P09, BRIDGE-2604.11324, recent_open_set_IDS]
+    difference_from_nearest_work: "Lightweight calibrated rejection; unverified."
+    required_data: [multiple_attack_categories, held_out_attack_classes]
+    required_experiments: [closed_set, open_set, threshold_calibration, false_unknown_analysis]
+    expected_contribution: "Open-set evaluation under resource constraints."
+    risks: ["High novelty competition", "requires careful threat model", "hard to make safe claims"]
+    failure_conditions: ["unknown rejection no better than baseline", "attack selection leaks labels"]
+    novelty_status: high_risk_pending_search

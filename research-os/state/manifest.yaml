@@ -14,7 +14,7 @@ target:
 
 workflow:
   current_stage: literature
-  current_task: "review the ten-paper IoT IDS collection and choose the bounded feasibility experiment"
+  current_task: "validate the surviving IoT IDS innovation candidate against nearest papers"
   auto_continue: false
   status: blocked_pending_user_direction
 
@@ -37,6 +37,9 @@ completed_tasks:
   - task_id: iot-ids-ten-paper-collection
     status: completed
     artifact: literature/iot-ids/README.md
+  - task_id: iot-ids-innovation-critique
+    status: completed
+    artifact: ideas/iot-ids-critic.md
 
 active_tasks: []
 blocked_tasks:
@@ -76,6 +79,8 @@ artifacts:
   iot_ids_synthesis: literature/iot-ids/research-synthesis.md
   iot_ids_cn_notes: literature/iot-ids/cn-reading-notes.md
   iot_ids_subdirection: literature/iot-ids/subdirection-recommendation.md
+  iot_ids_critic: ideas/iot-ids-critic.md
+  iot_ids_hypothesis: hypotheses/iot-ids-active.yaml
 
 literature:
   total: 0
@@ -98,6 +103,6 @@ review:
   minor_issues: 0
 
 last_checkpoint:
-  timestamp: 2026-09-28T23:50:00+08:00
-  summary: "Six publicly accessible original IoT IDS PDFs and Chinese译读 notes added; recommended subdirection is leakage-free lightweight detection under cross-device generalization."
-  next_action: "Review cn-reading-notes.md and subdirection-recommendation.md, then decide whether to run the bounded N-BaIoT feasibility gate."
+  timestamp: 2026-09-29T00:20:00+08:00
+  summary: "Five innovation candidates were independently critiqued; only modified IOT-IDS-01 survived, with benign-only target-device calibration and leakage-controlled leave-one-device-out evaluation."
+  next_action: "Complete nearest-paper verification for P09/P10, then decide whether modified H-IOT-IDS-01 passes feasibility gate."
