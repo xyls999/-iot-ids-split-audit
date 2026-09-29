@@ -83,6 +83,8 @@ artifacts:
   iot_ids_hypothesis: hypotheses/iot-ids-active.yaml
   iot_ids_novelty_audit: reviews/iot-ids-novelty-audit.md
   iot_ids_cn_full_translations: literature/iot-ids/translations/
+  iot_ids_nearest_paper_check: reviews/iot-ids-nearest-paper-check-2026-09-29.md
+  n_baiot_official_profile: data/n-baiot-uci-profile.md
 
 literature:
   total: 0
@@ -105,6 +107,6 @@ review:
   minor_issues: 0
 
 last_checkpoint:
-  timestamp: 2026-09-29T00:20:00+08:00
-  summary: "Adversarial novelty audit found substantial overlap with cross-domain, device-uncertainty, target-FPR calibration, lightweight bridging and leakage-audit work; candidate is retained only as a conditional incremental study."
-  next_action: "Review the three complete Chinese translations, then verify nearest papers and run a bounded N-BaIoT audit; do not claim a new method yet."
+  timestamp: 2026-09-29T21:40:00+08:00
+  summary: "Three complete Chinese translations were generated; P09/P10 nearest-paper verification remains partly blocked at publisher PDF access, and official UCI N-BaIoT metadata confirms 7,062,606 sequential instances with CC BY 4.0."
+  next_action: "Decide whether to download the 7,062,606-instance official N-BaIoT archive; then run chunked leakage-controlled feasibility, without claiming a new method."
