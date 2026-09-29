@@ -1,0 +1,1354 @@
+                                        IEEE INTERNET OF THINGS JOURNAL, NO. X, XXXX XXXX                                 1
+
+                                        Teacher-free Latent Self-distillation and Class-separable
+                                         Representations for Lightweight IoT Attack Detection
+
+                                           Phai Vu Dinh, Diep N. Nguyen, Dinh Thai Hoang, Marwan Krunz, Quang Uy Nguyen,
+                                                                         Son Pham Bao, and Eryk Dutkiewicz
+
+arXiv:2403.15509v3 [cs.CR] 20 Aug 2026     Knowledge distillation (KD) has been widely used to improve                I NTRUSION detection systems (IDS) are essential for
+                                        lightweight AI models by transferring soft-label knowledge from                  safeguarding internet of things (IoT) information systems
+                                        a large teacher model to a student model. However, existing KD                in the digital age [1], [2]. Yet, building effective IoT IDS
+                                        methods are primarily designed for the image domain rather                    remains challenging due to two key factors. First, learning
+                                        than lightweight IoT devices, and they often struggle to maintain             discriminative representations for IoT intrusion detection be-
+                                        well-separated feature representations for different attack types,            comes increasingly challenging as the diversity and number of
+                                        especially as the number of classes increases and attack behaviors            attack categories continue to grow. Thousands of new vulner-
+                                        become more diverse. This paper proposes a novel teacher-free                 abilities, malware families, and attack variants emerge each
+                                        latent self-distillation framework based on a Twin Autoencoder                year [3], expanding the range of behaviors that an IoT IDS
+                                        (TAE). Instead of relying on an external teacher, TAE generates               must distinguish. As more attack categories are introduced,
+                                        intrinsic class-wise latent representations through a deterministic           the boundaries between classes become likely less distinct,
+                                        transformation of the latent representation, as referred to class-            since different attacks may generate highly similar network
+                                        adaptive target representation (CATR), which serves as a target               traffic patterns. For example, the IoT dataset [4] contains
+                                        representation similar to soft labels in KD. The decoder then                 more than 1,500 variants of the Mirai botnet, many of which
+                                        learns to reconstruct the CATR, promoting class separation in                 differ only in subtle behavioral details. Moreover, adversaries
+                                        the resulting decoder representations. After training TAE, both               employ evasion techniques such as encrypted communication
+                                        training and test samples are passed through the decoder to                   and resource-mimicking behaviors, further reducing the distin-
+                                        obtain their corresponding representations. These representations             guishability between attack categories. Consequently, learning
+                                        are then used as inputs to conventional classifiers, such as                  feature representations that preserve intra-class consistency
+                                        Decision Trees (DT), for classification, improving discrimina-                (i.e., samples from the same class remain close together) while
+                                        tion between benign and attack samples while maintaining a                    maintaining strong inter-class separability (i.e., samples from
+                                        lightweight design suitable for IoT deployment. We theoretically              different classes remain well separated) remains a significant
+                                        derive conditions for perfect class separation and show that                  challenge for modern IoT IDS. Failure to achieve these prop-
+                                        lower empirical risk yields better representations, identifying               erties can reduce classification accuracy and increase false
+                                        regimes where TAE achieves strictly lower empirical risk than                 alarm rates. Second, IDS must be deployable not only on
+                                        models using fixed class centers. Extensive experiments on 13                 servers but also on resource-constrained IoT devices [5]. With
+                                        cybersecurity datasets, covering IoT botnets, network intrusion               limited memory and computational power [6], these devices
+                                        detection, malware, cloud DDoS, and synthetic multi-class data,               cannot support high-complexity models, making lightweight
+                                        show that TAE achieves up to 96.1% average accuracy for IoT                   yet accurate detection methods critical.
+                                        attack detection and 98.7% for cloud intrusion detection. With
+                                        a compact model size (1 MB) and ultra-fast inference (0.26 µs                    Machine Learning (ML) has been crucial in the success of
+                                        per sample), TAE offers a practical and scalable solution for                 IDS [7] by learning network traffic patterns to classify new
+                                        real-world cybersecurity and IoT systems.                                     incoming data. However, conventional ML classifiers, such
+                                                                                                                      as Decision Trees, Support Vector Machines, and Random
+                                           Index Terms--Knowledge distillation, self-distillation, student-           Forests, may struggle with the complexity of CDS data [8], [6],
+                                        teacher learning, autoencoder, intrusion detection, IoT.                      resulting in lower detection accuracy. Among ML techniques,
+                                                                                                                      representation learning (RL) is a key approach for enabling
+                                                                  I. INTRODUCTION                                     effective IDS in IoT devices, as it transforms complex input
+                                                                                                                      data into abstract features that facilitate downstream attack
+                                           P. V. Dinh, D. N. Nguyen, D. T. Hoang, and E. Dutkiewicz are with the      detection [9]. However, RL models often struggle with classi-
+                                        School of Electrical and Data Engineering, University of Technology Syd-      fication tasks with many classes [10]. Very deep networks such
+                                        ney, Sydney, NSW 2007, Australia (e-mail: Phai.D.Vu@student.uts.edu.au,       as AlexNet, VGG, and ResNet [11], Transformers (MLP [12],
+                                        {diep.nguyen, hoang.dinh, eryk.dutkiewicz}@uts.edu.au).                       1DCNN [13]) can achieve high classification accuracy across
+                                                                                                                      numerous classes, but their large sizes make them impractical
+                                           M. Krunz and P. V. Dinh are with the Department of Electrical and          for IoT devices with limited computational resources [14].
+                                        Computer Engineering, The University of Arizona, Tucson, AZ, USA (e-mail:
+                                        {krunz, dinhphaivu}@arizona.edu).                                                Many RL models rely on the bottleneck layers of an Auto-
+                                                                                                                      Encoder (AE) to map the input data into a latent vector
+                                           N. Q. Uy and P. V. Dinh are with the Institute of Information and Com-     at the bottleneck layer [6] [15] [8] [16] [17]. AE-based
+                                        munication Technology, Le Quy Don Technical University, Hanoi, Vietnam
+                                        (email: {quanguyhn, phaivd}@lqdtu.edu.vn).
+
+                                           P. B. Son is with the University of Engineering and Technology, Vietnam
+                                        National University, Hanoi, Vietnam (e-mail: sonpb@vnu.edu.vn).
+
+                                           Corresponding author: Phai Vu Dinh
+                                           Preliminary results of this work will be presented at the Global Communi-
+                                        cations Conference in December 2026, Macau, China.
+IEEE INTERNET OF THINGS JOURNAL, NO. X, XXXX XXXX                 2
+
+models may not require millions of parameters and can             global and local input views for SD, while employing a
+achieve high attack detection accuracy on IoT devices [6].        cross-attention module to learn multimodal representations.
+Luo et al. [18] proposed a Convolutional Sparse Auto-Encoder      SDSSL, ATAS, and COSMOS have demonstrated promising
+(CSAE) that uses the structure of a convolutional AE to           performance in image representation tasks, where spatial in-
+separate feature maps for representation learning. The CSAE's     formation is highly relevant. However, IoT data generally lack
+encoder serves as a pre-trained model. The authors in [8]         inherent spatial structure, which may limit the effectiveness
+introduced the Multi-Distribution Auto-Encoder (MAE) and          of representations learned by these methods for downstream
+Multi-Distribution Variational Auto-Encoder (MVAE), which         classification tasks. Furthermore, these approaches may not be
+aim to project benign and malicious data into tightly separated   well-suited to the limited computational capacity of portable
+regions by incorporating a penalty in the loss function. CSAE,    IoT devices.
+MAE, and MVAE use regularizer terms to the loss function
+of AE to constrain and separate the representation of different      Particularly, the authors in [2] introduced TBCLNN, a
+classes. However, the regularization terms in AE often make       lightweight IoT IDS based on self-knowledge distillation.
+training more difficult due to the trade-off with the recon-      TBCLNN employs the binary Harris Hawk optimization algo-
+struction term. The authors in [6] introduced the Constrained     rithm (bHHO) for dimensionality reduction of traffic features
+Twin Variational AE (CTVAE), which generates data samples         and applies block convolution (TBC) as a lightweight con-
+of different classes from separable Gaussian distributions in     volutional operation to design a lightweight neural network.
+the latent space. Then, CTVAE projects the input data of          Compared with TBCLNN, our work follows a different di-
+different classes into these separable Gaussian distributions to  rection. Instead of applying self-distillation (SD) directly to
+obtain data representation. However, like the variational auto-   classification, we focus on SD-based representation learning.
+encoder (VAE) variants, CTVAE generally suffers from the          Our proposed SD method addresses the increasing complexity
+problem of posterior collapse [19]. Posterior collapse occurs     of IoT data by learning more separable data representations,
+when the KL-divergence term in CTVAE's loss reaches zero,         particularly when the number of classes becomes extremely
+leading to a lack of information from the input data used to      large. Unlike conventional deep models that require the entire
+generate samples of different classes in the latent space. This   model during inference, the proposed method uses only a
+likely removes the relationship, i.e., Euclidean distance, among  partially lightweight network model to extract compact and
+the data samples within a class, leading to a distribution that   discriminative representations. The lightweight representation
+does not follow the input data. This may lower classification     extractor can then be combined with lightweight conventional
+accuracy when using the data representation of these variants.    classifiers, such as Decision Trees (DT), to achieve high
+Additionally, AE-based models, such as CSAE [18], MAE,            classification accuracy while maintaining low computational
+MVAE [8], and CTVAE [6], may struggle with training sets          complexity and a small model size suitable for IoT devices.
+that have many classes. In addition, the conventional fixed
+codeword used in supervised representation learning models           Overall, the above methods often rely on predefined class
+may be ineffective in separating data samples of different        targets, such as one-hot vectors, fixed codewords, or manually
+classes. These codewords, i.e., one-hot encoding, represent the   specified latent distributions. These targets are assigned inde-
+target vector of a class [20] [21] but have no relation to the    pendently of the training data and therefore do not capture
+characteristics of the training data.                             the underlying relationships among classes. As the number of
+                                                                  attack classes increases, mapping diverse class distributions
+   Knowledge distillation (KD) is widely used to improve          to predefined targets becomes increasingly difficult, leading
+lightweight IoT IDS based on representation learning [22]. KD     to less compact class clusters and reduced separation be-
+typically requires training a large teacher model on extensive    tween different attack classes in the learned feature space.
+datasets to transfer soft-label knowledge to IoT clients. Soft    Consequently, samples from different classes may overlap in
+labels are the probability distributions over all classes pro-    the latent space, reducing the effectiveness of downstream
+duced by the teacher, which provide richer information than       classifiers. This limitation motivates the use of self-distillation,
+hard class (one-hot encoding) labels by indicating the teacher's  where the target representations are learned directly from the
+confidence in each class. However, maintaining such large-        data rather than predefined in advance. By generating class-
+sized teacher models increases computational cost, introduces     dependent soft labels from its own latent representations,
+multi-stage training complexity, and limits the scalability of    a self-distillation framework can dynamically construct dis-
+IoT student models on resource-constrained devices.               criminative targets that better reflect the intrinsic structure
+                                                                  of the data. Such adaptive soft labels become increasingly
+   Recently, self-distillation (SD) has gained attention as a     valuable as the number of classes grows, enabling improved
+technique in machine learning where a model is retrained using    class separation without requiring a large teacher model or a
+its own previous outputs (or intermediate representations) as     substantial increase in model complexity.
+soft targets to guide and improve its performance. The authors
+in [23] proposed SDSSL, which aims to align the represen-            In this paper, we propose a teacher-free latent self-
+tations of lower layers with the final layer to improve the       distillation framework based on a Twin Autoencoder (TAE).
+linear separability of data from different classes. To go beyond  Instead of relying on an external teacher, TAE learns intrinsic
+this, ATAS in [24] integrates global-to-local, local-to-local,    class-wise latent representations and uses them as class-
+and global-to-global distillation to refine feature representa-   adaptive target representations (CATRs) to guide the decoder.
+tions across all scales. Similarly, COSMOS in [25] constructs     This design enables discriminative representation learning
+                                                                  without the additional overhead of a teacher model. Experi-
+IEEE INTERNET OF THINGS JOURNAL, NO. X, XXXX XXXX                                                                                     3
+
+                            TABLE I: Comparison of the proposed TAE model with related works.
+
+             Models                                 Data Complexity                                        IoT Deployment
+                                                                                                  Lightweight; suitable for IoT [6],
+SVM, DT, RF [7]; XGBoost    High Dimensions                        Multiple-class problem         [27]
+[26], [1]                                                                                         Suitable for IoT [30]
+MLP [28], 1D-CNN [29]       Low accuracy [6], [8]                  Low accuracy
+                                                                                                  Difficult due to size [14]
+AlexNet, VGG, ResNet [11];  Can achieve high accuracy [30] Performance degrades with
+MLP Transformer MLP [12],                                                                         Suitable for IoT [6], [8]
+Transformer-1DCNN [13],                                            multiple-class problem [29]
+AE-based models (CSAE                                                                             Deployable but complex training
+[18]; MVAE, MAE [8])        High accuracy [11]                     High accuracy [11]
+CTVAE [6]                                                                                         Difficult due to size
+                            High accuracy [6], [8]                 Struggles with multiple-class
+SDSSL [23], ATAS [24],                                                                            IoT-friendly, lower training
+COSMOS [25]                                                        problem                        complexity
+Proposed TAE
+                            High accuracy [6]                      May struggle due to posterior
+
+                                                                   collapse [19], [31]
+
+                            May high accuracy [6]                  Struggles with multiple-class
+
+                                                                   problem
+
+                            High accuracy ( 2% over related models)
+
+ments are conducted on a diverse set of cybersecurity datasets,          classification accuracy of classifiers applied to the data
+including seven IoT botnet datasets [4], two network IDS                 representations of RL models, such as MLP and MAE.
+datasets [32], [33], three malware datasets [34], one cloud           · We conduct extensive experiments on diverse cybersecu-
+DDoS dataset [35], and ten artificial datasets as the number of          rity datasets, including seven IoT botnet datasets [4], two
+classes in the training set increases. The results demonstrate           network intrusion detection datasets [32], [33], three mal-
+the superior performance of the proposed method compared                 ware datasets [34], one cloud-based DDoS dataset [35],
+with state-of-the-art self-distillation methods (SDSSL [23],             and ten synthetic datasets designed to evaluate per-
+ATAS [24], COSMOS [25]), representation learning (RL)                    formance as the number of training classes increases.
+models (CTVAE [6], MAE, MVAE [8], CSAEC [18]), conven-                   TAE achieves up to 96.1% average accuracy for IoT
+tional classifiers (XGBoost [26], [1], SVM, DT, RF, 1D-CNN,              attack detection and 98.7% for cloud intrusion detection,
+and MLP), transformer-based classifiers built upon MLP [12]              outperforming related models. Experiments on synthetic
+and 1D-CNN [13], as well as hard-coding methods, including               datasets further show that TAE effectively maps the
+one-hot encoding, Hadamard codes [20], [21], and MAE                     original data into a lower-dimensional latent space, where
+codewords [8]. The comparison of the proposed TAE with                   samples from different classes become increasingly sep-
+related methods is described in Table I.                                 arable as the number of classes grows.
+
+   Our major contributions are summarized as follows:                 The remainder of this paper is organized as follows. Our
+                                                                   proposed architecture and model are described in Section II,
+   · We propose a teacher-free latent self-distillation frame-     and theoretical analysis is provided in Section II-C. Section IV
+      work based on a TAE. Instead of relying on an explicit       presents the experimental settings. The experimental results
+      teacher model to provide soft labels, the TAE encoder        and discussion are given in Section V. The characteristics
+      generates CATR through a deterministic transformation        of TAE are discussed in Section VI. Finally, Section VII
+      of the latent representations. The decoder then learns       concludes the paper and outlines future research directions.
+      to reconstruct the input from these CATRs, producing
+      discriminative representations for downstream tasks.                              II. TWIN AUTO-ENCODER
+
+   · We theoretically derive conditions for perfect class sep-     A. TAE Architecture
+      aration and show that lower empirical risk yields better
+      representations, identifying regimes where TAE achieves         TAE consists of three networks: An encoder, a
+      strictly lower empirical risk than models using fixed class
+      centers, i.e., MLP [36], [30] and MAE [8]. The testing       hermaphrodite, and a decoder, as illustrated in Fig. 1
+      complexity for all three models, i.e., TAE, CTVAE, and       (a). The encoder maps the ith input sample x(i) into a
+      MAE, is the same, i.e., O N T d2 which is suitable           latent vector e(i). Unlike conventional fixed codewords,
+
+      for lightweight IoT devices. Experimental results indicate   such as one-hot or Hadamard codes, which assign the same
+      that TAE is well-suited for cybersecurity applications
+      and potentially for IoT systems, where the model size        predefined vector to every sample within a given class, the
+      is approximately 1 MB, and the average running time for      proposed class-adaptive target representation (CATR) is
+      extracting a data sample is around 0.26 µs.
+   · We show that TAE's CATR outperform traditional fixed          sample-dependent and is given by:
+      codewords, including one-hot encoding, Hadamard [20]
+      [21], MAE's codeword [8], and soft labels in KD using                             z(i,c) := e(i,c) + v(c)                       (1)
+      deep MLP and ResNet teachers [22], in enhancing clas-
+      sifiers' accuracy when using TAE's data representations.     where e(i,c) denotes the latent representation of sample x(i,c)
+      Using TAE's means as fixed codewords can enhance the         and v(c) denotes the class-dependent transformation vector
+
+                                                                   for class c. Therefore, samples from the same class can have
+                                                                   different CATRs while v(c) varies across classes (see Table II).
+
+                                                                      During training, the class label c is used only to construct
+
+                                                                   the CATR through the corresponding transformation vector
+IEEE INTERNET OF THINGS JOURNAL, NO. X, XXXX XXXX                                                                                                                                                     4
+
+       TABLE II: Notation used in the TAE methodology and analysis.                                                                                Decoder
+  Notation Definition
+                                                                                                   Encoder          Hermaphrodite
+    x(i) ith input sample
+   x(i,c) ith input sample belonging to class c                                              x(i)          Transformation                  x^(i)
+
+      X Dataset {x(i)}i=1 n                                                                                  e(i)   z(i)                                        z^(i)
+      C Set of classes, with |C| denoting the number of classes
+     nc Number of samples belonging to class c                                                                                                                                        Reconstruction
+      d Dimensionality of the input representation                                                                                                                                 Representation
+   e(i,c) Latent representation of x(i,c) produced by the TAE encoder
+    µ(c) Mean latent representation of class c                                                                                 Separable
+      µ Global mean of the class means µ(c)                                                                                Representation
+     ti(c) Direction indicator for the ith component of class c, set to +1 if µi(c)  µi
+                                                                                                                Latent
+              and -1 otherwise.                                                                              Representation
+      S Positive hyperparameter controlling the scale of the class-dependent trans-
+                                                                                                                    (a) TAE architecture.
+              formation
+    S(c) Class-dependent transformation scale, defined as S(c) = Skc, where kc                                                                  Reconstruction
+
+              {1, . . . , m} is the rank of class c in the descending order of its training  Training: x, c Encoder e Transformation +v(c) z Hermaphrodite x^ Decoder z^
+              sample size.
+    µ^(c) Transformed mean of class c, defined as µ^(c) = S(c)t(c)                           Inference: x  Decoder   Reconstruction
+    v(c) Class-dependent transformation vector connecting µ(c) and µ^(c)                                            ^
+   z(i,c) Class-adaptive target representation (CATR) obtained by transforming
+              e(i,c) using v(c)                                                                              (b) Training and inference of TAE.
+    x^(i) Reconstruction of x(i) generated by the hermaphrodite network from z(i)
+    z^(i) Reconstruction representation obtained by feeding z(i) through the                 Fig. 1: Overview of the proposed Twin Autoencoder (TAE): (a) TAE
+              hermaphrodite and decoder during training                                       architecture for the ith input sample, and (b) training and inference
+    ^(i) Reconstruction representation generated by directly feeding x(i) to the
+              decoder; this is the representation used during inference                                                          processes.
+   (i,c) Final learned representation of class c used in the empirical-risk analysis
+              of TAE                                                                               v(1) = vector(µ(1), µ^ (1))   y          Classes
+     ¯c Empirical class center of the TAE representations for class c                                                                              ·1
+     z¯c Empirical class center of the learned representations z(i,c)                                    µ^ (2) ·                   2 (1) · 2
+       Minimum distance between any two class centers in the representation space                               t(2) ·               µ^ · 3
+    rmax Maximum within-class distance from a representation sample to its corre-                                 µ(2) ·                   · ·4
+              sponding class center                                                                                                 µ(1)· t(1)
+      R Empirical risk computed using the empirical class centers z¯c                                                 -2        µ·   ·          2
+    Rm MLP's empirical risk computed using the fixed class centers µ^(c)
+     Ra MAE's empirical risk computed using the fixed class centers µ^(c)                                         µ(4) ·            · µ(3)             x
+     Rv CTVAE's empirical risk computed by the mean squared distance between                                    t(4) ·
+              z^(i,c) and z(i,c)                                                                                                    · t(3)
+     Rt TAE's empirical risk computed as the mean squared distance between (i,c)
+              and z(i,c)                                                                           µ^ (4) ·                      -2
+     R TAE's empirical risk computed as the mean squared distance between (i,c)
+              and ¯c                                                                                                                          · µ^ (3)
+     Sz Within-class spread of the target representations z(i,c)
+     S Within-class spread of the learned representations (i,c)                              Fig. 2: Example of applying the transformation operator in TAE on a 4-class
+     Ec Representation deviation energy between (i,c) and z(i,c)                                                                        dataset.
+
+v(c). During inference, the class label is unavailable and is not                            each class c, we shift its mean µ(c) away from µ by moving it
+required. Instead, a new input x is directly fed into the trained
+decoder to obtain the final reconstruction representation ^ (see                             further from the origin along the angle bisectors. As explained
+Fig. 1 (b)).                                                                                 in algorithm 1 transforming e(i) to z(i) is done in follow steps:
+
+   The hermaphrodite network connects the encoder and de-                                       · The first step is to reduce the dimension of the original
+                                                                                                   dataset X to the dimension of the latent vector e(i) using
+coder; thus, it plays both decoding and encoding roles. For its
+decoding role, it reconstructs the input x(i) as ^x(i) using the                                   Principal Component Analysis (PCA).
+separable vector z(i). For the encoding role, the hermaphrodite                                 · In the second step, the mean µ(c) of each class c as well
+maps the separable vector z(i) into a new space ^x(i).
+                                                                                                   as the overall mean µ are calculated.
+   The TAE decoder attempts to project the output of the                                        · In the third step, new mean after transforming µ^(c) is
+hermaphrodite into the CATR to obtain ^z(i). This ^z(i) is called
+                                                                                                   calculated for of each class c by applying µ^c = S(c)×t(c),
+the reconstruction representation in the sense that it is recon-                                   where t(c) is the direction to transform from µ(c) to µ^(c).
+structed from the CATR z(i). The reconstruction representation                                     Let S(c) = Skc, where kc  {1, . . . , m} is the rank of
+                                                                                                   class c in the descending order of its training sample
+is used as the final representation of TAE for the next detection
+                                                                                                   size. Specifically, classes are ranked in a descending order
+models.
+                                                                                                   of their training sample sizes, and kc is assigned as the
+  B. Transformation Operator                                                                       corresponding rank. Thus, kc = 1 for the class with the
+                                                                                                   largest training sample size and kc = m for the class
+   The method to generate CATR through the transformation                                          with the smallest training sample size. For each feature
+
+operator is exemplified in detail in Fig. 2 and Algorithm 1.
+We compute the global mean µ of the entire dataset. Then, for
+IEEE INTERNET OF THINGS JOURNAL, NO. X, XXXX XXXX                                                                                     5
+
+ Algorithm 1: Transforming the latent representation                   C. Loss Function
+ into a separable representation to generate CATR.
+                                                                       TAE is trained in a supervised manner. The loss function of
+   Input:
+   Dataset X = {x(i)}i=1 n where x(i) is ith samples in class c,       TAE  for  a  dataset  X  =  {x(i)}n        with  labels  Y  =  {y(i)}n
+   C is the set of all classes, nc is the number of samples in
+   class c  C, |C| is the number of classes. x(i,c) denotes x(i)                                             i=1                                i=1
+   with label c.
+   Output: µ(c), µ^(c), soft label z(i,c)                              includes four terms as follows:
+   Step 1: Apply PCA to reduce the dimension of the input
+                                                                                 TAE = 1     n
+     data.
+   xr  P CA(X)                                                                      n i=1          (x(i) - ^x(i))2 + (z(i) - ^z(i))2  (2)
+   Step 2: Calculate mean µ(c) and center mean µ(c) of class
+                                                                                             +(z(i) - ^(i))2 + (e(i) - µ(c))2]
+     c.
+   foreach c in C do                                                   where ^(i) is the reconstruction representation when the input
+                                                                       x(i) is directly fed into the decoder of TAE. µ(c) the mean of
+        µ(c)  nc 1 i=1 nc (xr(i,c))
+   end                                                                 data samples in class c calculated in Step 2 of Algorithm 1.
+   µ  |C| 1 c=1 |C| (µ(c))
+   Step 3: Calculate the transformed mean µ^(c) of µ(c) for               The first term in Equation (2) is the reconstruction error
+                                                                       between x(i) and ^x(i). The next term is reconstruction error
+     each class c.                                                     between z(i) and ^z(i). The third term is used to train the
+   µ^(c)  S(c) × t(c)                                                  decoder with the input x(i). The fourth term aims to shrink
+   Step 4: Transform e(i,c) to a new representation z(i,c).            the latent vector e(i) into its mean µ(c) of each class. This
+   foreach x(i,c) in X do                                              term prevents the latent representation z(i) of different classes
+
+        Soft label: z(i,c)  e(i,c) + V (µ(c), µ^(c))                   from being overlapped.
+   end
+                                                                             III. CONDITIONAL REPRESENTATION STABILITY
+      dimension i, ti(c) = +1 when µi(c)  µi, including the                                      ANALYSIS OF TAE
+      equality case, and ti(c) = -1 otherwise. This ordering
+      assigns larger transformation scales to classes with fewer          In this section, we first derive theoretical conditions for per-
+      training samples, thereby increasing the separation of           fect representation and characterize the relationship between
+      their generated target representations and allowing the          empirical risk and representation quality. We then establish the
+      decoder to better capture the effect of the class-dependent      conditional representation stability of the proposed TAE when
+      shift during reconstruction.                                     its empirical error is lower than that of baseline models, such
+      S(c) = Skc, where kc  [2, m + 2] is determined for each          as MLP and MAE, under specific conditions.
+      class c according to the descending order of its training
+      sample size, and S is a hyper-parameter that controls the          A. Representation Quality and Conditions for Perfect Sepa-
+      distance between the means of the classes (S > 0).               ration
+   · The fourth step is to transform the latent vector e(i,c) of
+      class c to a new vector z(i,c) following the direction of        Lemma 1 (Perfect Representation). Define the following
+      vector v(c) that connects the old mean µ(c) to the new           quantities:
+      mean µ^(c), i.e., v(c) = V (µ(c), µ^(c)). z(i,c) is referred to
+      as soft label of data sample x(i) with class c.                                := min z¯a - z¯b, a, b  C,                       (3)
+                                                                                             a=b
+Unlike conventional knowledge distillation, TAE does not
+employ a separately trained teacher network to generate target                      rmax := max z(i,c) - z¯c,                         (4)
+outputs. Instead, TAE uses the encoder representation e(i,c)                                    cC, 1inc
+together with a deterministic class-dependent transformation,
+constructed from PCA-based class statistics and mean shifting,                                  z¯ 1 c = z(i,c) nc . (5)
+to generate the CATR z(i,c) = e(i,c) + v(c). Thus, the encoder                                         nc i=1
+and deterministic transformation jointly serve as an implicit
+target generator. The decoder is subsequently trained to repro-        Then, if rmax < 2 , each representation sample z(i,c) is closer
+duce this encoder-derived target representation from the input,        to its own class center z¯c than to any other class center z¯c
+allowing TAE to learn from targets generated internally by its         for all c = c.
+own representation rather than by an external teacher network.
+We refer to this mechanism as teacher-free self-distillation to           Lemma 1 defines rmax as the largest within-class radius,
+emphasize that the target representation is deterministically          which measures how far any sample can be from its own
+generated from the model's own representations without re-             class center.  denotes the minimum inter-class distance and
+quiring a separately trained, high-capacity teacher network or
+an additional teacher-training stage.                                  measures how far apart the closest pair of class centers are.
+                                                                       z¯c denotes the class center of the representation data for class
+                                                                       c after training.
+
+                                                                       Proof. Let z be a representation belonging to class a  C, and
+                                                                       b  C is another class. By the triangle inequality, we have
+
+                                                                                    z - z¯b  z¯a - z¯b - z - z¯a.                     (6)
+
+                                                                       Combining (3) and (4), it follows that
+
+                                                                                             z - z¯b   - rmax.                        (7)
+IEEE INTERNET OF THINGS JOURNAL, NO. X, XXXX XXXX                                          6
+
+TABLE III: Definition of empirical risks of MLP [36], MAE [8],           same number of neurons in each corresponding layer. They
+
+              CTVAE [6], and TAE.                                        are trained using the same common training settings, including
+
+Model         Empirical Risk Definition                                  the learning rate, batch size, weight-initialization seed, and
+
+MLP                      1 |C| nc         m(i,c) - µ^(c) 2         (11)  optimization algorithm. Model-specific hyperparameters are
+              Rm =
+              N c=1 i=1                                                  selected using the same training/validation procedure and fixed
+
+MAE                     1 |C| nc          a(i,c) - µ^(c) 2         (12)  before evaluating the final empirical risks. (A1) All remaining
+              Ra =
+              N c=1 i=1                                                  components are fixed during training, including the decoder
+
+CTVAE                   1 |C| nc          z^(i,c) - z(i,c) 2       (13)  of the MAE and the encoder and Hermap modules of the
+              Rv = N
+                                                                         CTVAE and TAE. These components are treated as pre-trained
+                                 c=1 i=1
+                                                                         modules. (A2) All models are trained using the same training
+TAE                    1 |C| nc           (i,c) - z(i,c) 2         (14)
+              Rt = N                                                     data. (A3) The flexibility of the class-specific transformation
+                                                                         operator v(c) is controlled by the hyperparameter S, which is
+                                c=1 i=1                                  selected using the training data to ensure sufficient between-
+
+From (4), we also have z - z¯a  rmax. To ensure that each                class variance for separating samples from different classes.
+representation z(i,a) of class a is closer to its own class center
+than to any other class center, we require  - rmax > rmax,               (A4) For the theoretical comparison, the MLP and MAE are
+which is equivalent to rmax > 2 . Under this condition, the
+inequality z - z¯b > z - z¯a holds for all b = a.                        assumed to produce identical latent representations for the
+                                                                         same training sample, i.e., m(i,c) = a(i,c) for all i and c.
+Lemma 2 (Empirical Risk and Representation Quality). Let                 (A5) For the comparison with the target representations, the
+the empirical risk of a representation model f be defined as
+                                                                         latent representations produced by the MAE are assumed to
+                 R = 1 z(i,c) - z¯(c) |C| nc 2 . (8)
+                        N c=1 i=1                                        coincide with the corresponding target representations, i.e.,
+                                                                         a(i,c) = z(i,c) for all i and c.
+Then the following statements hold: 1. A smaller empirical
+risk R indicates that the samples z(i,c) are closer to their                We define the corresponding empirical risks, which are
+respective class centers, and hence the representation is more
+compact and discriminative. 2. If                                        directly used for extracting data representations, as shown in
+
+                                R < 2 . (9)                              Table III. Note that both MLP and MAE use the codewords
+                                        4                                generated by Algorithm 1, i.e., µ^(c), whereas CTVAE uses
+                                                                         µ^(c) to generate data samples from the distribution N (µ^(c), I).
+then the model f achieves perfect representation.                        m(i) and a(i) represent the data in the latent space of MLP
+                                                                         and MAE, respectively, whereas those of CTVAE and TAE
+   Equation (8) indicates that as R decreases, the represen-             are z^(i) and (i), respectively. A lower value of empirical risk
+tation samples of each class become closer to their corre-               indicates that the model has learned better and likely provides
+
+sponding class center, resulting in a better and more compact            a better data representation [37].
+representation. Equation (9) implies that as R decreases below
+4 2 , the model f achieves a perfect representation, in which            Remark 1. Under assumptions (A0)-(A2), and when the class
+the representation samples of each class are closer to their own         centers µ^(c) are computed from the Algorithm 1, it follows
+                                                                         from (11) and (12) that Rm = Ra.
+class center than to the centers of any other classes.
+                                                                         Proof. Since the mapping from the set of per-sample outputs
+                                                                         to the class centers is deterministic, and m(i,c) = a(i,c) for all
+                                                                         i, c, it follows that µ^(c) is identical for both models, i.e., MLP
+                                                                         and MAE. Therefore, m(i,c) - µ^(c)2 = a(i,c) - µ^(c)2 for
+                                                                         all i, c. Consequently, Rm = Ra holds.
+
+Proof. From the definition of (4), we have                               Lemma 3. Let R in (8) denote the empirical risk computed
+                                                                         using the empirical class centers z¯c, where each z¯c is cal-
+              z(i,c) - z¯(c)2  r2                                        culated from the final learned representations after training.
+                                                                         Let Rm in (11) and Ra in (12) denote the empirical risks
+                                                max                      computed using the fixed target class centers µ^(c), which are
+                                                                         predetermined before training and remain constant during the
+R= 1          z(i,c) - z¯(c)2  1                     2rmax = rmax.2(10)
+                                                                         learning process. The following satisfies:
+       N c,i                              N c,i
+
+From Lemma 1, we have rmax < 2 . Therefore, R < 4 2                      R  Ra and R  Rm.  (15)
+holds.
+
+  B. TAE's Conditional Representation Stability                             Lemma 3 shows that the empirical class center is the
+                                                                         optimal fixed representative for minimizing the within-class
+   To evaluate the data representations learned by MLP [36],             representation error. Specifically, for a given set of learned
+MAE [8], CTVAE [6], and TAE after training, we make                      representations, replacing any fixed class representative with
+the following assumptions:(A0) The trainable components of               the corresponding empirical class center cannot increase the
+the compared models--the MLP, the encoder of the MAE,                    empirical risk. Therefore, R  Ra and R  Rm follow
+and the decoders of the CTVAE and TAE--are architecture-                 directly from the optimality of the empirical class centers.
+matched, i.e., they have the same number of layers and the               This result provides a reference point for analyzing the em-
+IEEE INTERNET OF THINGS JOURNAL, NO. X, XXXX XXXX                                                                                           7
+
+pirical error of TAE and motivates the subsequent conditional                  Let the within-class target-representation spread, within-class
+representation-stability analysis in Lemma 4.                                  learned-representation spread, and representation deviation
+                                                                               energy for class c be defined
+
+Proof. The left-hand side (LHS) of (15) holds as the following                             nc                       nc                                    nc
+inequality is satisfied:
+                                                                               Sz := zi - z¯c2 , S            :=        i - ¯c 2 , Ec := i2 .
+
+                                                                                    i=1                           i=1                 i=1
+                                                                                                                                            (22)
+     nc                            nc
+
+          z(i,c) - z¯c2                 a(i,c) - µ^c2.           (16)          If the deviation energy between the learned and target repre-
+
+     i=1                           i=1                                         sentations satisfies
+
+Under assumptions (A0)-(A2), we have a(i,c) = z(i,c). Let's                                          Ec  (2 - 1)2Sz, (23)
+calculate the right-hand side (RHS) of 16:
+                                                                               then the following representation-stability relation holds:
+
+nc                            nc                                                                          Rt  R.                            (24)
+
+     a(i,c) - µ^(c)2 = (a(i,c) - z¯c) + (z¯c - µ^(c))2
+
+i=1                           i=1                                                 Lemma 4 establishes a sufficient condition for the con-
+                                                                               ditional representation stability of TAE. Specifically, when
+                              nc                                               the deviation energy of the learned representations from their
+                                                                               target representations is sufficiently small relative to the intra-
+                         = a(i,c) - z¯c2 + ncz¯c - µ^(c)2                      class spread of the target representations, the representation
+                                                                               deviation is bounded by the within-class spread of the learned
+                              i=1                                              representations. Under this condition, the resulting inequality
+                                                             nc                Rt  R follows as a consequence of the stability condition.
+
+                              + 2(z¯c - µ^(c))T (a(i,c) - z¯c).
+
+                                        i=1
+
+                                                            (17)
+
+From (17) and (5), we have
+
+nc                       nc             nc                                     Proof. From (21), let's calculate as:
+                                                                                i - ¯c = (i + zi) - (¯c + z¯c) = (i - ¯c) + (zi - z¯c). (25)
+     (a(i,c) - z¯c) = (z(i,c) - z¯c) = z(i,c) - ncz¯c = 0.
+
+i=1                      i=1            i=1                      (18)
+
+Therefore, from (17) we have                                                   From (22), we have:
+
+nc                            nc                                                    nc               nc                           nc
+
+     a(i,c) - µ^(c)2 = a(i,c) - z¯c2 + ncz¯c - µ^(c)2                          S = i - ¯c2 + zi - z¯c2 + 2 i - ¯c, zi - z¯c.
+
+i=1                           i=1                                                   i=1              i=1                         i=1
+
+                              nc                                                                                                                     (26)
+
+                          z(i,c) - z¯c2 nc  0.                                 Process the first term of (26), we have:
+
+                              i=1                                                   nc                   nc                  nc
+
+                                                                       (19)    A := i - ¯c2 = i2 - 2 i¯c + nc¯c2.
+
+From remark 1, RHS of (15) also holds.                                             i=1                   i=1                 i=1            (27)
+
+                                                                                    ¯ 1 nc
+                                                                               Since c =  nc i=1     i, we have
+
+   In fact, the exact values of z¯c are unknown before the                         nc                nc
+training process. However, if we assume that z¯c are determined
+before training, then data samples that are far from their                              i¯c  =  ¯         i = ¯c(nc¯c) = nc¯c2.             (28)
+corresponding centers contribute more to the empirical risk,
+whereas those close to their centers contribute less. Therefore,                                  c
+TAE aims to project data onto CATRs that are adaptively
+calculated for each data sample rather than relying on fixed                       i=1               i=1
+class centers. This approach may lead to a lower empirical
+risk.                                                                          Combine (22) and (27), we have
+
+Lemma 4 (Conditional Representation Stability of TAE).                                            nc
+Let the empirical risk of TAE be defined with the target
+representations z(i,c) fixed as the class centers:                                      A = i2 - nc¯c2 = St - nc¯c2. (29)
+
+                                                                                                 i=1
+
+                                                                               Process the third term of (26), we have:
+
+                                                                                                    nc
+
+                                                                                         B := i - ¯c, zi - z¯c
+
+                                                                                             i=1                                            (30)
+
+        1 |C| nc                                                                             nc                         nc
+R = N
+                         (i,c) - ¯c 2 , where ¯c = 1 (i,c). nc                            = i, zi - z¯c - ¯c, zi - z¯c.
+                c=1 i=1                                    nc i=1
+                                                                         (20)                i=1                        i=1
+
+For a fixed class c, define                                                    From (18), we have i=1 nc (zi - z¯c) = 0. Therefore,
+
+                                                                               nc                            nc
+
+zi := z(i,c), i := (i,c), i := i - zi, ¯c := ¯c - z¯c. (21)                         ¯c, zi - z¯c = ¯c, (zi - z¯c) = ¯c, 0 = 0. (31)
+
+                                                                               i=1                           i=1
+IEEE INTERNET OF THINGS JOURNAL, NO. X, XXXX XXXX                                                                                               8
+
+Constituting (31) to (30) to obtain:                                      TABLE IV: Comparison of the computational complexity of TAE, MAE [8],
+                                                                                                               and CTVAE [6].
+                         nc
+
+                      B = i, zi - z¯c                            (32)     MAE               O 4N T d2 + 2N d (42)
+
+                         i=1                                                          CTVAE O 2N T d2 + 4LN T d2 + N d2 + d3 + 4N d + 3Cd (43)
+                                                                          Training
+Combining (29), (32), and (22), we can rewrite (26) as follows:
+                                                                                        TAE O 6N T d2 + N d2 + d3 + 6N d + 2Cd (44)
+                      S = St - nc¯c2 + Sz + 2B, (33)
+                                                                                      TAE,
+           := S - St = Sz + 2B - nc¯c2.                          (34)     Testing MAE,      O N T d2 (45)
+
+                                                                                     CTVAE
+
+Applying the Cauchy-Schwarz inequality to |B|, we have:
+
+              nc                nc                   nc                   with CTVAE [6] and MAE [8], both TAE and CTVAE use
+                                                                          only the decoder to extract representations, similar to how the
+|B| = i, zi - z¯c                   i2                   zi - z¯c2        encoder is used in MAE. Therefore, the testing complexity
+                                                                          of all three models is the same, O N T d2 (see Table IV).
+             i=1                i=1                  i=1                  This indicates that, during inference, TAE relies solely on the
+                                                                          decoder, making it suitable for lightweight IoT devices.
+                                                                    (35)
+                                                                                            IV. EXPERIMENTAL SETTINGS
+                      |B|  Ec Sz                                 (36)
+                                                                            A. Datasets
+                hence B  - EcSz.                                 (37)
+                                                                             We use a wide range of datasets in cybersecurity to evaluate
+Applying the Cauchy-Schwarz inequality to nc¯c2 =                         the effectiveness of TAE. The tested datasets include the IoT
+nc 1  i=1 nc i2, we have                                                  botnet attack datasets, the network IDS datasets, the cloud
+                                                                          DDoS attack dataset, and the malware datasets. The number
+nc¯c2  1                 nc                  nc                           of training, validation, and testing samples of each dataset are
+                                                                          presented in Table V. The number of classes, the number of
+                      nc i2 = i2 = Ec, (38)                               features, and the shorthand (ID) of each dataset are also shown
+                nc i=1 i=1                                                in this Table.
+
+-nc¯c2  -Ec.                                                     (39)        The IoT botnet datasets [4] include seven different datasets.
+                                                                          The datasets consist of two types of attacks, i.e., Gafgyt and
+Combining (39) and (37) with (34), for Sz  0 we obtain:                   Mirai attacks. We perform two scenarios on these multiclass
+                                 2                                        datasets. The first scenario includes the normal traffic and
+  Sz - 2 EcSz - Ec = Sz 1 - 2 Ec - Ec  .                                  five types of the Gafgyt attacks that form the six classes
+                                                 Sz   Sz                  classification problem, whilst the second scenario consists of
+                                                                          the normal traffic, five types of the Mirai attacks, and five
+                                                                 (40)     types of the Gafgyt attacks forming the 11 classes problem.
+                                                                          The dataset name is shorthanded by the name of the dataset
+Let t :=  Ec      0.  Equation  (24)  holds  if  the  following  holds:   and the type of attacks. For instance, EcoG means the Ecobee
+          Sz                                                              dataset and the Gafgyt attack, while EcoMG is the Ecobee
+                                                                          dataset with both Mirai and Gafgyt attacks.
+                  f (t) := (1 - 2t - t2)  0                      (41)
+                                                                             The IDS datasets consist of the NSLKDD (NSL)[32] and
+Solve the corresponding quadratic equation t2 + 2t - 1 = 0                the UNSW-NB15 (UNSW) [33] dataset. The data in the
+                -2± (2)2-4(1)(-1)                                         NSL includes the benign traffic and four types of attacks,
+                                      -2± 8                               i.e., DoS, R2L, Probe, and U2L. Among the four types of
+to obtain: t =                   = 2  = -1 ± 2. For                       attacks, R2L and U2L are two sophisticated and rare attacks
+                      2                                                   that are very challenging to be detected by machine learning
+f (t)  0, we have t  [-1 - 2, -1 + 2]. Since t  0, it                     algorithms [39]. The UNSW dataset has benign traffic and
+follows that t  [0, -1+ 2]. Therefore, Ec  (-1+ 2)2Sz.                    nine types of attacks. Both NSL and UNSW datasets are
+                                                                          imbalanced datasets. This is because the number of samples
+  C. TAE's Training/Inference Complexity                                  of R2L and U2R attacks in NSL and Worms, Backdoor, and
+                                                                          Shellcode attacks in UNSW are significantly lower than those
+   Assume that the numbers of neurons in the hidden layers                of others.
+of the encoder for TAE, CTVAE [6], and MAE [8] are
+equal, denoted as {1d, 2d, . . . , T d}, where d is the di-                  The malware datasets include 20 malware families on IoT
+mensionality of the input and T is the number of hidden                   systems [34]. There are three binary malware datasets, e.g.,
+layers in the encoder. Note that id must be an integer for                Mal1, Mal2, and Mal3. Each data sample has 32 features.
+this setting, and 0 < i < 1, for i = {1, . . . , T }. The                 The training sets include benign samples and typical mal-
+training complexity of the TAE encoder is O 2N T d2 . The                 ware families, e.g., DDoS and Part-of-Horizontal-Port-Scan
+complexity of Principal Component Analysis (PCA) in step 1                while the testing sets consist of benign samples and more
+of Algorithm 1 is O N d2 + d3 [38]. Due to the symmetry
+of the TAE, the complexity of training the encoder is the
+same as that of the hermaphrodite and the decoder. The
+training complexity of TAE is O 6N T d2 + N d2 + d3 +
+
+6N d + 2Cd . Therefore, the overall training complexity of
+
+TAE is O 6N T d2 + N d2 + d3 + 6N d + 2Cd . Compared
+IEEE INTERNET OF THINGS JOURNAL, NO. X, XXXX XXXX                    9
+
+               TABLE V: Datasets information.                          B. Hyper-parameters Setting
+
+Datasets       ID No. No. No.                    No.          No.       The tested representation learning methods include TAE,
+                        Train Valid Test       Classes     Features  MVAE and MAE [8], CSAEC [18] [41]. In addition, we
+                                                                     also compare TAE with popular machine learning models
+DanG [4]       IoT1 179434 76901 109863           6           115    including Multi-Layer Perceptron (MLP) [30], [28], Support
+                                                  6           115    Vector Machine (SVM), Decision Tree (DT), Random Forest
+EcoG [4]       IoT2 158631 67986 97126            6           115    (RF), One-dimensional Convolutional Neural Network (1D-
+                                                  6           115    CNN) [29], Multi-Layer Perceptron (MLP) and the state-of-
+PhiG [4]       IoT3 239099 102472 146392          6           115    the-art Xgboost (Xgb) [26], [1].
+                                                  11          115
+737G [4]       IoT4 192200 82372 117678           11          115       The experiments are implemented using two frameworks:
+                                                  5            41    TensorFlow and Scikit-learn. All datasets are normalised using
+838G [4]       IoT5 199698 85586 122270           10           42    Min-Max normalisation. We also use grid search to tune the
+                                                  2            32    hyper-parameters for each machine learning model, as shown
+EcoMG [4]      IoT6 409574 175533 250769          2            32    in Table VI. For the representation learning methods, the
+                                                  2            32    final representation is extracted and used as the input to the
+838MG [4]      IoT7 410071 175746 251074          7            24    Decision Tree (DT) model, and the performance of DT is
+                                                                     reported in the experiments. For SDSSL [23], only the k-
+NSLKDD [32] NSL 88181 37792 22544                                    nearest neighbor (KNN) classifier is applied, following its
+                                                                     original implementation.
+UNSW-NB15 [33] UNSW 57632 24700 175341
+                                                                        For three neural network models, i.e., MAE, MVAE, and
+IoT Malware 1 [34] Mal1 57544 14387 8888                             TAE, only one hidden layer with ReLU activation is used in
+                                                                     their subnetworks (the encoder, hermaphrodite, and decoder).
+IoT Malware 2 [34] Mal2 6498 1625 2603                               The ADAM optimisation algorithm [42] is used to train these
+                                                                     models. The learning rate  is set at 10-4, the number of
+IoT Malware 3 [34] Mal3 10183 2546 53624                             epochs is 5000, and the batch size is set at 100. We also use the
+                                                                     validation set (30% of the training set) to early stop during the
+Cloud IDS [35] Cloud 1239381 517915 887113                           training process. If the difference in the loss function between
+                                                                     10 consecutive epochs is lower than a threshold = 1, we
+     TABLE VI: Grid search settings for hyper-parameters.            stop the training process. MAE and MVAE models are only
+                                                                     investigated on binary datasets in [8]. In this paper, we extend
+KNN            neighbor={1, 2, 5, 10, 15, 35, 50}                    them for multi-class problems by setting the value of µj(c) from
+                                                                     2 to n + 2, where n is the number of classes. For CSAE,
+SVM            LinearSVC: C={0.1, 0.2, 0.5, 1.0, 5.0, 10.0}          the same architecture as in [41] is implemented using 1D
+                SVC: decision f unction shape = ovo                  convolution. After training CSAE in an unsupervised manner,
+                                                                     a Softmax layer is added to the encoder and CSAE is further
+DT             max depth={5, 10, 20, 50, 100}                        trained in a supervised manner. After supervised training, the
+                                                                     Softmax layer is removed and the resulting encoder, referred
+RF             n estimators={5, 10, 20, 50, 100, 150}                to as CSAEC, is used to extract the learned representations
+                                                                     for downstream evaluation. The CSAEC representations are
+Xgb [26], [1]           min child weight={5, 10},                    also evaluated using the same DT classifier. Finally, for
+               gamma={0.5, 1.5}, subsample={1.0, 0.9}                the TAE model, we also tune two hyperparameters, i.e. the
+                                                                     scale of the transformation operator S in Algorithm 1 and the
+CSAEC [18]     1D-CNN with two Conv1D, kernel size = 3               dimensionality of the latent space Dz. The number of neurons
+                                                                     in the encoder of the AE-based models is designed as follows:
+MAE [8]        Dz = {dz, 1.5dz, 2dz, 3dz}                            {d, 0.9d, 0.8d, 0.7d, dz}, where d is the dimension of the input
+                                                                     and dz = [ d]+1 is the dimension of the latent space [8], [6].
+MVAE [8]       Dz = {dz, 1.5dz, 2dz, 3dz}                            The structure of the decoder is symmetric with the encoder.
+
+CTVAE [6]      Dz = {dz, 1.5dz, 2dz, 3dz}; S = {1, 5, 10}               For transformer-based models (MLP [12] and
+                                                                     1DCNN [13]), the number of attention heads was tuned.
+SDSSL [23] Dz = {dz, 2dz}; std = {0.1, 0.05}; shif t = {1, 5}        For self-distillation (SD) methods, SDSSL [23] was tuned
+                                                                     with respect to the latent space dimension and the strategies
+ATAS [24] Dz = {dz, 2dz}; 1 = {0.1, 0.5, 1}; 2 = {0.1, 0.5, 1}       used to generate different views, including noise standard
+                                                                     deviation and shifting operations. For ATAS [24] and
+COSMOS[25] Dz = {2dz}; 1 = {0.25, 0.5, 1}; 2 = {0.25, 0.5, 1}        COSMOS [25], the trade-off coefficients among the loss
+                                                                     components were optimized. Since SDSSL, ATAS, and
+Transformer                                                          COSMOS were originally designed for image domains, we
+                                                                     adapted them to IoT cybersecurity datasets using a 1DCNN
+(MLP [12],     nhead = {2, 3, 4}                                     backbone combined with an attention mechanism employing
+
+1DCNN [13])
+
+TAE            Dz = {dz, 1.5dz, 2dz, 3dz}; S = {1, 5, 10, 20}
+
+sophisticated malware classes, e.g., C&C-attack, Okiru, C&C-
+heartbeat, C&C-Mirai, and C&C-PortScan. In other words,
+some malware in the testing sets is not available in the training
+set. Thus, it is difficult for ML models to detect this unknown
+malware in the testing set.
+
+   The cloud IDS datasets are DDoS attacks on the cloud
+environment. They are published by Kumar et al. [35] by
+stimulating the cloud environment and using an open-source
+platform to launch 15 normal VMs, 1 target VM, and 3
+malicious VMs. The extracted datasets contain 24 time-based
+traffic flow features. The cloud IDS datasets are also divided
+into training and testing sets with a rate of 70:30.
+
+   To evaluate the performance of TAE in separating classes
+as the number of classes in the training set increases, we
+generate artificial datasets. We use libraries to create datasets
+with three parameters: the number of classes n classes, the
+dimensionality of a data sample n f eature, and the number
+of data samples per class n points per class [40]. We set
+the seed to 2021 for reproducibility. The dataset is then split
+into two parts with a 70:30 ratio for training and testing sets.
+Specifically, ten datasets are created with n classes =
+{50, 100, 150, 200, 250, 300, 350, 400, 450, 500},
+n f eature = 100, and n points per class = 1000
+for all n classes. For small-size datasets, eight datasets
+are created with n classes = {5, 10, 15, 20, 25, 30, 35, 40},
+n f eature = 100, and n points per class = 100.
+IEEE INTERNET OF THINGS JOURNAL, NO. X, XXXX XXXX                                                                 10
+
+TABLE VII: Performance comparison of TAE with Transformers (MLP, 1DCNN), self-distillation (SDSSL, ATAS, COSMOS),
+
+          and other representation learning methods (CSAEC, MVAE, MAE, and CTVAE).
+
+                                                   IoT IDS        Network Cloud  Malware
+
+Scores    Method                                                  IDS IDS Avg
+                  IoT1 IoT2 IoT3 IoT4 IoT5 IoT6 IoT7 NSL UNSW Cloud Mal-1 Mal-2 Mal-3
+
+          Transformer(MLP) 0.672 0.626 0.758 0.659 0.725 0.850 0.860 0.862 0.736 0.976 0.512 0.720 0.955 0.762
+
+          Transformer(1DCNN) 0.618 0.615 0.755 0.646 0.667 0.813 0.844 0.861 0.748 0.887 0.414 0.719 0.955 0.734
+
+          SDSSL   0.938 0.915 0.958 0.945 0.939 0.716 0.857 0.832 0.671 0.973 0.513 0.901 0.955 0.855
+
+          ATAS    0.924 0.918 0.941 0.913 0.933 0.746 0.878 0.819 0.647 0.943 0.512 0.895 0.955 0.848
+
+Accuracy  COSMOS  0.928 0.905 0.948 0.936 0.921 0.722 0.880 0.844 0.667 0.963 0.415 0.720 0.955 0.831
+           SCAEC  0.923 0.914 0.941 0.933 0.928 0.882 0.929 0.843 0.734 0.980 0.512 0.889 0.920 0.872
+
+          MVAE    0.688 0.608 0.751 0.654 0.713 0.536 0.747 0.829 0.681 0.867 0.514 0.687 0.929 0.708
+
+          MAE     0.925 0.913 0.950 0.935 0.931 0.876 0.933 0.842 0.704 0.960 0.512 0.917 0.921 0.871
+
+          CTVAE   0.933 0.930 0.965 0.939 0.948 0.931 0.934 0.863 0.741 0.980 0.513 0.877 0.921 0.883
+
+          TAE     0.931 0.933 0.985 0.949 0.993 0.959 0.975 0.873 0.747 0.987 0.517 0.914 0.955 0.901
+
+          Transformer(MLP) 0.599 0.624 0.616 0.597 0.650 0.778 0.798 0.645 0.436 0.843 0.462 0.634 0.902 0.660
+
+          Transformer(1DCNN) 0.562 0.603 0.598 0.576 0.574 0.755 0.776 0.620 0.449 0.699 0.299 0.633 0.902 0.619
+
+          SDSSL   0.929 0.900 0.951 0.938 0.925 0.706 0.842 0.793 0.633 0.973 0.433 0.899 0.957 0.837
+
+          ATAS    0.904 0.902 0.919 0.891 0.916 0.726 0.870 0.781 0.612 0.943 0.432 0.892 0.957 0.827
+
+F-score   COSMOS  0.909 0.878 0.938 0.921 0.903 0.706 0.862 0.803 0.637 0.962 0.250 0.672 0.957 0.800
+           SCAEC  0.895 0.887 0.919 0.915 0.899 0.886 0.923 0.798 0.692 0.980 0.432 0.887 0.928 0.849
+
+          MVAE    0.642 0.528 0.666 0.536 0.702 0.617 0.713 0.779 0.623 0.819 0.435 0.683 0.935 0.668
+
+          MAE     0.900 0.885 0.937 0.918 0.908 0.867 0.934 0.804 0.659 0.960 0.432 0.917 0.929 0.850
+
+          CTVAE   0.915 0.916 0.960 0.931 0.937 0.927 0.923 0.826 0.673 0.979 0.433 0.873 0.929 0.863
+
+          TAE     0.916 0.922 0.985 0.944 0.993 0.949 0.970 0.844 0.695 0.987 0.439 0.912 0.958 0.886
+
+four attention heads.                                             F1-score, with an average accuracy of 0.901, outperforming
+   To set up the experiment of fixed codewords [20], we           MLP (0.762), 1DCNN (0.734), SDSSL (0.802), ATAS (0.848),
+                                                                  COSMOS (0.831), CSAEC (0.872), MVAE (0.708), MAE
+generate codewords with a length equal to the dimensionality      (0.871), and CTVAE (0.883). The performance advantage of
+of the latent space, i.e., dz. Specifically, dz istuned from the  TAE is attributed to its deterministic class-adaptive representa-
+list {dz, 1.5×dz, 2×dz, 3×dz}, where dz = [ d]+1, and d is        tion, which is better suited to the heterogeneous feature struc-
+the dimensionality of the input data. For MLP, we do not use      tures of IoT data than image-oriented self-distillation methods
+a softmax layer; instead, we project the data into the latent     and codeword-based representation learning approaches. In
+space using codewords. Note that traditional methods use a        particular, deterministic transformation avoids posterior col-
+softmax layer with a one-hot encoding vector, where the size      lapse encountered by VAE-based methods such as MVAE and
+is equal to the number of classes. For MAE, the bottleneck        CTVAE.
+layer is used as the latent space [8]. The hyper-parameters are
+set up as observed in Table VI.                                      Table VIII presents the performance of TAE compared to
+                                                                  six popular machine learning models: SVM, DT, RF, 1D-CNN,
+   For KD, we consider two teacher architectures, namely          MLP, and Xgb, across the tested datasets. Two notable results
+DeepMLP and ResNet. A compact MLP is used as the client           emerge from this table. First, TAE consistently outperforms the
+model for a fair comparison with the proposed TAE. The            other models, except Xgb. For instance, on the IoT1 dataset,
+DeepMLP teacher comprises three fully connected layers with       TAE achieves an accuracy of 0.931, while the accuracies of
+128, 128, and 64 hidden units, followed by two residual           SVM, DT, RF, 1D-CNN, and MLP are 0.670, 0.672, 0.672,
+fully connected blocks and a 64-dimensional embedding.            0.635, and 0.706, respectively. This suggests that the original
+The ResNet teacher employs a 128-dimensional fully con-           data representations in the tested problems pose challenges for
+nected backbone followed by 12 residual blocks and a 128-         conventional machine learning methods. However, by trans-
+dimensional embedding. The client MLP uses a compact 64-          forming the original representation into a more separable form
+64-32 backbone followed by two residual blocks and a 32-          and subsequently reconstructing it through TAE's reconstruc-
+dimensional embedding, with KD performed using a weighted         tion mechanism, the data becomes more amenable to machine
+combination of hard-label and temperature-scaled soft-label       learning models. Second, the model closest in performance
+losses [22]. Since IoT1-IoT5 share the same class definitions,    to TAE is Xgb. Despite this, TAE still outperforms Xgb,
+we train the KD teacher models on IoT1 and subsequently           demonstrating its superior capability in cyberattack detection.
+train and evaluate the compact student models on IoT2, IoT3,      As a result, TAE proves to be more effective and applicable
+IoT4, and IoT5.                                                   in this domain than Xgb.
+
+               V. PERFORMANCE ANALYSIS                               Overall, the above results show the superior performance
+                                                                  of the proposed model, i.e., TAE over the other representation
+  A. Accuracy of Detection Models                                 learning and machine learning algorithms on a wide range
+                                                                  of cybersecurity problems. TAE is trained in the supervised
+   Table VII compares TAE with transformer-based models           mode, and its performance is usually better than that of the
+(MLP and 1DCNN), self-distillation methods (SDSSL, ATAS,          state-of-the-art representation models, i.e., MAE and SCAEC.
+and COSMOS), and other representation learning (RL) meth-         TAE also shows superior performance over well-known ma-
+ods (CSAEC, MVAE, MAE, and CTVAE) across 13 IoT                   chine learning models using the original datasets, i.e., SVM,
+datasets. TAE consistently achieves the highest accuracy and
+IEEE INTERNET OF THINGS JOURNAL, NO. X, XXXX XXXX                                                                             11
+
+                  TABLE VIII: Performance of TAE compared to popular machine learning models.
+
+                                        IoT IDS                         Network        Cloud           Malware
+                                                                           IDS          IDS
+ Metric   Method                                                                                                       Avg
+Accuracy           IoT1 IoT2 IoT3 IoT4 IoT5 IoT6 IoT7 NSL UNSW Cloud Mal-1 Mal-2                                Mal-3
+F1-score    Xgb                                                                                                        0.853
+            SVM    0.923  0.910  0.941  0.921      0.928  0.941  0.959  0.872  0.762   0.985    0.419  0.607    0.921  0.736
+             DT    0.670  0.612  0.751  0.655      0.708  0.837  0.856  0.844  0.672   0.890    0.409  0.720    0.939  0.742
+             RF    0.672  0.654  0.753  0.656      0.740  0.844  0.867  0.866  0.743   0.977    0.414  0.544    0.918  0.757
+          1D-CNN   0.672  0.613  0.752  0.656      0.709  0.850  0.858  0.871  0.757   0.983    0.416  0.777    0.921  0.739
+            MLP    0.635  0.613  0.752  0.654      0.709  0.820  0.846  0.839  0.703   0.980    0.474  0.674    0.911  0.765
+          TAE-DT   0.706  0.739  0.810  0.733      0.780  0.724  0.856  0.861  0.722   0.926    0.414  0.719    0.954  0.901
+                   0.931  0.933  0.985  0.949      0.993  0.959  0.975  0.873  0.747   0.987    0.517  0.914    0.955
+            Xgb                                                                                                        0.823
+            SVM    0.894  0.879  0.918  0.891      0.900  0.929  0.945  0.830  0.733   0.985    0.259  0.608    0.929  0.655
+             DT    0.553  0.475  0.662  0.535      0.603  0.784  0.805  0.794  0.606   0.842    0.238  0.670    0.944  0.679
+             RF    0.557  0.547  0.665  0.536      0.658  0.799  0.824  0.828  0.720   0.977    0.250  0.545    0.926  0.685
+          1D-CNN   0.557  0.477  0.664  0.536      0.604  0.797  0.807  0.827  0.727   0.982    0.252  0.751    0.929  0.669
+            MLP    0.515  0.477  0.663  0.534      0.605  0.768  0.796  0.788  0.646   0.979    0.366  0.635    0.920  0.698
+          TAE-DT   0.605  0.651  0.744  0.645      0.703  0.635  0.815  0.822  0.671   0.913    0.248  0.670    0.956  0.886
+                   0.916  0.922  0.985  0.944      0.993  0.949  0.970  0.844  0.695   0.987    0.439  0.912    0.958
+
+TABLE IX: Confusion matrix of TAE, MAE, and Xgb on the           TABLE XI: Confusion matrix of TAE, MAE, and Xgb on the
+
+                    NSL dataset.                                                       Mal3 dataset.
+
+Metthods Classes Normal DoS U2R R2L Probe                                      Method  Classes         Mal3
+
+          Normal 9475 56 5 23 152                                                               Normal Attacks
+
+          DoS 150 5557 0 0 34                                                  TAE Normal 5586 344
+                                                                                          Attacks 2059 45635
+     TAE  U2R      23     2 10 0                   2
+
+          R2L 1689 7 22 475 6                                                          Normal   5725    205
+                                                                                       Attacks  4013   43681
+          Probe 223 2 0 0 881                                                  MAE
+
+          Normal 9441 93 4              14 159                                 Xgb Normal 5677 253
+                                                                                          Attacks 3986 43708
+          DoS 301 5333 1                11 95
+
+     MAE U2R       25     71            2          2
+
+          R2L 1986 109 3                79 22
+
+          Probe 253 7 1                 0 845
+
+          Normal 9428 81 1 0 201                                   B. Detecting Sophisticated Attacks
+
+          DoS      12 5716 0 0 13                                   R2L and U2R are sophisticated attacks in the NSL dataset
+                                                                 that challenge conventional machine learning models [43].
+     Xgb  U2R      31     042                      0             U2R attacks exploit system vulnerabilities to gain superuser or
+                                                                 root privileges, resulting in subtle changes in system behavior
+          R2L 2037 0 1 135 26                                    that can be hard to distinguish from normal activities. R2L
+                                                                 attacks occur when an attacker attempts unauthorized access
+          Probe    1      0 0 0 1105                             to a remote system, often through vulnerabilities or brute
+                                                                 force on login credentials, typically involving low network
+TABLE X: Confusion matrix of TAE, MAE, and Xgb on the            traffic, making them difficult to detect. The confusion matrix
+                                                                 of the tested methods on the NSL dataset is shown in Table
+                   Cloud dataset.                                IX. This table shows that TAE detects attacks better than
+                                                                 MAE and Xgb. Specifically, TAE detects 10 out of 37 U2R
+Method    Classes         l1 l2 l3 l4 l5 l6 l7                   attack samples, while MAE and Xgb detect only 1 and 4,
+                                                                 respectively. For R2L attacks, TAE correctly detects 475 out
+          normal traffic (l1) 1151 0 0 5 0 0 0                   of 2199, while MAE and Xgb detect only 79 and 135,
+                                                                 respectively.
+          Dns-flood (l2) 0 6 0 0 0 0 5
+                                                                    Ping-of-death, Slowloris, and TCP-land attacks are three
+          Ping-of-death (l3) 0 0 18 0 0 0 0                      popular network disruption attacks on the Cloud dataset [35].
+                                                                 Ping-of-death attacks exploit vulnerabilities in network pro-
+TAE       Slowloris (l4) 7 0 0 138 0 0 0                         tocols like ICMP (Internet Control Message Protocol), which
+                                                                 is essential for services such as diagnostics and connectiv-
+          Tcp-land-attack (l5) 0 0 0 0 11 0 0                    ity checks. Distinguishing between legitimate and malicious
+                                                                 ICMP packets is challenging. TCP-land and Slowloris attacks
+          TCP-syn-flood (l6) 0 0 0 0 0 19 0                      involve sending a small number of packets to the target, often
+                                                                 just a few per second, blending with legitimate traffic and
+          Udp-flood (l7) 0 1 0 0 0 0 13                          making it harder to detect anomalies. The confusion matrix
+                                                                 of the tested methods on the Cloud dataset is shown in Table
+MAE         normal traffic (l1) 1144 0 0 12 0 0 0                X, highlighting the results on the Ping-of-dead, Slowloris, and
+                 Dns-flood (l2) 0 5 0 0 1 1 4                    Tcp-land attacks. TAE outperforms MAE on these attacks. For
+                                                                 instance, TAE correctly identifies 138 out of 145 samples for
+            Ping-of-death (l3) 0 1 12 0 2 3 0
+                 Slowloris (l4) 28 0 0 117 0 0 0
+
+          Tcp-land-attack (l5) 0 0 0 0 8 2 1
+           TCP-syn-flood (l6) 0 1 1 0 3 13 1
+
+                Udp-flood (l7) 0 3 0 0 0 2 9
+
+          normal traffic (l1) 1153 0 0 3 0 0 0
+
+          Dns-flood (l2) 0 6 0 0 0 0 5
+
+          Ping-of-death (l3) 0 0 18 0 0 0 0
+
+Xgb       Slowloris (l4) 9 0 0 136 0 0 0
+
+          Tcp-land-attack (l5) 0 0 0 0 11 0 0
+
+          Tcp-syn-flood (l6) 0 0 0 0 0 19 0
+
+          Udp-flood (l7) 0 3 0 0 0 0 11
+
+DT, RF, 1D-CNN, and MLP. In addition, the results of TAE
+are almost higher than the advanced ensemble learning method
+(Xgb).
+IEEE INTERNET OF THINGS JOURNAL, NO. X, XXXX XXXX                                                                  12
+
+TABLE XII: Performance of TAE's CATR compared to codewords for representation learning models.
+
+M Representation Codewords                                                      Datasets Avg
+          models                                   IoT1 IoT2 IoT3 IoT4 IoT5 IoT6 IoT7
+
+                  One-hot                          0.923 0.925 0.957 0.953 0.937 0.892 0.922 0.930
+
+          MLP     Hadamard                         0.939 0.919 0.955 0.945 0.950 0.930 0.938 0.939
+
+                  TAE's means 0.923 0.914 0.971 0.925 0.949 0.949 0.972 0.943
+
+Acc MAE's codeword 0.925 0.913 0.950 0.935 0.931 0.876 0.933 0.923
+                  One-hot                          0.923 0.910 0.755 0.921 0.932 0.892 0.946 0.897
+          MAE
+                  Hadamard                         0.923 0.916 0.945 0.930 0.931 0.940 0.962 0.935
+
+                  TAE's means 0.923 0.917 0.980 0.940 0.944 0.928 0.964 0.942
+
+          TAE     CATR                             0.931 0.933 0.985 0.949 0.993 0.959 0.975 0.961
+
+F1-score  MLP          One-hot                     0.896          0.907  0.948  0.947  0.918  0.882  0.914  0.916
+          MAE         Hadamard                     0.925          0.897  0.945  0.935  0.941  0.921  0.924  0.927
+          TAE       TAE's means                    0.896          0.888  0.968  0.899  0.938  0.940  0.972  0.929
+                  MAE's codeword                   0.900          0.885  0.937  0.918  0.908  0.867  0.934  0.907
+                       One-hot                     0.896          0.879  0.670  0.892  0.908  0.879  0.938  0.866
+                      Hadamard                     0.895          0.892  0.925  0.909  0.906  0.928  0.949  0.915
+                    TAE's means                    0.895          0.893  0.979  0.927  0.932  0.918  0.959  0.929
+                                                   0.916          0.922  0.985  0.944  0.993  0.949  0.970  0.954
+                        CATR
+
+the Slowloris attack, while MAE identifies only 117. Similar        TABLE XIII: Comparison of the accuracy of the DT classifier using the
+results are observed for the other two attacks. Comparing TAE       original data and the data representations of MAE, CTVAE, and TAE on
+and Xgb, they are mostly equal except for the Slowloris attack,      artificial datasets as the number of classes in the training set increases.
+where TAE is slightly better.                                      No. Classes 50 100 150 200 250 300 350 400 450 500 Avg
+
+   The final set of experiments examines the performance of             DT 0.896 0.846 0.811 0.787 0.770 0.756 0.735 0.726 0.706 0.698 0.773
+TAE, MAE, and Xgb on the Mal3 dataset. The training set                MAE 0.725 0.636 0.592 0.503 0.407 0.258 0.165 0.140 0.142 0.119 0.369
+for Mal3 consists of normal traffic and a single attack type          CTVAE 0.987 0.988 0.963 0.938 0.909 0.888 0.886 0.839 0.825 0.806 0.903
+(DDoS), while the testing set includes various unknown at-              TAE 0.998 0.991 0.977 0.948 0.912 0.948 0.901 0.874 0.860 0.826 0.923
+tacks, such as C&C-Heart-Beat-Attack, C&C-Heart-Beat-File-
+Download, C&C-Part-Of-A-Horizontal-Port-Scan, Okiru, and          TABLE XIV: Accuracy comparison of DT classifier using original data and
+Part-Of-A-Horizontal-Port-Scan-Attack, as detailed in Table          data representation of MAE, CTVAE, and TAE on small-sized artificial
+XI. TAE outperforms both MAE and Xgb in attack detection,                                                   datasets.
+correctly identifying 45,635 out of 47,694 attacks. In com-              No. Classes 5 10 15 20 25 30 35 40 Avg
+parison, MAE and Xgb identified only 43,681 and 43,708,                        DT 0.953 0.903 0.862 0.843 0.845 0.844 0.806 0.781 0.855
+respectively. This highlights TAE's superior ability to detect               MAE 0.967 0.803 0.642 0.530 0.524 0.477 0.567 0.548 0.632
+unknown attacks in malware datasets.                                        CTVAE 1.000 0.947 0.980 0.953 0.975 0.960 0.948 0.956 0.965
+                                                                              TAE 1.000 1.000 1.000 0.987 0.991 0.984 0.987 0.980 0.991
+  C. TAE's CATR Compared to Codewords for RL
+                                                                  fixed codewords rank second in terms of accuracy and F1-
+   We compare the results of representation learning models       score. This is because TAE's means are generated from the in-
+using TAE's CATR and codewords, i.e., MLP and MAE. The            put data and help separate data samples from different classes.
+codewords tested include one-hot encoding, Hadamard [20]          This helps explain the superior performance of TAE compared
+[21], and the codeword of MAE (MAE's codeword), and               to other representation models that use fixed codewords.
+the codewords are the means of data samples from different
+classes of TAE (TAE's means), as described in Algorithm             D. Scalability with Increasing Class Numbers
+1. Note that codewords are computed once before training,
+whereas CATRs are updated for every data sample at each              We evaluate the performance of TAE as the number of
+epoch during the training of the TAE model. Decision Trees        classes in the training set increases. Table XIII presents the
+(DT) are used to test all representation models. As observed      accuracy achieved by Decision Trees (DT) using the origi-
+in Table XII, the accuracy and F1-score obtained by the           nal datasets, compared to the data representations of MAE,
+representation learning model using TAE's CATR outperform         CTVAE, and TAE. Overall, the accuracy of the TAE data
+those using codewords, i.e., one-hot encoding, Hadamard,          representation (TAE-DT) is significantly higher than that of the
+MAE's codeword, and TAE's means. In addition, the results         original data (DT) and the data representations of MAE (MAE-
+for codewords using Hadamard [20] [21] are better than those      DT) and CTVAE (CTVAE-DT) across ten artificial datasets.
+using one-hot encoding, while the results for codewords using     For instance, the average accuracy obtained by TAE-DT across
+TAE's means are better than those using one-hot encoding,         these datasets is 0.923, which is notably higher than the 0.773,
+Hadamard, and MAE's codewords. For example, the average           0.369, and 0.903 achieved by DT, MAE-DT, and CTVAE-DT,
+accuracy obtained by TAE's CATR over seven IoT datasets is        respectively. MAE-DT achieves the lowest accuracy because
+0.961, whereas the accuracies for MAE's codewords, one-hot        MAE struggles to address the problem as the number of classes
+encoding, Hadamard, and TAE means when applying MAE               in the training set increases.
+representation are 0.923, 0.897, 0.935, and 0.942, respectively.
+Interestingly, the representation models using TAE's means as        We evaluate the performance of TAE on small-sized arti-
+                                                                  ficial datasets. As observed in Table XIV, the accuracy of
+                                                                  the DT classifier using the data representation of TAE (TAE-
+                                                                  DT) is significantly greater than that of MAE-DT, CTVAE-DT,
+                                                                  and the original data (DT). For example, the average accuracy
+IEEE INTERNET OF THINGS JOURNAL, NO. X, XXXX XXXX                                                                                    13
+
+TABLE XV: Comparision of performance of TAE, CTVAE, CTVAE using the transformation operator of TAE called
+
+                  CTVAE-tae, and TAE using the transformation operator of CTVAE called TAE-ctvae.
+
+                                                 IoT IDS                      Network       Cloud             Malware
+                                           IoT3 IoT4 IoT5                        IDS         IDS
+        Metric    Method                                                                                                      AVG
+                             IoT1   IoT2                        IoT6   IoT7   NSL UNSW Cloud Mal-1 Mal-2 Mal-3
+
+        accuracy    CTVAE    0.933  0.930  0.965  0.939  0.948  0.931  0.934  0.863  0.741  0.980  0.513      0.877    0.921  0.883
+                  CTVAE-tae  0.923  0.925  0.966  0.934  0.975  0.926  0.952  0.867  0.737  0.980  0.517      0.892    0.922  0.886
+                  TAE-ctvae  0.919  0.938  0.973  0.962  0.941  0.915  0.956  0.854  0.736  0.983  0.516      0.894    0.913  0.885
+                             0.931  0.933  0.985  0.949  0.993  0.959  0.975  0.873  0.747  0.987  0.517      0.914    0.955  0.901
+                      TAE
+
+        F1-score    CTVAE    0.915  0.916  0.960  0.931  0.937  0.927  0.923  0.826  0.673  0.979  0.433      0.873    0.929  0.863
+                  CTVAE-tae  0.895  0.908  0.964  0.917  0.974  0.923  0.940  0.830  0.706  0.980  0.439      0.889    0.930  0.869
+                  TAE-ctvae  0.893  0.926  0.971  0.958  0.926  0.903  0.947  0.810  0.700  0.981  0.439      0.891    0.922  0.867
+                             0.916  0.922  0.985  0.944  0.993  0.949  0.970  0.844  0.695  0.987  0.439      0.912    0.958  0.886
+                      TAE
+
+                  a. Original data                 b. Latent vector (e(i))           c. Reconstruction representation (z(i))
+
+                                    Fig. 3: Simulation of data representation using TAE on the IoT3 dataset.
+
+of DT, MAE-DT, CTVAE-DT, and TAE-DT is 0.855, 0.632,                   ResNet-based KD. TAE also achieves the best performance
+0.965, and 0.991, respectively. The accuracy of DT on the              on IoT2, IoT3, and IoT5, demonstrating its effectiveness over
+original data decreases as the number of classes in the training       teacher-based KD approaches.
+set increases. Similarly, MAE-DT reports low accuracy as the
+number of classes in the training set increases.                          Table XVII compares TAE with conventional teacher-
+                                                                       student KD using DeepMLP and ResNet teachers. TAE
+E. Comparison with Knowledge Distillation                              achieves the highest accuracy of 98.5%, outperforming KD
+                                                                       with DeepMLP and ResNet teachers, respectively, while elim-
+TABLE XVI: Performance comparison between the proposed                 inating the need for a teacher model. Moreover, TAE requires
+                                                                       only 67.72K training parameters and 22.54K inference pa-
+TAE and KD with DeepMLP and ResNet teachers.                           rameters, reducing the training parameter overhead by 36.0%
+                                                                       and 85.8% compared with DeepMLP- and ResNet-based KD,
+Scores  Method                  IoT IDS Avg                            respectively.
+                  IoT2 IoT3 IoT4 IoT5
+                                                                                      VI. TAE'S CHARACTERISTICS
+        DeepMLP-KD 0.906 0.955 0.952 0.956 0.942
+                                                                         A. Transformation Operator Comparision
+Acc RESNET-KD 0.921 0.947 0.932 0.941 0.935
+                                                                          To further explain the result of TAE, we compare the
+          TAE     0.933 0.985 0.949 0.993 0.965                        results of TAE, CTVAE, and CTVAE using the transformation
+                                                                       operator of TAE (referred to as CTVAE-tae), and TAE using
+        DeepMLP-KD 0.872 0.969 0.947 0.949 0.934                       the transformation operator of CTVAE (referred to as TAE-
+                                                                       ctvae), as shown in Table XV. Overall, the average accuracy
+F-score RESNET-KD 0.905 0.966 0.916 0.926 0.928                        and F1-score obtained by TAE are approximately 1.5% higher
+                                                                       than those of CTVAE, CTVAE-tae, and TAE-ctvae. This
+          TAE     0.922 0.985 0.944 0.993 0.961                        indicates that TAE effectively addresses the posterior collapse
+                                                                       issue observed in CTVAE. Specifically, TAE achieves this
+TABLE XVII: Comparison of conventional teacher-student KD              by replacing the parameter trick and KL-divergence term in
+                                                                       CTVAE's loss function with the generation of distinct CATR
+and teacher-free TAE in terms of accuracy and model                    based on the input data. In addition, the average accuracy of
+                                                                       CTVAE-tae is slightly higher than that of CTVAE, i.e., 0.886
+          overhead on the IoT3 dataset.                                vs. 0.883. This suggests that using the transformation operator
+                                                                       of TAE is more effective than that of CTVAE.
+Method Teacher Teacher Client # Training # Inference Accuracy
+                            Size Size Params. Params.
+
+KD DeepMLP 418 KB 199 KB 105.87K 27.27K 0.955
+
+KD ResNet 852 KB 199 KB 475.27K 27.27K 0.969
+
+TAE None          0 482 KB 67.72K 22.54K 0.985
+
+   Table XVI shows that the proposed TAE consistently
+achieves higher average accuracy and F-score than both KD
+variants. Specifically, for TAE, the average accuracy and
+F-score are 0.965 and 0.961, respectively, compared with
+0.942/0.934 for DeepMLP-based KD and 0.935/0.928 for
+IEEE INTERNET OF THINGS JOURNAL, NO. X, XXXX XXXX                                                                                                                                                                           14
+
+TABLE XVIII: Representation quality the original data the reconstruction  1                                                                                                               1
+
+representation.                                                           0.95                                                                                                            0.95
+
+Data Between-class Within-class Representation quality                    Accuracy
+
+                                                                                                                                                                 Accuracy
+Orig TAE Orig TAE Orig                             TAE                    0.9 0.9
+
+IoT1 1.1 2.9 1.6E-3 2.1E-3 7.0E+02 1.4E+03                                                                                                                        0.85
+                                                                          0.85
+IoT2 1.2 4.1 1.9E-3 704E-6 6.5E+02 5.8E+03
+                                                                                                        IoT6 0.8                                                                                                      IoT6
+IoT3 1.1 3.8 2.1E-3 25E-6 5.5E+02 1.5E+05
+                                                                          0.8 IoT7                                                                                                                                    IoT7
+
+IoT4 1.2 3.3 2.9E-3 1.4E-3 4.0E+02 2.4E+03                                                              NSL                                                                                                           NSL
+
+                                                                                                                                                                                          0.75
+
+IoT5 1.2 3.7 4.0E-3 61E-6 2.9E+02 6.0E+04                                                                                                                                      80                1 2 5 10 15 20 30 40
+                                                                                                                                                                      40
+                                                                                                                                                            20S                                                Dz
+                                                                                                                                                   10
+IoT6 4.1 5.2 13.8E-3 1.6E-3 3.0E+02 3.4E+03                                                                                              5
+                                                                                                                               1
+                                                                                                                      0.5
+                                                                                                            0.2
+                                                                                                   0.1
+                                                                                         0.01
+                                                                                0.0001
+
+IoT7 3.2 6.0 9.8E-3 1.6E-3 3.3E+02 3.8E+03                                      a. Tuning parameter S                                                                                     b. Tuning parameter Dz
+
+                                                                                Fig. 4: Influence of accuracy of TAE based on S and Dz.
+
+  B. Representation Visualization                                         TABLE XIX: Performance of DT using the latent representation(e(i)) and
+                                                                                                the reconstruction representation (^z(i))
+   This subsection analyzes representations of TAE by visual-
+izing them in a 2D space. Fig. 3 displays the distribution of the               Data IoT1 IoT2 IoT3 IoT4 IoT5 IoT6 IoT7 Avg
+different vectors of TAE on the IoT3 dataset. To simplify the
+representation, the latent vector is set to two dimensions. Figs.               e(i) 0.883 0.916 0.941 0.921 0.953 0.92 0.966 0.929
+3 (a), 3 (b), and 3 (c) show the simulation of the testing data.
+Fig. 3 (a) shows the original data reduced to two dimensions                      (i)  0.931  0.933  0.985                                                                         0.949  0.993  0.959  0.975  0.961
+by PCA. Fig. 3 (b) shows the latent representation of TAE on
+the testing datasets, while Fig. 3 (c) shows the reconstruction                 z^
+representation (y(i)) on the testing datasets.
+                                                                          TABLE XX: Inference time and model size of MAE, CTVAE, and TAE on
+   It can be observed that the original data samples in the
+testing datasets (see Fig. 3 (a)) overlap. In the latent space, the                                    the IoT2 dataset.
+data samples are still mixed, indicating that using the latent
+vector for downstream tasks may not be effective. However,                             Metrics                                                                                     MAE CTVAE TAE
+most data samples in the reconstruction representation of TAE
+are well separated (Fig. 3 (c)). For example, data samples                             Model size (MB)                                                                             0.26          1.4    1.1
+from Benign and UDP in the original datasets overlap in the
+testing datasets, but they are much more separated in Fig.                      Avg time (seconds) 2.6E-07 2.9E-07 2.6E-07
+3 (c). Additionally, as seen in Fig. 3 (c), most of the data
+samples in the reconstruction representation are shrunk to a                D. Reconstruction Representation vs Latent Pepresentation
+small region, making it easier to classify the data samples of
+different classes.                                                           We conduct an experiment comparing the accuracy of the
+                                                                          DT classifier using latent representation e(i) and reconstruction
+  C. Representation Quality                                               representation ^z(i). The results in Table XIX show that the
+                                                                          accuracy from ^z(i) is significantly higher than from e(i) across
+   To further explain the superior performance of the TAE,                seven IoT datasets. This is due to the e(i) data samples of
+we follow the idea from [44] to evaluate the quality of                   different classes being projected into small regions around
+the reconstruction representation in TAE. Specifically, we                means µ(c) (see Equation (2)), resulting in frequent overlap,
+use two measures to quantify the representation quality, i.e.,            as illustrated in Fig. 3. In contrast, ^z(i) data samples of
+the average distance between means of classes, dBet, and                  different classes are mapped to separate regions defined by
+the average distance between data samples with their mean                 µ^(c) (see Fig. 2). This demonstrates TAE's ability to transform
+dW it. Moreover, we also introduce a new harmonic mea-                    the overlapping latent representation into a distinguishable
+sure called the representation-quality that is calculated as              representation, facilitating conventional machine learning in
+representation-quality = dBet dWit . A good representation is             detecting cyberattacks.
+the one that samples x(i,c) of class c is closer to its mean
+µ(c), whilst the distance between means of classes are as the               E. TAE's Hyper-parameters
+largest. In other words, if the value of representation-quality
+is greater, the better the representation is.                                First, we investigate the influence of the hyper-parameter
+                                                                          S in Algorithm 1 on the TAE's performance, as shown in
+   Table XVIII presents the representation quality of the orig-           Figure 4a. The dimensionality of the representation vector dz
+inal data (Orig) x(i) and the reconstruction representation ^z(i)         is set at 10. When the value of S is too small, the accuracy of
+in TAE on the IoT datasets. It is clear that the value of                 the TAE obtained by the DT classifier decreases. This occurs
+represenation-quality obtained by the reconstruction rep-                 because data samples of µ^(c) are closer together, as shown in
+resentation in TAE is much greater than that obtained by                  Algorithm 1 and Figure 2. For example, the accuracy is lower
+the original data. This provides more pieces of evidence to               than 0.8 when S is 0.0001, significantly below its average
+explain the better performance obtained by the reconstruction             value of 0.95. The influence of the latent space dimensionality
+representation of TAE compared to the original data.                      dz is shown in Figure 4b. The accuracy of TAE from the
+                                                                          DT classifier declines when dz is too small. For instance,
+                                                                          the accuracy on NSLKDD drops below 0.8 when dz = 1,
+                                                                          compared to an average of 0.86. With only 1 dimension,
+                                                                          information is lost at the Encoder, reducing the DT classifier's
+                                                                          accuracy. Additionally, the TAE model cannot operate when
+                                                                          dz exceeds the input data's dimensionality due to the PCA in
+                                                                          Algorithm 1.
+
+                                                                            F. Model Complexity
+IEEE INTERNET OF THINGS JOURNAL, NO. X, XXXX XXXX                                15
+
+   We present the experimental results on the complexity of                       [5] Y. Wu, L. Zhang, L. Yang, F. Yang, L. Ma, Z. Lu, and W. Jiang,
+the proposed model, TAE, in comparison to relevant works,                              "Intrusion detection for internet of things: An anchor graph clustering
+i.e., MAE and CTVAE, on the IoT2 dataset. Note that the                                approach," IEEE Trans. Inf. Forensics Secur., vol. 20, pp. 1965-1980,
+three models, i.e., MAE, CTVAE, and TAE, share the same                                Feb. 2025.
+neural network architecture for their encoder. We measure the
+model size, i.e., the storage space occupied by the model                         [6] P. V. Dinh, Q. U. Nguyen, D. T. Hoang, D. N. Nguyen, S. P. Bao, and
+on the hard disk (in MB), and the inference time, i.e., the                            E. Dutkiewicz, "Constrained twin variational auto-encoder for intrusion
+average time required to process a single data sample, as                              detection in iot systems," IEEE IoTJ, vol. 11, no. 8, pp. 14 789-14 803,
+reported in Table XX. The table shows that all three models are                        Apr. 2024.
+relatively small, with sizes of approximately 1 MB. For MAE,
+CTVAE, and TAE, their inference time is nearly identical,                         [7] M. Nakip and E. Gelenbe, "Online self-supervised deep learning for
+around 0.26 µs, as they share the same complexity in the                               intrusion detection systems," IEEE Trans. Inf. Forensics Secur., vol. 19,
+testing phase. Thus, TAE is well-suited for cybersecurity                              pp. 5668-5683, May 2024.
+applications and potentially for IoT systems, where a model
+size is approximately 1 MB.                                                       [8] L. Vu, V. L. Cao, Q. U. Nguyen, D. N. Nguyen, D. T. Hoang,
+                                                                                       and E. Dutkiewicz, "Learning latent representation for iot anomaly
+                         VII. CONCLUSIONS                                              detection," IEEE Trans. Cybern., vol. 52, no. 5, pp. 3769 - 3782, May
+                                                                                       2022.
+   This paper proposed TAE, which learns discriminative class-
+wise representations without requiring an external teacher                        [9] I. Goodfellow, Y. Bengio, and A. Courville, Deep Learning. The MIT
+model. Theoretical analysis established conditions for per-                            Press, 2016.
+fect representation and characterized regimes in which TAE
+achieves lower empirical risk than methods using fixed                           [10] K. Simonyan and A. Zisserman, "Very deep convolutional networks for
+class centers. Extensive experiments across 13 cybersecurity                           large-scale image recognition," in Proc. ICLR, San Diego, CA, USA,
+datasets demonstrated that TAE achieves up to 96.1% average                            2015, pp. 1-10.
+accuracy for IoT attack detection and 98.7% for cloud intru-
+sion detection. With a compact model size of approximately 1                     [11] S. Rahman, S. Pal, J. Yearwood, and C. Karmakar, "Analysing perfor-
+MB and an average inference time of 0.26 µs per sample, TAE                            mances of dl-based ecg noise classification models deployed in memory-
+provides an effective and lightweight solution for cybersecurity                       constraint iot-enabled devices," IEEE Tran. Consum. Electroni., pp. 704-
+and IoT applications.                                                                  714, Feb. 2024.
+
+   In the future, our work can be extended in several directions.                [12] U. C. Akuthota and L. Bhargava, "Transformer-based intrusion detection
+The current CATR can only be used with TAE's architec-                                 for iot networks," IEEE IoTJ, vol. 12, no. 5, pp. 6062-6067, Mar. 2025.
+ture/model and cannot be applied to other representation mod-
+els, such as MLP and MAE. TAE's CATR could be extended                           [13] B. Pal, M. S. Islam, and A. W.-C. Liew, "Calibrated uncertainty esti-
+for use in other representation learning models. For example,                          mation for trustworthy deep iot attack detection," IEEE Tran. Dependa.
+one could develop a method to select key data points within                            Secu. Comput., vol. 22, no. 6, pp. 7571-7584, Dec. 2025.
+a CATR to form a group of codewords representing a class.
+To project a single data point into the group of codewords,                      [14] M. Ali Lodhi, M. S. Obaidat, L. Wang, K. Mahmood,
+one would need to project this data point alongside all the                            K. Ibrahim Qureshi, J. Chen, and K.-F. Hsiao, "Tiny machine
+key data points within the group. Second, the loss function                            learning for efficient channel selection in lorawan," IEEE IoTJ, vol. 11,
+of TAE requires a trade-off between its components. It would                           no. 19, pp. 30 714-30 724, Oct. 2024.
+be beneficial to develop an approach that can automatically
+select optimal values for each dataset. Last but not least,                      [15] K. S. Prasad, E. L. Lydia, M. Rajesh, K. Radhika, J. V. N. Ramesh,
+the proposed model in this article has been evaluated on                               N. Neelima, and R. Pokuri, "Augmenting cybersecurity through attention
+cybersecurity datasets. Therefore, it would be interesting to                          based stacked autoencoder with optimization algorithm for detection and
+extend this model to other fields, such as computer vision and                         mitigation of attacks on iot assisted networks," Scienti. Repor., vol. 14,
+natural language processing.                                                           no. 1, p. 30833, Dec. 2024.
+
+                             REFERENCES                                          [16] M. Al-Qatf, Y. Lasheng, M. Al-Habib, and K. Al-Sabahi, "Deep learning
+                                                                                       approach combining sparse autoencoder with svm for network intrusion
+ [1] N. Alsabilah and D. B. Rawat, "Joint rough set theory and xgboost-based           detection," IEEE Access, vol. 6, no. 1, pp. 52 843-52 856, Sept. 2018.
+      learning for network intrusion detection system," IEEE IoTJ, vol. 12,
+      no. 7, pp. 7930-7937, Apr. 2025.                                           [17] H. Wu and M. Flierl, "Vector quantization-based regularization for
+                                                                                       autoencoders," in Proc. AAAI, vol. 34, no. 04, Palo Alto, California
+ [2] Z. Wang, R. Zhou, S. Yang, D. He, and S. Chan, "A novel lightweight               USA, 2020, pp. 6380-6387.
+      iot intrusion detection model based on self-knowledge distillation," IEEE
+      IoTJ, vol. 12, no. 11, pp. 16 912-16 930, Jun. 2025.                       [18] W. Luo, J. Li, J. Yang, W. Xu, and J. Zhang, "Convolutional sparse
+                                                                                       autoencoders for image classification," IEEE Trans. Neural Netw. Learn.
+ [3] S. Li, Y. Li, W. Han, X. Du, M. Guizani, and Z. Tian, "Malicious                  Syst., vol. 29, no. 7, pp. 3289-3294, Jul. 2018.
+      mining code detection based on ensemble learning in cloud computing
+      environment," Simul. Model. Pract. Theo., vol. 113, p. 102391, Dec.        [19] Y. Takida, W.-H. Liao, C.-H. Lai, T. Uesaka, S. Takahashi, and
+      2021.                                                                            Y. Mitsufuji, "Preventing oversmoothing in vae via generalized variance
+                                                                                       parameterization," Neurocomput., vol. 509, pp. 137-156, Oct. 2022.
+ [4] Y. Meidan, M. Bohadana, Y. Mathov, Y. Mirsky, A. Shabtai, D. Breiten-
+      bacher, and Y. Elovici, "N-baiot--network-based detection of iot botnet    [20] I. Evron, O. Onn, T. Weiss, H. Azeroual, and D. Soudry, "The role of
+      attacks using deep autoencoders," IEEE Pervasive Comput., vol. 17,               codeword-to-class assignments in error-correcting codes: An empirical
+      no. 3, pp. 12-22, Mar. 2018.                                                     study," in AISTATS, Palau de Congressos, Valencia, Spain, 2023, pp.
+                                                                                       8053-8077.
+
+                                                                                 [21] S. Yang, P. Luo, C. C. Loy, K. W. Shum, and X. Tang, "Deep
+                                                                                       representation learning with target coding," in Proc. AAAI, vol. 29, no. 1,
+                                                                                       Austin, Texas USA, 2015.
+
+                                                                                 [22] G. Hinton, O. Vinyals, and J. Dean, "Distilling the knowledge in a neural
+                                                                                       network," arXiv preprint arXiv:1503.02531, 2015.
+
+                                                                                 [23] J. Jang, S. Kim, K. Yoo, C. Kong, J. Kim, and N. Kwak, "Self-distilled
+                                                                                       self-supervised representation learning," in Proc. WACV, Waikoloa,
+                                                                                       Hawaii, 2023, pp. 2829-2839.
+
+                                                                                 [24] J. Yeo, S. Cha, J. Song, H. Jin, and T. Kim, "Atas: any-to-any self-
+                                                                                       distillation for enhanced open-vocabulary dense prediction," in Proc.
+                                                                                       ICCV, Honolulu Hawaii, 2025, pp. 20 390-20 400.
+
+                                                                                 [25] S. Kim, R. Xiao, M.-I. Georgescu, S. Alaniz, and Z. Akata, "Cosmos:
+                                                                                       Cross-modality self-distillation for vision language pre-training," in
+                                                                                       Proc. CVPR, Nashville, Tennessee, 2025, pp. 14 690-14 700.
+
+                                                                                 [26] D. McElfresh, S. Khandagale, J. Valverde, V. Prasad C, G. Ramakr-
+                                                                                       ishnan, M. Goldblum, and C. White, "When do neural nets outperform
+                                                                                       boosted trees on tabular data?" in Proc. NEURIPS, vol. 36, New Orleans
+                                                                                       Convention Center, 2023, pp. 76 336-76 369.
+
+                                                                                 [27] W. L. Costa, A. L. Portela, and R. L. Gomes, "Features-aware ddos
+                                                                                       detection in heterogeneous smart environments based on fog and cloud
+                                                                                       computing," Int. J. Commun. Netw. Inf. Secur., vol. 13, no. 3, pp. 491-
+                                                                                       498, Dec. 2021.
+IEEE INTERNET OF THINGS JOURNAL, NO. X, XXXX XXXX                                16
+
+[28] Y. Yin, J. Jang-Jaccard, W. Xu, A. Singh, J. Zhu, F. Sabrina, and
+      J. Kwak, "Igrf-rfe: a hybrid feature selection method for mlp-based
+      network intrusion detection on unsw-nb15 dataset," J. Big Data, vol. 10,
+      no. 1, pp. 1-26, Feb. 2023.
+
+[29] G. Lee, S.-W. Kim, and M. Jeon, "Machinery value estimation method
+      based on iiot system utilizing 1d-cnn model for low sampling rate
+      vibration signals from mems," IEEE IoTJ, vol. 10, no. 14, pp. 12 261-
+      12 275, Jul. 2023.
+
+[30] S. Cherfi, A. Lemouari, and A. Boulaiche, "Mlp-based intrusion de-
+      tection for securing iot networks," Journal of Network and Systems
+      Management, vol. 33, no. 1, p. 20, Dec. 2025.
+
+[31] A. Razavi, A. v. d. Oord, B. Poole, and O. Vinyals, "Preventing posterior
+      collapse with delta-vaes," in ICLR, New Orleans, Louisiana, United
+      States, 2019, pp. 1-11.
+
+[32] M. Tavallaee, E. Bagheri, W. Lu, and A. A. Ghorbani, "A detailed
+      analysis of the kdd cup 99 data set," in Proc. CISDA, Ottawa, ON,
+      Canada, 2009, pp. 1-6.
+
+[33] N. Moustafa and J. Slay, "Unsw-nb15: a comprehensive data set for
+      network intrusion detection systems (unsw-nb15 network data set)," in
+      Proc. MilCIS, Canberra, ACT, Australia, 2015, pp. 1-6.
+
+[34] S. Garcia, A. Parmisano, and M. J. Erquiaga, "Iot-23: A labeled dataset
+      with malicious and benign iot network traffic," Stratosphere Lab., Praha,
+      Czech Republic, Tech. Rep, 2020.
+
+[35] R. Kumar, S. P. Lal, and A. Sharma, "Detecting denial of service
+      attacks in the cloud," in Proc. Intl. Conf. Depend. Auto. Secur. Comput.
+      Auckland, New Zealand: IEEE, 2016, pp. 309-316.
+
+[36] J. G. Carbonell, R. S. Michalski, and T. M. Mitchell, "An overview of
+      machine learning," Machine Learning, vol. 1, pp. 3-23, Jan. 1983.
+
+[37] C. Zhang, S. Bengio, M. Hardt, B. Recht, and O. Vinyals, "Understand-
+      ing deep learning requires rethinking generalization," in Proc. ICLR,
+      Toulon, France, 2017, pp. 1-15.
+
+[38] I. T. Jolliffe, Principal component analysis for special types of data.
+      Springer, 2002.
+
+[39] Y. Yu and N. Bian, "An intrusion detection method using few-shot
+      learning," IEEE Access, vol. 8, pp. 49 730-49 740, Mar. 2020.
+
+[40] S. learn developers, "Make blobs," https://scikit-learn.org/stable/
+      modules/generated/sklearn.datasets.make blobs.html, n.d., accessed:
+      2025-11-20.
+
+[41] J. Park, J. Lee, and D. Sim, "Low-complexity cnn with 1d and 2d filters
+      for super-resolution," J. Real-Time Image Process., vol. 17, no. 6, pp.
+      2065-2076, Jun. 2020.
+
+[42] D. P. Kingma and J. Ba, "Adam: A method for stochastic optimization,"
+      in ICLR (Poster), 2015.
+
+[43] C. Xiang, P. C. Yong, and L. S. Meng, "Design of multiple-level hybrid
+      classifier for intrusion detection system using bayesian clustering and
+      decision trees," Pattern Recognit. Lett., vol. 29, no. 7, pp. 918-924,
+      May 2008.
+
+[44] P. Xanthopoulos, P. M. Pardalos, T. B. Trafalis, P. Xanthopoulos, P. M.
+      Pardalos, and T. B. Trafalis, "Linear discriminant analysis," Robust Data
+      Mining, pp. 27-33, Jan. 2013.
+

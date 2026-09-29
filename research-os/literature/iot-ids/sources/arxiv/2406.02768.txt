@@ -1,0 +1,385 @@
+                                           Lightweight CNN-BiLSTM based Intrusion
+                                       Detection Systems for Resource-Constrained IoT
+
+                                                                 Devices
+
+                                                                                  Mohammed Jouhari, Mohsen Guizani
+                                                           LSIA Laboratory, Moroccan School of Engineering Sciences (EMSI), Tanger, Morocco
+                                       Machine Learning Department, Mohamed Bin Zayed University of Artificial Intelligence (MBZUAI), Abu Dhabi, UAE
+
+                                                                                  m.jouhari@emsi.ma, mohsen.guizani@mbzuai.ac.ae
+
+arXiv:2406.02768v1 [cs.CR] 4 Jun 2024     Abstract--Intrusion Detection Systems (IDSs) have played a          IoT has enhanced individuals' lifestyles by introducing au-
+                                       significant role in detecting and preventing cyber-attacks within   tomated services. As a result of this unchecked growth, privacy
+                                       traditional computing systems. It is not surprising that the        and security concerns have become increasingly important.
+                                       same technology is being applied to secure Internet of Things       Addressing these concerns is a challenging task due to the
+                                       (IoT) networks from cyber threats. The limited computational        inherent complexity of dynamic and diverse IoT ecosystems.
+                                       resources available on IoT devices make it challenging to deploy    Consider protecting such a dynamic environment as a smart
+                                       conventional computing-based IDSs. The IDSs designed for IoT        city or smart home which are characterized by their con-
+                                       environments must also demonstrate high classification perfor-      strained visibility of the network, and the lack of professional
+                                       mance, utilize low-complexity models, and be of a small size.       support for the devices after their first use. This makes the
+                                       Despite significant progress in IoT-based intrusion detection,      traditional network security methods ineffective due to the
+                                       developing models that both achieve high classification perfor-     dynamic nature of this environment. The risk to user privacy
+                                       mance and maintain reduced complexity remains challenging.          and the environment's general security is further increased
+                                       In this study, we propose a hybrid CNN architecture composed        by the fact that many interconnected IoT devices are poorly
+                                       of a lightweight CNN and bidirectional LSTM (BiLSTM) to             designed and do not receive regular security updates. Thus, to
+                                       enhance the performance of IDS on the UNSW-NB15 dataset. The        fully realize the potential of IoT-based smart environments,
+                                       proposed model is specifically designed to run onboard resource-    creative solutions that prioritize security and privacy while
+                                       constrained IoT devices and meet their computation capability       also being able to adapt to this ever-changing environment
+                                       requirements. Despite the complexity of designing a model that      are required [5].
+                                       fits the requirements of IoT devices and achieves higher accuracy,
+                                       our proposed model outperforms the existing research efforts in        Previous research on smart city IDS has predominantly
+                                       the literature by achieving an accuracy of 97.28% for binary        utilized traditional machine learning (ML) techniques like de-
+                                       classification and 96.91% for multiclassification.                  cision trees and Support Vector Machines (SVMs) to enhance
+                                                                                                           IDS performance. While these methods deliver respectable ac-
+                                          Index Terms--Intrusion Detection Systems, Deep Learn-            curacy, they require extensive manual feature engineering and
+                                       ing, Convolutional Neural Networks, Long-Short-Term-Memory,         often suffer from high rates of false positives. In contrast, deep
+                                       UNSW-NB15.                                                          learning methods, especially convolutional neural networks
+                                                                                                           (CNNs), have emerged as promising alternatives due to their
+                                                                 I. INTRODUCTION                           ability to autonomously extract features from network traffic
+                                                                                                           data. However, their substantial computational demands render
+                                          The infrastructure of smart cities is increasingly vulnerable    them impractical for smart city devices with limited resources.
+                                       to cyberattacks as they expand and integrate ubiquitous IoT         In this study, we introduce several key contributions:
+                                       networks [1]. These attacks can pose a threat to public safety
+                                       by disrupting critical services and compromising sensitive             1) We propose a novel hybrid approach that integrates
+                                       data. In interconnected networks like these, intrusion detection           lightweight CNNs with bidirectional Long Short-Term
+                                       systems (IDS) play a crucial role in real-time monitoring                  Memory (LSTM) networks to achieve efficient and
+                                       and identification of malicious activity before it causes sig-             accurate intrusion detection in IoT networks.
+                                       nificant damage [2]. Although existing IDS solutions have
+                                       shown promising results, they often face challenges in smart           2) We develop a customized CNN architecture optimized
+                                       city environments. Traditional rule-based systems struggle to              for IoT devices, featuring fewer layers and parameters
+                                       adapt to constantly evolving attack patterns, while complex                to facilitate efficient data processing. This architecture
+                                       deep learning models can be computationally expensive and                  efficiently extracts critical features from network traffic,
+                                       resource-intensive for resource-constrained smart city devices             which are subsequently processed by a bidirectional
+                                       [3]. These IoT devices, which include temperature sensors and              LSTM for accurate classification of normal and mali-
+                                       smart devices for monitoring light bulbs or thermostats, are               cious activities.
+                                       characterized by their small size and limited functionality. The
+                                       data collected by these devices is transmitted via the internet
+                                       for storage and analysis, making security measures necessary
+                                       to protect personal, private, or sensitive information [4].
+   3) Our hybrid model combines the strengths of both CNNs         work intrusions in the modern UNSW-NB15 dataset. They
+       and LSTMs, addressing the limitations inherent in each      compared their method to previous approaches on both binary
+       method.                                                     and multi-class classification tasks. The paper highlights the
+                                                                   effectiveness of SVMs with a new scaling method for intrusion
+   4) To tackle the challenge of imbalanced datasets, we           detection on the more realistic UNSW-NB15 dataset, espe-
+       implement a weighted loss function in our multiclas-        cially compared to older methods and datasets. The authors
+       sification model. The weights are assigned based on the     in [11] proposed a new Network Intrusion Detection System
+       relative frequency of each attack type within the UNSW-     (NIDS) for protecting Internet of Things (IoT) devices from
+       NB15 dataset, enhancing model fairness and accuracy.        cyberattacks. The system used LSTM layer, which could
+                                                                   learn from past data to identify both known and unknown
+   The remainder of this paper is structured as follows: Section   attacks. This showed an improvement over older methods that
+2 reviews relevant literature related to our study. Section 3      struggled to detect new attacks. The researchers tested their
+offers a detailed description of our proposed hybrid intrusion     system on two large datasets of network traffic and found it to
+detection approach, including the lightweight CNN-BiLSTM           be more accurate than previous methods, while also reducing
+architecture, and outlines the dataset and evaluation metrics      false alarms.
+used in our analysis. Section 4 presents the experimental
+results and discusses our findings. Finally, Section 5 concludes      III. HYBRID CNN MODEL FOR THE UNSW-NB15
+the paper by summarizing our contributions and outlining                                          DATASET
+future directions for this research.
+                                                                   A. Description of the UNSW-NB15 dataset
+                         II. RELATED WORK
+                                                                      The UNSW-NB15 dataset provides a realistic snapshot of
+   The authors in [6] tackle anomaly detection in IoT networks     modern network traffic, encompassing both routine activity
+by proposing a 1D CNN-LSTM model. This model leverages             and a diverse range of nine contemporary attack types, includ-
+CNNs for spatial feature extraction and LSTMs for temporal         ing DoS, backdoors, and reconnaissance. Its clear organization
+analysis, achieving 99.20% accuracy and 0.80% false alarm          with ten distinct data types and balanced representation of
+rate on the Bot-IoT dataset. It offers both binary and multi-      normal and malicious traffic makes it a valuable resource for
+class detection, surpassing other methods and demonstrating        developing and evaluating IDS. Refer to Table I for detailed
+potential for real-world applications. Our previous paper [7]      information on each data type.
+investigated a novel approach to improve anomaly detection
+in IoT networks using conditional Generative Adversarial              This work utilizes the UNSW-NB15 dataset, which com-
+Networks (cGANs). We addressed the issue of unbalanced             prises 257,673 data instances (175,341 training and 82,332
+data and lack of specific attack samples by generating realistic   testing), carefully split without redundancy to ensure reliable
+adversarial malware examples. This training process enhanced       NIDS evaluations. Both sets share identical attack types,
+our CNNLSTM-based IDS model, increasing its accuracy in            further detailed in Table I. Each data point boasts 44 features
+detecting theft attacks by 40%.                                    categorized into six groups: flow, basic, content, time, addi-
+                                                                   tional generated (divided into general-purpose and connection
+   Many researchers have explored how to improve IDS perfor-       features), and labeled attack classes. Features #1-#30 represent
+mance using the UNSW-NB15 dataset, which is popular for
+its realistic and diverse network traffic data, including both     TABLE I: Categories of the UNSW-NB15 Dataset
+normal and attack activities. A Feed-Forward Neural Network
+and the UNSW-NB15 dataset are used in the paper [8] to             No. Type     Description
+investigate the use of Deep Learning for Network IDS. In
+the article, it is argued that traditional machine learning fails  1 Normal     Routine, legitimate network traffic
+to detect intrusions accurately because of the complexity of
+modern network threats. As a result of their experiments, the      2 Analysis   Attempts to uncover vulnerabilities through web
+authors were able to achieve high accuracy and lower false                      application attacks
+alarm rates compared to existing machine learning models
+by finding the optimal activation functions and features. In       3 Backdoor   Covertly bypasses authentication for unautho-
+this paper [9], the authors proposed IGRF-RFE, a hybrid                         rized remote access
+feature selection method for network intrusion detection that
+combined filter and wrapper techniques. IGRF-RFE success-          4 DoS        Disrupts system resources through memory-
+fully identified and eliminated irrelevant features, reducing the               based attacks
+feature count from 42 to 23 while simultaneously improving
+anomaly detection accuracy from 82.25% to 84.24% on the            5 Exploits   Leverages network errors or bugs for malicious
+UNSW-NB15 dataset. These results suggest that IGRF-RFE                          purposes
+could have been a valuable tool for building more efficient
+and accurate IDSs.                                                 6 Fuzzers    Crashes systems by overwhelming them with
+                                                                                random data
+   In [10], the authors explored the use of Support Vector
+Machines (SVMs) with a new scaling method to detect net-           7 Generic    Exploits block-cipher vulnerabilities using hash
+                                                                                functions
+
+                                                                   8 Reconnaissance Gathers information to evade security controls
+
+                                                                   9 Shellcode  Executes code to exploit software vulnerabilities
+
+                                                                   10 Worms     Self-replicating malware that spreads across sys-
+                                                                                tems
+TABLE II: Features of UNSW-NB 15 dataset                          Input Layer (1, 56)
+
+No. Name of Feature No. Name of Feature                                                          Convolutional 1D
+                                                                      filters=32, kernel size=3, padding="same", activation='relu'
+1 proto         23 response body len
+2 rate          24 sinpkt                                                     MaxPooling1D, pool size=2, padding="same"
+3 dur           25 dinpkt
+4 service       26 sjit                                                 Bidirectional LSTM, units=32, return sequences=True
+5 state         27 djit
+6 spkts         28 tcprtt                                                                            Dropout (0.2)
+7 dpkts         29 synack
+8 sbytes        30 ackdat                                                                  Dense (25), activation='relu'
+9 dbytes        31 ct srv src
+10 sttl         32 ct srv dst                                                           Output (1), activation='sigmoid'
+11 dttl         33 ct src ltm
+12 sload        34 ct dst ltm                                     Fig. 1: The architecture of our Lightweight CNN-BiLSTM
+13 dload        35 ct dst src ltm                                 Model with 7841 Trainable Parameters for UNSW-NB15
+14 sloss        36 ct src dport ltm                               Dataset Classification
+15 dloss        37 ct dst sport ltm
+16 swin         38 ct state ttl                                      The extracted features are then fed into a BiLSTM layer,
+17 dwin         39 is ftp login                                   which excels at capturing temporal dependencies within se-
+18 stcpb        40 ct ftp cmd                                     quential data. Figure 1 present the architecture of our pro-
+19 dtcpb        41 ct flw http mthd                               posed CNN-BiLSTM model. This is particularly valuable for
+20 smeansz      42 is sm ips ports                                network traffic analysis, as cyberattacks often exhibit specific
+21 dmeansz      43 attack cat                                     patterns over time. The BiLSTM analyzes the sequence of
+22 trans depth  44 label                                          features, learning the underlying dynamics and identifying
+                                                                  anomalies that deviate from normal network behavior. The
+core network packet information, while additional and con-        outputs from the CNN and BiLSTM layers are combined,
+nection features (#31-#42) provide deeper insights. Labeled       leveraging the strengths of both approaches. The combined
+features (#43-#44) serve for supervised learning tasks (refer to  features are then fed into a final decision-making layer, such
+Table II). This comprehensive dataset offers a robust platform    as a sigmoid classifier, which determines the class of the
+for exploring intrusion detection in modern networks such as      network traffic (normal or malicious). The BiLSTM model is
+the IoT network in smart cities.                                  comprised of a pair of LSTM units. One LSTM unit processes
+                                                                  the input sequence in the forward direction, while the other
+B. Lightweight CNN-BiLSTM                                         LSTM unit processes it in the reverse direction. In Figure 2,
+                                                                  we can see that the forward LSTM analyzes the input sequence
+   Traditional IDS often rely on rule-based systems or shallow    from the start to the end, while the backward LSTM operates
+machine learning models, which can struggle with the evolving     in the opposite direction. At each time step, the hidden states
+nature of cyberattacks and the resource constraints of resource-  of the two LSTMs are combined or concatenated to create
+constrained IoT devices. To address these challenges, we          the final hidden state sequence. This combined sequence is
+propose a novel hybrid model that combines the strengths          then forwarded to the subsequent layer. The mathematical
+of lightweight convolutional neural networks (CNNs) with          representation of this process is provided by Equations:
+bidirectional Long Short-Term Memory (BiLSTM) layers [12]
+for effective intrusion detection in IoT networks. The first                      ht(f) = LSTM(f) xt, ht-1 (f) , ct-1 (f) (1)
+stage of our model utilizes a lightweight CNN architecture                         ht(b) = LSTM(b) xt, ht+1 (b) , ct+1 (b) (2)
+specifically designed for efficient processing on edge devices.
+This CNN employs fewer layers and parameters compared                                ht = [ht(f); ht(b)] (3)
+to standard CNNs, reducing computational complexity and
+memory footprint while maintaining acceptable accuracy. The       where ht(f) and ht(b) represent the forward and backward
+convolutional layers extract spatial features from the network    hidden states at time step t, respectively. ct-1 (f) and ct-1 (b)
+traffic data, identifying patterns and relationships between      represent the forward and backward cell states at time step
+different data points.                                            t, respectively. xt represents the input vector at time step t. ht
+                                                                  represented the concatenation of the forward and backward
+                                                                  hidden states into a single vector.
+Output layer  ht-1        ht                ht+1                                           Confusion Matrix
+
+                                                                                                             8000
+
+Backward      LSTM        LSTM              LSTM                          Normal   7226                                                  7000
+Forward       LSTM        LSTM              LSTM                                                             174 6000
+
+                                                                                                                                         5000
+
+                                                                    True
+
+Input layer   xt-1        xt                xt+1                                                             4000
+
+              Fig. 2: BiLSTM architecture.                                Attacks  272                       8795 3000
+                                                                                                                                         2000
+
+C. Measuring NIDS Performance: Key Metrics
+
+   To assess the effectiveness of NIDS, we analyze key metrics                     Normal  Predicted         Attacks 1000
+derived from the confusion matrix, which maps the system's
+accuracy in classifying network traffic. We consider in the         Fig. 3: CNN-BiLSTM confusion matrix for binary classifica-
+work the following parameters:                                      tion of attacks.
+
+   1) Accuracy: Measures the overall correctness of the                IV. EXPERIMENTAL RESULTS AND ANALYSIS
+       NIDS, reflecting the proportion of correct predictions
+       (both attacks and normal traffic) out of all predictions.       Our experiments, powered by Python and TensorFlow on
+                                                                    a standard PC, investigated the feasibility of Lightweight
+              Accuracy =  ( TP + TN )                               CNNs for intrusion detection compared to traditional ML
+                                                                    methods. Leveraging the versatile UNSW-NB15 dataset for
+                          ( TP + TN + FP + FN )                     multi-class classification, we built a custom CNN architecture
+                                                                    within TensorFlow to assess its performance against estab-
+2) Recall (also known as Detection Rate or Sensitivity):            lished methods. This setup enabled a clear comparison of
+    Measures the NIDS's ability to correctly identify actual        their effectiveness and resource demands, providing valuable
+    attacks. It focuses on how many of the actual attacks           insights for deploying CNNs in real-world network security
+    were correctly detected.                                        scenarios.
+
+                          Recall = TP                                  The confusion matrix in Figure 3 presents the performance
+                                       TP + FN                      of our proposed model in classifying attacks on the UNSW-
+                                                                    NB15 dataset. The horizontal axis (X-axis) represents the
+3) Precision: Measures the proportion of predicted attacks          model's predicted attack categories for the testing data, while
+    that were actually correct. It focuses on how many of           the vertical axis (Y-axis) shows the actual attack categories
+    the predicted attacks were true positives.                      based on the ground truth labels. Our model achieved 7,226
+                                                                    true positives and 8,795 true negatives, correctly identifying
+                            Precision = TP                          both normal and attack instances. However, it also generated
+                                            TP + FP                 272 false negatives (missed attacks) and 174 false positives (in-
+                                                                    correctly identified attacks). While this translates to an overall
+   4) F1-Score: Combines precision and recall into a single         accuracy of 97%, as mentioned in the previous figure, we are
+       metric, providing a balanced view of the NIDS's perfor-      committed to exploring methods to address the remaining false
+       mance.                                                       positives and negatives.
+
+                   F1-Score = 2 * (Precision * Recall)                 Table III presents a performance evaluation of our CNN-
+                                      Precision + Recall            BiLSTM model compared to traditional ML models from
+                                                                    the literature. We assessed accuracy, recall, precision, and
+   While overall accuracy, encompassing both attack and nor-        F1-score. While precision and recall are typically used for
+mal traffic classification, plays a crucial role in assessing NIDS  imbalanced data, we primarily use precision here to gauge our
+performance, its limitations within imbalanced datasets be-         model's overfitting prevention capabilities. Combining these
+come readily apparent. In such scenarios, we prioritize recall,     parameters through the F1-score provides a comprehensive
+ensuring minimal missed attacks, as even a single undetected        understanding of our model's performance. Furthermore, we
+threat can have significant consequences. Conversely, high          considered training and inference times to demonstrate the
+precision, minimizing false alarms, becomes vital to avoid          proposed model's suitability for resource-constrained IoT de-
+resource drain and maintain operational efficiency. Ultimately,
+the F1-score, harmonizing these dual perspectives, offers a
+more nuanced understanding of the NIDS's efficacy, balancing
+attack detection with false alarm mitigation for robust network
+security.
+TABLE III: Performance Comparison of CNN-BiLSTM and Traditional ML Models for Binary Classification in UNSW-NB15
+
+Logistic Regression           Accuracy  Recall  Precision        F1-Score  time to train (s)  time to predict (s)  total time (s)
+KNN
+Decision Tree                  92.80%   92.80%   92.83%           92.80%           1.2                  0.0              1.2
+Gradient Boosting Classifier   95.04%   95.04%   95.09%           95.05%           0.0                 15.3             15.3
+MLP                            96.56%   96.56%   96.56%           96.56%           1.0                  0.0              1.0
+LSTM                           95.85%   95.85%   95.86%           95.85%          27.4                  0.0             27.4
+Proposed model                 96.34%   99.99%   55.05%           70.60%          21.3                 21.9             43.2
+                               96.49%   96.49%   96.49%           96.49%          70.9                 22.4             93.3
+                               97.28%   96.44%   98.59%           97.43%          122.5                 3.8             126.3
+
+TABLE IV: Comparing Accuracy: Proposed CNN-BiLSTM                optimal performance.
+Model and Recent Works with Hybrid CNN and LSTM
+Architecture for Binary Classification in the UNSW-NB15             Table V shows the results of the multiclassification of our
+Dataset                                                          CNN-BiLSTM model compared to the traditional model. To
+                                                                 obtain these results, we made some adjustments to our model
+Ref       Year  Dataset       Algorithm   Accuracy               compared to the binary classification while keeping the same
+                              BiLSTM                             architecture. The adjustments involved the hyperparameters
+[13] 2021       CIC-IDS2017   CNN-BiLSTM  97.72%                 of the model, including the number of epochs, batch size,
+[14] 2023       NSL-KDD                   99.9%                  and learning rate. These changes affected the training and
+                NSL-KDD       CNN-BiLSTM  99.4%                  prediction times. The results of the multiclassification were
+[15] 2023       UNSW-NB15                 82.3%                  lower than those obtained in the binary classification due
+                CIC-IDS2017   CNN-LSTM    99.53%                 to the complexity of the task, which involves classifying
+  [16]    2023  UNSW-NB15     CNN-BiLSTM  93.21%                 10 attacks using the proposed model. However, the obtained
+          2024  UNSW-NB15                 97.28%                 results demonstrate that our model outperforms other models
+Proposed                                                         in terms of accuracy, precision, recall, and F1-score, which are
+ model                                                           respectively 96.91%, 97.54%, 97.13%, and 97.33%. Although
+                                                                 the proposed model requires more time in the training phase
+vices. As shown in the table, our model outperforms existing     due to adjustments in the number of epochs and batch size,
+models in terms of accuracy, achieving 97.28% compared to        it is always performed offline before deploying the model
+the best LSTMs using Keras (96.49%). This suggests that          on resource-constrained IoT devices. Once deployed, these
+our model can more effectively detect attacks on the UNSW-       devices will act as IDS, and even with the increased training
+NB15 dataset. Our model also achieves the highest precision      time and resource consumption, our model still meets the
+(98.59%), ensuring highly accurate attack classification. Since  requirements of these devices in terms of resource usage due
+our focus is on resource-constrained IoT devices in smart        to the relatively lower time and resource needed for prediction.
+cities, we evaluated the model's training and inference times.
+While the training time of 122.5 seconds might seem long            Figure 4 presents the confusion matrix for our CNN-
+for on-device processing, training usually happens offline       BiLSTM multiclassification model on the UNSW-NB15
+in real-world applications, so this factor doesn't affect our    dataset, allowing us to evaluate each attack class individually.
+model's performance. More importantly, the inference time        The dataset contains 10 attack classes, as shown in the x and
+of 4 seconds is significantly faster than other deep learning    y labels. The x-axis represents the ground truth (true labels),
+models, even though we're not aiming for real-time processing.   while the y-axis shows the predicted classes by our model.
+                                                                 The diagonal, running from top-left to bottom-right, reflects
+   In Table IV, we summarize and compare the accuracy of         the model's effectiveness in classifying each attack type.
+our proposed CNN-BiLSTM model with recent works that             Darker squares indicate higher accuracy for that specific class.
+adopt the same CNN-LSTM architecture. We observe that this       However, for minority classes like "Analysis," "Shellcode,"
+architecture has already been used to improve the accuracy       and "Worms," the square colors might be less reliable due to
+of IDS, not only on the UNSW-NB15 dataset but also on            the limited number of samples in the test data. By using a
+other traditional datasets in the field. In contrast, this work  weighted loss function, our model prioritizes achieving better
+focuses on designing a lightweight hybrid model for resource-    accuracy on these minority classes. This is evident in the
+constrained devices using the BiLSTM. Regarding perfor-          correct detection of all 9 worms and the classification of 75
+mance, we achieved a higher accuracy compared to works           out of 76 Shellcode attacks with only one false negative.
+based on the UNSW-NB15 dataset. However, some works              Conversely, the normal traffic class has the darkest square
+using the same architecture have achieved higher accuracy on     due to its high accuracy and abundance of samples. Overall,
+the NSL-KDD dataset. This might be attributed to the larger      the confusion matrix serves as a visual representation of the
+number of features in UNSW-NB15 compared to NSL-KDD,             model's accuracy. Generally, a darker diagonal signifies higher
+potentially requiring more sophisticated feature selection for
+TABLE V: Performance Comparison of CNN-BiLSTM and Traditional ML Models for Multiclassification in UNSW-NB15
+
+                    Logistic        Accuracy  Precision  Recall                                                             F1-Score  Time to Train (s)  Time to Predict (s)
+                    KNN
+                    Decision Tree    91.83%    94.31%    92.74%                                                              93.53%           2.20                0.10
+                    GBC              93.06%    95.06%    93.80%                                                              94.43%           0.30                10.10
+                    MLP              84.10%    89.89%    86.28%                                                              88.09%           0.20                0.10
+                    LSTM             75.47%    85.16%    79.11%                                                              82.09%           55.90               0.10
+                    Proposed Model   96.74%    97.45%    97.00%                                                              97.22%          122.80               0.10
+                                     96.11%    97.02%    96.43%                                                              96.72%           90.80               15.10
+                                     96.91%    97.54%    97.13%                                                              97.33%         1220.20               3.20
+
+                                        Confusion Matrix                                                                     [2] H. Liao, M. Z. Murah, M. K. Hasan, A. H. M. Aman, J. Fang, X. Hu, and
+                                                                                                                                  A. U. R. Khan, "A Survey of Deep Learning Technologies for Intrusion
+      Analysis 130 1 0 1 0 0 0 1 1 1 7000                                                                                         Detection in Internet of Things," IEEE Access, vol. 12, pp. 4745-4761,
+                                                                                                                                  2024.
+      Backdoor 1 109 0 1 0 2 1 1 1 1                     6000
+                                                                                                                             [3] M. Jouhari, K. Ibrahimi, J. B. Othman, and E. M. Amhoud, "Deep
+         DoS 2 5 792 2 6 2 4 1 2 2                                                                                                Reinforcement Learning-Based Energy Efficiency Optimization for Fly-
+                                                                                                                                  ing LoRa Gateways," in ICC 2023 - IEEE International Conference on
+                                                                                                              5000                Communications, pp. 6157-6162, 2023.
+      Exploits 14 5 5 2154 9 8 7 9 10 6
+                                                                                                                             [4] S. Li, H. Song, and M. Iqbal, "Privacy and Security for Resource-
+      Fuzzers 7 3 6 6 1177 5 1 2 1 4                     4000                                                                     Constrained IoT Devices and Networks: Research Challenges and Op-
+                                                                                                                                  portunities," Sensors, vol. 19, no. 8, 2019.
+True         Generic 11 8 11 16 15 3658 10 18 15 12
+                                                                                                                      3000   [5] N. M. Karie, N. M. Sahri, W. Yang, C. Valli, and V. R. Kebande, "A
+                                                                                                                                  Review of Security Standards and Frameworks for IoT-Based Smart
+              Normal 24 25 24 27 27 21 7177 26 25 24                                                                              Environments," IEEE Access, vol. 9, pp. 121975-121995, 2021.
+      Reconnaissance 1 5 3 2 4 4 3 673 1 3 2000
+                                                                                                                             [6] H. Benaddi, M. Jouhari, K. Ibrahimi, A. Benslimane, and E. M.
+      Shellcode 0 0 0 0 0 0 0 0 75 1                     1000                                                                     Amhoud, "Improvement of Anomaly Detection System in the IoT
+                                                                                                                                  Networks Using CNN-LSTM Approach," in GLOBECOM 2023 - 2023
+      Worms 0 0 0 0 0 0 0 0 0 9                                                                                                   IEEE Global Communications Conference, 2023.
+
+      sis door DoS loits zers eric rmal ance code rms 0                                                                      [7] H. Benaddi, M. Jouhari, K. Ibrahimi, A. Benslimane, and E. M.
+      Anal B y ack  Ex n p Fuz Gen No naiss Shell Wo                                                                              Amhoud, "Adversarial Attacks Against IoT Networks Using Conditional
+                                    Reco                                                                                          GAN Based Learning," in GLOBECOM 2022 - 2022 IEEE Global
+                    Predicted                                                                                                     Communications Conference, pp. 2788-2793, 2022.
+
+Fig. 4: CNN-BiLSTM confusion matrix for multiclassification                                                                  [8] L. Zhiqiang, G. Mohi-Ud-Din, L. Bing, L. Jianchao, Z. Ye, and
+of attacks.                                                                                                                       L. Zhijun, "Modeling Network Intrusion Detection System Using
+                                                                                                                                  Feed-Forward Neural Network Using UNSW-NB15 Dataset," in 2019
+overall performance.                                                                                                              IEEE 7th International Conference on Smart Energy Grid Engineering
+                                                                                                                                  (SEGE), pp. 299-303, 2019.
+                           V. CONCLUSION
+                                                                                                                             [9] Y. Yin, J. Jang-Jaccard, W. Xu, A. Singh, J. Zhu, F. Sabrina, and
+   In this study, we developed a lightweight CNN-BiLSTM                                                                           J. Kwak, "IGRF-RFE: A Hybrid Feature Selection Method for MLP-
+model tailored for resource-constrained IoT devices, address-                                                                     Based Network Intrusion Detection on UNSW-NB15 Dataset," Journal
+ing a critical gap in the application of complex machine learn-                                                                   of Big Data, vol. 10, no. 1, 2023.
+ing models for IDS. Traditional models, while effective, are
+often unsuitable for such devices due to their computational                                                                [10] D. Jing and H.-B. Chen, "SVM Based Network Intrusion Detection for
+demands. Our model not only considers model complexity                                                                            the UNSW-NB15 Dataset," in 2019 IEEE 13th International Conference
+but also achieves high accuracy, with binary and multiclass                                                                       on ASIC (ASICON), pp. 1-4, 2019.
+classification accuracies of 97.28% and 96.91%, respectively,
+on the UNSW-NB15 dataset. When compared to recent hybrid                                                                    [11] K. Saurabh, S. Sood, P. A. Kumar, U. Singh, R. Vyas, O. P. Vyas, and
+CNN-LSTM architectures, our model demonstrates superior                                                                           R. Khondoker, "LBDMIDS: LSTM Based Deep Learning Model for
+performance on the UNSW-NB15 dataset, despite some mod-                                                                           Intrusion Detection Systems for IoT Networks," 2022.
+els achieving up to 99% accuracy on the NSL-KDD dataset.
+Moving forward, we aim to refine our approach by exploring                                                                  [12] Y. Tatsunami and M. Taki, "Sequencer: Deep LSTM for Image Classi-
+Bayesian Optimization for hyperparameter tuning to enhance                                                                        fication," in Advances in Neural Information Processing Systems (A. H.
+the performance of simpler models, thereby advancing re-                                                                          Oh, A. Agarwal, D. Belgrave, and K. Cho, eds.), 2022.
+search in IDS for IoT environments.
+                                                                                                                            [13] O. M. A. Alsyaibani, E. Utami, and A. D. Hartanto, "An Intrusion
+                             REFERENCES                                                                                           Detection System Model Based on Bidirectional LSTM," in 2021
+                                                                                                                                  3rd International Conference on Cybernetics and Intelligent System
+ [1] M. Jouhari, N. Saeed, M.-S. Alouini, and E. M. Amhoud, "A Survey                                                             (ICORIS), pp. 1-6, 2021.
+      on Scalable LoRaWAN for Massive IoT: Recent Advances, Potentials,
+      and Challenges," IEEE Communications Surveys & Tutorials, vol. 25,                                                    [14] A. Abdelkhalek and M. Mashaly, "Addressing the Class Imbalance Prob-
+      no. 3, pp. 1841-1876, 2023.                                                                                                 lem in Network Intrusion Detection Systems Using Data Resampling and
+                                                                                                                                  Deep Learning," The Journal of Supercomputing, pp. 1-34, 2023.
+
+                                                                                                                            [15] H. Peng, C. Wu, and Y. Xiao, "CBF-IDS: Addressing Class Imbalance
+                                                                                                                                  Using CNN-BiLSTM with Focal Loss in Network Intrusion Detection
+                                                                                                                                  System," Applied Sciences, vol. 13, no. 21, 2023.
+
+                                                                                                                            [16] H. C. Altunay and Z. Albayrak, "A Hybrid CNN+LSTM-Based Intrusion
+                                                                                                                                  Detection System for Industrial IoT Networks," Engineering Science and
+                                                                                                                                  Technology, an International Journal, vol. 38, p. 101322, 2023.
+

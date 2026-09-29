@@ -1,0 +1,267 @@
+                                       LiteShield: Hybrid Feature Selection-Driven
+                                            Lightweight Intrusion Detection for
+                                           Resource-Constrained IoT Networks
+
+                                             1st Dileepa Mabulage                                                  2nd Banuka Athuraliya
+                                           Department of Computing                                                Department of Computing
+                                       Informatics Institute of Technology                                   Informatics Institute of Technology
+
+                                               Colombo, Sri Lanka                                                    Colombo, Sri Lanka
+                                           dileepa.20212025@iit.ac.lk                                                    banu.a@iit.ac.lk
+
+arXiv:2605.02987v1 [cs.CR] 4 May 2026     Abstract--The rapid expansion of Internet of Things (IoT)             This creates a design tension: an IoT IDS must preserve
+                                       deployments has enlarged the attack surface of modern digital         detection quality while remaining lightweight enough for
+                                       infrastructure while exposing a key security mismatch: many           constrained devices. Existing lightweight IDS studies report
+                                       intrusion detection systems (IDSs) remain too computation-            encouraging results, but several gaps remain. First, many
+                                       ally expensive for constrained IoT environments. This paper           approaches rely on single-stage filter methods or standard
+                                       presents LiteShield, a lightweight machine learning-based IDS         dimensionality reduction rather than hybrid feature selection
+                                       that combines hybrid feature selection with efficient classifiers to  [3], [4]. Second, several systems emphasize binary classifi-
+                                       support accurate attack detection under limited computational         cation or a narrow subset of attack types, limiting practical
+                                       budgets. The proposed framework uses the UNSW-NB15 dataset,           utility in multiclass scenarios [5], [8]. Third, dataset imbalance
+                                       applies data preprocessing and imbalance-aware preparation,           continues to impair minority-class detection [9], [10].
+                                       and employs a two-stage feature selection pipeline based on
+                                       Mutual Information (MI) and Recursive Feature Elimination                To address these issues, this paper proposes LiteShield,
+                                       with Cross-Validation (RFECV). Six lightweight classifiers are        a lightweight IDS built around three ideas: (i) a hybrid
+                                       evaluated for both binary and multiclass intrusion detection:         MI+RFECV feature selection pipeline, (ii) comparative eval-
+                                       Decision Tree, Random Forest, K-Nearest Neighbors (KNN),              uation of six lightweight ML classifiers, and (iii) explicit
+                                       Logistic Regression, Na¨ive Bayes, and Support Vector Machine.        analysis of the trade-off between predictive performance and
+                                                                                                             resource efficiency. The main contributions are as follows:
+                                          Experimental results show that KNN achieved the highest raw
+                                       predictive performance, reaching 98.26% accuracy for binary              1) A hybrid feature selection pipeline for reducing high-
+                                       classification and 85.22% accuracy for multiclass classification.            dimensional network traffic data while preserving dis-
+                                       However, Random Forest delivered the most practical trade-off                criminative information.
+                                       between detection quality and deployment efficiency, obtaining
+                                       98.01% binary accuracy and 80.39% multiclass accuracy with               2) A comparative binary and multiclass evaluation of
+                                       substantially lower model size and inference cost than KNN.                  lightweight ML models for IoT intrusion detection.
+                                       Additional ablation analysis on minority attack classes indicates
+                                       that class imbalance materially affects multiclass performance.          3) A practical analysis showing that the best raw classifier
+                                       Overall, LiteShield demonstrates that hybrid feature selection               is not always the best deployment candidate under
+                                       and lightweight machine learning can provide a viable path                   resource constraints.
+                                       toward accurate and computationally feasible intrusion detection
+                                       for IoT-focused environments.                                                    II. RELATED WORK AND RESEARCH GAP
+
+                                          Index Terms--Internet of Things, intrusion detection system,          Recent studies show growing interest in designing intru-
+                                       lightweight machine learning, feature selection                       sion detection systems that are both accurate and lightweight
+                                                                                                             enough for IoT environments. A major direction in the
+                                                                 I. INTRODUCTION                             literature is the use of classical machine learning models
+                                                                                                             with dimensionality reduction or feature selection to reduce
+                                          The Internet of Things has transformed domains such as             computational cost. For example, [1] proposed an IDS that
+                                                                                                             combines Incremental Principal Component Analysis (IPCA)
+                                       healthcare, smart cities, transportation, and industrial automa-      with SAM-KNN, showing that careful reduction of the fea-
+                                                                                                             ture space can support deployment on constrained platforms
+                                       tion, but the resulting ecosystems have also become highly            while preserving strong detection capability. Similarly, [3]
+                                                                                                             introduced a lightweight supervised IDS that integrates PCA,
+                                       exposed to cyberattacks [1], [2]. IoT devices are typically           multicollinearity removal, and data sampling to improve ef-
+                                                                                                             ficiency and reduce false alarms. These studies demonstrate
+                                       constrained by limited memory, compute, bandwidth, and
+
+                                       power, which makes deployment of conventional security
+
+                                       controls difficult [1], [3]. At the same time, modern intrusion
+
+                                       detection increasingly relies on machine learning (ML) and
+
+                                       deep learning (DL), yet many high-performing models remain
+
+                                       too computationally intensive for realistic edge deployment
+
+                                       [4], [5].
+that feature reduction is central to lightweight IDS design,       misclassification [8], [9]. Finally, many prior studies prioritize
+particularly when memory footprint and inference latency are       predictive accuracy but provide limited discussion of model
+critical.                                                          size, inference efficiency, and deployment suitability, which
+                                                                   are essential in practical IoT security systems.
+   Another prominent direction is the use of optimized ensem-
+ble or hybrid learning pipelines. In this area, [17] developed        Motivated by these gaps, LiteShield focuses on three design
+a two-stage feature selection framework that combines Spear-       objectives: (1) integrating hybrid feature selection to combine
+man Correlation Coefficient with Salp Swarm Optimization           the speed of filter methods with the subset refinement ca-
+and then applies LightGBM for classification. This work            pability of wrapper methods, (2) supporting both binary and
+highlights the benefit of combining a fast filter stage with       multiclass intrusion detection, and (3) benchmarking detection
+a more selective optimization stage to improve predictive          performance alongside efficiency-related factors relevant to
+performance. Likewise, [6] showed that combining multiple          resource-constrained IoT settings. In this way, the proposed
+feature ranking strategies can improve the quality of selected     system aims to offer a more balanced solution between detec-
+features compared to relying on a single statistical criterion.    tion effectiveness and deployment feasibility.
+These studies suggest that hybrid feature selection is promising
+because it can better balance computational efficiency and                                 III. METHODOLOGY
+predictive power than purely filter-based methods.
+                                                                   A. Dataset and Preprocessing
+   Deep learning has also been explored for IoT intrusion de-
+tection, especially to improve representation learning for com-       LiteShield uses the UNSW-NB15 dataset, a widely adopted
+plex traffic patterns. For instance, [4] presented a lightweight   benchmark containing modern normal and attack traffic with
+CNN-BiLSTM framework with Chi-Square-based feature se-             nine attack classes [11]. Following the dataset configuration
+lection on the UNSW-NB15 dataset, while [5] evaluated deep         used in prior work, the study uses the official train-test
+models such as CNN, CNN-LSTM, and DenseNet for intru-              split and operates on 45 predictive features after removal
+sion detection. These approaches demonstrate strong pattern        of irrelevant identifiers and timestamps [11], [12]. Data pre-
+learning capability, especially for nonlinear attack behaviors.    processing includes cleaning, duplicate handling, categorical
+However, despite their detection potential, deep architectures     encoding, and feature scaling. For multiclass detection, a
+typically require higher memory, longer training time, and         balanced training set is used to reduce the effect of severe
+greater inference cost. Such characteristics may reduce their      class imbalance.
+practicality for resource-constrained IoT nodes, gateways, or
+edge devices where lightweight deployment is a core require-       B. Hybrid Feature Selection
+ment.
+                                                                      The proposed framework combines a filter stage and a wrap-
+   A further issue identified in the literature is that many       per stage. Mutual Information (MI) is first applied to rank fea-
+studies emphasize binary classification or only a narrow subset    tures by dependency with the target labels. Recursive Feature
+of attacks. For example, [8] focused primarily on DDoS-            Elimination with Cross-Validation (RFECV) then refines the
+oriented detection, which is valuable for specific threat scenar-  subset by iteratively removing less useful features according to
+ios but does not fully address the broader requirement of dis-     classifier performance. This two-stage design aims to preserve
+tinguishing among multiple heterogeneous attack categories.        the speed advantages of filter methods while improving subset
+In real IoT networks, intrusion detection systems must often       quality through wrapper-based optimization [6], [13]. The final
+identify not only whether traffic is malicious, but also what      model uses 20 selected features for binary classification and
+type of malicious behavior is present. This makes multiclass       20 selected features for multiclass classification.
+classification more challenging and more practically relevant
+than binary-only detection. However, the literature consistently   C. Classification and Evaluation
+reports that multiclass intrusion detection suffers when attack
+classes are highly imbalanced or when minority classes have           Six lightweight classifiers are trained and evaluated: Deci-
+only limited training examples [9].                                sion Tree (DT), Random Forest (RF), KNN, Logistic Regres-
+                                                                   sion (LR), Na¨ive Bayes (NB), and Support Vector Machine
+   These observations reveal several research gaps. First, al-     (SVM). Binary classification distinguishes benign from mali-
+though feature selection is widely used, many studies rely         cious traffic. Multiclass classification predicts one of the attack
+on single filter-based methods such as PCA, Chi-Square, or         categories or normal traffic. Performance is measured using
+correlation analysis. While these methods are computation-         accuracy, precision, recall, F1-score, and false positive rate
+ally efficient, they may overlook feature dependencies and         (FPR), while deployment practicality is assessed using model
+interactions that wrapper-based methods can capture [6], [7].      size, inference latency, and memory usage [15], [16].
+Second, although deep models may improve classification
+performance, they often introduce computational overhead that                       IV. RESULTS AND DISCUSSION
+conflicts with the lightweight requirements of IoT deployment
+[4], [5]. Third, multiclass intrusion detection remains insuffi-      Table I summarizes the main quantitative findings. KNN
+ciently addressed, especially for rare attack categories, where    achieved the highest predictive performance in both binary
+class imbalance can significantly reduce recall and increase       and multiclass settings. In binary detection, it obtained 98.26%
+                                                                   accuracy and an F1-score of 98.42%. In multiclass detection,
+                                                                   it reached 85.22% accuracy and an F1-score of 87.44%.
+                                       TABLE I                   marks. The binary RF result of 98.01% accuracy is higher
+LITESHIELD CLASSIFICATION PERFORMANCE AND DEPLOYMENT COST        than values reported by Pansari et al. (95.03%) and Pal et al.
+                                                                 (87.53%) [12], [14]. Likewise, binary KNN reaches 98.26%,
+Model            Binary                 Multiclass               exceeding several earlier KNN-based results. In multiclass
+           Acc.                                                  evaluation, LiteShield's KNN result of 85.22% surpasses
+                 F1 Size (MB) Acc. F1 Size (MB)                  Pansari et al.'s 81.77% but remains below the 93.06% re-
+                                                                 ported by Jouhari et al. for a different hybrid setting. These
+DT   96.91       97.23    0.64   78.47  81.65   2.29             comparisons suggest that LiteShield is competitive, especially
+RF   98.01       98.21    1.91   80.39  83.55   4.32             when practical efficiency is considered together with predictive
+KNN  98.26       98.42   62.92   85.22  87.44  124.97            performance.
+SVM  80.44       83.72   0.0013  59.53  66.18  0.0027
+LR   81.22       84.18   0.0014  59.48  66.16  0.0029                                       V. LIMITATIONS
+NB   69.50       65.19   0.0018  43.26  50.50  0.0043
+                                                                    This study has several limitations. First, evaluation relies
+                               TABLE II                          primarily on UNSW-NB15, which may not fully capture the
+MULTICLASS ACCURACY UNDER ATTACK-CLASS ABLATION                  heterogeneity of real IoT deployments or evolving attack
+                                                                 behavior. Second, the system was not validated on physical IoT
+     Model       Full    -Worms  -Shellcode  -Both               hardware, so real-world deployment feasibility remains partly
+                                                                 inferred from model size and runtime characteristics rather
+     DT          78.47    77.30     79.53    78.46               than directly observed. Third, while oversampling and bal-
+     RF          80.39    80.48     80.85    80.62               anced training help, rare and zero-day attacks remain difficult
+     KNN         85.22    85.23     85.34    85.34               to model reliably. Finally, only lightweight ML models were
+     LR          59.48    60.80     62.66    63.95               evaluated; future work could examine quantized or compressed
+     NB          43.26    43.59     43.42    45.55               DL alternatives that preserve a low deployment footprint.
+     SVM         59.53    59.43     59.50    60.23
+                                                                             VI. CONCLUSION AND FUTURE WORK
+However, this performance came with substantial cost: 62.92
+MB model size for binary, 124.97 MB for multiclass, and the         This paper presented LiteShield, a lightweight IoT intrusion
+highest latency among all compared methods.                      detection framework that combines hybrid feature selection
+                                                                 with efficient machine learning classifiers. The results show
+   By contrast, Random Forest produced a stronger balance        that high detection performance is achievable without resorting
+between effectiveness and efficiency. It delivered 98.01%        to computationally expensive DL models. KNN delivered the
+binary accuracy with a 1.90 MB model and 80.39% multiclass       best predictive scores overall, but Random Forest provided the
+accuracy with a 4.32 MB model. This makes RF far more            most practical trade-off for constrained deployment because
+attractive for practical IoT deployment despite KNN's superior   it preserved strong accuracy while remaining far smaller and
+raw accuracy. Decision Tree also remained lightweight and        faster.
+fast, but its multiclass performance was lower than RF and
+KNN.                                                                The study confirms three main findings: hybrid feature
+                                                                 selection is effective for reducing dimensionality without un-
+   The results also reinforce the value of the hybrid feature    dermining detection quality; multiclass IoT intrusion detection
+selection strategy. By narrowing the feature space before        remains strongly affected by class imbalance; and efficiency-
+classification, LiteShield maintains strong predictive perfor-   aware benchmarking is necessary because the highest-accuracy
+mance without requiring heavyweight DL architectures. This       model may be unsuitable for real deployment. Future work
+is particularly important because computational feasibility      should extend evaluation to additional datasets such as BoT-
+matters as much as raw accuracy in edge settings [2], [18].      IoT, CICIDS2017, and ToN-IoT, test the framework on real
+The results additionally align with broader literature showing   IoT hardware, support streaming data, and explore adaptive,
+that ensemble and tree-based methods often provide robust        explainable, and compressed learning methods for evolving
+performance for network intrusion detection [17], [19].          attack environments.
+
+A. Ablation and Validation                                                                    REFERENCES
+
+   Ablation analysis on minority classes (Worms and Shell-        [1] P. R. Agbedanu, N. H. Mvungi, and T. O. Olwal, "IPCA-SAMKNN:
+code) further clarified the effect of class imbalance. When            A Novel Network IDS for Resource Constrained Devices," in Proc.
+these classes were removed, accuracy increased across all              2nd Int. Seminar on Machine Learning, Optimization, and Data Science
+models, indicating that underrepresented attacks degrade mul-          (ISMODE), 2022, pp. 540-545.
+ticlass learning stability. For example, RF improved from
+80.39% multiclass accuracy in the full setting to 80.62%          [2] X.-H. Nguyen, Q.-V. Tran, H.-V. Huynh, and T.-T. Nguyen, "Realguard:
+when both Worms and Shellcode were removed, while KNN                  A Lightweight Network Intrusion Detection System for IoT Gateways,"
+improved from 85.22% to 85.34%. Although the gains are                 Sensors, vol. 22, no. 2, p. 432, 2022.
+modest, their consistency supports the claim that imbalance
+handling remains essential for realistic multiclass IDS design.   [3] S. Roy, M. Chattopadhyay, S. Das, and S. Maitra, "A Lightweight
+                                                                       Supervised Intrusion Detection Mechanism for IoT Networks," Future
+B. Positioning Against Prior Work                                      Generation Computer Systems, vol. 127, pp. 276-285, 2022.
+
+   LiteShield's results compare favorably with several pub-       [4] H. Benaddi, M. Jouhari, and O. Elharrouss, "A Lightweight Hybrid
+lished baselines on UNSW-NB15 and related intrusion bench-             Approach for Intrusion Detection Systems Using a Chi-Square Feature
+                                                                       Selection Approach in IoT," Internet of Things, vol. 32, p. 101624, 2025.
+ [5] M. Ahsan et al., "Intrusion Detection for IoT Network Security with
+      Deep Neural Network," in Proc. IEEE Int. Conf. Electro Information
+      Technology (eIT), 2022, pp. 467-472.
+
+ [6] K. Albulayhi, M. Abuhamad, A. Alawairdhi, and A. Al-Dhelaan, "IoT
+      Intrusion Detection Using Machine Learning with a Novel High Per-
+      forming Feature Selection Method," Applied Sciences, vol. 12, no. 10,
+      p. 5015, 2022.
+
+ [7] S. Kaushik, A. Gupta, A. K. Yadav, and P. K. Shukla, "Efficient,
+      Lightweight Cyber Intrusion Detection System for IoT Ecosystems
+      Using MI2G Algorithm," Computers, vol. 11, no. 10, p. 142, 2022.
+
+ [8] S. A. Khanday, H. Fatima, and N. Rakesh, "Implementation of Intrusion
+      Detection Model for DDoS Attacks in Lightweight IoT Networks,"
+      Expert Systems with Applications, vol. 215, p. 119330, 2023.
+
+ [9] G. A. Mukhaini et al., "A Systematic Literature Review of Recent
+      Lightweight Detection Approaches Leveraging Machine and Deep
+      Learning Mechanisms in Internet of Things Networks," J. King Saud
+      Univ. - Computer and Information Sciences, vol. 36, no. 1, p. 101866,
+      2024.
+
+[10] A. Basati and M. M. Faghih, "DFE: Efficient IoT Network Intrusion
+      Detection Using Deep Feature Extraction," Neural Computing and
+      Applications, vol. 34, no. 18, pp. 15175-15195, 2022.
+
+[11] N. Moustafa and J. Slay, "UNSW-NB15: A Comprehensive Data Set for
+      Network Intrusion Detection Systems," in Proc. Military Communica-
+      tions and Information Systems Conf. (MilCIS), 2015, pp. 1-6.
+
+[12] N. Pansari, D. Bhattacharyya, and A. Bhowmick, "Attack Classification
+      Using Machine Learning on UNSW-NB15 Dataset Using XGBoost
+      Feature Selection and Ablation Analysis," in Proc. IEEE Int. Conf. for
+      Convergence in Technology (I2CT), 2024, pp. 1-9.
+
+[13] A. Z. Mustaqim, E. M. Yuniarno, and M. H. Purnomo, "The Effect of
+      Recursive Feature Elimination with Cross-Validation (RFECV) Feature
+      Selection Algorithm toward Classifier Performance on Credit Card Fraud
+      Detection," in Proc. Int. Conf. Artificial Intelligence and Computer
+      Science Technology (ICAICST), 2021, pp. 270-275.
+
+[14] K. K. Pal, A. V. Eriksen, and N. Dinh, "XGBoost Feature Selection
+      for Multi-Class and Binary Classification on UNSW-NB15 Dataset," in
+      Proc. IEEE Int. Conf. Consumer Electronics (ICCE), 2025, pp. 1-6.
+
+[15] B. A. Tama and S.-H. Lim, "Ensemble Learning for Intrusion Detection
+      Systems: A Systematic Mapping Study and Cross-Benchmark Evalua-
+      tion," Computer Science Review, vol. 39, p. 100357, 2021.
+
+[16] S. K. R. Mallidi and R. R. Ramisetty, "Optimizing Intrusion Detection
+      for IoT: A Systematic Review of Machine Learning and Deep Learning
+      Approaches With Feature Selection and Data Balancing," WIREs Data
+      Mining and Knowledge Discovery, vol. 15, no. 2, p. e70008, 2025.
+
+[17] D. Zhang, J. Liu, X. Zhao, and Y. Wang, "A Lightweight IoT Intrusion
+      Detection Method Based on Two-Stage Feature Selection and Bayesian
+      Optimization," AIMS Electronics and Electrical Engineering, vol. 9, no.
+      3, pp. 359-389, 2025.
+
+[18] S. F. Misrak and H. M. Melaku, "Lightweight Intrusion Detection
+      System for IoT with Improved Feature Engineering and Advanced
+      Dynamic Quantization," Discover Internet of Things, vol. 5, no. 1, p.
+      97, 2025.
+
+[19] M. Z. Mahmud, M. A. Hossain, and M. A. Rahman, "Optimized IoT
+      Intrusion Detection using Machine Learning Technique," in Proc. IEEE
+      Int. Conf. Robotics, Automation, Artificial-Intelligence and Internet-of-
+      Things (RAAICON), 2024, pp. 167-172.
+

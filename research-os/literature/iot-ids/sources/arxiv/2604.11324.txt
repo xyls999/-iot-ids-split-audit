@@ -1,0 +1,1220 @@
+                                          BRIDGE and TCH-Net: Heterogeneous Benchmark and Multi-Branch Baseline for
+                                                                      Cross-Domain IoT Botnet Detection
+
+                                        Ammar Bhilwarawalaa,, Likhamba Rongmeia, Harsh Sharmaa, Arya Jenaa, Kaushal Singha, Jayashree Piria, Raghunath Deya
+
+                                                             aSchool of Computer Engineering, Kalinga Institute of Industrial Technology (KIIT), Bhubaneswar, Odisha 751024, India
+
+arXiv:2604.11324v1 [cs.CR] 13 Apr 2026  Abstract
+
+                                           Despite years of progress in IoT botnet detection, the field has been quietly building on a shaky foundation: the overwhelming
+                                        majority of published systems are evaluated on a single dataset, producing performance estimates that simply do not hold when the
+                                        network environment changes. Compounding this, the heterogeneous feature spaces of available IoT security datasets have made
+                                        principled multi-dataset training practically impossible without either discarding semantic interpretability or introducing silent data
+                                        integrity violations. No prior work has addressed both problems together with a formally specified, reproducible methodology. This
+                                        paper makes two primary contributions toward fixing that. First, we introduce BRIDGE (Benchmark Reference for IoT Domain
+                                        Generalisation Evaluation), the first formally specified heterogeneous multi-dataset benchmark for IoT intrusion detection, unifying
+                                        five structurally distinct publicly available datasets, CICIDS-2017, CIC-IoT-2023, Bot-IoT, Edge-IIoTset, and N-BaIoT, through a
+                                        46-feature semantic canonical vocabulary grounded in CICFlowMeter nomenclature, with genuine-equivalence-only feature mapping,
+                                        explicit zero-filling for absent features, and full per-dataset coverage disclosure spanning 15% to 93%. A leave-one-dataset-out
+                                        (LODO) evaluation protocol reveals, for the first time with a formally reproducible methodology, just how large the generalisation
+                                        gap really is: all five evaluated deep learning architectures achieve mean LODO F1 in the range 0.39-0.47, and we establish the first
+                                        formally quantified community generalisation baseline at mean LODO F1 = 0.5577, which is a finding that we believe will reframe
+                                        the research agenda from single-benchmark optimisation toward cross-environment generalisation and domain adaptation. Second,
+                                        we propose TCH-Net as a strong and well-characterised baseline for BRIDGE: a multi-branch neural architecture integrating a
+                                        three-path Temporal branch with residual convolutional-BiGRU, stride-downsampled BiGRU, and full-resolution pre-LayerNorm
+                                        Transformer encoders for multi-scale attack pattern capture, a provenance-conditioned Contextual branch, and an aggregate Statistical
+                                        branch, fused via a novel Cross-Branch Gated Attention Fusion (CB-GAF) mechanism with learnable per-branch sigmoid gates
+                                        that enable dynamic, feature-wise cross-branch information mixing. Evaluated across five independent random seeds on BRIDGE,
+                                        TCH-Net achieves F1 = 0.8296 ± 0.0028, AUC = 0.9380 ± 0.0025, and MCC = 0.6972 ± 0.0056, outperforming all twelve baseline
+                                        models with statistical significance (p < 0.05, paired Wilcoxon signed-rank test) and attaining the highest cross-dataset LODO F1
+                                        among all evaluated architectures. BRIDGE, its canonical vocabulary specification, and the complete experimental pipeline are
+                                        publicly released at https://github.com/Ammar-ss/TCH-Net to facilitate reproducible community evaluation and progress on
+                                        the cross-dataset generalisation challenge that BRIDGE makes, for the first time, precisely measurable.
+
+                                        Keywords: IoT botnet detection, network intrusion detection, cross-dataset generalisation, heterogeneous benchmark, multi-branch
+                                        neural architecture, gated attention fusion, domain shift, leave-one-dataset-out evaluation
+
+                                        1. Introduction                                                     communication protocols that resist uniform monitoring, making
+                                                                                                            them an attractive target for large-scale botnet conscription.
+                                           The Internet of Things (IoT) has transformed how physical de-
+                                        vices interact with digital infrastructure, extending connectivity     Botnets represent one of the most operationally damaging
+                                        from industrial sensors and smart-home appliances to medi-          threat classes in the contemporary threat landscape. The Mirai
+                                        cal monitors and autonomous vehicles [1]. This expansion is         botnet [2], first observed in 2016, demonstrated that hundreds
+                                        accompanied by a commensurate growth in the cyber attack sur-       of thousands of misconfigured IoT devices could be marshalled
+                                        face: IoT devices are typically resource-constrained, ship with     into a coordinated distributed denial-of-service (DDoS) platform
+                                        minimal security hardening, and operate across heterogeneous        capable of generating traffic volumes exceeding 600 Gbps, suf-
+                                                                                                            ficient to disrupt a major chunk of internet infrastructure for
+                                            Corresponding author.                                           extended periods of time [3]. Subsequent variants: Satori, Okiru,
+                                             Email addresses: ammarbhilwarawala@gmail.com (Ammar            and Masuta confirm that the Mirai template is iteratively refined
+                                        Bhilwarawala), 23052578@kiit.ac.in (Likhamba Rongmei),              to exploit newly discovered device classes and vulnerability sur-
+                                        23052573@kiit.ac.in (Harsh Sharma), 23053346@kiit.ac.in (Arya       faces. Beyond DDoS amplification, modern IoT botnets serve as
+                                        Jena), 23052575@kiit.ac.in (Kaushal Singh),                         infrastructure for credential stuffing, crypto-mining, spam relay,
+                                        jayashree.pirifcs@kiit.ac.in (Jayashree Piri),                      and lateral movement within enterprise and industrial networks.
+                                        raghunath.deyfcs@kiit.ac.in (Raghunath Dey)
+Bhilwarawala et al.                                                   2  BRIDGE and TCH-Net
+
+The economic cost of IoT-facilitated cyberattacks is estimated           interpretability, or employ ad-hoc proxy mappings that intro-
+to be in hundreds of billions of dollars annually [4], and results       duce silent data integrity violations. Neither of which provides a
+in the disruption of critical infrastructure which elevates these        principled, reproducible solution, which is why single-dataset
+threats beyond financial harm to the matter of public security           evaluation still persists.
+and privacy.
+                                                                         1.4. Contributions of This Work
+1.1. Limitations of Conventional Detection Approaches
+                                                                            This paper addresses both the evaluation crisis and the feature
+   The traditional network-level defence against these botnet            heterogeneity problem through two interconnected contribu-
+activities is the Intrusion Detection System (IDS), which ana-           tions:
+lyzes the traffic to distinguish malicious from benign interactions.
+Signature-based IDS platforms such as Snort [5] maintains a                1. BRIDGE: A Benchmark Reference for IoT Domain
+curated rule databases matching known attack patterns. While                   Generalisation Evaluation. We introduce BRIDGE, the
+highly precise for cataloged threats, they are still unable to                 first formally specified evaluation benchmark unifying five
+consistently detect zero-day exploits, polymorphic malware, or                 structurally distinct IoT network security datasets through
+previously unseen botnet C&C protocols. Anomaly-based detec-                   a principled feature alignment framework. BRIDGE com-
+tion [7] circumvents the zero-day blind spots but suffers from                 prises:
+elevated false positive rates in IoT environments where diverse
+device behaviour renders any single baseline inadequate [19].                     · A 46-feature semantic canonical vocabulary
+Classical machine learning models achieve strong benchmark                           grounded in CICFlowMeter nomenclature, with
+performance, yet treat flows as independent samples, discarding                      genuine-equivalence-only mapping constraints, ex-
+temporal ordering, the very structure in which coordinated attack                    plicit zero-filling for absent features, and full per-
+behaviour is encoded [6].                                                            dataset coverage disclosure spanning 15% to 93%
+                                                                                     across the five datasets.
+1.2. The Single-Dataset Evaluation Crisis
+                                                                                  · A reproducible preprocessing pipeline including
+   Recurrent neural architectures [11, 12], convolutional net-                       class balancing, shared RbustScaler normalisation,
+works [13], and transformer-based models [14] have enabled                           sliding-window sequence construction, and verified
+IDS to exploit sequential dependencies that flat feature vec-                        leakage-free train/test splitting.
+tors cannot capture. Despite this progress, the vast majority of
+published systems are evaluated on a single benchmark dataset,                    · A leave-one-dataset-out (LODO) evaluation pro-
+producing optimistic estimates tuned to one capture environment,                     tocol providing the first formally quantified cross-
+one time period, and one attack toolkit. Ring et al. [30] surveyed                   dataset generalisation benchmark in heteroge-
+34 network IDS datasets and found that single-dataset evaluation                     neous IoT intrusion detection, establishing mean
+is the dominant paradigm, with feature naming inconsistencies,                       LODO F1 = 0.5577 as a rigorous BRIDGE com-
+labelling methodology differences, and capture tool variations                       munity baseline that exposes the domain shift as a
+identified as primary obstacles to principled multi-dataset com-                     primary challenge in this sector.
+parison. Compounding this, widely-used benchmarks includ-
+ing CICIDS-2017 [24] contain systematic labelling artifact and             2. TCH-Net: A Multi-Branch Architecture for Multi-
+CICFlowMeter implementation errors that artificially inflate re-               Dataset Botnet Detection. We propose TCH-Net as a
+ported metrics [29]. As Sommer and Paxson [6] demonstrated                     deep neural architecture comprising of three specialized
+empirically, models trained in a closed-world benchmark exhibit                parallel branches designed to exploit distinct modalities of
+dramatic performance degradation outside it, a limitation partic-              network flow nformation:
+ularly acute in heterogeneous IoT environments where device
+populations and attack toolkits shift continuously. The field                     · Cross-Branch Gated Attention Fusion (CB-GAF):
+therefore lacks a reliable answer to a fundamental question: how                     a novel fusion mechanism in which each branch
+well do IoT botnet detection systems actually generalize across                      queries the remaining two via scaled dot-product at-
+the diverse network environments in which they must operate?                         tention modulated by learnable per-branch sigmoid
+                                                                                     gates, enabling dynamic and asymmetric cross-branch
+1.3. The Feature Heterogeneity Problem                                               information mixing. Component ablation using TCH-
+                                                                                     NovAbl confirms CB-GAF is necessary; its removal
+   A natural response to single-dataset fragility is multi-dataset                   degrades F1 by 0.054 relative to the full model (in-
+training, but the network security dataset ecosystem is character-                   clusive of proxy architectural gap).
+ized by profound feature-space heterogeneity: CICFlowMeter
+datasets [28] export bidirectional flow statistics, Argus [26]                    · Three-Path Temporal Encoding: a T-branch con-
+produces session-level records, Wireshark [27] captures packet-                      sisting of three parallel encoders, (i) a resid-
+level attributes, and Kitsune [19] produces statistical finger-                      ual depthwise-separable convolutional stack with
+print vectors with no flow-level correspondence. Existing multi-                     Squeeze-Excitation recalibration followed by a
+dataset approaches either apply PCA [10], discarding semantic                        two-layer BiGRU capturing both local and
+                                                                                     medium-range sequential patterns; (ii) a stride-
+                                                                                     downsampled convolutional projection followed
+                                                                                     by a single-layer BiGRU capturing coarse-scale
+Bhilwarawala et al.                                                   3  BRIDGE and TCH-Net
+
+            dynamics; and (iii) a full-resolution two-layer pre-         and provenance modalities of network flows, which TCH-Net
+            LayerNorm Transformer encoder with CLS-token                 addresses through its three-branch CB-GAF design.
+            classification capturing global temporal context,
+            fused via multi-head self-attention across a shared          2.3. Transformer-Based Approaches
+            8-step temporal grid into hT  R512. Component
+            ablation confirms MSTE is necessary; its removal                The transformer architecture [14], built on scaled multi-head
+            degrades F1 by 0.054 relative to the full model (in-         self-attention, theoretically allows the attending of arbitrarily dis-
+            clusive of proxy architectural gap).                         tant positions within a sequence window without the sequential
+         · Dual Domain Embedding: a contextual branch en-                bottleneck of recurrent computation. Recent works have applied
+            coding dataset identity and device category as learned       transformer encoders to flow-level network traffic classification,
+            dense embeddings, conditioning CB-GAF's fusion be-           consistently finding that self-attention provides modest improve-
+            haviour on input provenance and enabling the model           ments over BiLSTM baselines on single-dataset benchmarks
+            to calibrate cross-branch information mixing based           when model capacity is held constant [18]. A critical challenge
+            on the feature coverage profile of each source dataset.      for transformer-based IDS is data volume: transformer models
+                                                                         are notoriously data-hungry, and the effective training sets avail-
+      After evaluated over all five independent random seeds             able after class-balancing can leave transformers under-trained
+      on BRIDGE, TCH-Net achieves F1 = 0.8296 ± 0.0028,                  relative to their capacity, leading to elevated variance across
+      AUC = 0.9380 ± 0.0025, and MCC = 0.6972 ± 0.0056, out-             random seeds. In TCH-Net, the Transformer is deliberately
+      performing all twelve previously evaluated baseline models         restricted to a fixed 32-step window within the T-branch, main-
+      with statistical significance (p < 0.05, paired Wilcoxon           taining a favourable data-to-parameter ratio while contributing
+      signed-rank test).                                                 global temporal context alongside the recurrent paths.
+
+   Paper organisation. Section 2 surveys related work. Sec-              2.4. IoT-Specific Intrusion Detection Systems
+tion 3 details BRIDGE and its preprocessing pipeline. Section 4
+presents the TCH-Net architecture. Section 5 reports all exper-             N-BaIoT [19] pioneered deep autoencoders for device-level
+imental results. Section 6 discusses findings and limitations.           IoT botnet detection, representing each device's traffic as a high-
+Section 7 concludes.                                                     dimensional vector of sliding-window statistical features and
+                                                                         training a per-device auto-encoder on benign traffic to detect
+2. Related Work                                                          botnet-induced reconstruction anomalies. N-BaIoT achieves
+                                                                         near-perfect detection on trained device types but requires per-
+2.1. Classical Machine Learning for Network IDS                          device model training and cannot be generalized to unseen de-
+                                                                         vice classes.
+   Decision tree ensembles, especially random forests [8], be-
+came a dominant paradigm for flow-based IDS owing to their                  Kitsune [20] trains an ensemble of feature-group auto-
+resistance to irrelevant features, native handling of mixed-type in-     encoders incrementally on streaming traffic, though concept
+puts, and interpretable feature importance scores. Random forest         drift still elevates false alarm rates. DeepDefense [21], Diro
+classifiers trained on CICFlowMeter-derived features routinely           and Chilamkurti [22], and GraphSAGE-based approaches [23]
+achieve high accuracy on single-dataset benchmarks, largely be-          each demonstrate domain-tailored value but share a common
+cause many exported features contain substantial discriminative          limitation: evaluation on narrow single-dataset benchmarks that
+redundancy that tree ensembles exploit efficiently. Gradient-            does not address the cross-capture-tool feature alignment.
+boosted decision trees, epitomised by XGBoost [9], extend this
+through sequential residual fitting and have been applied to             2.5. Multi-Dataset Evaluation and Feature Alignment
+both binary and multi-class intrusion detection with similar re-
+sults [30].                                                                 Ring et al. [30] found that single-dataset evaluation dominates
+                                                                         the IDS literature, with naming inconsistencies and capture-
+   These models treat flows as an independent set of samples and         tool variation being the primary obstacles for principled multi-
+rely on handcrafted features, both of which limits generalization        dataset comparison. Engelen et al. [29] audited CICIDS-2017
+when device population or attack toolkit shifts [6].                     and catalogued labelling errors and CICFlowMeter artefacts that
+                                                                         inflates the reported metrics, reinforcing that high single-dataset
+2.2. Recurrent and Convolutional Deep Learning for IDS                   F1 does not imply real-world generalisation.
+
+   LSTM networks [11] and their bidirectional [17] and                      To the best of our knowledge, no prior IDS work defines
+GRU [12] variants model temporal dependencies across flow se-            a formal, named canonical feature vocabulary with explic-
+quences. Applied to CICFlowMeter data, they report F1 of 0.97            itly disclosed coverage statistics and genuine-equivalence-only
+to 0.99 on CICIDS-2017 [17], performance that does not transfer          mapping constraints applied simultaneously across five struc-
+to held-out environments, as our LODO results confirmed.                 turally distinct datasets. Existing multi-dataset approaches either
+                                                                         restricts the evaluation to datasets sharing the same capture
+   One-dimensional CNNs [13] extract local temporal motifs;              tool [30], apply PCA [10] to discard semantic interpretability, or
+CNN-LSTM hybrids extend this with a long-range memory. A                 employ ad-hoc name matching without any auditing semantic
+consistent limitation of all single-path architectures is the ab-        equivalence. To the best of our knowledge, BRIDGE represents
+sence of principled mechanisms for fusing temporal, statistical,
+Bhilwarawala et al.                                                              4                                    BRIDGE and TCH-Net
+
+Table 1: Qualitative comparison with representative prior work. () = supported;     Table 2: Overview of the five BRIDGE datasets.  = Supplementary; low
+(--) = not supported.                                                               coverage reflects non-flow-level capture.
+
+Method               Multi-  Gated   Multi-    IoT      Full                        Dataset       Capture Tool  Year  Coverage        Tier
+                     branch  Fusion  dataset  Focus  Ablation
+RF / XGB [8, 9]                                                                     CICIDS-2017   CICFlowMeter  2017     93%        Primary
+BiLSTM [17]             --     --       --      --       --                         CIC-IoT-2023  CICFlowMeter  2023     87%        Primary
+Transformer [18]        --     --       --               --                         Bot-IoT       Argus         2019     39%        Primary
+Kitsune [20]            --     --       --               --                         Edge-IIoTset  Wireshark     2022     22%    Supplementary
+N-BaIoT [19]                   --       --               --                         N-BaIoT       Kitsune       2018     15%    Supplementary
+DeepDefense [21]        --     --       --               --
+IoT-DNN [22]            --     --       --               --                         deliberate diversity is precisely what makes BRIDGE informa-
+TCH-Net (Ours)          --     --       --               --                         tive, that if all datasets shared the same capture tool and device
+                                                                                    environment, the benchmark would not stress feature alignment,
+                                                                                    and LODO results would not surface the cross-dataset domain
+                                                                                    shift that we have shown, which is a primary open challenge.
+the first formally specified and fully disclosed cross-dataset fea-
+ture alignment and evaluation methodology for heterogeneous                            Datasets split into two tiers by coverage (Table 2): three pri-
+IoT network security datasets.                                                      mary (39%) and two supplementary (22%), the latter stress-
+                                                                                    testing generalisation across structurally distant feature spaces.
+2.6. Attention Mechanisms for Network Security
+                                                                                    3.2. Individual Dataset Characterisation
+   Attention mechanisms have been applied in IDS to re-weight
+temporal steps in recurrent models [18]. CB-GAF extends cross-                      3.2.1. CICIDS-2017
+attention in two key respects: it operates across three branches                       CICIDS-2017 [24] achieves 93% canonical vocabulary cov-
+simultaneously (each querying the other two branches simulta-
+neously), and a learnable sigmoid vector gate per branch enables                    erage and contributes approximately 28% of post-balancing
+feature-wise suppression of cross-branch information when it                        training records; 43 of 46 canonical slots receive genuine CI-
+is unhelpful. It is a capability that is absent from vanilla cross-                 CFlowMeter matches. It covers 14 attack types over a five-day
+attention. This gating is particularly important in the hetero-                     testbed. Despite being well-documented labelling artefacts [29]
+geneous setting, where branch informativeness varies with the                       that inflate single-dataset metrics, we retain it as a calibration
+canonical vocabulary coverage of the source dataset.                                anchor: the multi-dataset evaluation prevents over-reliance on
+                                                                                    a single source, and its LODO result (Section 5.9) explicitly
+2.7. Positioning of This Work                                                       quantifies non-transferable performance.
+
+   Table 1 summarises the key dimensions on which TCH-Net                           3.2.2. CIC-IoT-2023
+is positioned relative to prior work. Table 1 highlights that                          CIC-IoT-2023 [25] was built around 105 physical IoT devices
+TCH-Net evaluated on BRIDGE is the only system combining
+a formally named multi-dataset benchmark, principled feature                        tested under 18 MITRE ATT&CK scenarios, producing traffic
+alignment, gated multi-branch fusion, and comprehensive evalu-                      that reflects the constrained, bursty behaviour of embedded IoT
+ation including LODO generalization.                                                firmware. CICFlowMeter capture gives 40/46 canonical matches
+                                                                                    (87%). Its 2023 collection date makes it the most temporally
+3. BRIDGE: Datasets, Feature Alignment, and Preprocess-                             proximate benchmark for current IoT threats in the suite.
+   ing
+                                                                                    3.2.3. Bot-IoT
+   A principled multi-dataset benchmark demands careful atten-                         Bot-IoT [26] was captured with Argus rather than CI-
+tion to three interrelated problems: the selection and characterisa-
+tion of constituent datasets, the alignment of their heterogeneous                  CFlowMeter, which is a session-level tool that exports byte
+feature spaces into a common representation, and the construc-                      counts, session duration, and TCP flags but not per-direction
+tion of a preprocessing pipeline that is transparent, reproducible,                 flow rates or subflow statistics, giving 39% canonical cover-
+and free of data leakage. This section addresses each of these                      age (18/46). Its attack scenarios are botnet-specific (DDoS,
+problems in turn.                                                                   C&C beaconing, exfiltration, reconnaissance), and the Ar-
+                                                                                    gus/CICFlowMeter tool boundary is precisely the cross-capture-
+3.1. Dataset Selection Rationale                                                    tool heterogeneity the vocabulary is designed to bridge. Its
+                                                                                    38 post-balancing test samples preclude a reliable per-dataset
+   Five publicly available network security datasets are incorpo-                   metrics, which are excluded accordingly; Bot-IoT's value is
+rated into BRIDGE, selected to cover the widest feasible range                      structural, it is the only source imposing a 61% zero-fill regime
+of capture modalities, network environments, device populations,                    on the canonical vocabulary.
+and attack categories relevant to IoT botnet detection (Table 2).
+Crucially, each dataset was chosen because it fills a specific gap                  3.2.4. Edge-IIoTset
+in the evaluation space that no other selected dataset covers. This                    Edge-IIoTset [27] records packet-level traffic via Wire-
+
+                                                                                    shark on Raspberry Pi IIoT nodes running MQTT, Modbus,
+Bhilwarawala et al.                                                   5  BRIDGE and TCH-Net
+
+CoAP, DNP3, and AMQP; Wireshark operates below the flow-                 3.3.4. Alias Mapping Procedure
+aggregation layer, so canonical coverage falls to 22% (10/46),              Alignment uses a per-dataset alias map with three priority
+filled only by inter-packet times, packet lengths, TCP flags, and
+header size. Its value lies in traffic character: IIoT protocols         stages: exact case-insensitive match, alias exact match, and alias
+impose strict timing regularity that attacks disrupt in ways that        substring match (5 characters). When multiple columns match,
+differ sharply from IT-network intrusions, stress-testing general-       the highest-priority match is selected and flagged for auditing.
+isation to an environment structurally unlike the CICFlowMeter-          Full mapping tables have been provided as a supplementary
+dominated training corpus.                                               material.
+
+3.2.5. N-BaIoT                                                           3.4. Preprocessing Pipeline
+   N-BaIoT [19] contains pre-computed Kitsune statistical fin-
+                                                                         3.4.1. Class Balancing
+gerprints [20], 115-dimensional vectors with no direct CI-                  Records are separated by label and are subsampled to a 1:1
+CFlowMeter correspondence, giving the lowest canonical cov-
+erage at 15% (7/46). Despite this, it still achieves the highest         benign-to-attack ratio. This strict balance ensures no class dom-
+per-dataset F1: Mirai and BASHLITE infections produce stereo-            inates the training loss. The 1:1 ratio was selected after pilot
+typed, high-volume traffic separable from benign behaviour even          experiments with 3:1 and 1:3 ratios revealed class collapse in
+in just seven features. It also provides confirmed ground-truth          datasets with low initial attack proportions (e.g., CICIDS-2017
+labels from physical device compromises, making it a validity            at 14.5%), where even a 1:3 oversampling produced window
+anchor for the detection task.                                           attack incidence below 10%. A minimum of 5,000 samples per
+                                                                         class are preserved to prevent degenerate splits.
+3.3. Canonical Feature Vocabulary
+                                                                         3.4.2. Semantic Vector Construction
+3.3.1. Design Principles                                                    Each record is mapped to the 46-dimensional canonical vector
+   Three explicit constraints govern the vocabulary. Genuine
+                                                                         through alias mapping. All values are parsed as 32-bit floats.
+equivalence only: a feature maps to a canonical slot only if             Non-numeric, NaN, and infinite values are replaced with zero,
+it measures the same network-theoretic quantity with the same            producing a matrix X(d)  RNd×46 per dataset d.
+computational definition, regardless of capture tool; superficially
+similar but semantically distinct quantities are not mapped. Ex-         3.4.3. Normalisation
+plicit zero-filling: absent features are set to zero for all records        The five per-dataset matrices are concatenated to form Xtrain 
+from the concerning dataset, making coverage gaps auditable.
+No dimensionality reduction: PCA and similar projections are             RN×46. A RobustScaler, centring by median, scaling by the
+excluded as they destroys the semantic interpretability.                 5th to the 95th percentile interquartile range, and is fitted ex-
+                                                                         clusively on Xtrain and applied to Xtest without refitting. Scaled
+3.3.2. Vocabulary Structure                                              values are clipped to [-10, 10]. A single shared scaler was
+   The 46 canonical features are organised into four semantically        deliberately used: per-dataset scaling would normalise away
+                                                                         inter-dataset distributional differences that carry useful discrimi-
+coherent groups (Table 3). Groups 1 and 2 serve as primary               native information and would constitute a form of data leakage
+inputs to the Temporal and Statistical branches respectively;            in the LODO protocol.
+Groups 3 and 4 are shared across branches.
+                                                                         3.4.4. Sequence Construction
+   Group 1 captures temporal flow dynamics: duration, forward               A sliding window of length W = 32 and stride S = 4 was
+and backward packet/byte counts, per-direction rates, total flow
+rates, and subflow packet counts, encoding how a session evolves         applied to each dataset's records after being sorted by flow ar-
+over time. Group 2 captures statistical distributional structure:        rival time, producing sequence tensors of shape (Nseq, 32, 46).
+minimum, maximum, mean, and the standard deviation of packet             Window labels are assigned by majority vote over constituent
+lengths and inter-arrival times (IATs) in both directions, partic-       record labels. Training sequences are capped at 800,000 and test
+ularly informative for distinguishing device classes. Groups 3           sequences at 200,000 for computational tractability on standard
+and 4 encode protocol-level signalling: individual TCP flag              commodity hardware.
+counts (SYN, ACK, FIN, RST, PSH, URG), forward header
+length, and initial window size.                                         3.4.5. Context Vector Construction
+                                                                            Each sequence window receives an integer context vector
+3.3.3. Per-Dataset Coverage
+   Table 4 reports per-dataset matched feature counts and cov-           c = (cds, cdev), where cds  {0, 1, 2, 3, 4} identifies the source
+                                                                         dataset and cdev  {0, . . . , 5} identifies the inferred device cate-
+erage percentages. A feature is counted as matched only if an            gory. These identifiers serve as inputs to the Contextual branch.
+authentic semantic equivalent exists and is verified by the alias
+mapping procedure. Figure 1 provides a visual representation of          3.4.6. Train/Test Split and Leakage Verification
+matched and zero-filled features across all five datasets.                  The combined sequence dataset is split in a ratio of 80:20
+
+                                                                         by stratified random sampling. Splitting is performed after se-
+                                                                         quence construction which prevents label leakage from windows
+                                                                         spanning the split boundary. Three data leakage verification
+Bhilwarawala et al.                                                    6                                       BRIDGE and TCH-Net
+                                        Table 3: 46-feature canonical vocabulary by semantic group.
+
+                               Group    Semantic Category                       Indices              Count
+
+                                  1     Flow rates, durations, pkt/byte counts   0-16                  17
+                                  2     Packet size & IAT statistics            17-37                  21
+                                  3     TCP flag indicators                     38-43                   6
+                                  4     Header length & window size             44-45                   2
+
+                                        Total                                                          46
+
+                               Table 4: Canonical vocabulary coverage per dataset.  = Non-flow-level capture.
+
+                               Dataset       Matched / 46          Coverage  Active Groups
+
+                               CICIDS-2017         43                 93%    All four
+                               CIC-IoT-2023        40                 87%    All four
+                               Bot-IoT             18                 39%    Groups 1, 3, 4
+                               Edge-IIoTset        10                 22%    Groups 2-4 (partial)
+                               N-BaIoT              7                 15%    Groups 1-2 (partial)
+
+Figure 1: Feature coverage of the 46-feature canonical vocabulary across five BRIDGE datasets. Blue cells indicate a genuinely matched feature; grey cells indicate
+explicit zero-fill (feature absent from that dataset). Column groups correspond to the four semantic categories in Table 3. Coverage percentages are reported in Table 4.
+
+Table 5: Post-balancing record counts per dataset.                 4. Proposed Architecture: TCH-Net
+
+Dataset              Benign    Attack      Total    Atk%              TCH-Net is a multi-branch neural architecture that processes
+                                                                   a sequences of canonical network flow feature vectors to produce
+CICIDS-2017          19,321    14,350    33,671     42.6%          a binary intrusion detection decisions. Three specialised parallel
+CIC-IoT-2023           3,964    3,001      6,965    43.1%          branches, the Temporal (T), Contextual (C), and Statistical (H)
+Bot-IoT                    22       16        38    42.1%          branches are preceded by a shared residual feature projection
+Edge-IIoTset                   23,435    54,386     43.1%          module and integrated by the Cross-Branch Gated Attention
+N-BaIoT              30,951                         42.6%          Fusion (CB-GAF) mechanism. A residual classification head
+                     13,557    10,055    23,612                    and an auxiliary reconstruction decoder complete the model.
+Combined                                            42.9%          The complete architecture is illustrated in Figure 2.
+                     67,815    50,857   118,672
+                                                                   4.1. Problem Formulation
+checks were applied and all passed: (i) scaler fitted before any      Let X = [x1, . . . , xW ]  RW×F denote a sequence of W = 32
+test-set access; (ii) hash-based overlap detection confirming
+zero identical feature vectors between train and test partitions;  consecutive canonical flow feature vectors, each of dimension
+(iii) benign/attack ratio consistent between train (0.758) and     F = 46. Let c = (cds, cdev)  Z2 denote the context vector,
+test (0.750). Table 5 reports post-balancing record counts.        where cds  {0, 1, 2, 3, 4} identifies the source dataset and cdev 
+                                                                   {0, . . . , 5} identifies the inferred device category. The task is to
+Bhilwarawala et al.                                                  7  BRIDGE and TCH-Net
+
+Figure 2: Full TCH-Net architecture overview across five zones: inputs, shared feature projection, three parallel branches (T, C, H), CB-GAF fusion, and classification
+output.
+
+learn f : (X, c)  y^  {0, 1}, where y^ = 0 (benign) and y^ = 1          The central architectural motivation is that different botnet at-
+(attack).                                                               tack categories manifest at qualitatively distinct temporal scales:
+                                                                        DDoS flooding produces discriminative burst-level signatures
+4.2. Shared Input Feature Projection                                    detectable within a few consecutive flows; C&C beaconing pro-
+                                                                        duces medium-scale periodic patterns spanning tens of flows;
+   Before branching, the raw canonical input X is passed through        and coordinated scan-then-exploit sequences produce a global
+a shared residual feature projection module that learns the non-        ordering constraints across the entire 32-step window. A single-
+linear interactions among the 46 canonical features. Many dis-          resolution encoder must trade sensitivity at one scale against the
+criminative signals in the network flow data are either ratios          others. The T-branch resolves this by routing the input through
+or products of raw statistics. For instance, bytes-per-packet or        three specialised parallel paths whose outputs are subsequently
+forward-to-backward rate ratios, that are not explicitly present in     unified via multi-head self-attention over a shared temporal grid
+the canonical vocabulary. The feature projection module discov-         of 8 steps.
+ers such cross-feature relationships by applying a two-layered
+feed-forward network with a residual connection:                        4.3.1. Path 1: Residual Depthwise-Separable Convolutional
+                                                                                BiGRU (Local and Medium-Range Patterns)
+ X~ = X + fproj(X), fproj(X) = W2 · GELU(LN(W1X)) (1)
+                                                                           Path 1 applies a three-stage convolutional frontend which is
+   Specifically, fproj consists of: Linear(46  92)  Layer-              implemented as a stack of Residual Depthwise-Separable Convo-
+Norm(92)  GELU  Dropout(/2)  Linear(92  46)                             lutional blocks with Squeeze-Excitation recalibration (ResCon-
+LayerNorm(46), applied independently at each time step. The             vSE) and then followed by a two-layer bidirectional GRU.
+residual connection X~ = X + fproj(X) preserves the original fea-
+ture magnitudes while augmenting them with learned interaction          Depthwise-Separable Convolution.. Each convolutional layer
+terms. All three branches receive X~ as an input.                       applies a depthwise convolution (one filter per input channel)
+                                                                        followed by a pointwise convolution (1×1 cross-channel mixing),
+4.3. Temporal Branch (T): Three-Path Multi-Scale Temporal               reducing parameter count relative to standard convolution while
+      Encoding (MSTE)                                                   preserving expressive capacity:
+
+   The T-branch captures the sequential dependencies across                       DSConv(u) = ReLU(BN(Wpw  (Wdw  u))) (2)
+all three distinct temporal and temporal scales simultaneously.            where  denotes convolution, Wdw  RCin×1×k is the depth-
+                                                                        wise filter (kernel width k = 3), and Wpw  RCout×Cin×1 is the
+Bhilwarawala et al.                                                           8  BRIDGE and TCH-Net
+
+Figure 3: T-branch three-path architecture detail. Path 1: Residual Conv-SE BiGRU (local and medium-range patterns). Path 2: Stride-Conv BiGRU (coarse-scale
+
+patterns). Path 3: Full-resolution pre-LayerNorm Transformer (global temporal context). All three paths merge onto a shared 8-step temporal grid before multi-head
+self-attention and mean-pooling to produce hT  R512.
+
+pointwise filter.                                                                   where the input X~ is transposed to channel-first format (F ×W)
+                                                                                 for convolutional processing.
+Squeeze-Excitation Recalibration.. Each ResConvSE block ap-
+plies channel-wise attention after the two DSConv layers to                      Two-Layer BiGRU.. The compressed temporal representation
+reweight feature maps by their global importance:
+                                                                                 U3  R8×128 is processed by a two-layer bidirectional GRU with
+SE(u) = u  (W2 · ReLU(W1 · GAP(u)))       (3)                                    dgru = 128 units per direction:
+
+   where GAP denotes global average pooling over the time                        G1 = BiGRU1(U3 )  R8×256                  (8)
+
+dimension, W1  RC/r×C and W2  RC×C/r with reduction                              4.3.2. Path 2: Stride-Downsampled Convolutional BiGRU
+ratio r = 8, and  is the sigmoid function.                                               (Coarse-Scale Patterns)
+
+ResConvSE Block.. The full residual block composes the two                          Path 2 applies a single strided convolution to produce a coarser
+DSConv layers, SE recalibration, and a skip connection:                          temporal representation, then encodes it with a single-layer Bi-
+                                                                                 GRU. The stride-2 convolution performs both feature projection
+   ResConvSE(u) = ReLU SE(DSConv2(DSConv1(u)))+                                  and temporal downsampling in one step, halving the sequence
+                                                                         (4)     length from 32 to 16:
+
+                                                      BN(Wskipu)                 V = ReLU(BN(Wdown 2 X~ ))  R64×16         (9)
+
+   where Wskip is a 1 × 1 projection (with batch normalisation)                     where Wdown  R64×46×3 is a strided convolution (kernel width
+when input and output channel counts differ, and the identity                    3, stride 2, padding 1). A single-layer BiGRU with dgru/2 = 64
+otherwise.
+                                                                                 units per direction encodes the downsampled sequence:
+Three-Stage Convolutional Frontend.. Three ResConvSE
+blocks are stacked with intermediate MaxPool1d(2) operations                     G2 = BiGRU2(V)  R16×128
+to progressively compress the temporal dimension:
+
+                                                                                                                           (10)
+
+U1 = MaxPool(ResConvSE4664(X~ ))  R64×16  (5)                                       To align Path 2 to the shared 8-step temporal grid established
+                                                                                 by Path 1, adaptive average pooling is applied over the time
+U2 = MaxPool(ResConvSE64128(U1))  R128×8  (6)                                    dimension:
+
+U3 = AdaptiveAvgPool(ResConvSE128128(U2), 8)  R128×8                             G(8) 2 = AdaptiveAvgPool(G2 , 8)  R8×128  (11)
+                                                                       (7)
+Bhilwarawala et al.                                                9  BRIDGE and TCH-Net
+
+4.3.3. Path 3: Full-Resolution Pre-LayerNorm Transformer              4.4. Statistical Branch (H): Aggregate Flow MLP
+        (Global Temporal Context)                                        The H-branch encodes the aggregate distributional profile
+
+   Path 3 processes all 32 steps of X~ through a two-layer Trans-     of each input window via mean-pooling over the time dimen-
+former encoder, giving the T-branch the same global temporal          sion, collapsing temporal structure to expose the window-level
+receptive field as the Transformer-IDS baseline while comple-         statistical character:
+menting it with the local and coarse-scale representations from
+Paths 1 and 2. A linear projection and learnable positional en-                                 x¯ = 1 x~t  R46 W (19)
+coding map the canonical features to a Transformer embedding                                         W t=1
+dimension dT = 128:
+                                                                         A two-layer MLP with GELU activations, batch normalisa-
+Ttok = X~ Wproj + P  R32×128                  (12)                    tion, and dropout processes x¯:
+
+   where Wproj  R128×46 and P  R32×128 is a learnable posi-           hH = Dropout(GELU(BN(WH2·Dropout(GELU(BN(WH1x¯))))))  R64
+tional encoding matrix. A classification CLS token   R1×128                                                                                  (20)
+is prepended:
+                                                                         where WH1  R128×46 and WH2  R64×128. The H-branch cap-
+                     Tin = [  Ttok]  R33×128  (13)                    tures information that is invariant to temporal ordering exactly
+
+   A two-layer TransformerEncoder with pre-LayerNorm                  what the T-branch is least suited to encode. The mean-pooled
+(norm_first), 8 attention heads, feed-forward dimension 512,
+and dropout  processes Tin:                                           representation is particularly informative for distinguishing de-
+
+                                                                      vice classes through Group 2 packet size and IAT statistics, and
+
+                                                                      for detecting high-volume botnet floods that produce sustained
+
+                                                                      distributional shifts regardless of their temporal pattern.
+
+Tout = TransEnc(Tin)  R33×128                 (14)                    4.5. Contextual Branch (C): Provenance-Conditioned Domain
+                                                                            Embedding
+   Pre-LayerNorm normalises inputs to each sub-layer before
+the sub-layer computation, which empirically accelerates con-            The Contextual branch provides CB-GAF with explicit struc-
+vergence and reduces gradient variance compared to the post-          tural context about the source of each input window, specifically,
+LayerNorm formulation used in the Transformer-IDS baseline.           which dataset it originated from and what device category it
+The CLS token output is discarded and the remaining 32 token          represents. This branch does not independently classify network
+representations are aligned to the shared 8-step grid:                flows; its value emerges exclusively within the CB-GAF fusion
+                                                                      module.
+G3(8) = AdaptiveAvgPool(Tout[1 :, :], 8)  R8×128 (15)
+                                                                         Dataset and device category identifiers are mapped to dense
+4.3.4. Multi-Path Merge and Self-Attention Refinement                 embeddings of dimension de = 32:
+
+   The three path outputs, all sharing the 8-step temporal grid                 eds = Eds[cds]  R32, edev = Edev[cdev]  R32 (21)
+are concatenated along the feature dimension to form the joint           where Eds  R5×32 and Edev  R6×32 are learned embedding
+multi-scale representation:                                           matrices. The two embeddings are concatenated directly to form
+                                                                      the C-branch representation:
+
+                                                                      hC = [eds  edev]  R64  (22)
+
+Gcat = [G1  G2(8)  G3(8)]  R8×dT              (16)                       No MLP is applied; the raw concatenated embedding is passed
+                                                                      directly to CB-GAF. The C-branch alone achieves near-random
+   where dT = s1 + s2 + s3 = 256 + 128 + 128 = 512.                   classification performance (F1  0.60, AUC  0.50), confirming
+   Multi-head self-attention with nheads = 8 is applied to Gcat       that dataset and device identifiers do not independently predict
+after layer normalisation, enabling the three paths to attend to      attack labels. Its role is to condition CB-GAF's vector gates on
+                                                                      the canonical vocabulary coverage profile of the source dataset,
+and reweight each other's temporal representations at each of         enabling the fusion mechanism to calibrate cross-branch infor-
+                                                                      mation mixing accordingly.
+the 8 shared time steps:
+
+   A, _ = MHA(LN(Gcat), LN(Gcat), LN(Gcat))  R8×512 (17)              4.6. Cross-Branch Gated Attention Fusion (CB-GAF)
+
+   Mean-pooling over the 8 time steps yields the final T-branch          CB-GAF integrates the three branch representations hT 
+representation:                                                       R512, hC  R64, and hH  R64 through a mechanism that al-
+                                                                      lows each branch to selectively incorporate information from the
+                         hT = 1 At  R512 8 (18)                       other two. The degree of cross-branch information flow is con-
+                                8 t=1                                 trolled by a learned vector gate per branch, enabling fine-grained,
+                                                                      feature-wise modulation.
+Bhilwarawala et al.                                                          10                                              BRIDGE and TCH-Net
+
+Figure 4: CB-GAF mechanism detail for branch T as a representative example. Each branch projects to a common dimension d f = 128, queries other two branches
+simultaneously via cross-attention, then applies a learned vector gate gT  (0, 1)128 to produce the gated residual fusion tfused. Identical structure applied in parallel
+
+for branches C and H.
+
+4.6.1. Branch Projection to Common Dimension                                     4.6.3. Learned Vector Gate and Residual Fusion
+
+   Because the three branch representations have heterogeneous                      A learnable sigmoid gate per branch controls the balance
+dimensionalities (dT = 512, dC = dH = 64), each is first pro-                    between the branch's own projected representation and the cross-
+jected to a common fusion dimension d f = 128 via learned                        attended signal. Crucially, the gate is a vector gi  (0, 1)128 en-
+linear maps:                                                                     abling feature-wise modulation of the fusion at each dimension
+                                                                                 independently. The gate is computed from the concatenation of
+ t = WT hT  R128, c = WChC  R128, h = WHhH  R128                                 the self-representation and the cross-attended output, allowing
+                                                                       (23)      the gate to condition on both:
+
+   where WT  R128×512, WC  R128×64, WH  R128×64.                                      gT = (WTg [t  ~t] + bgT )  (0, 1)128                       (28)
+
+4.6.2. Cross-Branch Attention                                                    and  analogously  for  gC  and  gH ,  with  Wi       R128×256.
+   Each projected branch representation serves as a query at-
+                                                                                                                                 g
+tending simultaneously to the key-value pairs of the other two
+branches. For branch T querying branches C and H:                                The gated residual fusion for each branch is:
+
+                                                                                      tfused = gT  t + (1 - gT )  ~t  R128                       (29)
+
+qT = WTQt, KT = [WCK c  WHK h]  R2×128,                                             and analogously for cfused and hfused. When gi  1, branch i
+                                                                                 retains its own representation; when gi  0, it replaces its rep-
+
+                                                                                 resentation entirely with the cross-attended signal. This formu-
+
+                                                               (24)              lation is particularly critical in the heterogeneous multi-dataset
+
+                            VT    =   [WCV  c      W  H  h]                      setting: for inputs from low-coverage datasets (e.g., N-BaIoT at
+                                                      V
+                                                                                 15% coverage), the H-branch is largely zero-padded; the gates
+                                  
+                      (qT )KT  T 128                                             on T and C can learn to down-weight H's contribution at the spe-
+    ~t = softmax                   V  R
+                            df                                 (25)              cific dimensions that are most affected, without hard-coding this
+
+                                                                                 decision and without sacrificing information from the remaining
+
+The analogous operations for branches C and H are:                               informative dimensions.
+
+c~  =  Attn(qC ;     KC  =  [WTK  t,  W  H  h])    R128        (26)              4.6.4. Concatenation and Layer Normalisation
+                                         K                                          The three gated branch outputs are concatenated and passed
+
+h~ = Attn(qH; KH = [WTKt, WKC c])  R128                        (27)              through a LayerNorm layer:
+
+where WiQ, WiK, WiV  R128×128 for each branch i  {T, C, H}.                           hfuse = LN([tfused  cfused  hfused])  R384                 (30)
+Bhilwarawala et al.                                                 11  BRIDGE and TCH-Net
+
+4.7. Auxiliary Feature Reconstruction                                   Online Input Augmentation.. During training, zero-mean Gaus-
+                                                                        sian noise with standard deviation aug = 0.010 is added to
+   An auxiliary reconstruction objective prevents information           each input sequence with probability paug = 0.30, after which
+collapse in CB-GAF during early training: a two-layer MLP               values are clipped to [-10, 10]. This augmentation is applied
+decoder maps hfuse back to the 46-dimensional canonical feature         exclusively during training and simulates sensor measurement
+space:                                                                  noise, improving robustness to feature perturbation.
+
+x^ = Wdec,2 · GELU(Wdec,1hfuse)  R46       (31)                         4.9. Optimisation and Hyperparameters
+
+                           Laux = 1 x^ - x¯22 (32)                         All models use AdamW with initial learning rate  = 5 × 10-4
+                                    F                                   and weight decay w = 5 × 10-5. A cosine annealing schedule
+                                                                        with 2-epoch linear warm-up is applied over a maximum of 30
+   where Wdec,1  R64×384 and Wdec,2  R46×64. The decoder is             epochs; early stopping is triggered after 5 epochs without vali-
+discarded at inference time.                                            dation F1 improvement. Table 6 provides full hyperparameter
+                                                                        details.
+4.8. Classification Head and Training Objective
+                                                                           TCH-Net has 2.692M trainable parameters (2,691,696; veri-
+4.8.1. Residual Classification Head                                     fied programmatically from the released experimental pipeline).
+   A residual shortcut in the classification head improves the          The approximate distribution across principal components is
+                                                                        as follows: T-branch 1.98M (ResConvSE frontend 0.21M;
+gradient flow. A raw feature projection from x¯ provides a direct       BiGRU Path 1 0.57M; Stride-BiGRU Path 2 0.14M; Trans-
+low-level pathway:                                                      former Path 3 0.43M; feat_proj 0.035M; merge MHA
+                                                                        0.57M); C-branch 0.01M (embedding tables); H-branch
+r = GELU(BN(Wrawx¯))  R64                  (33)                         0.02M; CB-GAF 0.43M; classification head 0.18M; auxil-
+                                                                        iary decoder 0.02M. Per-component figures are approximate
+   where Wraw  R64×46. The raw projection and the fused                 proportional estimates; the programmatically verified total is
+representation are concatenated to form the classifier input:           2.692M, reported alongside the complete efficiency analysis in
+                                                                        Section 5.4.
+                     z = [hfuse  r]  R448  (34)
+                                                                           TCH-Net's parameter count of 2.692M is approximately
+   A two-layer MLP with a residual skip connection processes            4.4× that of the BiLSTM-IDS and Transformer-IDS baselines
+z:                                                                      (0.609M and 0.618M respectively), reflecting the three-path
+                                                                        T-branch design. This capacity overhead is contextualised by
+z1 = Dropout(GELU(BN(W1z)))  R256          (35)                         a measured single-sample inference latency of 6.43 ms on an
+                                                                        NVIDIA Tesla T4 which is well within the range viable for edge
+z2 = Dropout(GELU(BN(W2z1))) + Wskipz  R128 (36)                        inference accelerators, as examined quantitatively in Section 5.4.
+                                                                        To assess whether the performance gain is attributable to architec-
+y^ = softmax(Woutz2)  2                    (37)                         tural design rather than raw capacity, we note that the T-branch
+                                                                        ablation variant using only Path 1 (Conv-GRU alone, 2.1M pa-
+   where W1  R256×448, W2  R128×256, Wskip  R128×448 (the               rameters, approximately 3.4× the capacity of the BiLSTM-IDS
+residual skip from input z directly to the second layer output),        baseline at 0.609M) achieves F1 = 0.7753, essentially match-
+and Wout  R2×128.                                                       ing the BiLSTM-IDS baseline (F1 = 0.7805). An architecture
+                                                                        carrying 3.4× the parameter budget of the strongest recurrent
+4.8.2. Training Objective                                               baseline yet attaining near-identical detection performance when
+   The total training loss combines focal classification loss with      all architectural novelty is removed constitutes strong evidence
+                                                                        that the gains from Paths 2 and 3 and CB-GAF fusion reflect
+the auxiliary reconstruction term:                                      genuine architectural contribution and not a capacity advantage.
+                                                                        All baselines are re-evaluated on identical hardware and data
+L = Lcls + Laux,  = 0.05                   (38)                         pipeline to ensure consistent comparison conditions.
+
+   where Lcls is class-weighted focal loss with focusing parame-        5. Experimental Results
+ter  = 2.0 and label smoothing  = 0.05:
+                                                                           This section presents the complete experimental evaluation
+Lcls = - i(1 - pt,i) log pt,i              (39)                         of TCH-Net across the seven components: (i) setup and evalu-
+                                                                        ation protocol; (ii) baseline comparison; (iii) branch ablation;
+                     i                                                  (iv) novelty component ablation; (v) per-dataset performance
+                                                                        breakdown; (vi) temporal split evaluation; and (vii) BRIDGE
+   Class weights i are set inversely proportional to class fre-         leave-one-dataset-out generalisation benchmark.
+quency in each training batch, normalised so that the mean
+weight equals 1. Label smoothing distributes /2 probability
+mass from each true class to the other, improving calibration.
+Bhilwarawala et al.                                                   12                                 BRIDGE and TCH-Net
+
+Figure 5: Classification head with residual skip connection detail. The mean-pooled input x¯  R46 is projected to r  R64 and concatenated with hfuse to form
+z  R448. A two-layer MLP with a residual skip Wskip : 448  128 provides a direct gradient highway from the full input to the output layer, preventing gradient
+vanishing in the deep classification pathway.
+
+5.1. Experimental Setup                                                   5.2. Baseline Models
+5.1.1. Hardware and Software
+                                                                             Twelve baselines are evaluated across five methodological
+   All experiments are conducted on Kaggle Notebooks with                 families. All deep learning baselines use the same data pipeline,
+NVIDIA Tesla T4 GPUs (16 GB VRAM), using PyTorch 2.x,                     class balancing, normalisation, and sequence construction as
+scikit-learn 1.2, and XGBoost 1.7. This standardised cloud en-            TCH-Net. Classical ML baselines operate on mean-pooled fea-
+vironment ensures that the results are reproducible on widely             ture vectors.
+accessible commodity hardware.Inference latency is measured as
+the mean over n = 200 single-sample forward passes following              1. BiLSTM-IDS [17]:            Bidirectional LSTM,
+20 GPU warm-up passes, timed using CUDA event synchro-
+nisation; throughput is reported as samples per second under              128 units/direction, 2 layers, 32-step sequences.
+batch-512 processing on the same device. This protocol ensures
+that the efficiency figures reported in Section 5.4 are reproducible      2. BiGRU-IDS [12]: Identical to BiLSTM-IDS using GRU
+and free of cold-start bias.
+                                                                          cells.
+5.1.2. Evaluation Protocol
+   TCH-Net results are reported as mean ± std across five in-             3. 1D-CNN-IDS: Three-layer 1D CNN, filters [64, 128, 128],
+
+dependent random seeds {42, 123, 456, 789, 2024}. Each seed               kernel width 3, global average pooling.
+performs fresh subsampling, splitting, and full training from
+scratch. Baseline models and branch ablation variants are evalu-          4. Transformer-IDS [18]: 4-layer encoder, 8 heads, hidden
+ated over three seeds {42, 123, 456}. Novelty component ablation
+variants (TCHNovAbl) are evaluated over two seeds {42, 123}.              dim 128, 32-step input.
+The LODO generalisation benchmark uses two seeds {42, 123}
+per fold; the 5 × 2 = 10 full-training runs this entails preclude         5. MLP-IDS: Three-layer MLP on mean-pooled 46-
+additional seeds under the available compute budget.
+                                                                          dimensional vectors.
+   Statistical significance is assessed using the one-sided paired
+Wilcoxon signed-rank test [31], reported as  p < 0.05,  p <               6. CNN-LSTM: Two 1D-CNN layers followed by bidirec-
+0.01,  p < 0.001.
+                                                                          tional LSTM.
+5.1.3. Metrics
+   Four primary metrics are reported: F1 score (harmonic                  7. Random Forest [8]: 200 trees on mean-pooled vectors.
+
+mean of precision and recall, robust to class imbalance);                 8. XGBoost [9]: 200 estimators, max depth 6.
+ROC-AUC (threshold-independent discriminative ability);
+MCC (Matthews Correlation Coefficient; sensitive to all four              9. Kitsune-AE [20]: Feature-group autoencoder ensemble,
+confusion matrix cells [32]); PR-AUC (precision-recall curve
+area; particularly informative when the attack class is primary).         threshold 0.5.
+
+                                                                          10. DeepDefense [21]: Recurrent DDoS detector adapted to
+
+                                                                          binary classification.
+
+                                                                          11. GraphSAGE-Approx [23]: GraphSAGE neighbourhood
+
+                                                                          aggregation on flow features.
+
+                                                                          12. IoT-DNN [22]: Three-layer DNN with batch normalisation
+
+                                                                          for IoT traffic.
+
+                                                                          5.3. Main Comparison Results
+
+                                                                             Table 7 reports the full comparison. TCH-Net achieves the
+                                                                          highest score on all four primary metrics, outperforming every
+                                                                          baseline with statistical significance (p < 0.05).
+Bhilwarawala et al.                                        13                                               BRIDGE and TCH-Net
+                                           Table 6: Hyperparameter Settings
+
+                     Hyperparameter        Value                       Rationale
+
+                     Window W              32                          Covers short attack bursts
+                     Stride S              4                           Coverage vs. compute
+                     Embed dim de          32                          Compact context representation
+                     Conv channels         [64, 128, 128]              Progressive feature expansion
+                     SE reduction ratio r  8                           Channel recalibration efficiency
+                     GRU hidden (Path 1)   128/dir, 2 layers           Matched to baselines
+                     GRU hidden (Path 2)   64/dir, 1 layer             Coarse-scale, lower capacity
+                     Transformer dim dT    128                         Matched to Transformer-IDS baseline
+                     Transformer layers    2                           Pre-LN, 8 heads, FFN dim 512
+                     T-branch merged dim   512                         s1 + s2 + s3 = 256 + 128 + 128
+                     H-branch output dim   64                          Compact aggregate representation
+                     C-branch output dim   64                          2 × de = 2 × 32
+                     CB-GAF proj dim d f   128                         Expressivity / parameter balance
+                     CB-GAF gate type      Vector ( R128)              Feature-wise modulation
+                     CB-GAF output dim     384                         3 × df
+                     Classifier input dim  448                         384 + 64 (fused + raw_proj)
+                     Dropout               0.15                        Applied to all paths
+                     Noise aug. prob.      0.30                        Training only
+                     Noise aug. std.       0.010                       Below scaler clip threshold
+                     Epochs (max)          30                          Full cosine schedule
+                     Warm-up               2 epochs                    Smooth learning rate ramp
+                     Early stopping        5 epochs                    Plateau detection on val F1
+                     Batch size            512                         GPU utilisation
+                     LR                    5 × 10-4                    Stable with cosine annealing
+                     Weight decay          5 × 10-5                    L2 regularisation
+                     Focal                 2.0                         Hard example focus
+                     Label smooth          0.05                        Calibration floor
+                     Aux weight            0.05                        Auxiliary  primary loss
+
+   Figure 6 provides a radar chart comparing TCH-Net against           NVIDIA Tesla T4 hardware under identical conditions. F1 val-
+the five strongest baselines across all four evaluation metrics.       ues are the canonical figures from Table 7 (Section 5.3).
+Among deep learning baselines, Transformer-IDS achieves the
+second-highest F1 (0.7958) but the highest seed-to-seed vari-             In absolute terms, all evaluated models impose a negligible
+ance, consistent with the known data-sensitivity of transformer        computational cost for IoT gateway deployment. TCH-Net's
+models. 1D-CNN-IDS (0.7932) is competitive but limited to lo-          single-sample latency of 6.43 ms corresponds to approximately
+cally connected temporal regions. BiLSTM and BiGRU achieve             155 detection decisions per second in sequential mode and over
+near-identical F1 (0.7805), confirming that the performance gap        20,000 per second under batch-512 processing rates that com-
+is attributable to multi-branch fusion rather than recurrent cell se-  fortably accommodate continuous flow-level monitoring at an
+lection. Classical models (Random Forest 0.43; XGBoost 0.73)           IoT gateway, where enterprise-class devices typically aggregate
+show substantially lower F1 due to their inability to model tem-       traffic at hundreds to a few thousand flows per second. The
+poral sequence structure.                                              latency overhead relative to simpler baselines is therefore not
+                                                                       a deployment barrier but a cost to be weighed against the F1
+5.4. Computational Efficiency Analysis                                 improvement it delivers.
+
+   Table 8 reports the computational cost profile for TCH-                TCH-Net achieves the highest F1 (0.8296) at the expense of
+Net and the five deep learning baselines, all benchmarked on           higher latency and a 10.27 MB memory footprint. Compared
+                                                                       directly to BiLSTM-IDS, which is the strongest single-path
+Bhilwarawala et al.                                                 14                                             BRIDGE and TCH-Net
+
+Table 7: Main comparison results. Mean ± std across seeds. Best per metric in bold. F1: absolute F1 improvement of TCH-Net over each baseline. Significance:
+ p < 0.001,  p < 0.01,  p < 0.05 (one-sided paired Wilcoxon signed-rank test).
+
+Model                        F1             ROC-AUC                     MCC                              PR-AUC            F1 (sig.)
+
+TCH-Net (Ours)         0.8296 ± 0.0028 0.9380 ± 0.0025 0.6972 ± 0.0056                               0.8912 ± 0.0031            --
+
+BiLSTM-IDS [17]        0.7805 ± 0.0010      0.8975 ± 0.0001             0.5972 ± 0.0030              0.8441 ± 0.0018       +0.0491
+BiGRU-IDS [12]         0.7805 ± 0.0011      0.8962 ± 0.0013             0.5987 ± 0.0034              0.8438 ± 0.0022       +0.0491
+1D-CNN-IDS             0.7932 ± 0.0076      0.9076 ± 0.0062             0.6213 ± 0.0153              0.8601 ± 0.0091       +0.0364
+Transformer-IDS [18]   0.7958 ± 0.0030      0.9147 ± 0.0012             0.6255 ± 0.0067              0.8699 ± 0.0041       +0.0338
+MLP-IDS                0.7039 ± 0.0008      0.8152 ± 0.0005             0.4348 ± 0.0018              0.7311 ± 0.0012       +0.1257
+CNN-LSTM               0.7919 ± 0.0137      0.9056 ± 0.0123             0.6208 ± 0.0261              0.8578 ± 0.0167       +0.0377
+Random Forest [8]      0.4323 ± 0.0082      0.8005 ± 0.0002             0.3557 ± 0.0043              0.6214 ± 0.0053       +0.3973
+XGBoost [9]            0.7265 ± 0.0014      0.8704 ± 0.0002             0.5542 ± 0.0007              0.7989 ± 0.0009       +0.1031
+Kitsune-AE [20]        0.7045 ± 0.0007      0.8200 ± 0.0001             0.4362 ± 0.0028              0.7348 ± 0.0015       +0.1251
+DeepDefense [21]       0.7627 ± 0.0011      0.8776 ± 0.0008             0.5638 ± 0.0039              0.8192 ± 0.0027       +0.0669
+GraphSAGE-Approx [23]  0.7097 ± 0.0004      0.8259 ± 0.0003             0.4465 ± 0.0010              0.7403 ± 0.0011       +0.1199
+IoT-DNN [22]           0.7009 ± 0.0002      0.8146 ± 0.0002             0.4278 ± 0.0017              0.7286 ± 0.0009       +0.1287
+
+TCH-Net outperforms all 12 baselines on all metrics, all statistically significant.
+
+Table 8: Computational efficiency comparison. Latency: single-sample mean ± std over n = 200 runs following 20 GPU warm-up passes, CUDA event timing,
+NVIDIA Tesla T4. Throughput: batch-512 inference, same device. Mem: runtime GPU memory footprint. F1: canonical mean from Table 7.  = proposed model.
+
+       Model                 Params (M)     Latency (ms)                Throughput (×103 sps)        Mem (MB)          F1
+
+       TCH-Net (Ours)                2.692    6.43 ± 0.18                                      20.5         10.27  0.8296
+       BiLSTM-IDS [17]               0.609    0.74 ± 0.02                                      34.2          2.32  0.7805
+       BiGRU-IDS [12]                0.465    0.58 ± 0.03                                      52.0          1.77  0.7805
+       1D-CNN-IDS                    0.068    0.69 ± 0.03                                     406.9          0.26  0.7932
+       Transformer-IDS [18]          0.618    1.22 ± 0.03                                      36.8          2.36  0.7958
+       CNN-LSTM                      0.142    0.88 ± 0.05                                     273.5          0.54  0.7919
+
+recurrent baseline (F1 = 0.7805, latency 0.74 ms, 2.32 MB), and         Table 9: Branch ablation results (2 seeds each, seeds {42, 123}). Full model in
+the trade-off is +0.0491 F1 for an approximately 8.7× increase          bold.
+in per-sample latency and a 4.4× larger footprint. In security-
+critical environments where detection quality is the primary            Variant         F1 ± std     AUC           MCC       F1
+objective, this trade-off favours TCH-Net. Deployments where
+latency is the binding constraint can use the lighter baselines in      TCH (Full)  0.8296 ± 0.0028  0.9380        0.6972     --
+this suite as viable alternatives at a known F1 cost.                   T+C         0.7752 ± 0.0012  0.8883        0.5880  -0.0544
+                                                                        T+H         0.7756 ± 0.0014  0.8885        0.5870  -0.0540
+   TCH-Net's 10.27 MB footprint is readily accommodated on              C+H         0.7061 ± 0.0003  0.8218        0.4402  -0.1235
+edge inference accelerators such as the NVIDIA Jetson family            T only      0.7753 ± 0.0013  0.8882        0.5878  -0.0543
+(Jetson Nano: 4 GB LPDDR4; Jetson Orin NX: up to 16 GB                  C only      0.6000 ± 0.0000  0.4999        0.0000  -0.2296
+LPDDR5), but exceeds the on-chip SRAM of microcontroller-               H only      0.7054 ± 0.0003  0.8215        0.4359  -0.1242
+class endpoints (ARM Cortex-M, ESP32; typically below
+1 MB). Quantisation, structured pruning, and knowledge dis-             from proxy variants. The C-branch alone achieves near-random
+tillation [34] represent well-established compression pathways          performance (AUC  0.50, MCC = 0.000), confirming that
+for constrained targets, as discussed in Section 6.6.4.                 dataset identifiers do not predict attack labels independently,
+                                                                        consistent with the C-branch's role as a provenance conditioning
+5.5. Branch Ablation                                                    signal for CB-GAF rather than an independent classifier. T
+                                                                        alone outperforms H alone (0.7753 vs. 0.7054), consistent with
+   All seven non-empty branch subsets are evaluated with CB-            temporal structure being more discriminative than aggregate
+GAF fusion replaced by simple concatenation, reported over two          statistics for sequential attack detection; yet T+H exceeds T
+seeds {42, 123}. Results are presented in Table 9 and Figure 7.         alone, confirming genuine complementarity.
+
+   The full TCH-Net outperforms all branch-subset variants
+by a substantial margin (+0.054 F1 over T+H, the best two-
+branch proxy combination), with the gap reflecting both branch
+removal and the contribution of Path 3 and feat_proj absent
+Bhilwarawala et al.                                                             15  BRIDGE and TCH-Net
+
+Figure 6: Radar chart comparing TCH-Net against the five strongest baselines        Figure 7: Branch ablation F1, AUC, and MCC scores for all seven branch subsets.
+across all four evaluation metrics. TCH-Net (filled area) consistently extends      The dashed vertical line marks the full TCH-Net F1 (= 0.8296). All-branch
+beyond all baselines on every axis.                                                 fusion with CB-GAF provides the highest performance on every metric.
+
+5.6. Novelty Component Ablation                                                     traffic and the IT flow-level distributions on which T-branch
+                                                                                    representations are primarily trained.
+   Table 10 presents four variants selectively removing each
+novel component.                                                                    5.8. Temporal Split Evaluation
+
+   All three novel components contribute substantially when                            Table 12 compares results under random splitting and tem-
+removed from the full model. Removing any single component                          poral splitting (training on early windows, testing on later win-
+causes F1 degradation of approximately 0.054 relative to Full                       dows).
+TCH-Net. Note that ablation variants use a proxy architecture
+(TCHNovAbl) that implements Path 1 + optional Path 2 but omits                         The temporal split results are consistent with random-split
+Path 3 and feat_proj; the reported F1 values therefore bound                        results, with F1 degradation of only -0.0093.These small differ-
+each component's contribution and include a shared architectural                    ences are within normal bounds for temporal distribution shift,
+gap. Removing all three simultaneously causes -0.0544 F1,                           confirming that TCH-Net's strong in-distribution performance
+consistent with the components being jointly necessary for the                      is not driven by temporal leakage.
+full model's performance. The "w/o All" variant corresponds to
+the prior architecture (v2), establishing a clean baseline for the                  5.9. Leave-One-Dataset-Out Generalisation Benchmark
+v3 novelties.
+                                                                                       The BRIDGE LODO evaluation measures cross-dataset gen-
+5.7. Per-Dataset Performance Breakdown                                              eralisation difficulty as a property of the problem, not of any
+                                                                                    particular model. The mean LODO F1 of 0.5577 is reported
+   Table 11 reports detection rate, false alarm rate, and F1 per                    as a formally specified BRIDGE community baseline; Table 14
+dataset.                                                                            confirms that all five deep learning baselines score substantially
+                                                                                    lower, establishing that the generalisation gap is structural.
+   Performance is strongest on the two primary CICFlowMeter
+datasets: CICIDS-2017 (F1 = 0.9505) and CIC-IoT-2023 (F1 =                             Table 13 and Figure 8 present the results.
+0.9211), where canonical coverage is highest. N-BaIoT achieves                         The BRIDGE LODO measurement reveals a mean LODO F1
+the highest detection rate (0.9982) and F1 = 0.9854 despite only                    of 0.5577 against an in-distribution F1 of 0.8296, a generalisa-
+15% coverage, attributable to the statistical distinctiveness of                    tion gap of +0.2719. This gap is the central quantitative finding
+Mirai/BASHLITE botnet traffic from benign device communica-                         of BRIDGE: it establishes, for the first time with a formally spec-
+tion even in a sparse feature representation. Edge-IIoTset is the                   ified and reproducible evaluation protocol, that cross-dataset IoT
+most challenging case (F1 = 0.6755, FA = 0.2589) due to 22%
+coverage and the structural difference between IIoT packet-level
+Bhilwarawala et al.                                                   16                                               BRIDGE and TCH-Net
+                              Table 10: Novelty component ablation (2 seeds, {42, 123}). Full model in bold.
+
+         Variant                                                F1 ± std             AUC MCC                  F1
+
+         Full TCH-Net                  0.8296 ± 0.0028                               0.9380  0.6972              --
+         w/o CB-GAF                    0.7759 ± 0.0011                               0.8898  0.5889           -0.0537
+         w/o MSTE (Three-Path Enc.)    0.7760 ± 0.0019                               0.8890  0.5903           -0.0536
+         w/o Aux. Loss                 0.7755 ± 0.0024                               0.8893  0.5875           -0.0541
+         w/o All (v2)                  0.7752 ± 0.0022                               0.8901  0.5857           -0.0544
+
+         F1 values bound individual contributions (inclusive of proxy architectural gap); refer footnote .
+
+          All variants except Full TCH-Net use a proxy model (TCHNovAbl) implementing Path 1 + optional Path 2 but omitting
+           Path 3 (Transformer) and feat_proj. The reported F1 values reflect the combined contribution of the ablated component
+           and the architectural gap between TCH-Net v3 and the proxy; they bound rather than isolate the individual component
+           contributions.
+
+Table 11: Per-dataset detection rate (DetRate), false alarm rate (FA), and F1.       Table 13: Leave-one-dataset-out (LODO) generalisation benchmark (2 seeds,
+= Supplementary dataset; low canonical coverage (Table 4).                           {42, 123}). These results constitute BRIDGE's primary cross-dataset difficulty
+                                                                                     measurement.  = Supplementary dataset.
+
+Dataset              N DetRate FA           F1 Note
+
+CICIDS-2017 33,671 0.9433 0.0309 0.9505 --                                           Held-Out            F1   ±std   AUC     MCC    PR-AUC
+CIC-IoT-2023 6,965 0.8827 0.0257 0.9211 --
+                                                                                     CICIDS-2017     0.3128  0.232  0.0509  -0.545     0.2949
+Bot-IoT              38       not reported                                           CIC-IoT-2023    0.6013  0.000  0.1440   0.000     0.2725
+                                                                                     Bot-IoT         0.5934  0.011  0.5693   0.089     0.4883
+Edge-IIoTset 54,386 0.6844 0.2589 0.6755                                             Edge-IIoTset    0.6791  0.008  0.6841   0.252     0.6688
+                                                                                     N-BaIoT         0.6021  0.000  0.8171   0.000     0.7876
+N-BaIoT              23,612 0.9982 0.0206 0.9854 
+
+ Bot-IoT contributes 38 post-balancing test samples (22 benign, 16 attack), below    MEAN            0.5577 -- 0.4531 -0.041 0.5024
+  any threshold of statistical reliability. The observed DetRate = 1.0 and FA = 1.0
+  are consistent with random behaviour at this sample size and carry no inferential  Generalisation gap: random-split F1 - LODO mean = +0.2719.
+  weight. Bot-IoT metrics are excluded from per-dataset performance interpreta-
+  tion and reported solely for transparency. Bot-IoT's benchmark contribution is
+  structural: as the only Argus-captured dataset, it is the sole source imposing a
+  61% zero-fill regime on the canonical vocabulary, a sparse-feature stress condi-
+  tion no CICFlowMeter-based dataset can replicate.
+
+ Supplementary dataset; low canonical coverage (Table 4).
+
+         Table 12: Temporal split vs. random split evaluation.
+
+Split                   F1     AUC      MCC                     PR-AUC
+
+Random (5 seeds)     0.8296   0.9380   0.6972                    0.8912
+Temporal (1 seed)    0.8203   0.9261   0.6831                    0.8804
+                     -0.0093  -0.0119  -0.0141                  -0.0108
+
+intrusion detection is substantially harder than single-dataset                      Figure 8: Leave-one-dataset-out (LODO) F1 compared to in-distribution random-
+results suggest, and that the gap cannot be closed by feature                        split F1 per held-out dataset. The dashed line marks the LODO mean (= 0.5577).
+alignment alone.
+                                                                                     The gap annotation on CICIDS-2017 shows the worst-case generalisation short-
+   The CICIDS-2017 fold yields the most severe degradation                           fall (+0.6377), attributable to dataset dominance rather than feature coverage.
+(F1 = 0.3128, std = 0.232): this dataset contributes 28%                              Bot-IoT test set n = 38 (unreliable).  Supplementary dataset.
+of training sequences, so its removal simultaneously reduces
+training volume by one-third and eliminates the most feature-
+complete source, which is a dataset dominance effect distinct
+from pure domain shift. The MCC of -0.545 reflects high seed-
+variance on the data-reduced corpus. For the four remaining
+folds, where data volume remains intact, LODO F1 ranges from
+0.59 to 0.68, representing genuine cross-tool and cross-device-
+population transfer difficulty.
+
+   For CIC-IoT-2023, Bot-IoT, and N-BaIoT (LODO F1  0.60),
+the moderate generalisation is consistent with a genuine cross-
+Bhilwarawala et al.                                                   17  BRIDGE and TCH-Net
+
+environment distribution shift arising from different capture             6.2. Interpretation of CB-GAF Gating Behaviour
+tools, device populations, and attack toolkits that the canoni-
+cal vocabulary alignment partially but not fully bridges. Edge-              Average gate values across the test set characterise the typ-
+IIoTset achieves the best LODO F1 (0.6791), likely due to its             ical cross-branch information mixing. The T-branch gate gT
+50% balanced attack proportion providing a stable evaluation              takes intermediate values across the test set, indicating balanced
+regime despite low canonical coverage.                                    mixing between self-representation and cross-attended signal.
+                                                                          The H-branch gate gH takes comparatively higher values for
+   The mean LODO F1 of 0.5577 is proposed as a formally es-               low-coverage dataset inputs (Edge-IIoTset, N-BaIoT), indicat-
+tablished community baseline for future domain-adaptive IoT               ing higher reliance on cross-branch context when the H-branch's
+intrusion detection methods. We anticipate that domain adversar-          own representation is largely zero-padded. The C-branch gate
+ial training [33] and dataset-conditional normalisation represents        gC exhibits the highest variance across inputs, reflecting its role
+the most promising directions for improving upon this baseline.           as dynamic domain conditioning rather than a consistent primary
+                                                                          signal. These gate patterns are consistent with CB-GAF's de-
+   To substantiate empirically the claim that this generalisation         sign intent, providing qualitative interpretability across different
+gap is a structural property of cross-dataset domain shift rather         network environments.
+than a deficiency specific to TCH-Net, we evaluate the five deep
+learning baselines from Section 5.2 under the identical LODO              6.3. Feature Coverage and Detection Performance
+protocol (2 seeds, 12 epochs with early stopping). Table 14
+presents the results.                                                        A clear but non-monotonic relationship exists between per-
+                                                                          dataset canonical vocabulary coverage and per-dataset detec-
+   All five baselines achieve mean LODO F1 in the range of                tion performance. The two highest-coverage datasets (CICIDS-
+0.388 to 0.465 (grand mean 0.430), significantly below TCH-               2017 at 93%, CIC-IoT-2023 at 87%) achieve the highest F1
+Net's 0.5577; TCH-Net's LODO advantage ranges from +0.0923                scores (0.9505 and 0.9211 respectively). Edge-IIoTset with only
+to +0.1696 across architectures. Every baseline suffers a gener-          22% coverage achieves the lowest F1 among non-degenerate
+alisation gap at least as large as TCH-Net's: BiLSTM-IDS falls            datasets (F1 = 0.6755), accompanied by a false alarm rate of
+from 0.7805 to 0.3881 (-0.3924); Transformer-IDS from 0.7958              25.89%, which is the highest in the benchmark. This elevated
+to 0.3910 (-0.4048). The pattern confirms that the gap is a struc-        FA is attributable to the structural mismatch between the IIoT
+tural property of cross-dataset domain shift, not a deficiency            packet-level traffic distributions in Edge-IIoTset and the flow-
+of TCH-Net, and that CB-GAF's provenance conditioning pro-                level representations that dominate the training corpus; threshold
+vides a measurable generalisation advantage over all evaluated            calibration on a small locally captured validation set would be
+baselines.                                                                required before deployment in IIoT environments.
+
+6. Discussion                                                                However, N-BaIoT with only 15% coverage achieves F1 =
+                                                                          0.9854, the highest of any individual dataset. This apparent
+6.1. Why Multi-Branch Fusion Outperforms Single-Branch                    anomaly is explained by the statistical structure of N-BaIoT's
+      Models                                                              traffic: botnet-infected device traffic (Mirai, BASHLITE) gener-
+                                                                          ates high-volume, stereotyped packet floods are detectable from
+   The ablation results identify the mechanism behind TCH-                the small number of features that genuinely map to the canoni-
+Net's performance advantage. The T-branch alone (Path 1 Conv-             cal vocabulary (packet counts, sizes, temporal rates), even in a
+GRU in isolation, without CB-GAF or the remaining architec-               sparse representation. Feature coverage is therefore a necessary
+ture) matches the BiLSTM-IDS baseline at F1 = 0.7753 versus               but not sufficient predictor of detection difficulty: attack-benign
+0.7805, confirming that single-path recurrent encoding provides           separability in the covered feature subspace is equally important.
+a natural capacity ceiling. The H-branch contributes an order-
+invariant distributional structure that is orthogonal to T's sequen-      6.4. The BRIDGE LODO Benchmark: Quantifying the General-
+tial representations: T+H exceeds both individual branches pre-                 isation Problem
+cisely because mean-pooled statistics are insensitive to temporal
+ordering and therefore do not duplicate the T-branch signal.                 The LODO results establish a finding that cannot be attributed
+                                                                          to any individual model or dataset: cross-dataset IoT intru-
+   The C-branch has no independent predictive value                       sion detection is substantially harder than single-dataset per-
+(AUC  0.50 alone) but contributes exclusively through CB-                 formance suggests, and feature alignment alone does not close
+GAF's vector gates. Domain embeddings condition gT and                    the gap. The +0.2719 generalisation gap is consistent across
+gH to calibrate cross-branch mixing according to the source               the four held-out folds where training data volume remains in-
+dataset's canonical vocabulary coverage, for instance, down-              tact (LODO F1  [0.59, 0.68]), isolating genuine domain shift
+weighting the largely zero-padded H-branch when the dataset               from the CICIDS-2017 dataset-dominance effect. The CICIDS-
+embedding signals a low-coverage source such as N-BaIoT or                2017 fold (F1 = 0.3128) is analytically distinct: that dataset
+Edge-IIoTset. The +0.054 F1 gap between full TCH-Net and                  contributes approximately 28% of training sequences, so its
+the best two-branch proxy variant (T+H) quantifies the com-               removal constitutes a severe data-volume reduction alongside
+bined gate-mediated contribution, inclusive of the Path 3 and             any domain shift. Future benchmark designs should consider
+feat_proj components absent from proxy variants.                          per-dataset contribution caps to prevent a single source from
+Bhilwarawala et al.                                                  18                              BRIDGE and TCH-Net
+
+Table 14: Baseline LODO generalisation benchmark (2 seeds, same protocol as Table 13). Only the five deep learning baselines are included; classical ML baselines
+(RF, XGBoost) are omitted as their inferior in-distribution F1 makes their LODO performance a lower bound of limited analytical interest. F1: TCH-Net LODO F1
+(0.5577, from Table 13) minus baseline mean LODO F1. A positive F1 indicates TCH-Net retains superior cross-dataset generalisation.
+
+                     Model                 LODO F1                        ±std   LODO AUC     F1
+
+                     BiLSTM-IDS [17]         0.3881                      0.3062     0.4948  +0.1696
+                     Transformer-IDS [18]    0.3910                      0.2527     0.4831  +0.1667
+                     BiGRU-IDS [12]          0.4449                      0.2607     0.4948  +0.1128
+                     1D-CNN-IDS              0.4592                      0.2380     0.4105  +0.0985
+                     CNN-LSTM                0.4654                      0.2351     0.5500  +0.0923
+
+                     Baseline mean           0.4297                        --       0.4866  +0.1280
+
+dominating the training corpus and confounding generalisation            6.6.2. Benchmark Dataset Constraints
+measurement.                                                                All five datasets were collected in controlled testbed environ-
+
+   The mean LODO F1 of 0.5577 is reported as a reproducible              ments. Validation on live operational IoT traffic would provide
+starting point for future domain-adaptive methods, not as a per-         stronger evidence of real-world applicability and is a priority for
+formance ceiling. Domain adversarial training [33] and dataset-          future work.
+conditional normalisation, replacing the shared RobustScaler
+with per-dataset normalisers applied at inference time, represent-       6.6.3. Binary Classification Scope
+ing the most directly motivated future directions, both facilitated         TCH-Net is evaluated as a binary detector (benign vs. at-
+by BRIDGE and the canonical vocabulary released with this
+paper.                                                                   tack). Multi-class attack type identification distinguishing, for
+                                                                         example, DDoS from C&C beaconing, reconnaissance, and data
+6.5. Comparison with Published State of the Art                          exfiltration is a practically important capability not evaluated in
+   Published F1 > 0.99 on CICIDS-2017 reflects a single-dataset          this work. The attack type labels available in several constituent
+                                                                         datasets (particularly CIC-IoT-2023 and Bot-IoT) provide a foun-
+evaluation with known labelling artefacts [29] and is not di-            dation for extending TCH-Net to multi-class classification; this
+rectly comparable to our multi-dataset, leakage-verified protocol.       extension requires modifications to the classification head and
+To the best of our knowledge, no prior work simultaneously               training objective and is identified as a priority direction for
+addresses principled feature alignment across five structurally          future work.
+distinct datasets, multi-seed statistical evaluation, and LODO
+generalisation analysis, the combination that contextualises the         6.6.4. Edge Deployment Feasibility
+reported F1 = 0.8296.                                                       TCH-Net has 2.692M trainable parameters and accepts 32-
+
+6.6. Limitations                                                         step sequences of 46-dimensional canonical flow feature vectors
+                                                                         as input. The complete computational cost profile, measured
+   We disclose four principal limitations transparently.                 on NVIDIA Tesla T4 hardware, is reported in Section 5.4. The
+                                                                         key deployment-relevant figures are a single-sample inference
+6.6.1. Cross-Dataset Generalisation                                      latency of 6.43 ± 0.18 ms and a runtime memory footprint of
+   LODO mean F1 of 0.5577 confirms that TCH-Net in its cur-              10.27 MB.
+
+rent form does not generalise robustly to an entirely unseen                These figures position TCH-Net comfortably within the oper-
+dataset distributions. Deployment in an entirely new network             ational envelope of contemporary edge inference accelerators.
+environment requires either fine-tuning on local traffic samples         Devices in the NVIDIA Jetson family (Jetson Nano: 4 GB
+or integration of domain adaptation components not present in            LPDDR4; Jetson Orin NX: up to 16 GB LPDDR5) exceed TCH-
+the current architecture. This is the primary open challenge             Net's memory requirement by two to three orders of magni-
+identified by BRIDGE, and we present it as such rather than as           tude, and their dedicated CUDA cores are capable of sub-10 ms
+a deficiency specific to TCH-Net: all twelve evaluated baselines         single-sample latency for models of this complexity. A latency
+would perform similarly or worse under the LODO protocol. A              of 6.43 ms corresponds to a processing throughput of approx-
+further structural limitation of the LODO evaluation concerns            imately 155 sequence decisions per second in single-sample
+the Contextual branch: the dataset embedding slot correspond-            mode, and 20,492 samples per second under batch-512 process-
+ing to the held-out dataset receives no gradient updates during          ing rates that comfortably support continuous flow-level intru-
+training (since no samples from that dataset are present) and            sion monitoring at the IoT gateway, where typical enterprise-
+therefore retains its random initialisation at test time. This in-       class gateways aggregate flows at rates of hundreds to low thou-
+jects uninformed noise into CB-GAF's fusion mechanism for                sands per second. TCH-Net is therefore not only theoretically
+the held-out fold and constitutes a systematic disadvantage that         deployable at the edge; its measured latency and throughput are
+partially explains the generalisation gap; the reported LODO F1          consistent with the real-time detection in the target IoT gateway
+values represent a lower bound achievable without any embed-             deployment context.
+ding initialisation strategy for unseen datasets.
+Bhilwarawala et al.                                                  19  BRIDGE and TCH-Net
+
+   Where TCH-Net's deployment profile differs from lighter               failure of any particular system. It is an honest measurement of
+baselines is in latency and memory cost rather than in prohibitive       how hard the problem actually is, and it is the number the field
+absolute compute. BiLSTM-IDS, for comparison, achieves                   should be trying to improve.
+0.74 ms latency and a 2.32 MB footprint at the cost of 0.0491
+lower F1. In deployments where detection quality is the primary             TCH-Net is proposed as a strong and well-characterised base-
+objective which characterises the security-critical IoT infrastruc-      line for that challenge. Its multi-branch architecture, com-
+ture and the F1 advantage of TCH-Net is operationally mean-              bining three-path multi-scale temporal encoding, provenance-
+ingful at a monitoring rate of 1,000 flow sequences per second,          conditioned domain embeddings, and Cross-Branch Gated Atten-
+a 0.0491 improvement in attack-class F1 translates to several            tion Fusion, and is designed specifically for the heterogeneous
+additional confirmed detections and reduced false alarm burden           multi-dataset setting, where different inputs carry fundamentally
+per minute of continuous operation.                                      different feature coverage profiles. Evaluated across five indepen-
+                                                                         dent random seeds, TCH-Net achieves F1 = 0.8296 ± 0.0028,
+   TCH-Net is nevertheless too large for microcontroller-class           AUC = 0.9380 ± 0.0025, and MCC = 0.6972 ± 0.0056 on
+endpoints (e.g., ARM Cortex-M series, ESP32) whose on-chip               BRIDGE, outperforming all twelve evaluated baselines with
+SRAM is typically below 1 MB. Three established compression              statistical significance and attaining the highest cross-dataset
+pathways are directly applicable. Knowledge distillation [34]            LODO F1 among all architectures tested. Component ablation
+can transfer TCH-Net's learned representations into a compact            confirms that CB-GAF, three-path temporal encoding, and the
+student network with a fraction of the parameters while preserv-         auxiliary reconstruction loss are each genuinely necessary as
+ing much of the F1 advantage, as demonstrated in recent IDS              removing any one of them costs approximately 0.054 F1, and
+compression literature [22]. Structured pruning of the ResCon-           removing all three collapses performance to the level of a strong
+vSE frontend and the CB-GAF projection matrices, which col-              single-path recurrent baseline.
+lectively account for a substantial share of the parameter budget,
+offers a direct route to latency reduction with controlled F1               We are transparent about what TCH-Net does not yet do. A
+degradation. Post-training quantisation to INT8 precision, al-           mean LODO F1 of 0.5577 tells us that the model, like every
+ready natively supported by both NVIDIA TensorRT (for Jetson             other architecture evaluated, does not generalise robustly to
+deployment) and TensorFlow Lite (for ARM targets), can reduce            entirely unseen network environments in its current form. This
+the 10.27 MB footprint to approximately 2.6 MB with minimal              is not a footnote; it is the central open problem that BRIDGE is
+accuracy loss. Pursuing these compression directions is iden-            designed to surface and track. The Contextual branch's dataset
+tified as a priority for future work, with the BRIDGE LODO               embeddings receive no gradient signal for held-out datasets
+benchmark established in this paper providing a cross-dataset            during LODO training, which systematically disadvantages the
+evaluation harness that ensures compression-induced generali-            model in exactly the scenarios where generalisation matters
+sation degradation is measured and not merely in-distribution            most. Closing that gap is the work that comes next.
+F1.
+                                                                            Three directions follow directly from the BRIDGE findings.
+7. Conclusion                                                            Domain adversarial training [33] offers the most principled path
+                                                                         toward reducing the feature distribution gap between training
+   The IoT security research community for over a decade has             datasets and unseen environments, with the LODO mean F1 of
+been measuring progress against a standard that was never de-            0.5577 as a concrete, reproducible target for improvement. Ex-
+signed to measure what actually matters, which is, how well              tending the canonical vocabulary to natively support packet-level
+a detection system performs when the network environment                 and statistical fingerprinting representations would improve cov-
+changes. High F1 scores on single-dataset benchmarks have                erage for Edge-IIoTset and N-BaIoT, reducing the zero-filling
+become the field's primary currency, despite growing evidence            burden that currently limits generalisation for non-flow-level
+that these scores do not transfer across capture tools, device           datasets. And extending TCH-Net to multi-class attack type
+populations, or attack toolkits. This paper has taken a concrete         identification, leveraging the detailed labels available in CIC-
+step toward changing that.                                               IoT-2023 and Bot-IoT, would make it operationally useful in
+                                                                         environments where distinguishing DDoS from C&C beaconing
+   The primary contribution is BRIDGE, which is a formally               from reconnaissance is as important as detection itself.
+specified heterogeneous evaluation framework that, for the first
+time, makes cross-dataset generalisation in IoT intrusion detec-            BRIDGE, its canonical vocabulary, and the complete experi-
+tion precisely and reproducibly measurable. By unifying five             mental pipeline are publicly released at https://github.com/
+publicly available datasets spanning four distinct capture tools,        Ammar-ss/TCH-Net. The benchmark is not offered as a fin-
+three device population contexts, and six years of collection of         ished solution; it is offered as a common ground. Progress on
+data, through a semantic canonical vocabulary of 46 features             cross-dataset IoT intrusion detection has been difficult to mea-
+with genuine equivalence-only mapping and full coverage disclo-          sure because no one had built the ruler. That is what BRIDGE
+sure. BRIDGE provides the infrastructure that principled multi-          is.
+dataset evaluation has been missing. The leave-one-dataset-out
+protocol does not flatter any model, including our own, and that         Declaration of generative AI and AI-assisted technologies in
+is precisely the point. The mean LODO F1 is 0.5577, which                the writing process
+is consistent across all evaluated architectures, and it is not a
+                                                                            During the preparation of this work the authors used Large
+                                                                         Language Models as an assistive writing tool for grammatical
+Bhilwarawala et al.                                               20  BRIDGE and TCH-Net
+
+refinement, sentence restructuring, and prose consistency during       [4] Anderson, R., Barton, C., Boehme, R., Clayton, R., Ganan,
+the preparation of this manuscript. After using the tool, the               C., Grasso, T., Levi, M., Moore, T., & Vasek, M. (2019).
+authors reviewed and edited the content as needed and take full             Measuring the Changing Cost of Cybercrime. https://
+responsibility for the content of the publication.                          doi.org/10.17863/CAM.41598
+
+Author Contributions                                                   [5] Roesch, M., 1999. Snort: Lightweight Intrusion Detec-
+                                                                            tion for Networks. In: Proceedings of the 13th USENIX
+Ammar Bhilwarawala: Conceptualization, Methodology, For-                    Conference on System Administration, Seattle, WA, pp.
+mal Analysis, Investigation, Software, Writing - original draft.            229-238.
+Likhamba Rongmei: Investigation, Visualization, Writing - re-
+view & editing.                                                        [6] Sommer, R., Paxson, V., 2010. Outside the Closed World:
+Harsh Sharma: Software, Data Curation.                                      On Using Machine Learning for Network Intrusion Detec-
+Arya Jena: Software, visualization, Writing - review & editing.             tion. In: Proceedings of the IEEE Symposium on Security
+Kaushal Singh: Data Curation, Visualization.                                and Privacy, pp. 305-316. https://doi.org/10.1109/
+Jayashree Piri: Supervision, Writing - review & editing.                    SP.2010.25.
+Raghunath Dey: Supervision, Writing - review & editing.
+                                                                       [7] García, S., Grill, M., Stiborek, J., Zunino, A., 2014. An
+Declaration of Competing Interests                                          empirical comparison of botnet detection methods. Com-
+                                                                            puters & Security 45, 100-123. https://doi.org/10.
+The authors declare that they have no known competing financial             1016/j.cose.2014.05.011.
+interests or personal relationships that could have appeared to
+influence the work reported in this paper.                             [8] Breiman, L., 2001. Random Forests. Machine Learn-
+                                                                            ing 45, 5-32. http://dx.doi.org/10.1023/A:
+Code and Data Availability                                                  1010933404324.
+
+The five datasets used in this study are publicly available on         [9] Chen, T.Q., Guestrin, C., 2016. XGBoost: A Scalable
+Kaggle. The BRIDGE canonical vocabulary specification, alias                Tree Boosting System. In: Proceedings of the 22nd
+mapping tables, preprocessing pipeline, and complete experi-                ACM SIGKDD International Conference on Knowledge
+mental code are publicly released at https://github.com/                    Discovery and Data Mining, San Francisco, 13-17 Au-
+Ammar-ss/TCH-Net.                                                           gust 2016, pp. 785-794. https://doi.org/10.1145/
+Experiments were conducted using GPU-accelerated instances                  2939672.2939785.
+on the Kaggle platform to ensure a consistent and reproducible
+execution environment for the released experimental pipeline.         [10] Jolliffe, I.T., 2002. Principal Component Analysis, 2nd ed.
+The authors also acknowledge the creators of CICIDS-2017,                   Springer-Verlag, New York.
+CIC-IoT-2023, Bot-IoT, Edge-IIoTset, and N-BaIoT for making
+their datasets publicly available to the research community.          [11] Hochreiter, S., Schmidhuber, J., 1997. Long short-term
+                                                                            memory. Neural Computation 9 (8), 1735-1780. https:
+References                                                                  //doi.org/10.1162/neco.1997.9.8.1735.
+
+ [1] Radoglou Grammatikis, P., Sarigiannidis, P., Moscho-             [12] Cho, K., van Merrienboer, B., Gulcehre, C., Bahdanau, D.,
+      lios, I., 2018. Securing the Internet of Things: Chal-                Bougares, F., Schwenk, H., Bengio, Y., 2014. Learning
+      lenges, Threats and Solutions. Internet of Things. https:             Phrase Representations using RNN Encoder-Decoder for
+      //doi.org/10.1016/j.iot.2018.11.003.                                  Statistical Machine Translation. In: Proceedings of the
+                                                                            2014 Conference on Empirical Methods in Natural Lan-
+ [2] Kolias, C., Kambourakis, G., Stavrou, A., Voas, J., 2017.              guage Processing (EMNLP), Doha, Qatar, pp. 1724-1734.
+      DDoS in the IoT: Mirai and Other Botnets. Computer 50,
+      80-84. https://doi.org/10.1109/MC.2017.201.                     [13] Y. Lecun, L. Bottou, Y. Bengio and P. Haffner, "Gradient-
+                                                                            based learning applied to document recognition," in Pro-
+ [3] Antonakakis, M., April, T., Bailey, M., Bernhard, M.,                  ceedings of the IEEE, vol. 86, no. 11, pp. 2278-2324, Nov.
+      Bursztein, E., Cochran, J., Durumeric, Z., Halderman,                 1998, doi:10.1109/5.726791
+      J.A., Invernizzi, L., Kallitsis, M., Kumar, D., Lever, C.,
+      Ma, Z., Mason, J., Menscher, D., Seaman, C., Sullivan,          [14] Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones,
+      N., Thomas, K., Zhou, Y., 2017. Understanding the Mi-                 L., Gomez, A.N., Kaiser, L., Polosukhin, I., 2017. Atten-
+      rai Botnet. In: Proceedings of the 26th USENIX Security               tion Is All You Need. In: Proceedings of the 31st Interna-
+      Symposium, pp. 1093-1110. USENIX Association.                         tional Conference on Neural Information Processing Sys-
+                                                                            tems, Long Beach, 4-9 December 2017, pp. 6000-6010.
+
+                                                                      [15] Lin, T.Y., Goyal, P., Girshick, R., He, K., Dollár, P., 2017.
+                                                                            Focal Loss for Dense Object Detection. In: Proceedings
+                                                                            of the IEEE International Conference on Computer Vision,
+                                                                            Venice, 22-29 October 2017, pp. 2980-2988. https://
+                                                                            doi.org/10.1109/ICCV.2017.324.
+Bhilwarawala et al.                                              21  BRIDGE and TCH-Net
+
+[16] Loshchilov, I., Hutter, F., 2019. Decoupled Weight De-          [27] Ferrag, M.A., Friha, O., Hamouda, D., Maglaras, L., Jan-
+      cay Regularization. In: 7th International Conference on              icke, H., 2022. Edge-IIoTset: A New Comprehensive Real-
+      Learning Representations, New Orleans, 6-9 May 2019.                 istic Cyber Security Dataset of IoT and IIoT Applications
+                                                                           for Centralized and Federated Learning. IEEE Access 10.
+[17] Imrana, Y., Xiang, Y., Ali, L., Abdul-Rauf, Z., 2021. A               https://doi.org/10.1109/ACCESS.2022.3165809.
+      bidirectional LSTM deep learning approach for intrusion
+      detection. Expert Systems with Applications 185, 115524.       [28] Habibi Lashkari, A., Draper Gil, G., Mamun, M., Ghor-
+      https://doi.org/10.1016/j.eswa.2021.115524.                          bani, A., 2017. Characterization of Tor Traffic using
+                                                                           Time based Features. In: Proceedings of the 4th Inter-
+[18] Akuthota, U.C., Bhargava, L., 2025. Transformer Based                 national Conference on Information Systems Security and
+      Intrusion Detection for IoT Networks. IEEE Internet                  Privacy (ICISSP), Porto, Portugal, pp. 253-262. https:
+      of Things Journal. https://doi.org/10.1109/JIOT.                     //doi.org/10.5220/0006105602530262.
+      2025.3525494.
+                                                                     [29] Engelen, G., Rimmer, V., Joosen, W., 2021. Troubleshoot-
+[19] Y. Meidan et al., "N-BaIoT--Network-Based Detection of                ing an Intrusion Detection Dataset: the CICIDS2017 Case
+      IoT Botnet Attacks Using Deep Autoencoders," in IEEE                 Study. In: Proceedings of the IEEE Security and Pri-
+      Pervasive Computing, vol. 17, no. 3, pp. 12-22, Jul.-Sep.            vacy Workshops (SPW), San Francisco, CA, pp. 7-12.
+      2018, doi:10.1109/MPRV.2018.03367731                                 https://doi.org/10.1109/SPW53761.2021.00009.
+
+[20] Mirsky, Y., Doitshman, T., Elovici, Y., Shabtai, A., 2018.      [30] Ring, M., Wunderlich, S., Scheuring, D., Landes, D.,
+      Kitsune: An Ensemble of Autoencoders for Online Net-                 Hotho, A., 2019. A Survey of Network-based Intrusion
+      work Intrusion Detection. In: Proceedings of the Net-                Detection Data Sets. Computers and Security. https:
+      work and Distributed System Security Symposium (NDSS                 //doi.org/10.1016/j.cose.2019.06.005.
+      2018), San Diego, CA. https://doi.org/10.14722/
+      ndss.2018.23211.                                               [31] Wilcoxon, F., 1992. Individual Comparisons by Rank-
+                                                                           ing Methods. In: Kotz, S., Johnson, N.L. (Eds.),
+[21] Yuan, X., Li, C., Li, X., 2017. DeepDefense: Identifying              Breakthroughs in Statistics. Springer Series in Statistics.
+      DDoS Attack via Deep Learning, pp. 1-8. In: Proceed-                 Springer, New York, NY. https://doi.org/10.1007/
+      ings of the IEEE International Conference on Smart Com-              978-1-4612-4380-9_16.
+      puting https://doi.org/10.1109/SMARTCOMP.2017.
+      7946998.                                                       [32] Chicco, D., Jurman, G., 2020. The advantages of
+                                                                           the Matthews correlation coefficient (MCC) over F1
+[22] Diro, A., Chilamkurti, N., 2017. Distributed attack detec-            score and accuracy in binary classification evaluation.
+      tion scheme using deep learning approach for Internet of             BMC Genomics 21, 6. https://doi.org/10.1186/
+      Things. Future Generation Computer Systems 82. https:                s12864-019-6413-7.
+      //doi.org/10.1016/j.future.2017.08.043.
+                                                                     [33] Ganin, Y., Ustinova, E., Ajakan, H., Germain, P.,
+[23] Hamilton, W.L., Ying, Z., Leskovec, J., 2017. Inductive               Larochelle, H., Laviolette, F., Marchand, M., Lempitsky,
+      Representation Learning on Large Graphs. In: Advances                V., 2016. Domain-Adversarial Training of Neural Net-
+      in Neural Information Processing Systems (NIPS 2017).                works. Journal of Machine Learning Research 17 (59),
+      arXiv abs/1706.02216.                                                1-35.
+
+[24] Sharafaldin, I., Habibi Lashkari, A., Ghorbani, A.,             [34] Hinton, G., Dean, J., Vinyals, O., 2015. Distilling
+      2018. Toward Generating a New Intrusion Detection                    the Knowledge in a Neural Network. arXiv:1503.02531.
+      Dataset and Intrusion Traffic Characterization. In: Pro-             https://arxiv.org/abs/1503.02531.
+      ceedings of the 4th International Conference on In-
+      formation Systems Security and Privacy (ICISSP),
+      Funchal, Portugal, pp. 108-116.https://doi.org/10.
+      5220/0006639801080116.
+
+[25] Neto, E.C.P., Dadkhah, S., Ferreira, R., Zohourian, A.,
+      Lu, R., Ghorbani, A.A., 2023. CICIoT2023: A Real-Time
+      Dataset and Benchmark for Large-Scale Attacks in IoT
+      Environment. Sensors 23, 5941. https://doi.org/10.
+      3390/s23135941.
+
+[26] Koroniotis, N., Moustafa, N., Sitnikova, E., Turnbull,
+      B., 2019. Towards the Development of Realistic Botnet
+      Dataset in the Internet of Things for Network Forensic
+      Analytics: Bot-IoT Dataset. arXiv:1811.00701. https:
+      //doi.org/10.1016/j.future.2019.05.041.
+

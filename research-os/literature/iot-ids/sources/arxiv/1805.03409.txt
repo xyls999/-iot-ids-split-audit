@@ -1,0 +1,542 @@
+                                       IEEE PERVASIVE COMPUTING, VOL. 13, NO. 9, JULY-SEPTEMBER 2018                                                                          1
+
+                                       N-BaIoT: Network-based Detection
+                                                of IoT Botnet Attacks
+
+                                            Using Deep Autoencoders
+
+                                                 Yair Meidan, Michael Bohadana, Yael Mathov, Yisroel Mirsky,
+                                                     Dominik Breitenbacher, Asaf Shabtai, and Yuval Elovici
+
+arXiv:1805.03409v1 [cs.CR] 9 May 2018  Abstract--The proliferation of IoT devices which can be more easily compromised than desktop computers has led to an increase in
+                                       the occurrence of IoT-based botnet attacks. In order to mitigate this new threat there is a need to develop new methods for detecting
+                                       attacks launched from compromised IoT devices and differentiate between hour and millisecond long IoT-based attacks. In this paper
+                                       we propose and empirically evaluate a novel network-based anomaly detection method which extracts behavior snapshots of the
+                                       network and uses deep autoencoders to detect anomalous network traffic emanating from compromised IoT devices. To evaluate our
+                                       method, we infected nine commercial IoT devices in our lab with two of the most widely known IoT-based botnets, Mirai and
+                                       BASHLITE. Our evaluation results demonstrated our proposed method's ability to accurately and instantly detect the attacks as they
+                                       were being launched from the compromised IoT devices which were part of a botnet.
+
+                                       Index Terms--Internet of Things, Botnets, Anomaly detection, Autoencoders.
+
+                                                                                                       !
+
+                                       1 INTRODUCTION                                                  shots of benign IoT traffic, and train a deep autoencoder
+                                                                                                       (one for each device) to learn the IoT's normal behaviors. The
+                                       A S the number of Internet of Things (IoT) devices de-          deep autoencoder attempts to compress snapshots. When
+                                              ployed dramatically increases worldwide [1], and the     an autoencoder fails to reconstruct a snapshot, then it is a
+                                       traffic volume of IoT-based DDoS attacks reaches unprece-       strong indication that the observed behavior is anomalous
+                                       dented levels [1], [2], [3], the need for timely detection of   (i.e., the IoT device has been compromised and is exhibit-
+                                       IoT botnet attacks has become imperative for mitigating         ing an unknown behavior). An advantage of using deep
+                                       the risks associated with these attacks. Instantaneous detec-   autoencoders, is their ability to learn complex patterns, e.g.,
+                                       tion promotes network security, as it expedites the alerting    of various device functionalities. This results in an anomaly
+                                       and disconnection of compromised IoT devices from the           detector with hardly any false alarms. We empirically show
+                                       network, thus stopping the botnet from propagating and          that the autoencoders' false alarm rate is considerably lower
+                                       preventing further outbound attack traffic.                     than three other algorithms commonly used for anomaly
+                                                                                                       detection [13].
+                                           Botnets such as Mirai are typically constructed in several
+                                       distinct operational steps [1], namely propagation, infection,      The following are the benefits of using this approach to
+                                       C&C communication, and execution of attacks. Unlike most        detecting infected IoTs:
+                                       previous studies on botnet detection (see Table 1), which
+                                       addressed the early operational steps, we focus on the              Heterogeneity tolerance. Compared to classical comput-
+                                       last step. We concentrate on large enterprises, which are       ing environments, the IoT domain is highly diverse [2], [3].
+                                       expected to face an ever growing range and quantity of          However, by profiling each device with a separate autoen-
+                                       IoT devices, normally connecting to their networks via Wi-      coder, our method addresses the growing heterogeneity of
+                                       Fi (short-range communications like Bluetooth and ZigBee        IoT devices.
+                                       are not in our current scope). These devices can be either
+                                       self-deployed (e.g., smart smoke detectors) or dynamically          Open World. Typically in deep learning applications,
+                                       introduced from the outside by employees and visitors (e.g.,    models are trained to classify based on labels provided by
+                                       BYO wearables).                                                 experts (e.g. malicious or benign). However, our autoen-
+                                                                                                       coders are trained to detect when a behavior is abnormal.
+                                           Assuming that botnet attacks are unlikely to disappear,     Thus our method can detect new previously 'unseen' bot-
+                                       the fundamental question we address is as follows. Given        net behaviors, which is important given the continuously
+                                       a large number of heterogeneous IoT devices connected           evolving variants [2] or new botnets, which already make
+                                       to an organizational network, can we devise a centralized,      most detection methods obsolete [14].
+                                       automated method that is highly effective and accurate in
+                                       detecting compromised IoT devices which have been added             Efficiency. In the enterprise scenario, it is common that
+                                       to a botnet and have been used to launch attacks?               the traffic data of all connected hosts is monitored, but the
+                                                                                                       amount of monitored traffic is prohibitively large to store
+                                           For detecting attacks launched from IoT bots we pro-        and use for training deep neural networks. Our method uses
+                                       pose a network-based approach, which uses deep learning         incremental statistics to perform the feature extraction, and
+                                       techniques to perform anomaly detection. Specifically, we       the training of the autoencoders can be performed in semi-
+                                       extract statistical features which capture behavioral snap-
+IEEE PERVASIVE COMPUTING, VOL. 13, NO. 9, JULY-SEPTEMBER 2018                                                                                                                                           2
+
+       TABLE 1: Prior studies conducted on the detection of IoT-related anomalies, botnets, and malware attacks
+
+Paper     Detected            Botnet                            Attack(s)                    Detection            Deployment                    Assumed                   Research            Data
+           Botnet         Operational                                                        Approach                  Level                  Environment                   Type                for
+  [2]                                                             DDoS                                                                                                                    Evaluation
+  [3]  Linux.Darlloz            Step                                                  Intrusion prevention,         Network                           -                    Survey
+  [4]  worm, Mirai           Infection                            DDoS                  traffic monitoring    (routers, gateways)                                          Survey                -
+  [5]                 Various operational                                                                                                             -
+  [6]       Mirai      steps, depending                      Mirai-infected                         -                     -                                            Experimental              -
+  [7]                   on the malware                     IoT devices scan                                                                       Critical                                 Emulated
+  [8]       Mirai            Scanning                     for further devices                 Dynamic              "Thin fog"                infrastructures           Experimental       IoT nodes,
+  [9]                    (propagation)                   Worm propagation,                    updating                                                                                  simulated data
+ [10]          -                                             code injection,                of flow rules              Host                           -                Experimental         Two real
+ [11]  ZORRO, *.sh,               -                        tunneling attack
+ [12]                                                                                       Deep packet                Both                           -                Experimental          devices
+         GAFGYT,                 All                                  -                 anomaly detection                                                                                      Real
+        KOS, nttpd                                                                                                     Host                        WSN                 Experimental            data
+                                  -                            Devices are                  Honeypot to             Network                                              Survey on
+               -                                               attacked by                   collect and          (routers and             6LoWPAN WSN,                                   Simulation
+                                  -                           a DoS attack                analyze attacks          root nodes)                representing            challenges and
+               -                                            Routing attacks             Hybrid: signature-          Network                    a smart city       detection approaches    Simulation
+                                  -                          (sinkhole and             based and anomaly              (cloud)
+               -                                        selective-forwarding)            detection (BPN)                                    Sensing systems            Experimental              -
+                                  -                                                   Hybrid: specification-        Network                 and distributed
+               -                                                      -                based and anomaly             Hybrid:                cloud platforms            Experimental      Real devices,
+                                  -                                                     detection (OFPC)         border router        Adapts to ZigBee/XBee/                            simulated data
+               -                              ICMP flood, replication, wormhole,         Several methods,           and hosts      6LoWPAN (on IEEE 802.15.4),             Survey
+                                  -         TCP SYN flood, HELLO jamming, data                including             Host and       WiFi (on IEEE 802.11), and BT                          Simulation
+               -                           modification, selective forwarding, smurf    anomaly detection            network
+                                                                                            Knowledge                                           6LoWPAN                                          -
+                                                   Routing attacks like spoofed
+                                                       or altered information,                 driven,                                                -
+                                                                                        anomaly detection
+                                                  sinkhole, selective-forwarding        Hybrid: signature-
+
+                                                                      -                      based and
+                                                                                        anomaly detection
+                                                                                         Several methods,
+
+                                                                                              including
+                                                                                        anomaly detection
+
+online manner (train on a batch of observations and then                              2 RELATED WORK
+discard). Therefore the training is practical, and there is no
+storage concern. Additionally, our method is network-based                            The botnet detection methods suggested thus far can be
+so it does not consume any computation, memory, or energy                             categorized based on (1) the specific operational step to be
+resources from the (typically constrained) IoT devices. Thus,                         detected, and (2) the detection approach. Table 1 is based
+our method does not jeopardize their functionality or impair                          on this categorization and further summarizes previous
+their lifespan. Our focus on the attack operational step (as                          studies on the detection of IoT-related anomalies, botnets,
+opposed to the early steps) also makes our method indif-                              and malware attacks.
+ferent to the botnet propagation protocols and the possibly
+encrypted [14] C&C channels.                                                              Among the botnets' operational steps, previous IoT-related
+                                                                                      detection studies (e.g., [4] and [5]) focused mainly on the
+    The contributions of this paper can be summarized as                              early steps of propagation and communication with the
+follows:                                                                              C&C server. However, given that botnet attacks continue
+                                                                                      to mutate on a daily basis [1] and become increasingly
+  1) To the best of our knowledge, we are the first to ap-                            sophisticated [2], we anticipate that some of these mutations
+      ply autoencoders to IoT network traffic for anomaly                             will eventually succeed at bypassing existing methods of
+      detection, as a complete means of detecting botnet                              early detection. Moreover, mobile IoT devices might get
+      attacks. Even in the larger domain of network traffic                           contaminated when connected to external networks. For
+      analysis, autoencoders have not been used as fully                              instance, smartwatches may connect to dubious free Wi-Fi
+      automated standalone malware detectors, but rather                              networks when their owners arrive at airports. Hence, mon-
+      as preliminary tools for either feature learning [15]                           itoring organizational networks for identifying the early
+      or dimensionality reduction [16], or at most as semi-                           steps of infection alone is insufficient. Accordingly, we focus
+      manual outlier detectors which substantially depend                             on a later step of a botnet operation, when IoT bots begin
+      on human labeling for subsequent classification [17] or                         launching cyberattacks. In that sense, our method adds a last
+      further inspection by security analysts [13].                                   line of defense security layer. It instantly detects the IoT-based
+                                                                                      attacks and minimizes their impact by issuing an immediate
+  2) Unlike previous experimental studies on the detection                            alert which recommends the isolation of any compromised
+      of IoT botnets or IoT traffic anomalies which relied                            device from the network until it is sanitized.
+      on emulated or simulated data ([4], [7], [8], [10]), we
+      perform empirical evaluation with real traffic data,                                Among the suggested botnet detection approaches, a pri-
+      gathered from nine commercial IoT devices infected                              mary distinction is made between host-based [5], [7] and
+      by authentic botnets from two families. We examine                              network-based [4], [8], [9], [10] approaches. We consider
+      Mirai and BASHLITE, two of the most common IoT-                                 host-based techniques less realistic for detecting compro-
+      based botnets, which have already demonstrated [1]                              mised IoT devices, because (1) we cannot rely on the good
+      their harmful capabilities. To enable reproducibility                           will of all IoT manufacturers to install designated host-
+      and address the lack of public botnet datasets [14],                            based anomaly detectors on their products; (2) there is
+      particularly for the IoT, we share our network traces at                        limited access to some IoT devices (e.g., wearables), so the
+      http://archive.ics.uci.edu/ml/datasets/detection of                             installation of software on end devices cannot be enforced;
+      IoT botnet attacks N BaIoT.                                                     (3) the constrained computation and power of most IoT
+                                                                                      devices impose constraints on the complexity and efficiency
+                                                                                      of host-based anomaly detection algorithms, which also
+IEEE PERVASIVE COMPUTING, VOL. 13, NO. 9, JULY-SEPTEMBER 2018                                                                         3
+
+                             TABLE 2: Extracted features
+
+              Value          Statistic                                           Aggregated by  Total Number
+                                                                                                  of Features
+
+Packet size (of outbound packets only) Mean, Variance             Source IP,1 Source MAC-IP,2   8
+
+                                                                  Channel, Socket3
+
+Packet count         Number                                       Source IP, Source MAC-IP, Channel, Socket 4
+
+Packet jitter (the amount of time between packet arrivals) Mean, Variance, Number Channel 3
+
+Packet size (of both inbound and Magnitude, Radius, Covariance, outbound together) Correlation coefficient Channel, Socket 8
+
+1 The source IP is used to track the host as a whole.
+2 The source MAC-IP adds the capability to distinguish between traffic originating from different gateways and spoofed IP addresses.
+3 The sockets are determined by the source and destination TCP or UDP port numbers. For example, all of the traffic sent from
+
+192.168.1.12:1234 to 192.168.1.50:80 (traffic flowing from one socket to another).
+
+Further details and the datasets themselves are publicly available at
+http://archive.ics.uci.edu/ml/datasets/detection of IoT botnet attacks N BaIoT.
+
+might consume energy and computation from the devices             data for subsequent supervised learning. Closer to our ap-
+and thus harm their functionality; and (4) in the enterprise      proach, the authors of [13] apply deep learning to system
+scenario we assume, where various and numerous IoT de-            logs for detecting insider threats. Differently from us, they
+vices connect to the organizational network, a single non-        use DNNs and RNNs (LSTMs), and depend on further
+distributed solution is preferred.                                manual inspection.
+
+    A hierarchical taxonomy of network-based botnet detec-            In conclusion, our method differs from previous studies
+tion approaches, not limited to the IoT domain, is proposed       as we learn from benign data by training deep autoencoders
+by [14]. Honeypots are one of the detection sources sur-          for each device, and use them as standalone automatic
+veyed in this study. Honeypots have commonly been used            tools for instantaneous detection of existing and unseen IoT
+for collecting, understanding, characterizing, and tracking       botnet attacks.
+botnets [6]. However, they are not necessarily useful for
+detecting compromised endpoints or the attacks emanat-            3 PROPOSED DETECTION METHOD
+ing from them. Moreover, honeypots normally require a
+substantial investment in procurement or emulation of real        The method we propose for detecting IoT botnet attacks
+devices, data inspection, signature extraction, and keeping       relies on deep autoencoders for each device, trained on
+up with mutations. As per [14], normal networks constitute        statistical features extracted from benign traffic data. When
+an alternative detection source, where network intrusion          applied to new (possibly infected) data of an IoT device,
+detection systems (NIDSs) monitor traffic data continuously       detected anomalies may indicate that the device is compro-
+and automatically, while using pattern matching to detect         mised. This method consists of the following main stages:
+signs of undesirable activities. Such patterns may rely on        (1) data collection, (2) feature extraction, (3) training an
+(1) signatures identified by honeypots, (2) DNS traffic with      anomaly detector, and (4) continuous monitoring.
+a potential C&C server, (3) traffic anomalies [5], (4) data
+mining, or (5) hybrid approaches [7], [8]. Similar to [5], we         Data collection. We capture the raw network traffic data
+find that the anomaly-based approach is best suited for de-       (in pcap format) using port mirroring on the switch through
+tecting compromised IoT devices, because these connected          which the organizational traffic typically flows. To ensure
+appliances are typically task-oriented (e.g., specifically de-    that the training data is clean of malicious behaviors, the
+signed to detect motion or measure humidity). Accordingly,        normal traffic of an IoT is collected immediately following
+they execute fewer, and potentially less, complex network         its installation in the network.
+protocols, and exhibit traffic with less variance than PCs.
+As such, detecting deviations from their normal patterns              Feature extraction. Whenever a packet arrives, we take a
+should be more accurate and robust.                               behavioral snapshot of the hosts and protocols that commu-
+                                                                  nicated this packet. The snapshot obtains the packet's con-
+    Many detection algorithms were surveyed in [14], how-         text by extracting 115 traffic statistics over several temporal
+ever artificial neural networks were left uncited, and autoen-    windows to summarize all of the traffic that has (1) origi-
+coders were not mentioned at all. Such works within the           nated from the same IP in general, (2) originated from both
+greater domain of cybersecurity have been published more          the same source MAC and the same IP address, (3) been
+recently, yet they are dissimilar to our approach, unrelated      sent between the source and destination IPs (channel), and
+to the IoT, and often not directly connected to botnets. For      (4) been sent between the source to destination TCP/UDP
+instance, [15], [16] and [18] applied shallow autoencoders        sockets (socket).
+for preliminary feature learning and dimensionality reduc-
+tion, followed by Random Forest, Deep Belief Networks,                We extract the same set of 23 features (capturing the
+and Softmax, respectively for classification and fine-tuning.     above, see Table 2) from five time windows of the most
+Although autoencoders were extended for outlier detection         recent 100ms, 500ms, 1.5sec, 10sec, and 1min. These features
+in [17], they still required security analysts to actively label  can be computed very fast and incrementally and thus
+                                                                  facilitate real time detection of malicious packets. Addition-
+                                                                  ally, although generic these features can capture specific
+IEEE PERVASIVE COMPUTING, VOL. 13, NO. 9, JULY-SEPTEMBER 2018                                         4
+
+behaviors like source IP spoofing [2], characteristic of Mi-   ws = arg min(|{packet  ws|M SE(packet) > tr}| > |ws| )
+rai's attacks. For instance, when a compromised IoT device                                            2
+spoofs an IP, the features aggregated by the Source MAC-       |ws|
+IP, Source IP and Channel will immediately indicate a large
+anomaly due to the unseen behavior originating from the                                               (2)
+spoofed IP address.
+                                                               Continuous monitoring for anomaly detection. Even-
+    Training an anomaly detector. As our base anomaly
+detector, we use deep autoencoders and maintain a model        tually, we apply the optimized model to feature vectors
+for each IoT device separately. An autoencoder is a neu-
+ral network which is trained to reconstruct its inputs af-     extracted from continuously observed packets, to mark each
+ter some compression. The compression ensures that the
+network learns the meaningful concepts and the relation        instance as benign or anomalous. Then, a majority vote on a
+among its input features. If an autoencoder is trained on      sequence (the length of ws) of marked instances is used
+benign instances only, then it will succeed at reconstructing
+normal observations, but fail at reconstructing abnormal       to decide whether the entire respective stream is benign
+observations (unknown concepts). When a significant re-
+construction error is detected, then we classify the given     or anomalous. Consequently, an alert can be issued upon
+observations as being an anomaly.
+                                                               the detection of an anomalous stream, as it might indicate
+    We optimize the parameters and hyperparameters of
+each trained model such that when applied to unseen traffic    malicious activity on the IoT device.
+the model maximizes the true positive rate (TPR, detecting
+attacks once they occur) and minimizes the false positive      4 EMPIRICAL EVALUATION
+rate (FPR, wrongly marking benign data as malicious). For
+training and optimization, we use two separate datasets        In our experiments, we strived to authentically represent
+which only contain benign data, from which the model           IoT devices deployed in an enterprise setting, infected by
+learns patterns of normal activity. The first dataset is the   real-world botnets, and executing genuine attacks.
+training set (DStrn), and it is used for training the au-
+toencoder, given input parameters such as the learning rate        Lab setup. To replicate a typical organizational data flow,
+(, the size of the gradient descent step), and the number      we collected the traffic data from IoT devices that were
+of epochs (complete passes through the entire DStrn). The      connected via Wi-Fi to several access points, wire connected
+second dataset is the optimization set (DSopt), and it is      to a central switch which also connects to a router. For
+used to optimize these two hyperparameters ( and epochs)       sniffing the network traffic, we performed port mirroring
+iteratively until the mean square error (M SE) between a       on the switch, and recorded the data using Wireshark. To
+model's input (the original feature vector) and output (the    evaluate our detection method as realistically as possible,
+reconstructed feature vector) stops decreasing. Stopping at    we also deployed all of the components of two botnets (see
+this point prevents overfitting DStrn, thus promoting bet-     Figure 1) in our isolated lab and used them to infect nine
+ter detection results with future data. DSopt is later used    commercial IoT devices (see Table 3).
+to optimize a threshold (tr) which discriminates between
+benign and malicious observations; finally, it is also used        Botnets deployed. We focused on two of the most
+to optimize the window size (ws), by which the FPR is          common IoT botnet families: BASHLITE and Mirai. We
+minimized.                                                     deployed both of them in our labs and collected traffic data
+                                                               before and after the infection.
+    Once the model training and optimization is complete
+the tr is set. This anomaly threshold, above which an              BASHLITE (also known as Gafgyt, Q-Bot, Torlus, Lizard-
+instance is considered anomalous, is calculated as the sum     Stresser, and Lizkebab) is one of the most infamous types of
+of the sample mean and standard deviation of M SE over         IoT botnets, and its code and behavior can be found in other
+DSopt (see Equation 1).                                        IoT malware as well. To launch an attack, the botnet infects
+                                                               Linux-based IoT devices by brute forcing default credentials
+tr = M SEDSopt + s(M SEDSopt )  (1)                            of devices with open Telnet ports. In our research, the IoT
+                                                               devices were infected using the binaries from the IoTPOT
+    Preliminary experiments revealed that deciding whether     dataset [6] (namely Gafgyt). In order to adjust the attacks
+a device's packet stream is anomalous or not based on a        to our lab, the IP address of the C&C server was extracted
+single instance enables very accurate detection of IoT-based   from the malware's binary, and all of the network traffic to
+botnet attacks (high TPR). However, benign instances were      this IP was routed to a server in our lab that functions as
+too often (in approximately 5-7% of cases) falsely marked      a C&C server. Once a new bot connected to this server and
+as anomalous. Thus we base the abnormality decision on a       was under its control, this server was able to command the
+sequence of instances by implementing a majority vote on a     infected device to launch attacks.
+moving window. We determine the minimal window size
+ws as the shortest sequence of instances, a majority vote          Mirai is the second botent we deployed in our isolated
+which produces 0% FPR on DSopt (see Equation 2).               network, using its published source code [19]. The exper-
+                                                               imental setup included a C&C server and a server with a
+                                                               scanner and loader. The scanner and loader components
+                                                               are responsible for scanning and identifying vulnerable IoT
+                                                               devices, and loading the malware to the vulnerable IoT de-
+                                                               vices detected. Once a device was infected, it automatically
+                                                               started scanning the network for new victims while waiting
+                                                               for instructions from the C&C server.
+
+                                                                   Attacks executed. The following is the list of attacks
+                                                               executed and tested in our lab.
+
+                                                               � BASHLITE Attacks
+
+                                                                1) Scan: Scanning the network for vulnerable devices
+IEEE PERVASIVE COMPUTING, VOL. 13, NO. 9, JULY-SEPTEMBER 2018                                                                                  5
+
+                                  Fig. 1: Lab setup for detecting IoT botnet attacks
+
+ 2) Junk: Sending spam data                                             realistically, we made sure to incorporate traffic from the
+ 3) UDP: UDP flooding                                                   entire (normal) life cycle of the devices. Particularly, in each
+ 4) TCP: TCP flooding                                                   of the three sets of each IoT device we included not only
+ 5) COMBO: Sending spam data and opening a connection                   traffic data of frequent actions (e.g., a webcam transmitting
+                                                                        video) but also infrequent actions (e.g., accessing a webcam
+     to a specified IP address and port                                 via the mobile app, moving in front of it, or booting it).
+
+� Mirai Attacks                                                             For training and optimization we used Keras. Each au-
+                                                                        toencoder had an input layer whose dimension is equal to
+ 1) Scan: Automatic scanning for vulnerable devices                     the number of features in the dataset (i.e., 115). As noted
+ 2) Ack: Ack flooding                                                   by [16] and [15], autoencoders effectively perform dimen-
+ 3) Syn: Syn flooding                                                   sionality reduction internally, such that the code layer be-
+ 4) UDP: UDP flooding                                                   tween the encoder(s) and decoder(s) efficiently compresses
+ 5) UDPplain: UDP flooding with fewer options, optimized                the input layer and reflects its essential characteristics. In
+                                                                        our experiments, four hidden layers of encoders were set
+     for higher PPS                                                     at decreasing sizes of 75%, 50%, 33%, and 25% of the input
+                                                                        layer's dimension. The next layers were decoders, with the
+    Experimental results and discussion. Each of the nine               same sizes as the encoders, however with an increasing
+sets of benign data we collected in our lab, corresponding              order (starting from 33%). Table 3 provides technical details
+to the nine IoT devices, was divided chronologically into               about the training stage, while focusing on the dataset prop-
+three equidimensional sets: (1) DStrn for training the au-              erties, the optimized hyperparameters of the autoencoders,
+toencoder, (2) DSopt for parameter optimization, and (3)
+the benign part of DStst for estimating FPR. In order to
+imitate real-world settings and thus assess our method more
+
+TABLE 3: Overview of the training stage: dataset properties and training summary, optimized hyperparameters for
+autoencoders, and botnet infections
+
+        Dataset Properties and Training Summary                                 Optimized Hyperparameters of Autoencoders   Botnet Infections
+                                                                                                                           Mirai BASHLITE
+Device  Device Make and Model     Device Type      Number     Training  Object  Learning Number Anomaly Window
+  ID                                                            Time     Size
+                                                   of Benign    (sec)    (kB)   Rate   of Epochs  Threshold  Size
+    1                                                                            ()     (epochs)     (tr)    (ws)
+    2                                              Instances     555      172                                              !!
+    3                                                            215      172
+    4   Danmini                   Doorbell          49,548        54      172   0.012  800        0.042      82               !
+    5   Ennio                     Doorbell          39,100       292      172
+    6   Ecobee                    Thermostat        13,113       275      172   0.003  350        0.011      22            -!!
+    7   Philips B120N/10          Baby Monitor     175,240       795      172
+    8   Provision PT-737E         Security Camera   62,154       220      172   0.028  250        0.011      20            !!
+    9   Provision PT-838          Security Camera   98,514       190      172
+        SimpleHome XCS7-1002-WHT  Security Camera   46,585       150      172   0.016  100        0.030      65            !!
+        SimpleHome XCS7-1003-WHT  Security Camera   19,528
+        Samsung SNH 1011 N        Webcam            52,150                      0.026  300        0.035      32            !!
+
+                                                                                0.008  450        0.038      43            !!
+
+                                                                                0.017  230        0.056      23            !!
+
+                                                                                0.006  500        0.004      25               !
+
+                                                                                0.013  150        0.074      32            -
+IEEE PERVASIVE COMPUTING, VOL. 13, NO. 9, JULY-SEPTEMBER 2018                                                           6
+
+(a) Methods' detection accuracy                                (b) Methods' detection time (seconds)
+
+(c) Average FPR explained by traffic characteristics           (d) Detection time explained by traffic characteristics
+
+Fig. 2: Experimental results using the test set: comparison of methods and potential explanations
+
+and the botnet infections.                                       onds to detect the attacks, and frequently much less time.
+                                                                 As evident in Figure 2b, for most of the evaluated IoT
+    Following the stage of autoencoder training and opti-        devices the average detection time of our method was
+mization, we used the same (benign) data to train three          lower than all the other methods. Assuming that the
+other algorithms commonly used [13] for anomaly detec-           detection of attack-related anomalies can automatically
+tion: Local Outlier Factor (LOF), One-Class SVM, and Iso-        trigger an immediate isolation of the compromised IoT
+lation Forest. We optimized their hyperparameters exactly as     device from the network, launched attacks can be stopped
+we did for the autoencoders, including tr and ws. Finally, we    in less than a second. This is a substantial reduction
+executed all of the above attacks with the same duration         from the typical duration of DDoS attacks [20], whose
+via Mirai and BASHLITE's C&C servers. Then we extracted          distribution normally ranges between 20-90 seconds, plus
+the features from the malicious data and appended each be-       a long tail where 10% of the attacks continue more than a
+nign part of DStst (previously mentioned) to the respective      day, and 2% last longer than a month.
+malicious part of DStst, to form a single test dataset per
+IoT device with both benign and malicious instances. The           In terms of TPR, FPR and detection time, the deep
+experimental results on DStst (see Figure 2) are promising:    autoencoders exemplified superiority for most devices. This
+                                                               is probably due to the ability of deep architectures to learn
+� Our method succeeded in detecting every single attack        nonlinear structure mapping and approximate complex
+  launched by every compromised IoT device, i.e., TPR of       functions [16]. Additionally, the constrained complexity of
+  100%. As evident in Figure 2a, LOF and SVM reached           deep autoencoders, imposed by the reduced dimensionality
+  similar TPRs, much better than the Isolation Forest which    in the hidden layers, prevents them from learning the trivial
+  demonstrated an inferior and highly variable TPR.            identity function [13]. Therefore, deep autoencoders tend
+                                                               to fit common patterns better than uncommon ones. This
+� Our method also raised the fewest false alarms. It           is beneficial for IoT devices, as they normally are task-
+  demonstrated a mean FPR of 0.007�0.01, lower and             oriented, so their specified functionality should translate
+  more consistent than SVM (0.026�0.029), Isolation Forest     into few normal traffic patterns. Despite this tendency to
+  (0.027�0.041) and LOF (0.086�0.081).
+
+� Moreover, our method required only 174�212 millisec-
+IEEE PERVASIVE COMPUTING, VOL. 13, NO. 9, JULY-SEPTEMBER 2018                                                                                                                7
+
+fit common traffic patterns (generated by frequent actions),      in the maximal volume of inbound traffic promotes (p-
+the autoencoders succeeded in capturing patterns of the in-       value=0.001) longer detection times. As we optimize ws to
+frequent actions (e.g., boots) as well, demonstrated through      reach 0% FPR on DSopt, lower predictability leads to higher
+low FPR. In real-world applications, the FPR can be adjusted      ws (more instances for majority voting) and subsequently
+by manipulating the tr and/or ws, however with some               higher detection times.
+cost of TPR and detection times.
+                                                                      Ultimately, a solid predictability score can be leveraged
+5 CONCLUSION                                                      by large organizations in order to ensure network function-
+                                                                  ality and limit the impact that compromised devices might
+Although the autoencoders in our experiments obtained an          have on the network. That is, security policies may not
+FPR of zero on most IoT devices in a test set, the difference in  allow the connection of IoT devices with low predictability
+the FPR among the remaining IoT devices led us to further         scores to their networks, since they pose difficulties in attack
+analyze our data. We observed that the Philips B120N/10           detection. In our future work we plan to further define
+baby monitor demonstrated the highest FPR relative to the         and investigate the subject of traffic predictability, both
+other devices; it also produced the largest amount of traffic     theoretically and empirically.
+(see Table 3), so one could expect that the abundance of
+training instances would result in more robust machine                As another extension to the current study, we also plan
+learning models. However, this device also has the most           to evaluate transfer learning techniques by assessing the
+diverse set of capabilities, as it is equipped with a two-way     accuracy of models trained on specific devices when they
+intercom function, motion detection, audio detection, and         are applied to identical devices, possibly when connected to
+several other sensors for ambient light, temperature, and         other organizational networks. This can help (1) save time
+humidity. Given this, it might be more difficult to capture       (e.g., organizations can deploy models previously learned
+its normal behavior, and therefore future observations may        elsewhere, without the need to collect data and train the
+be subject to more categorization errors.                         models themselves), and (2) detect compromised IoT de-
+                                                                  vices which have been contaminated prior to connecting to
+    Accordingly, we hypothesize that the difficulty in captur-    the organizational network, such that the organization has
+ing the normal traffic behavior varies among IoT devices,         no benign data of them for model training.
+and that this difficulty may be correlated with (1) the
+device's capabilities, and (2) the network communications         ACKNOWLEDGMENTS
+it normally produces. A similar notion was raised by [2],
+who argues that the specialized functionality of today's IoT      The authors would like to thank Yan Lin Aung, Amit Sub-
+devices leads to predictable behaviors. In turn, the ease of      hashchandra Tambe, Simon Dzanashvili and Tar Wolfson for
+establishing baseline behaviors for IoT devices facilitates       their valuable contribution.
+anomaly detection as a means of detecting attacks. To this
+end, interesting questions arise:                                 REFERENCES
+
+� Can the predictability of traffic behavior of IoT devices be    [1] C. Kolias, G. Kambourakis, A. Stavrou, and J. Voas, "DDoS in the
+  quantified?                                                           IoT: Mirai and Other Botnets," Computer, vol. 50, no. 7, pp. 80-84,
+                                                                        2017.
+� Can the relation between the predictability level and the
+  static features of IoT devices (e.g., number and type of sen-   [2] E. Bertino and N. Islam, "Botnets and Internet of Things Security,"
+  sors, memory size, operating system) or dynamic features              Computer, 2017.
+  (e.g., number of unique destination IPs per hour, variance
+  of the ratio between outgoing and incoming traffic) be          [3] R. Hallman, J. Bryan, G. Palavicini, J. Divita, and J. Romero-
+  formalized?                                                           Mariona, "IoDDoS The Internet of Distributed Denial of Service
+                                                                        Attacks - A Case Study of the Mirai Malware and IoT-Based
+� Can these features be ranked based on their influence on              Botnets," in Proceedings of the 2nd International Conference on Internet
+  this predictability level?                                            of Things, Big Data and Security - Volume 1: IoTBDS. SciTePress, 9
+                                                                        2017, pp. 47-58.
+    We presume that the predictability of traffic behavior
+can be directly translated into performance measures of           [4] M. Ozcelik, N. Chalabianloo, and G. Gur, "Software-Defined Edge
+anomaly detection. For example, an IoT device with a high               Defense Against IoT-Based DDoS," in 2017 IEEE International
+level of traffic predictability would make any anomalous                Conference on Computer and Information Technology (CIT). IEEE,
+action stand out, and thus the TPR should increase and                  8 2017, pp. 308-313.
+detection times should decrease in this case. For empirical
+validation we extracted static and dynamic features from the      [5] D. H. Summerville, K. M. Zach, and Y. Chen, "Ultra-lightweight
+(benign) training set. Then we trained regression models to             deep packet anomaly detection for Internet of Things devices," in
+study these features' effect on the average FPR and detection           2015 IEEE 34th International Performance Computing and Communi-
+times, obtained on the test set by the four detection methods           cations Conference, IPCCC 2015, 2016.
+we evaluated. Figures 2c and 2d depict our preliminary
+findings via the features found most significant. Figure 2c       [6] Y. M. P. Pa, S. Suzuki, K. Yoshioka, T. Matsumoto, T. Kasama, and
+shows how an increase in the variability of inbound traf-               C. Rossow, "IoTPOT: A Novel Honeypot for Revealing Current
+fic translates (p-value=0.019) into larger average FPR. This            IoT Threats," Journal of Information Processing, vol. 24, no. 3, pp.
+makes sense, as lower predictability is prone to manifest               522-533, 2016.
+through unpredictable (yet benign) traffic behaviors, falsely
+identified as anomalous. Figure 2d shows how an increase          [7] H. Sedjelmaci, S. M. Senouci, and M. Al-Bahri, "A lightweight
+                                                                        anomaly detection technique for low-resource IoT devices: A
+                                                                        game-theoretic methodology," in 2016 IEEE International Conference
+                                                                        on Communications (ICC). IEEE, 5 2016, pp. 1-6.
+
+                                                                  [8] H. Bostani and M. Sheikhan, "Hybrid of anomaly-based and
+                                                                        specification-based IDS for Internet of Things using unsupervised
+                                                                        OPF based on MapReduce approach," Computer Communications,
+                                                                        2017.
+
+                                                                  [9] I. Butun, B. Kantarci, and M. Erol-Kantarci, "Anomaly detection
+                                                                        and privacy preservation in cloud-centric Internet of Things,"
+                                                                        in 2015 IEEE International Conference on Communication Workshop
+                                                                        (ICCW). IEEE, 6 2015, pp. 2610-2615.
+IEEE PERVASIVE COMPUTING, VOL. 13, NO. 9, JULY-SEPTEMBER 2018                                                                                            8
+                                                                                  Yael Mathov is a M.Sc. student in the SISE De-
+[10] D. Midi, A. Rullo, A. Mudgerikar, and E. Bertino, "Kalis A                   partment at BGU. Her research interests include
+      System for Knowledge-Driven Adaptable Intrusion Detection for               IoT security and reverse engineering.Contact
+      the Internet of Things," in 2017 IEEE 37th International Conference         her at yaelmath@post.bgu.ac.il.
+      on Distributed Computing Systems (ICDCS). IEEE, 6 2017, pp. 656-
+      666.                                                                        Yisroel Mirsky is a Ph.D. candidate in the SISE
+                                                                                  Department at BGU. His research interests in-
+[11] S. Raza, L. Wallgren, and T. Voigt, "SVELTE: Real-time intrusion             clude machine learning and time series anomaly
+      detection in the Internet of Things," Ad Hoc Networks, vol. 11, no. 8,      detection. Contact him at yisroel@post.bgu.ac.il.
+      2013.
+                                                                                  Dominik Breitenbacher is a research assis-
+[12] B. B. Zarpelo, R. S. Miani, C. T. Kawakani, and S. C. de Alvarenga,          tant at iTrust Centre of Cybersecurity at Sin-
+      "A survey of intrusion detection in Internet of Things," Journal of         gapore University of Technology and Design
+      Network and Computer Applications, vol. 84, pp. 25-37, 4 2017.              (SUTD). His research interests include IoT se-
+                                                                                  curity and malware detection. Contact him at
+[13] A. Tuor, S. Kaplan, B. Hutchinson, N. Nichols, and S. Robin-                 dominik@sutd.edu.sg.
+      son, "Deep learning for unsupervised insider threat detection in
+      structured cybersecurity data streams," in Artificial Intelligence for      Asaf Shabtai is an assistant Professor in the
+      Cybersecurity Workshop at AAAI, 2017.                                       SISE Department at BGU. His research inter-
+                                                                                  ests include computer and network security,
+[14] S. Garc큛a, A. Zunino, and M. Campo, "Survey on network-based                and machine learning. Contact him at shab-
+      botnet detection methods," Security and Communication Networks,             taia@bgu.ac.il.
+      vol. 7, no. 5, pp. 878-903, 2014.
+
+[15] I. Arnaldo, A. Cuesta-Infante, A. Arun, M. Lam, C. Bassias, and
+      K. Veeramachaneni, "Learning Representations for Log Data in
+      Cybersecurity," in International Conference on Cyber Security Cryp-
+      tography and Machine Learning. Springer, 2017, pp. 250-268.
+
+[16] Y. Li, R. Ma, and R. Jiao, "A hybrid malicious code detection
+      method based on deep learning," International Journal of Security
+      and Its Applications, vol. 9, no. 5, 2015.
+
+[17] K. Veeramachaneni, I. Arnaldo, V. Korrapati, C. Bassias, and
+      K. Li, "Ai^ 2: training a big data machine to defend," in Big Data
+      Security on Cloud, IEEE International Conference on High Performance
+      and Smart Computing (HPSC), and IEEE International Conference
+      on Intelligent Data and Security (IDS), 2016 IEEE 2nd International
+      Conference on. IEEE, 2016, pp. 49-54.
+
+[18] Y. Yu, J. Long, and Z. Cai, "Network intrusion detection through
+      stacking dilated convolutional autoencoders," Security and Com-
+      munication Networks, vol. 2017, 2017.
+
+[19] "GitHub - jgamblin/Mirai-Source-Code: Leaked Mirai Source
+      Code for Research/IoC Development Purposes." [Online].
+      Available: https://github.com/jgamblin/Mirai-Source-Code
+
+[20] N. Blenn, V. Ghie쮝te, and C. Doerr, "Quantifying the Spectrum
+      of Denial-of-Service Attacks through Internet Backscatter," in Pro-
+      ceedings of the 12th International Conference on Availability, Reliability
+      and Security - ARES '17. ACM Press, 2017, pp. 1-10.
+
+                               Yair Meidan is a Ph.D. candidate at the De-
+                               partment of Software and Information Systems
+                               Engineering (SISE) at Ben-Gurion University of
+                               the Negev (BGU). His research interests include
+                               machine learning and IoT security. Contact him
+                               at yairme@post.bgu.ac.il.
+
+Michael Bohadana is a M.Sc. student in the                                        Yuval Elovici is the director of the Telekom
+SISE Department at BGU. His research interests                                    Innovation Laboratories at BGU, head of the
+include reverse engineering and IoT security.                                     Cyber Security Research Center at BGU, re-
+Contact him at bohadana@post.bgu.ac.il.                                           search director of iTrust at SUTD, and a Pro-
+                                                                                  fessor in the SISE Department at BGU. His re-
+                                                                                  search interests include computer and network
+                                                                                  security, and machine learning. Contact him at
+                                                                                  yuval elovici@sutd.edu.sg.
+

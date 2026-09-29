@@ -74,6 +74,8 @@ artifacts:
   low_burden_route: literature/low-burden-route-brief.md
   iot_ids_collection: literature/iot-ids/README.md
   iot_ids_synthesis: literature/iot-ids/research-synthesis.md
+  iot_ids_cn_notes: literature/iot-ids/cn-reading-notes.md
+  iot_ids_subdirection: literature/iot-ids/subdirection-recommendation.md
 
 literature:
   total: 0
@@ -96,6 +98,6 @@ review:
   minor_issues: 0
 
 last_checkpoint:
-  timestamp: 2026-09-28T23:20:00+08:00
-  summary: "Ten DOI-verified IoT IDS papers collected locally; the strongest defensible gap is leakage-controlled cross-device/cross-dataset evaluation with resource metrics."
-  next_action: "Review the ten-paper IoT IDS collection, then choose N-BaIoT feasibility or return to sensor calibration."
+  timestamp: 2026-09-28T23:50:00+08:00
+  summary: "Six publicly accessible original IoT IDS PDFs and Chinese译读 notes added; recommended subdirection is leakage-free lightweight detection under cross-device generalization."
+  next_action: "Review cn-reading-notes.md and subdirection-recommendation.md, then decide whether to run the bounded N-BaIoT feasibility gate."
