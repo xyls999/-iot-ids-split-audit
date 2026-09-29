@@ -20,6 +20,10 @@ The user explicitly excluded all quadruped/robot-dog work. The active scope is n
 
 A source-backed preliminary shortlist is stored in `literature/venue-direction-brief.md` and `literature_matrix/venue-shortlist.csv`. The lowest-risk legitimate route is conditional on having the robot and logs: RGB-D quadruped visual/task navigation. It is not an acceptance prediction. Current fees, deadlines, indexing and the image-derived list still require verification.
 
+## IoT IDS novelty-audit checkpoint
+
+A reverse peer-review found substantial overlap with BRIDGE/TCH-Net, Edge-IIoTset leakage audit, LiteShield, target-FPR calibration, device uncertainty and lightweight cross-domain bridging. The candidate is retained only as a conditional incremental calibration study; no new-method claim is permitted.
+
 ## IoT IDS innovation checkpoint
 
 Five candidate ideas were created and independently critiqued. Only modified IOT-IDS-01 survives: benign-only target-device threshold calibration under leakage-controlled leave-one-device-out evaluation. It remains a candidate, not a novelty claim, until P09/P10 full-text nearest-paper verification and a bounded N-BaIoT feasibility test.

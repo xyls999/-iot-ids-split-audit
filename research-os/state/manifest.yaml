@@ -81,6 +81,7 @@ artifacts:
   iot_ids_subdirection: literature/iot-ids/subdirection-recommendation.md
   iot_ids_critic: ideas/iot-ids-critic.md
   iot_ids_hypothesis: hypotheses/iot-ids-active.yaml
+  iot_ids_novelty_audit: reviews/iot-ids-novelty-audit.md
 
 literature:
   total: 0
@@ -104,5 +105,5 @@ review:
 
 last_checkpoint:
   timestamp: 2026-09-29T00:20:00+08:00
-  summary: "Five innovation candidates were independently critiqued; only modified IOT-IDS-01 survived, with benign-only target-device calibration and leakage-controlled leave-one-device-out evaluation."
-  next_action: "Complete nearest-paper verification for P09/P10, then decide whether modified H-IOT-IDS-01 passes feasibility gate."
+  summary: "Adversarial novelty audit found substantial overlap with cross-domain, device-uncertainty, target-FPR calibration, lightweight bridging and leakage-audit work; candidate is retained only as a conditional incremental study."
+  next_action: "Verify full text of nearest papers and run a bounded N-BaIoT audit; do not claim a new method yet."
