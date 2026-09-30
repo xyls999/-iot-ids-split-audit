@@ -29,7 +29,7 @@ Ten DOI-verified papers and local reading notes are at `literature/iot-ids/`. St
 
 ## Device-fingerprint innovation spike
 
-`reports/nbaiot-common-support-audit-report.md` is the newest empirical core. It uses only six labels common to all nine N-BaIoT mirror groups and five seeds. Random Forest random-row minus mean LODO Macro-F1 is 0.0832–0.0958 for rows 0–599 and 0.0500–0.0535 for rows 2,000–2,599; raw conditional device probes range from 0.979 (benign) to 0.022 (gafgyt.udp). This shows window sensitivity and proves neither leakage nor CDP→DHG causality. `literature/iot-ids/second-dataset-auditability-scout-2026-09-30.md` still rejects all checked families as a second strict device-held-out dataset on verified owner evidence. Next evidence gate: a second official row-to-device/time source; do not weaken the standard.
+`reports/nbaiot-common-support-audit-report.md` is the split-sensitivity empirical core: five seeds and two row windows show Random Forest random-row minus mean LODO Macro-F1 of 0.0500–0.0958, with class-dependent raw device probes. `reports/nbaiot-embedding-probe-feasibility-report.md` rejects the CDP→DHG explanatory hypothesis: frozen-MLP probe versus DHG Spearman is -0.600, -0.400, 0.000 over three seeds. Do not implement CDIAR or claim shortcut causality. `literature/iot-ids/second-dataset-auditability-scout-2026-09-30.md` still rejects all checked families as a second strict device-held-out dataset. Only an official second row-to-device/time source can revive a narrow split-sensitivity replication; otherwise pivot.
 
 ## Domain-generalization literature checkpoint
 

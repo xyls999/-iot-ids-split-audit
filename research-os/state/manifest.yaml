@@ -101,6 +101,7 @@ artifacts:
   n_baiot_preflight_report: reports/nbaiot-preflight-report.md
   n_baiot_original_preflight_report: reports/nbaiot-original-preflight-report.md
   n_baiot_common_support_audit: reports/nbaiot-common-support-audit-report.md
+  n_baiot_embedding_probe_feasibility: reports/nbaiot-embedding-probe-feasibility-report.md
   n_baiot_constrained_check: artifacts/nbaiot-preflight/constrained-results.json
 
 literature:
@@ -125,5 +126,5 @@ review:
 
 last_checkpoint:
   timestamp: 2026-09-30T00:30:00+08:00
-  summary: "A coverage-balanced N-BaIoT mirror audit found Random Forest random-row minus mean leave-one-device-out Macro-F1 gaps of 0.0832–0.0958 in rows 0–599 and 0.0500–0.0535 in rows 2,000–2,599 across five seeds, with strongly class-conditional raw device recoverability. This one-mirror result demonstrates window sensitivity, not a validated Shortcut Audit Card; the second-dataset standard remains unmet."
-  next_action: "Run row-offset/capture-block sensitivity on N-BaIoT where support permits, and obtain first-party schema/manifest evidence for a second dataset's row-to-device mapping and time/capture alignment. Do not claim submission readiness until both gates pass."
+  summary: "A coverage-balanced N-BaIoT mirror audit found window-sensitive random-row versus LODO gaps, but a three-seed frozen-MLP feasibility test found no stable positive CDP-to-DHG association. The conditional device-probe explanatory claim is rejected; only split-sensitivity reporting remains as a one-mirror evaluation finding, and the second-dataset standard remains unmet."
+  next_action: "Do not implement CDIAR or a CDP-based audit method. Obtain a second official row-to-device/time source for narrowly scoped split-sensitivity replication; otherwise formally pivot away from an IoT IDS paper rather than writing an unsupported explanatory claim."

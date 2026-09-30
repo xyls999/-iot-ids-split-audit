@@ -1,6 +1,6 @@
 # Candidate: Conditional Shortcut Audit Card for IoT IDS
 
-**Status:** research candidate; not a novelty claim.
+**Status:** rejected as a primary explanatory claim after one-mirror embedding-probe feasibility testing; not a novelty claim.
 
 ## Motivation
 
@@ -37,7 +37,7 @@ This distinction is a hypothesis. A systematic search must verify whether a NIDS
 
 ## Possible paper contribution, if verified
 
-A reproducible **IoT IDS Shortcut Audit Card** and empirical evidence that conventional accuracy and domain-alignment scores fail to detect device-dependent shortcut reliance.
+A reproducible **IoT IDS split-sensitivity report** may remain an evaluation artifact. The stronger claim that a conditional device probe exposes or predicts device-dependent shortcut reliance is not supported by the current feasibility test.
 
 ## Likely reviewer objection
 

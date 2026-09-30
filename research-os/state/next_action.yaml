@@ -1,12 +1,13 @@
 next_action:
-  id: resolve-second-iot-dataset-evidence
+  id: replicate-split-sensitivity-or-pivot
   status: blocked
   prerequisites:
-    - retain the two-dataset requirement for a device-shortcut audit claim
+    - retain the two-dataset requirement for any IoT IDS paper-level evaluation claim
+    - treat CDIAR and CDP-to-DHG explanatory claims as rejected
     - obtain first-party schema evidence, not inferred IDs or third-party mirrors
     - keep all work defensive, offline and limited to public data
   steps:
-    - request or locate an owner-provided ToN_IoT row-to-sensor manifest and timestamp-alignment schema
-    - if verified, perform a small metadata-only feasibility inspection before download
-    - otherwise record the two-dataset standard as unmet and pivot away from a device-held-out audit paper
-    - do not start method implementation or manuscript drafting before this gate passes
+    - locate an official row-to-device and time/capture mapping for a second dataset
+    - if verified, preregister a narrow random-versus-device-held-out split-sensitivity replication only
+    - otherwise retain the N-BaIoT result as a technical report and pivot away from an IoT IDS paper
+    - do not claim a new method, shortcut causality or manuscript readiness before this gate passes

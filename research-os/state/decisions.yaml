@@ -29,3 +29,6 @@ decisions:
   - id: second-dataset-identity-standard
     decision: "A second IoT IDS validation dataset must have first-party evidence of row-level device/group identity and independent time/capture/provenance blocks; IPs, filenames, attack directories and scenario labels are not substitute device identities."
     status: accepted
+  - id: cdp-dhg-primary-claim
+    decision: "Reject the primary claim that a higher conditional device probe predicts a larger device-held-out generalization gap. The three-seed frozen-MLP one-mirror feasibility test found no stable positive association."
+    status: accepted

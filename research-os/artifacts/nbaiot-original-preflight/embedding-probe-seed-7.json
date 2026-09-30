@@ -1,0 +1,546 @@
+{
+  "source_archive": "E:\\water paper\\research-os\\data\\raw\\n-baiot-original-kaggle.zip",
+  "scope": "One-mirror frozen-embedding feasibility probe; not a causal shortcut test.",
+  "limitations": [
+    "Device numbers are mirror groups, not owner-verified device names.",
+    "No explicit timestamp is available; row offset is not chronology.",
+    "Probe training uses source-device representation samples, so it does not test unseen-target device identification.",
+    "Nine held-device points are insufficient for a publishable CDP-to-DHG association claim."
+  ],
+  "protocol": {
+    "seed": 7,
+    "row_offset": 0,
+    "rows_per_device_label": 600,
+    "labels": [
+      "benign",
+      "gafgyt.combo",
+      "gafgyt.junk",
+      "gafgyt.scan",
+      "gafgyt.tcp",
+      "gafgyt.udp"
+    ],
+    "hidden_units": 32,
+    "random_split": "25% stratified by device × class",
+    "lodo": "MLP trains on 75% of eight source devices; source remainder probes embeddings; held device is test only"
+  },
+  "coverage": {
+    "common_labels": [
+      "benign",
+      "gafgyt.combo",
+      "gafgyt.junk",
+      "gafgyt.scan",
+      "gafgyt.tcp",
+      "gafgyt.udp"
+    ],
+    "missing_by_device": {
+      "3": [
+        "mirai.ack",
+        "mirai.scan",
+        "mirai.syn",
+        "mirai.udp",
+        "mirai.udpplain"
+      ],
+      "7": [
+        "mirai.ack",
+        "mirai.scan",
+        "mirai.syn",
+        "mirai.udp",
+        "mirai.udpplain"
+      ]
+    }
+  },
+  "random_row": {
+    "macro_f1": 0.7674648593019793,
+    "accuracy": 0.8220987654320988,
+    "fit_warnings": [],
+    "n_iter": 189
+  },
+  "leave_one_device_out": [
+    {
+      "held_device": 1,
+      "macro_f1": 0.5562062768399461,
+      "accuracy": 0.6636111111111112,
+      "dhg_macro_f1": 0.211258582462,
+      "fit_seconds": 4.301383800000622,
+      "fit_warnings": [],
+      "n_iter": 143,
+      "conditional_source_embedding_device_probe": [
+        {
+          "label": "benign",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.76,
+          "macro_f1": 0.7560518968077089
+        },
+        {
+          "label": "gafgyt.combo",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.6866666666666666,
+          "macro_f1": 0.6855479037547019
+        },
+        {
+          "label": "gafgyt.junk",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.5983333333333334,
+          "macro_f1": 0.5952906131015301
+        },
+        {
+          "label": "gafgyt.scan",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.5216666666666666,
+          "macro_f1": 0.5191928979596425
+        },
+        {
+          "label": "gafgyt.tcp",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.125,
+          "macro_f1": 0.02786032689450223
+        },
+        {
+          "label": "gafgyt.udp",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.11833333333333333,
+          "macro_f1": 0.026772247360482653
+        }
+      ],
+      "mean_probe_macro_f1": 0.4351193143130947
+    },
+    {
+      "held_device": 2,
+      "macro_f1": 0.6376818226223852,
+      "accuracy": 0.7088888888888889,
+      "dhg_macro_f1": 0.12978303668,
+      "fit_seconds": 5.515604299998813,
+      "fit_warnings": [],
+      "n_iter": 171,
+      "conditional_source_embedding_device_probe": [
+        {
+          "label": "benign",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.79,
+          "macro_f1": 0.7904702321734207
+        },
+        {
+          "label": "gafgyt.combo",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.7816666666666666,
+          "macro_f1": 0.7803574493801748
+        },
+        {
+          "label": "gafgyt.junk",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.5,
+          "macro_f1": 0.4965880273764705
+        },
+        {
+          "label": "gafgyt.scan",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.4633333333333333,
+          "macro_f1": 0.4611553346278683
+        },
+        {
+          "label": "gafgyt.tcp",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.24166666666666667,
+          "macro_f1": 0.09735081191774106
+        },
+        {
+          "label": "gafgyt.udp",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.12833333333333333,
+          "macro_f1": 0.034520743727330556
+        }
+      ],
+      "mean_probe_macro_f1": 0.4434070998671677
+    },
+    {
+      "held_device": 3,
+      "macro_f1": 0.7747244017971852,
+      "accuracy": 0.8269444444444445,
+      "dhg_macro_f1": -0.007259542495,
+      "fit_seconds": 6.401048799998534,
+      "fit_warnings": [],
+      "n_iter": 201,
+      "conditional_source_embedding_device_probe": [
+        {
+          "label": "benign",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.79,
+          "macro_f1": 0.7915665279396645
+        },
+        {
+          "label": "gafgyt.combo",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.715,
+          "macro_f1": 0.7132506764382562
+        },
+        {
+          "label": "gafgyt.junk",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.6216666666666667,
+          "macro_f1": 0.6143355952605665
+        },
+        {
+          "label": "gafgyt.scan",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.5816666666666667,
+          "macro_f1": 0.5756274256558667
+        },
+        {
+          "label": "gafgyt.tcp",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.12166666666666667,
+          "macro_f1": 0.027198211624441134
+        },
+        {
+          "label": "gafgyt.udp",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.12333333333333334,
+          "macro_f1": 0.027694610778443114
+        }
+      ],
+      "mean_probe_macro_f1": 0.4582788412828731
+    },
+    {
+      "held_device": 4,
+      "macro_f1": 0.7740088842677367,
+      "accuracy": 0.8280555555555555,
+      "dhg_macro_f1": -0.006544024966,
+      "fit_seconds": 7.137363800000458,
+      "fit_warnings": [],
+      "n_iter": 211,
+      "conditional_source_embedding_device_probe": [
+        {
+          "label": "benign",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.7866666666666666,
+          "macro_f1": 0.7865251406128195
+        },
+        {
+          "label": "gafgyt.combo",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.7383333333333333,
+          "macro_f1": 0.7382861196131015
+        },
+        {
+          "label": "gafgyt.junk",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.6266666666666667,
+          "macro_f1": 0.6259778713045603
+        },
+        {
+          "label": "gafgyt.scan",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.5883333333333334,
+          "macro_f1": 0.5857638634497078
+        },
+        {
+          "label": "gafgyt.tcp",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.24166666666666667,
+          "macro_f1": 0.1147186783467576
+        },
+        {
+          "label": "gafgyt.udp",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.12333333333333334,
+          "macro_f1": 0.027611940298507463
+        }
+      ],
+      "mean_probe_macro_f1": 0.47981393560424235
+    },
+    {
+      "held_device": 5,
+      "macro_f1": 0.69574789180377,
+      "accuracy": 0.7494444444444445,
+      "dhg_macro_f1": 0.071716967498,
+      "fit_seconds": 6.647719700002199,
+      "fit_warnings": [],
+      "n_iter": 211,
+      "conditional_source_embedding_device_probe": [
+        {
+          "label": "benign",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.8466666666666667,
+          "macro_f1": 0.8464590118629172
+        },
+        {
+          "label": "gafgyt.combo",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.7983333333333333,
+          "macro_f1": 0.7983493609745949
+        },
+        {
+          "label": "gafgyt.junk",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.5466666666666666,
+          "macro_f1": 0.545106871187872
+        },
+        {
+          "label": "gafgyt.scan",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.5983333333333334,
+          "macro_f1": 0.5938729228105748
+        },
+        {
+          "label": "gafgyt.tcp",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.12333333333333334,
+          "macro_f1": 0.027570789865871834
+        },
+        {
+          "label": "gafgyt.udp",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.24166666666666667,
+          "macro_f1": 0.11647675458785316
+        }
+      ],
+      "mean_probe_macro_f1": 0.4879726185482806
+    },
+    {
+      "held_device": 6,
+      "macro_f1": 0.7740191703396744,
+      "accuracy": 0.8275,
+      "dhg_macro_f1": -0.006554311038,
+      "fit_seconds": 10.410188999998354,
+      "fit_warnings": [],
+      "n_iter": 234,
+      "conditional_source_embedding_device_probe": [
+        {
+          "label": "benign",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.8633333333333333,
+          "macro_f1": 0.8647282766760744
+        },
+        {
+          "label": "gafgyt.combo",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.7233333333333334,
+          "macro_f1": 0.722133884533799
+        },
+        {
+          "label": "gafgyt.junk",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.6283333333333333,
+          "macro_f1": 0.6253431605678308
+        },
+        {
+          "label": "gafgyt.scan",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.5416666666666666,
+          "macro_f1": 0.5397713870709984
+        },
+        {
+          "label": "gafgyt.tcp",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.12666666666666668,
+          "macro_f1": 0.03114963158889099
+        },
+        {
+          "label": "gafgyt.udp",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.12333333333333334,
+          "macro_f1": 0.027694610778443114
+        }
+      ],
+      "mean_probe_macro_f1": 0.4684701585360061
+    },
+    {
+      "held_device": 7,
+      "macro_f1": 0.5622743696424007,
+      "accuracy": 0.6172222222222222,
+      "dhg_macro_f1": 0.20519048966,
+      "fit_seconds": 3.205862899998465,
+      "fit_warnings": [],
+      "n_iter": 85,
+      "conditional_source_embedding_device_probe": [
+        {
+          "label": "benign",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.7966666666666666,
+          "macro_f1": 0.7934069201657382
+        },
+        {
+          "label": "gafgyt.combo",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.8366666666666667,
+          "macro_f1": 0.8368368076215396
+        },
+        {
+          "label": "gafgyt.junk",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.55,
+          "macro_f1": 0.5470713496531117
+        },
+        {
+          "label": "gafgyt.scan",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.575,
+          "macro_f1": 0.568746020628222
+        },
+        {
+          "label": "gafgyt.tcp",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.125,
+          "macro_f1": 0.027818991097922848
+        },
+        {
+          "label": "gafgyt.udp",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.24833333333333332,
+          "macro_f1": 0.1038313014974967
+        }
+      ],
+      "mean_probe_macro_f1": 0.47961856511067175
+    },
+    {
+      "held_device": 8,
+      "macro_f1": 0.7279586738641269,
+      "accuracy": 0.7836111111111111,
+      "dhg_macro_f1": 0.039506185438,
+      "fit_seconds": 3.773455999998987,
+      "fit_warnings": [],
+      "n_iter": 119,
+      "conditional_source_embedding_device_probe": [
+        {
+          "label": "benign",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.8383333333333334,
+          "macro_f1": 0.8360865566473086
+        },
+        {
+          "label": "gafgyt.combo",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.8033333333333333,
+          "macro_f1": 0.8041382032747926
+        },
+        {
+          "label": "gafgyt.junk",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.6383333333333333,
+          "macro_f1": 0.6343153114723465
+        },
+        {
+          "label": "gafgyt.scan",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.5583333333333333,
+          "macro_f1": 0.5586591661290116
+        },
+        {
+          "label": "gafgyt.tcp",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.12333333333333334,
+          "macro_f1": 0.027694610778443114
+        },
+        {
+          "label": "gafgyt.udp",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.12333333333333334,
+          "macro_f1": 0.027777777777777776
+        }
+      ],
+      "mean_probe_macro_f1": 0.48144527101328
+    },
+    {
+      "held_device": 9,
+      "macro_f1": 0.6612306296165492,
+      "accuracy": 0.7186111111111111,
+      "dhg_macro_f1": 0.106234229685,
+      "fit_seconds": 2.2211963000008836,
+      "fit_warnings": [],
+      "n_iter": 58,
+      "conditional_source_embedding_device_probe": [
+        {
+          "label": "benign",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.8216666666666667,
+          "macro_f1": 0.8218059623875021
+        },
+        {
+          "label": "gafgyt.combo",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.7333333333333333,
+          "macro_f1": 0.7308600808562109
+        },
+        {
+          "label": "gafgyt.junk",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.645,
+          "macro_f1": 0.6423176869787675
+        },
+        {
+          "label": "gafgyt.scan",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.43666666666666665,
+          "macro_f1": 0.4283633216489468
+        },
+        {
+          "label": "gafgyt.tcp",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.12333333333333334,
+          "macro_f1": 0.027570789865871834
+        },
+        {
+          "label": "gafgyt.udp",
+          "rows": 1200,
+          "devices": 8,
+          "accuracy": 0.125,
+          "macro_f1": 0.030817770713893775
+        }
+      ],
+      "mean_probe_macro_f1": 0.4469559354085321
+    }
+  ]
+}
