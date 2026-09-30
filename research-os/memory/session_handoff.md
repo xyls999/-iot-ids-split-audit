@@ -29,7 +29,7 @@ Ten DOI-verified papers and local reading notes are at `literature/iot-ids/`. St
 
 ## Device-fingerprint innovation spike
 
-`literature/iot-ids/provenance-not-behaviour-fulltext-audit-2026-09-30.md` is critical: full text of arXiv:2608.15761 confirms prior IoT IDS random-versus-device-held-out comparison and a provenance-artifact benchmark. Current N-BaIoT Kaggle-mirror work must be framed only as a technical replication/case study, never a novel split-audit contribution. `reports/nbaiot-embedding-probe-feasibility-report.md` still rejects CDP→DHG. Submission remains blocked by mirror-only evidence, lack of second auditable dataset, lack of a distinct full-text-verified question and no causal/leakage support.
+`literature/iot-ids/provenance-not-behaviour-fulltext-audit-2026-09-30.md` confirms prior IoT IDS random-versus-device-held-out comparison and provenance-artifact auditing. `literature/iot-ids/bridge-fulltext-audit-2026-09-30.md` confirms BRIDGE already uses random windows, temporal split and held-dataset evaluation, though not reported groupwise multiclass-label intersection or a window sweep. Neither difference is novelty evidence. Current N-BaIoT Kaggle-mirror work is strictly a technical replication/case study. `reports/nbaiot-embedding-probe-feasibility-report.md` rejects CDP→DHG. Submission remains blocked.
 
 ## Domain-generalization literature checkpoint
 
