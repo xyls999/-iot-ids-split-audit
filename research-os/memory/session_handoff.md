@@ -29,7 +29,7 @@ Ten DOI-verified papers and local reading notes are at `literature/iot-ids/`. St
 
 ## Device-fingerprint innovation spike
 
-`literature/iot-ids/device-fingerprint-spike-2026-09-30.md` now includes a close 2025 paper (`10.1109/CISAT66811.2025.11181896`) that disentangles domain-specific and threat-specific features. CDIAR is high-risk and not approved. The next candidate is `ideas/conditional-shortcut-audit-candidate.md`; it needs a systematic novelty check. The research subagent failed due unavailable web tools; a reviewer timed out with no output.
+`literature/iot-ids/conditional-shortcut-audit-novelty-check-2026-09-30.md` consolidates a completed three-agent evidence/critic/oracle pass. CDIAR is high-risk and not approved. The Conditional Shortcut Audit Card survives only as a preregistered audit feasibility candidate: CDP must predict DHG across two auditable datasets after coverage/confounding controls, or be rejected. Next task is source verification for a second dataset with device/group and time/capture/provenance metadata.
 
 ## Domain-generalization literature checkpoint
 

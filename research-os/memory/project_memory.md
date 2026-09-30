@@ -22,7 +22,7 @@ A source-backed preliminary shortlist is stored in `literature/venue-direction-b
 
 ## IoT IDS device-fingerprint innovation spike
 
-The 2026-09-30 spike found that 3D-IDS (KDD 2023) and DIDS (TPAMI 2025) already disentangle attack features, while DTL/HDA already aligns domains. A newly found 2025 conference paper (`10.1109/CISAT66811.2025.11181896`) explicitly disentangles domain-specific and threat-specific features, making CDIAR high-risk as a new algorithm. The replacement candidate is a Conditional Shortcut Audit Card; exact novelty is unverified. Two subagent attempts failed from missing tools/timeout and produced no usable review.
+The 2026-09-30 spike found that 3D-IDS (KDD 2023) and DIDS (TPAMI 2025) already disentangle attack features, while DTL/HDA already aligns domains. A 2025 conference paper (`10.1109/CISAT66811.2025.11181896`) explicitly disentangles domain-specific and threat-specific features, making CDIAR high-risk as a new algorithm. A three-agent primary-source/critic/oracle check was consolidated in `literature/iot-ids/conditional-shortcut-audit-novelty-check-2026-09-30.md`: no direct match for the complete CDP+DHG+coverage audit suite was confirmed, but it is only a falsifiable audit candidate and must not be called novel. Next gate: a second public dataset with device/group plus time/capture/provenance metadata.
 
 ## IoT IDS domain-generalization literature checkpoint
 

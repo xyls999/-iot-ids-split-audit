@@ -14,9 +14,9 @@ target:
 
 workflow:
   current_stage: literature
-  current_task: "generate a new IoT IDS research gap after rejecting threshold calibration"
+  current_task: "verify a Conditional Shortcut Audit Card and source a second auditable IoT IDS dataset"
   auto_continue: false
-  status: blocked_pending_user_direction
+  status: active_evidence_gathering
 
 completed_tasks:
   - task_id: setup-scaffold
@@ -92,6 +92,7 @@ artifacts:
   iot_ids_next_candidates: ideas/iot-ids-next-candidates.yaml
   iot_ids_device_fingerprint_spike: literature/iot-ids/device-fingerprint-spike-2026-09-30.md
   iot_ids_conditional_shortcut_audit: ideas/conditional-shortcut-audit-candidate.md
+  iot_ids_conditional_shortcut_novelty_check: literature/iot-ids/conditional-shortcut-audit-novelty-check-2026-09-30.md
   iot_ids_cn_full_translations: literature/iot-ids/translations/
   iot_ids_nearest_paper_check: reviews/iot-ids-nearest-paper-check-2026-09-29.md
   n_baiot_official_profile: data/n-baiot-uci-profile.md
@@ -122,5 +123,5 @@ review:
 
 last_checkpoint:
   timestamp: 2026-09-30T00:30:00+08:00
-  summary: "Innovation spike found 2025 self-supervised domain/threat feature disentanglement with close overlap to CDIAR, so CDIAR is high-risk as a new algorithm. The remaining candidate is a conditional device-shortcut audit framework, whose exact novelty remains unverified."
-  next_action: "Treat CDIAR as high-risk due 2025 self-supervised domain/threat disentanglement; perform a systematic novelty check for the Conditional Shortcut Audit Card before implementation."
+  summary: "A three-agent primary-source/critic/oracle check found no direct match for the full CDP+DHG+coverage audit suite, but confirms broad device/threat disentanglement is high-risk. The audit is retained only as a preregistered, falsifiable evaluation candidate; no novelty claim is allowed."
+  next_action: "Find a second publicly documented dataset with auditable device/group and capture/time or provenance metadata, then preregister the conditional device-probe versus held-device-gap feasibility test."
