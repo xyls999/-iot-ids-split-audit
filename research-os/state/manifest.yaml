@@ -98,6 +98,8 @@ artifacts:
   iot_ids_cn_full_translations: literature/iot-ids/translations/
   iot_ids_nearest_paper_check: reviews/iot-ids-nearest-paper-check-2026-09-29.md
   iot_ids_paper_readiness_review: reviews/iot-ids-paper-readiness-review-2026-09-30.md
+  iot_ids_bounded_draft: drafts/iot-ids-split-sensitivity-introduction-and-methods.md
+  beginner_research_explanation: README-FOR-BEGINNERS-zh.md
   n_baiot_official_profile: data/n-baiot-uci-profile.md
   n_baiot_primary_protocol_boundary: literature/iot-ids/n-baiot-primary-protocol-boundary-2026-09-30.md
   n_baiot_preflight_manifest: data/n-baiot-preflight-manifest.yaml
