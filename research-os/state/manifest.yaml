@@ -88,6 +88,8 @@ artifacts:
   iot_ids_critic: ideas/iot-ids-critic.md
   iot_ids_hypothesis: hypotheses/iot-ids-active.yaml
   iot_ids_novelty_audit: reviews/iot-ids-novelty-audit.md
+  iot_ids_domain_generalization_review: literature/iot-ids/domain-generalization-review.md
+  iot_ids_next_candidates: ideas/iot-ids-next-candidates.yaml
   iot_ids_cn_full_translations: literature/iot-ids/translations/
   iot_ids_nearest_paper_check: reviews/iot-ids-nearest-paper-check-2026-09-29.md
   n_baiot_official_profile: data/n-baiot-uci-profile.md
@@ -118,5 +120,5 @@ review:
 
 last_checkpoint:
   timestamp: 2026-09-30T00:30:00+08:00
-  summary: "A second original-layout nine-device preflight rejected benign-only threshold calibration as a standalone method: fixed thresholds were near-perfect while calibration increased FPR to 1.0 on several devices; device identity was predictable at 99.08% in a diagnostic split."
-  next_action: "Reject H-IOT-IDS-01 as primary method; generate and audit new gaps around device fingerprints, leakage and robust cross-device evaluation."
+  summary: "A second original-layout nine-device preflight rejected benign-only threshold calibration as a standalone method. A new literature pass confirms DTL, heterogeneous domain adaptation and domain generalization are already established; remaining candidates are a strict benchmark, device-fingerprint-aware selection or resource-aware adaptation comparison."
+  next_action: "Audit full-text split/resource protocols for DTL, domain-adaptation and domain-generalization papers; then select IOT-IDS-06, IOT-IDS-07 or IOT-IDS-08 for reproduction."

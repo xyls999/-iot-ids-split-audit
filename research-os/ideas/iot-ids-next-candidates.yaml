@@ -1,0 +1,28 @@
+ideas:
+  - idea_id: IOT-IDS-06
+    title: "Leakage-audited device-held-out benchmark for lightweight IoT IDS"
+    core_question: "How much of reported IoT IDS performance survives device/time/provenance-controlled evaluation?"
+    existing_work: [P09, P10, BRIDGE-2604.11324, LEAKAGE-2608.15761, DTL-2020-3000476, DG-2025-11140153]
+    novelty_level: "low_to_moderate; evaluation contribution only"
+    required_contribution: [strict_device_split, temporal_split, provenance_audit, resource_pareto, reproducible_baselines]
+    risks: ["may be judged as benchmark only", "existing 2025-2026 benchmarks may overlap", "requires two auditable datasets"]
+    status: "candidate_pending_full_text_split_audit"
+
+  - idea_id: IOT-IDS-07
+    title: "Device-fingerprint-aware feature selection for cross-device IoT IDS"
+    core_question: "Can features that are predictive of attack but weakly predictive of device identity improve transfer?"
+    existing_work: ["feature-selection literature", "domain adaptation papers", "device identity audit in current preflight"]
+    novelty_level: "unverified; potentially moderate but likely incremental"
+    required_contribution: [nested_feature_selection, device_identity_predictor, attack_predictiveness, leave_one_device_out, second_dataset]
+    negative_evidence: "Removing top device-identity features in the current preflight did not improve results; a better selection criterion is still needed."
+    risks: ["simple feature deletion already tried", "device-identity and attack information may be entangled", "no gain"]
+    status: "candidate_requires_new_method"
+
+  - idea_id: IOT-IDS-08
+    title: "Resource-constrained comparison of domain adaptation methods under device holdout"
+    core_question: "Do MMD/CORAL/GroupDRO-style adaptation methods justify their training cost when the held-out domain is an unseen IoT device?"
+    existing_work: [DTL-2020-3000476, GGA-2023-3239872, ABRSI-2023-3262458, DG-2025-11140153]
+    novelty_level: "moderate as a careful empirical comparison; no new algorithm"
+    required_contribution: [reproducible_small_models, device_and_time_holdout, resource_measurement, failure_analysis]
+    risks: ["adaptation implementations may be difficult to reproduce", "benchmark contribution may be considered incremental"]
+    status: "candidate_pending_reproduction_check"

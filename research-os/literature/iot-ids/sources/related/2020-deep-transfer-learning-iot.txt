@@ -1,0 +1,602 @@
+Received April 8, 2020, accepted May 24, 2020, date of publication June 8, 2020, date of current version June 18, 2020.
+Digital Object Identifier 10.1109/ACCESS.2020.3000476
+
+Deep Transfer Learning for IoT Attack Detection
+
+LY VU1, QUANG UY NGUYEN 1, DIEP N. NGUYEN 2, (Senior Member, IEEE),
+DINH THAI HOANG 2, (Member, IEEE), AND ERYK DUTKIEWICZ 2, (Senior Member, IEEE)
+
+1Faculty of Information Technology, Le Quy Don Technical University, Hanoi 11917, Vietnam
+2School of Electrical and Data Engineering, University of Technology Sydney, Ultimo, NSW 2007, Australia
+
+Corresponding author: Quang Uy Nguyen (quanguyhn@lqdtu.edu.vn)
+
+This work was supported by the Vietnam National Foundation for Science and Technology Development (NAFOSTED) under Grant
+102.05-2019.05.
+
+ABSTRACT The digital revolution has substantially changed our lives in which Internet-of-Things (IoT)
+plays a prominent role. The rapid development of IoT to most corners of life, however, leads to various
+emerging cybersecurity threats. Therefore, detecting and preventing potential attacks in IoT networks have
+recently attracted paramount interest from both academia and industry. Among various attack detection
+approaches, machine learning-based methods, especially deep learning, have demonstrated great potential
+thanks to their early detecting capability. However, these machine learning techniques only work well when
+a huge volume of data from IoT devices with label information can be collected. Nevertheless, the labeling
+process is usually time consuming and expensive, thus, it may not be able to adapt with quick evolving IoT
+attacks in reality. In this paper, we propose a novel deep transfer learning (DTL) method that allows to learn
+from data collected from multiple IoT devices in which not all of them are labeled. Specifically, we develop a
+DTL model based on two AutoEncoders (AEs). The first AE (AE1) is trained on the source datasets (source
+domains) in the supervised mode using the label information and the second AE (AE2) is trained on the target
+datasets (target domains) in an unsupervised manner without label information. The transfer learning process
+attempts to force the latent representation (the bottleneck layer) of AE2 similarly to the latent representation
+of AE1. After that, the latent representation of AE2 is used to detect attacks in the incoming samples in the
+target domain. We carry out intensive experiments on nine recent IoT datasets to evaluate the performance
+of the proposed model. The experimental results demonstrate that the proposed DTL model significantly
+improves the accuracy in detecting IoT attacks compared to the baseline deep learning technique and two
+recent DTL approaches.
+
+INDEX TERMS Deep transfer learning, IoT, cyberattack detection, AutoEncoder.
+
+I. INTRODUCTION                                                         cyber attacks than computers [2], [3]. Consequently, detect-
+The Internet-of-Things (IoT) refers to connected devices,               ing attacks to protect IoT devices from malicious behaviors
+sensors, an actuators used in vehicles, electronic appliances,          is critical to broadening the applications of IoT [4]-[7].
+buildings, and structures. As the sensors, data storage, and the
+Internet become cheaper, faster, and more integrated together,             IoT attack detection methods can be categorized into
+IoT devices will find more and more applications [1] (e.g.,             signature-based and machine learning-based methods
+in smart buildings, smart city, intelligent transportation sys-         [8]-[10]. The signature-based methods [11]-[14] seek to find
+tems, and healthcare). The rapid development of IoT to most             the signatures of IoT attacks in the incoming traffic. These
+corners of life, however, leads to various emerging cyberse-            methods require a high prior knowledge of known IoT attacks
+curity threats. This is because IoT devices are often limited           to define the signatures. The machine learning-based meth-
+in computing capability and energy, making them particu-                ods, on the other hand, attempt to learn the features of normal
+larly vulnerable to adversaries. IoT devices are more exposed           and malicious data in the training/offline phase. In the pre-
+to and unfortunately more difficult to be protected from                dicting/online phase, these models are used to detect attacks
+                                                                        in the incoming traffic. Thanks to the capability to auto-
+   The associate editor coordinating the review of this manuscript and  matically and progressively learn useful information/features
+                                                                        from collected data, machine-learning based methods can
+approving it for publication was Omid Kavehei .                         early detect various IoT attacks [3], [9], [15]-[17].
+
+VOLUME 8, 2020 This work is licensed under a Creative Commons Attribution 4.0 License. For more information, see https://creativecommons.org/licenses/by/4.0/  107335
+                                                                   L. Vu et al.: DTL for IoT Attack Detection
+
+   However, the machine learning-based methods only per-           provides detailed analysis and discussion related to exper-
+form well under an important assumption, i.e., the distri-         imental results. Finally, Section VII concludes with future
+butions of the training data and the predicting data are           work.
+similar [18]. Nevertheless, in many practical applications,
+this assumption may not be always the case [19], [20].             II. RELATED WORK
+Especially, in network security, new types of attacks (e.g.,       There are two main directions for cyberattack detection,
+zero-day attacks) can be found on a daily basis [16]. As such,     i.e., signature-based and machine learning-based approaches,
+the practical IoT data for machine learning models (in the         e.g., [8]-[10], [21]. The signature-based methods maintain a
+predicting/online phase) is usually very much different from       database of predefined signatures (i.e., patterns) that corre-
+the data used during the training/offline phase. To alleviate      spond to IoT known attacks and perform the detection task
+the above problem, a large volume of training data with            by comparing these to the incoming data stream [11]-[13],
+label from multiple IoT devices is often required. However,        [24]. Zhang and Green II [11] proposed a lightweight and
+manually labeling a huge volume of data is very time con-          low-complexity algorithm to prevent Distributed Denial of
+suming and expensive [21], [22]. It, thus, limits the practical    Service (DDoS) attacks in which each IoT working node has
+deployment of machine learning-based methods in detecting          a deep packet inspection to find attack signatures. If a sender
+IoT attacks for various scenarios.                                 repeatedly sends requests with the same content, it will be
+                                                                   flagged as malicious requests. Dietz et al. [12] proposed a
+   Given the above, this work proposes a novel deep trans-         solution to proactively block the spreading of IoT attacks
+fer learning (DTL) approach based on AutoEncoder (AE)              and isolate vulnerable IoT devices. Each IoT device is ver-
+to enable further applications of machine learning in IoT          ified in two steps, i.e., scanning to open ports and services
+attack detection. The proposed model is referred to as Multi-      and using predefined list of commonly known credentials to
+Maximum Mean Discrepancy AE (MMD-AE). MMD-AE                       check authentication. After that, a list of predefined rules is
+can be trained on a dataset including both labeled samples         used to isolate the vulnerable IoT devices. Nobakht et al. [13]
+(in the source domain) and unlabeled samples (in the target        proposed a solution for IoT attack detection using Software
+domain). After training, MMD-AE is used to predict IoT             Defined Network with the OpenFlow protocol to address
+attacks in the incoming traffic in the target domain. Specif-      malicious behaviours and block intruders from accessing
+ically, MMD-AE consists of two AEs: AE1 and AE2. AE1               the IoT devices. This method incorporates a database of
+in trained with labeled data while AE2 is trained on the           all known in-home IoT devices along with the correspond-
+unlabeled data. The whole model, i.e., MMD-AE, is trained          ing patterns of potential security risks. Then, the detection
+to drive the latent representation of AE2 closely to the latent    method simply maps the IoT traffic with the signatures of
+representation of AE1. As a result, the latent representation      security risks stored in the database. The advantage of the
+of AE2 can be used to classify the unlabeled IoT data in the       signature-based methods is providing a low false positive
+target domain. The major contributions of this paper are as        rate attack detection system [24]. However, they require
+follows:                                                           a prior human knowledge about the behaviours of known
+                                                                   IoT attacks to design the database of attack signatures. Thus,
+   · We propose a novel DTL model based on AEs,                    the accuracy of these methods depends on the quality of
+      i.e., MMD-AE, that allows to transfer knowledge,             the signature databases. Moreover, if the size of databases
+      i.e., labeled information, from the source domain to the     is increased, the processing time (i.e., search time) can be
+      target domain. This model helps to lessen the problem        excessive [24].
+      of ``lack label information'' in collected traffic datasets
+      from IoT devices.                                               The machine learning-based methods first train the detec-
+                                                                   tion models from collected data samples in IoT networks.
+   · We introduce the Maximum Mean Discrepancy (MMD)               Then, the trained models are used to classify the new incom-
+      metric to minimize the distance between multiple hidden      ing IoT data samples into normal or attack data. The pop-
+      layers of AE1 and multiple hidden layers of AE2. This        ular traditional machine learning algorithms for IoT attack
+      metric helps to improve the effectiveness of knowledge       detection are Decision tree (C4.5), Support Vector Machine
+      transferred from the source to the target domain in IoT      (SVM), K-Nearest Neighbour, Bayes Classifier, Neural Net-
+      attack detection systems.                                    works [8], [24]. Recently, the deep learning approach is
+                                                                   widely used and achieved high performance in detect-
+   · We experiment our proposed method using nine IoT              ing cyberattacks [3], [9], [15]-[17]. Among, deep learning
+      attack datasets and compare its performance with the         approaches, AE-based models project the original data to a
+      canonical deep learning model and the state-of-the-art       new latent representation space to improve the accuracy in
+      TL models [18], [31]. The experimental results demon-        detection tasks [3], [15], [16]. Nevertheless, to train a good
+      strate the advantage of our proposed model against the       machine learning model for detecting IoT attacks, it is usually
+      other tested methods.                                        required to label a huge volume of training data as normal or
+                                                                   attack [24]. Moreover, general machine learning models often
+   The rest of paper is organized as follows. Section II high-     need to assume that the data distribution of training datasets
+lights recent works on IoT attack detection. In Section III,
+we define a DTL model and briefly describe the AE archi-                                                                                                              VOLUME 8, 2020
+tecture. The proposed model is then presented in Section IV.
+Section V discusses the experiment settings and Section VI
+
+107336
+L. Vu et al.: DTL for IoT Attack Detection
+
+is similar to the data distribution of predicting datasets. This   and training processes are separated for different learning
+assumption, however, is usually not practical [19], [20], [25].    tasks. Thus, no knowledge is retained/accumulated nor trans-
+                                                                   ferred from one model to another. In TL, the knowledge
+   Recently, DTL techniques have been used to handle the           (i.e., features, weights, etc.) from previously trained models
+above issues of machine learning methods where training data       in a source domain is used for training newer models in a
+from a source domain and test data from a target domain are        target domain. Moreover, TL can even handle the problems of
+drawn from different distributions. A DTL model attempts to        having less data or no label information in the target domain.
+reduce the distribution divergence between the source domain
+and the target domain [25]. As a result, the trained knowl-           TL is often used to transfer knowledge learnt from a source
+edge of a learning task (e.g., classification) on the source       domain to a target domain where the target domain is different
+domain can be used to support the learning task on the similar     from the source domain but they are related data distributions.
+target domain [19], [25]-[27]. Gou et al. [28] applied an          We consider a TL method with an input space X and its label
+instance-based DTL approach in network intrusion detec-            space Y , two domain distributions are the source domain DS
+tion that requires label information from the target domain.       and the target domain DT . Two corresponding samples are
+Zhao et al. [29] proposed the feature-based DTL technique          given, i.e., the source sample DS = (XS , YS ) = (xSi , ySi )i=1 nS
+to project the source and the target domain into the latent        and the target sample DT = (XT ) = (xiT )nT i=1. nS and nT are
+subspace via linear transformations, i.e., Principal Compo-        the number of samples in the source domain and the target
+nent Analysis (PCA) for network attack detection. However,         domain, respectively. In this paper, the TL model based on
+PCA is a linear mapping technique that only works well with        a deep neural network, i.e., deep transfer learning (DTL),
+a simple data feature set [30].                                    is trained on the labeled data in the source domain and the
+                                                                   unlabeled data in the target domain. After that, the trained
+   Our proposed DTL model in this paper, i.e., MMD-AE,             model is used for IoT attack detection in the target domain.
+leverages a non-linear mapping, i.e., AE, to improve the
+performance of IoT attack detection on the target domain.          B. AUTOENCODERS
+The key idea of our proposed DTL (compared with previous
+AE-based DTL methods [18], [31]) is that the knowledge             This subsection describes the structure and the training pro-
+of features in every encoding layers (instead of the only          cess of an AutoEncoder (AE) that is fundamental for our DTL
+bottleneck layer in previous works) is transferred to the target   model. The reason we develop the TL models based on AE is
+domain. This helps to force the latent representation of the tar-  that these models are proved as the most effective deep neural
+get domain similarly to the latent representation of the source    network for IoT attack detection [2], [3], [15], [16]. Addi-
+domain. The experimental results illustrate the effectiveness      tionally, to prove the effectiveness of the proposed model,
+of our proposed DTL model on the IoT attack detection task         we will compare our proposed model with the previous DTL
+in the target domain.                                              techniques that are also based on AE.
+
+III. FUNDAMENTAL BACKGROUND                                           An AE is a neural network trained to reconstruct the
+This section presents the fundamental background of our            network's input at its output [34]. This network has two
+proposed model.                                                    parts, i.e., encoder and decoder as shown in Fig. 2. Let
+                                                                   W , W , b, and b denote the weight matrices and the bias
+A. TRANSFER LEARNING                                               vectors of the encoder and the decoder, respectively, and
+Transfer learning (TL) refers to the situation where what has      X = x1, x2, . . . , xn is a training dataset.  = (W , b) and
+been learned in one learning task is exploited to improve           = (W , b ) are parameter sets for training the encoder and
+generalization in another learning task [33]. Fig. 1 compares      the decoder, respectively. Let q denote the encoder and zi
+traditional machine learning methods including deep learning       denote the representation of the input data xi. The encoder
+and TL models. In traditional machine learning, the datasets       maps the input xi to the latent representation zi (as in (1)). The
+                                                                   decoder p attempts to map the latent representation zi back
+
+FIGURE 1. Traditional machine learning vs. transfer learning.      FIGURE 2. Architecture of an AutoEncoder(AE).
+VOLUME 8, 2020
+                                                                                                                  107337
+                                                                  L. Vu et al.: DTL for IoT Attack Detection
+
+into the input space. Therefore, the output of the decoder is
+formed as the input space, i.e., x^i (as in (2)).
+
+        zi = q(xi) = af (W xi + b),         (1)
+
+        x^i = p (zi) = ag(W zi + b ),       (2)
+
+where af and ag are the activation functions of the encoder       FIGURE 3. Proposed system structure.
+and the decoder, respectively. Fig. 2 shows an example of AE
+with input dimension as n, number of layers as 5, bottleneck      each data sample is extracted from captured packets using
+layer size as 2.                                                  Tcptrace tool [38], then the data sample is labeled as a
+                                                                  normal sample or an attack sample by manually analyzing
+   The AE model is trained by minimizing a loss function          the flow using Wireshark software [39]. Usually, the number
+so called Reconstruction Error (RE). RE is the difference         of labeling IoT devices is much smaller than the number of
+between the input xi and the output x^i as in (3). This term      unlabeling IoT devices. Second, the collected data is passed
+encourages the decoder to learn to reconstruct the original       to the DTL model for training. The training process attempts
+data. If the decoder's output does not reconstruct the data       to transfer the knowledge information learnt from the data
+well, it will incur a large cost in this loss term.               with label information to data without label information.
+                                                                  This is achieved by minimizing the difference between latent
+                         1  n                                     representations of the source data and the target data. After
+                                                                  training, the trained DTL model is used in the detection
+        AE xi, ,  =                 ii                            module that can classify incoming traffic from all IoT devices
+                                l x , x^ ,  (3)                   as normal or attack data. The detailed description of the DTL
+                         n i=0                                    model is presented in the next subsection.
+
+where l xi, x^i measures the difference between the input         B. TRANSFER LEARNING MODEL
+xi and the output x^i. In the AE model, the mean squared          The proposed DTL (i.e., MMD-AE) model includes two
+                                                                  AEs (i.e., AE1 an AE2) that have the same architecture as
+error (MSE) is commonly used [16].                                Fig. 4. The input of AE1 is the data samples from the source
+                                                                  domain (xSi ) while the input of AE2 is the data samples
+C. MAXIMUM MEAN DISCREPANCY (MMD)                                 from the target domain (xiT ). The training process attempts
+                                                                  to minimize the MMD-AE loss function. This loss function
+Maximum mean discrepancy (MMD) is a metric used to                includes three terms: the reconstruction error ( RE) term,
+estimate the discrepancy of two distributions. MMD is more        the supervised ( SE) term and the Multi-Maximum Mean
+flexible than Kullback-Libler divergence (KL) [31] thanks to      Discrepancy ( MMD) term.
+its ability to estimate the nonparametric distance [35]. More-
+over, MMD does not require to compute the intermediate               We assume that S , S , T , T are the parameter sets of
+density of the distributions, thus avoiding the requirement       encoder and decoder of AE1 and AE2, respectively. The first
+of using a sophisticated optimization [36]. The definition of     term, RE including RES and RET in Fig. 4, attempts to
+MMD of two datasets can be formulated as (4) [37].                reconstruct the input layers at the output layers of both AEs.
+                                                                  In other words, the RES and RET try to reconstruct the input
+                 1 i nS 1 i nT                                    data xS and xT at their output from the latent representations
+MMD(XS , XT ) =          S (xS ) -          T (xT ) H, (4)        zS and zT , respectively. Thus, this term encourages two AEs to
+                 nS i=1             nT i=1                        retain the useful information of the original data at the latent
+                                                                  representation. Consequently, we can use latent representa-
+where nS and nT are the number of samples of the source           tions for classification tasks after training. Formally, the RE
+                                                                  term is calculated as follows:
+and target domain, respectively. S and T denote the rep-
+resentation of the source data, i.e., xiS , and the target data,       RE(xSi , S , S , xiT , T , T ) = l(xSi , x^Si ) + l(xTi , x^Ti ), (5)
+i.e., xiT , respectively. . H represents the 2-norm operation
+in Reproducing Kernel Hilbert space (RKHS) [37].                                                                                                                     VOLUME 8, 2020
+
+IV. PROPOSED TRANSFER LEARNING APPROACH
+FOR IoT CYBERATTACK DETECTION
+This section presents our proposed DTL models for IoT
+attack detection. We first describe the overview of the sys-
+tem structure. After that, the DTL model is discussed in
+details.
+
+A. SYSTEM STRUCTURE
+Fig. 3 presents the system structure that uses DTL for IoT
+attack detection. First, the data collection module gathers
+data from all IoT devices. The training data consists of both
+labeled and unlabeled data. The labeled data is collected from
+some IoTs devices which are dedicated for labeling data.
+The labeling process is usually executed in two steps [22]:
+
+107338
+L. Vu et al.: DTL for IoT Attack Detection
+
+                                                                                            where K is the number of encoding layers in the AE-based
+                                                                                            model.  kS (xiS ) and  kT (xiT ) are the encoding layers k-th of
+                                                                                            AE1 and AE2, respectively, MMD(, ) is the MMD distance
+                                                                                            presenting in (4).
+
+                                                                                               The final loss function of MMD-AE combines the loss
+
+                                                                                            terms in (5), (6), and (8) as in (7).
+
+                                                                                            = SE + RE + MMD.  (8)
+
+                                                                                               Algorithm 1 presents the pseudo-code for training our
+                                                                                            proposed DTL model. The training samples with labels in the
+                                                                                            source domain are input to AE1 while the training samples
+                                                                                            without labels in the target domain are input to AE2. The
+                                                                                            training process attempts to minimize the loss function in (8)).
+                                                                                            After training, AE2 is used to classify the testing samples in
+                                                                                            the target domain as in Algorithm 2.
+
+FIGURE 4. Architecture of MMD-AE.                                                           Algorithm 1 Training the Proposed DTL Model
+
+where l function is the MSE function [16], xiS , x^Si , xiT , x^iT are                         INPUT:
+the data samples of input layers and the output layers of the                                  xS , yS : Training data samples and corresponding labels in
+source domain and the target domain, respectively.                                             the source domain
+                                                                                               xT : Training data samples in the target domain
+   The second term SE aims to train a classifier at the latent                                 OUTPUT: Trained models: AE2.
+representation of AE1 using labeled information in the source                                  BEGIN:
+domain. In other words, this term attempts to map the value                                    1. Put xS to the input of AE1
+at two neurons at the bottleneck layer of AE1, i.e., zS , to their                             2. Put xT to the input of AE2
+label information yS . This is achieved by using the softmax                                   3. k (xS ) is the representation of xS at the layer k of AE1
+function [33] to minimize the difference between zS and                                        4. zS is the representation of xS at the bottleneck layer of
+yS . It should be noted that, the number of neurons in the                                     AE1
+bottleneck layer must be the same as the number of classes                                     5. k (xT ) is the representation of xT at the layer k of AE2
+in the source domain. This loss encourages to distinguish                                      6. Training the TL model by minimizing the loss function
+the latent representation space from separated class labels.                                   in (8)
+Formally, this loss is defined as follows:                                                     return Trained models: AE1, AE2.
+                                                                                               END.
+
+                                              C                                             Algorithm 2 Classifying on the Target Domain
+                                                                                               INPUT:
+        SE(xSi , ySi , S .S ) = - ySi,j log(zSi,j), (6)                                        xT : Testing data samples in the target domain
+                                                                                               Trained AE2 model
+                                             j=1                                               OUTPUT: yT : Label of xT
+                                                                                               BEGIN:
+where ziS and yiS are the latent representation and labels of the                              1. Put xT to the input of AE2
+source data sample xSi . ySi,j and zSi,j represent the j - th element                          2. zT is the representation of xT at the bottleneck layer of
+of the vector yiS and ziS , respectively.                                                      AE2
+                                                                                               3. yT = softmax (zT )
+   The third term MMD is to transfer the knowledge of the                                      return yT
+source domain to the target domain. The transferring process                                   END.
+
+is executed by minimizing the MMD distances between every                                      Our key idea in the proposed model, i.e., MMD-AE, com-
+                                                                                            pared with the previous DTL model [18], [31] is to transfer
+encoding layers of AE1 and the corresponding encoding lay-                                  the knowledge not only in the bottleneck layer but also in
+ers of AE2. This term aims to make the representations of the                               every encoding layer from the source domain, i.e., AE1,
+source data and target data close together. The MMD loss                                    to the target domain, i.e., AE2. In other words, MMD-AE
+term is described as follows:                                                               allows to transfer more knowledge from the source domain
+                                                                                            to the target domain. One possible limitation of MMD-AE
+MMD  (  x iS  ,  S  ,  S  ,  x  i  ,  T  ,  T  )                                            is that it may incur the overhead time in the training process
+                                T
+                                                                                                                                                                                          107339
+                                            K
+
+                                      =        MMD(Sk  (x  i  )  ,   kT  (  x iT  )),  (7)
+                                                           S
+
+                                         k =1
+
+VOLUME 8, 2020
+                                                               L. Vu et al.: DTL for IoT Attack Detection
+
+TABLE 1. Description of IoT datasets.                          Curve (AUC) score. The advantage of AUC includes two
+                                                               aspects. First, it is scale-invariant. In other words, the AUC
+since the distance between multiple layers of the encoders in  score measures how well predictions are ranked, rather
+AE1 and AE2 is evaluated. However, in the predicting phase,    than their absolute values. Second, AUC is classification-
+only AE2 is used to classify incoming samples in the target    threshold-invariant. It measures the quality of the model's
+domain. Therefore, this model does not lead to increasing the  predictions irrespective of what classification threshold is
+predicting time compared to other AE-based models.             chosen [40].
+V. EXPERIMENTAL SETTING
+This section presents the datasets, the performance metrics,      The AUC score is created by plotting the True Positive
+the hyper-parameter settings and the sets of the experiments   Rate (TPR) or Sensitivity1 against the False Positive Rate
+in our paper.                                                  (FPR)2 at various threshold settings. The space under the
+A. DATASETS                                                    ROC curve is represented as the AUC score [40]. This mea-
+To evaluate the performance of MMD-AE we used nine             sures the average quality of the classification model at differ-
+IoT attack detection datasets from Meidan et al. [3]. These    ent thresholds.
+datasets were collected from nine commercial IoT devices
+in their lab. Each IoT dataset includes five or ten DDoS       C. HYPER-PARAMETERS SETTING
+attacks based on types of IoT devices, such as Scanning the    The same configuration is used for all AE-based models in
+network for vulnerable devices (scan), Sending spam data       our experiments. This configuration is based on the AE-based
+(Junk), UDP flooding (udp), TCP flooding (tcp), and Sending    models for detecting network attacks in the literature [2], [3],
+spam data and opening a connection to a specified IP address   [15], [16]. As we integrate the SE loss term to MMD-AE,
+and port (combo). Each dataset is divided into a training set  the number of neurons in the bottleneck layer is equal to the
+(70% benign data samples and two random types of attacks)      number of classes in the IoT dataset, i.e., 2 neurons in this
+and the testing set (30% benign data samples and the rest      paper. The number of layers including both the encoding lay-
+of attacks). Thus, many attack types are not included in the   ers and the decoding layers is 5. The ADAM algorithm [41]
+training data. Each data sample has 115 attributes extracted   is used for optimizing the models in the training process. The
+from the packet stream. The number of training and testing     ReLu function is used as an activation function of AE layers
+datasets is presented in Table 1.                              except for the last layers of the encoder and decoder where
+B. EVALUATION METRIC                                           the Sigmoid function is used. For all datasets, we select 10%
+To evaluate the effectiveness of the proposed model,           of training data as the validation sets for early stopping. This
+we use a popular performance metric, i.e., Area Under the      technique helps to stop training process automatically. The
+                                                               performance of each model is evaluated on the validation set
+107340                                                         at the end of each 10 epochs. If the the AUC score is reduced,
+                                                               the training procedure will be stopped.
+
+                                                               D. EXPERIMENTAL SETS
+                                                               We carried out three sets of experiments in this paper. The
+                                                               first set is to investigate how effective our proposed model
+                                                               is at transferring knowledge from the source domain to the
+                                                               target domain. We compare the MMD distances between the
+                                                               bottleneck layer of the source domain and the target domain
+                                                               after training when the transferring process is executed in one,
+                                                               two, and three encoding layers. The smaller MMD distance,
+                                                               the more effective transferring process from the source to the
+                                                               target domain [42].
+
+                                                                  The second set is the main result of the paper in which
+                                                               we compare the AUC scores of MMD-AE with AE and two
+                                                               recent DTL models [18], [31]. All methods are trained using
+                                                               the training set including the source dataset with label infor-
+                                                               mation and the target dataset without label information. After
+                                                               training, the trained models are evaluated using the target
+                                                               dataset. The methods compared in this experiment include
+                                                               the original AE (i.e., AE), and the DTL model using the
+
+                                                                  1TPR measures the proportion of actual positive samples that are correctly
+                                                               identified.
+
+                                                                  2FPR measures the ratio between the number of negative samples wrongly
+                                                               categorized as positive samples (false positives) and the total number of
+                                                               actual negative samples.
+
+                                                                                                                                                                  VOLUME 8, 2020
+L. Vu et al.: DTL for IoT Attack Detection
+
+KL metric at the bottleneck layer (i.e., SKL-AE), the DTL              FIGURE 6. Training and testing of AE, SKL-AE, SMD-AE, and MMD-AE
+method of using the MMD metric at the bottleneck layer                 when the source domain is IoT-2 the target domain is IoT-1.
+(i.e., SMD-AE), and our model (MMD-AE).
+                                                                       label information in the columns and the dataset without
+   The third set is to measure the processing time of the              information in the rows and tested on the dataset in the rows.
+training and the predicting process of the above evaluated             In this table, the result of MMD-AE is printed in bold face.
+methods. The detailed results of three experimental sets are           We can observe that AE is the worst method among the tested
+presented in the next section.                                         methods. Apparently, when an AE is trained on an IoT dataset
+                                                                       (the source) and evaluating on other IoT datasets (the target),
+VI. RESULTS                                                            its performance is not effective. The reason for this ineffective
+This section presents the result of three sets of the experi-          result is that the predicting data in the target domain is far
+ments in our paper.                                                    different from the training data in the source domain.
+
+A. EFFECTIVENESS OF TRANSFERRING                                          Conversely, the results of three DTL models are much
+INFORMATION IN MMD-AE                                                  better than that of AE. For example, if the source dataset
+MMD-AE implements multiple transfer between encoding                   is IoT-1 and the target dataset is IoT-3, the AUC score is
+layers of AE1 and AE2 to force the latent representation of            improved from 0.600 to 0.745 and 0.764 with SKL-AE and
+AE2 closer to the latent representation of AE1. In order to            SMD-AE, respectively. These results prove that using DTL
+evaluate if MMD-AE achieve its objective we conducted an               helps to improve the accuracy of AEs on detecting IoT attacks
+experiment in which, IoT-1 is selected as the source domain            on the target domain.
+and IoT-2 is the target domain. We measured the MMD
+distance between the latent representation, i.e., the bottleneck          More importantly, our proposed method, i.e., MMD-AE,
+layer, of AE1 and AE2 when the transfer information is                 usually achieves the highest AUC score in almost all IoT
+implemented in one, two and three layers of the encoders.              datasets.3 For example, the AUC score is 0.937 compared to
+The smaller distance is, the more information is transferred           0.600, 0.745, 0.764 of AE, SKL-AE and SMD-AE, respec-
+from the source domain (AE1) to the target domain (AE2).               tively, when the source dataset is IoT-1 and the target dataset
+The result is presented in Fig. 5.                                     is IoT-3. The results on the other datasets are also similar to
+                                                                       the results on IoT-3. These results demonstrate that imple-
+FIGURE 5. MMD of latent representations of the source (IoT-1) and the  menting the transferring task in multiple layers of MMD-AE
+target (IoT-2) when transferring task on one, two, and three encoding  helps the model to transfer the label information from the
+layers.                                                                source to the target domain more effectively. Subsequently,
+                                                                       MMD-AE often achieves better results compared to AE,
+   The figure shows that transferring task implemented on              SKL-AE and SMD-AE in detecting IoT attacks in the target
+more layers results in the smaller MMD distance value.                 domain.
+In other words, more information can be transferred from
+the source to the target domain when the transferring task is          C. PROCESSING TIME ANALYSIS
+implemented on more encoding layers. This result evidences             Fig. 6 shows the training and the predicting time of the
+that our proposed solution, MMD-AE, is more effective than             tested model when the source domain is IoT-2 and the target
+the previous DTL models performing the transferring task               domain is IoT-1.4 In this figure, the training time is measured
+only at the bottleneck layer of AE.                                    in hours and the predicting time is measured in seconds.
+                                                                       It can be seen that, the training process of the DTL methods
+B. PERFORMANCE COMPARISON
+Table 2 represents the AUC scores of AE, SKL-AE, SMD-AE                   3The AUC scores of the proposed model in each scenario is presented by
+and MMD-AE when they are trained on the dataset with                   the bold text style.
+
+VOLUME 8, 2020                                                            4The results on the other datasets are similar to this result.
+
+                                                                                                                                                                     107341
+                                                                             L. Vu et al.: DTL for IoT Attack Detection
+
+TABLE 2. AUC scores of AE, SKL-AE, SMD-AE, and MMD-AE on nine IoT datasets.
+
+(i.e., SKL-AE, SMD-AE, and MMD-AE) is more time con-              model in ubiquitous IoT devices. Specifically, the labeled
+suming than that of AE. One of the reason is that DTL models      data and unlabeled data are fitted into two AE models with
+need to evaluate the MMD distance between the AE1 and             the same network structure. Moreover, the MMD metric is
+AE2 at every iteration while this calculation is not required in  used to transfer knowledge from the first AE to the second
+AE. Moreover, the training time of MMD-AE is even much            AE. Comparing to the previous DTL models, MMD-AE can
+higher than those of SKL-AE and SMD-AE since MMD-AE               operate at all the encoding layers instead of only the bottle-
+needs to calculate the MMD distance between every encoding        neck layer.
+layers whereas SKL-AE and SMD-AE only calculate the
+distance metric in the bottleneck layer.                             We have carried out the extensive experiments to evaluate
+                                                                  the strength of our proposed model in many scenarios. The
+   However, it is important to note that the predicting time of   experimental results demonstrate that DTL approaches can
+all DTL methods is mostly equal to that of AE. The reason is      enhance the AUC score for IoT attack detection. Further-
+that the testing samples are only fitted to one AE in all tested  more, our proposed DTL model, i.e., MMD-AE, operating
+models. For example, the total of the predicting time of AE,      transformation at all the level of encoding layers of the AEs
+SKL-AE, SMD-AE, and MMD-AE are 1.001, 1.112, 1.110,               helps to improve the effectiveness of the transferring process.
+and 1.108 seconds, respectively, on 778, 810 testing samples      Thus, the proposed model is meaningful when having label
+of the IoT-1 dataset.                                             information in the source domain but no label information in
+                                                                  the target domain.
+VII. CONCLUSION
+In this paper, we have introduced a novel DTL-based                  One limitation of the proposed model is that it requires
+approach for IoT network attack detection, namely MMD-            more time to train the model. However, the predicting time
+AE. This proposed approach aims to address the problem            of MMD-AE is mostly similar to that of the other AE-based
+of ``lack of labeled information'' for the training detection     models. In the future, one can extend our current work
+                                                                  in several directions. First, we will distribute the training
+107342
+                                                                                                                                                                     VOLUME 8, 2020
+L. Vu et al.: DTL for IoT Attack Detection
+
+process to the multiple IoT nodes by using the federated                             [20] J. Lu, V. Behbood, P. Hao, H. Zuo, S. Xue, and G. Zhang, ``Transfer
+learning technique to speed up this process. Second, the cur-                               learning using computational intelligence: A survey,'' Knowl.-Based Syst.,
+rent DTL model is developed based on AutoEncoder. In the                                    vol. 80, pp. 14-23, May 2015.
+future, we will attempt to extend this model based on other
+neural networks such as Deep Adaptation Network (DAN),                               [21] A. L. Buczak and E. Guven, ``A survey of data mining and machine
+Adversarial Discriminative Domain Adaptation (ADDA),                                        learning methods for cyber security intrusion detection,'' IEEE Com-
+Maximum Classifier Discrepancy (MCD), and Conditional                                       mun. Surveys Tuts., vol. 18, no. 2, pp. 1153-1176, 2nd Quart.,
+Domain Adversarial Network (CDAN) [43].                                                     2016.
+
+REFERENCES                                                                           [22] S. García, A. Zunino, and M. Campo, ``Botnet behavior detection using
+                                                                                            network synchronism,'' in Privacy, Intrusion Detection and Response:
+ [1] N. C. Luong, D. T. Hoang, P. Wang, D. Niyato, D. I. Kim, and Z. Han,                   Technologies for Protecting Networks. Hershey, PA, USA: IGI Global,
+       ``Data collection and wireless communication in Internet of Things (IoT)             2012, pp. 122-144.
+       using economic analysis and pricing models: A survey,'' IEEE Commun.
+       Surveys Tuts., vol. 18, no. 4, pp. 2546-2590, Jun. 2016.                      [23] W. Zellinger, T. Grubinger, E. Lughofer, T. Natschläger, and S. Saminger-
+                                                                                            Platz, ``Central moment discrepancy (CMD) for domain-invariant rep-
+ [2] Y. Meidan, M. Bohadana, A. Shabtai, M. Ochoa, N. O. Tippenhauer,                       resentation learning,'' 2017, arXiv:1702.08811. [Online]. Available:
+       J. Davis Guarnizo, and Y. Elovici, ``Detection of unauthorized IoT devices           http://arxiv.org/abs/1702.08811
+       using machine learning techniques,'' 2017, arXiv:1709.04647. [Online].
+       Available: http://arxiv.org/abs/1709.04647                                    [24] A. Nisioti, A. Mylonas, P. D. Yoo, and V. Katos, ``From intrusion detec-
+                                                                                            tion to attacker attribution: A comprehensive survey of unsupervised
+ [3] Y. Meidan, M. Bohadana, Y. Mathov, Y. Mirsky, A. Shabtai,                              methods,'' IEEE Commun. Surveys Tuts., vol. 20, no. 4, pp. 3369-3388,
+       D. Breitenbacher, and Y. Elovici, ``N-BaIoT--Network-based detection                 Jul. 2018.
+       of iot botnet attacks using deep autoencoders,'' IEEE Pervasive Comput.,
+       vol. 17, no. 3, pp. 12-22, Jul./Sep. 2018.                                    [25] Y. Xu, S. J. Pan, H. Xiong, Q. Wu, R. Luo, H. Min, and H. Song, ``A unified
+                                                                                            framework for metric transfer learning,'' IEEE Trans. Knowl. Data Eng.,
+ [4] I. Ahmed, A. P. Saleel, B. Beheshti, Z. A. Khan, and I. Ahmad, ``Security in           vol. 29, no. 6, pp. 1158-1171, Jun. 2017.
+       the Internet of Things (IoT),'' in Proc. 4th HCT Inf. Technol. Trends (ITT),
+       Oct. 2017, pp. 84-90.                                                         [26] K. Weiss, T. M. Khoshgoftaar, and D. Wang, ``A survey of transfer learn-
+                                                                                            ing,'' J. Big Data, vol. 3, no. 1, May 2016.
+ [5] N. Vlajic and D. Zhou, ``IoT as a land of opportunity for DDoS hackers,''
+       Computer, vol. 51, no. 7, pp. 26-34, Jul. 2018.                               [27] C. Tan, F. Sun, T. Kong, W. Zhang, C. Yang, and C. Liu, ``A survey on deep
+                                                                                            transfer learning,'' in Proc. Int. Conf. Artif. Neural Netw. Rhodes, Greece:
+ [6] C. Kolias, G. Kambourakis, A. Stavrou, and J. Voas, ``DDoS in the IoT:                 Springer, Oct. 2018, pp. 270-279.
+       Mirai and other botnets,'' Computer, vol. 50, no. 7, pp. 80-84, 2017.
+                                                                                     [28] S. Gou, Y. Wang, L. Jiao, J. Feng, and Y. Yao, ``Distributed transfer network
+ [7] R. Gow, F. A. Rabhi, and S. Venugopal, ``Anomaly detection in complex                  learning based intrusion detection,'' in Proc. IEEE Int. Symp. Parallel
+       real world application systems,'' IEEE Trans. Netw. Service Manage.,                 Distrib. Process. Appl., Aug. 2009, pp. 511-515.
+       vol. 15, no. 1, pp. 83-96, Mar. 2018.
+                                                                                     [29] J. Zhao, S. Shetty, J. W. Pan, C. Kamhoua, and K. Kwiat, ``Transfer
+ [8] S. Khattak, N. R. Ramay, K. R. Khan, A. A. Syed, and S. A. Khayam,                     learning for detecting unknown network attacks,'' EURASIP J. Inf. Secur.,
+       ``A taxonomy of botnet behavior, detection, and defense,'' IEEE Commun.              vol. 2019, p. 1, Feb. 2019.
+       Surveys Tuts., vol. 16, no. 2, pp. 898-924, 2nd Quart., 2014.
+                                                                                     [30] I. T. Jolliffe, Principal Component Analysis. 2nd ed. New York, NY, USA:
+ [9] J. Dromard, G. Roudiere, and P. Owezarski, ``Online and scalable unsu-                 Springer-Verlag, 2002.
+       pervised network anomaly detection method,'' IEEE Trans. Netw. Service
+       Manage., vol. 14, no. 1, pp. 34-47, Mar. 2017.                                [31] F. Zhuang, X. Cheng, P. Luo, S. J. Pan, and Q. He, ``Supervised represen-
+                                                                                            tation learning: Transfer learning with deep autoencoders,'' in Proc. 24th
+[10] H. Bahsi, S. Nomm, and F. B. La Torre, ``Dimensionality reduction for                  Int. Joint Conf. Artif. Intell., 2015, pp. 4119-4125.
+       machine learning based IoT botnet detection,'' in Proc. 15th Int. Conf.
+       Control, Autom., Robot. Vis. (ICARCV), Nov. 2018, pp. 1857-1862.              [32] C. Kandaswamy, L. M. Silva, L. A. Alexandre, R. Sousa, J. M. Santos,
+                                                                                            and J. M. de Sa, ``Improving transfer learning accuracy by reusing stacked
+[11] C. Zhang and R. C. Green II, ``Communication security in Internet of                   denoising autoencoders,'' in Proc. IEEE Int. Conf. Syst., Man, Cybern.
+       Thing: Preventive measure and avoid DDoS attack over IoT network,''                  (SMC), Oct. 2014, pp. 1380-1387.
+       in Proc. 18th Symp. Commun. Netw., Alexandria, VA, USA, Apr. 2015,
+       pp. 8-15.                                                                     [33] I. Goodfellow, Y. Bengio, and A. Courville, Deep Learning.
+                                                                                            Cambridge, MA, USA: MIT Press, 2016. [Online]. Available:
+[12] C. Dietz, R. L. Castro, J. Steinberger, C. Wilczak, M. Antzek, A. Sperotto,            http://www.deeplearningbook.org
+       and A. Pras, ``IoT-botnet detection and isolation by access routers,'' in
+       Proc. 9th Int. Conf. Netw. Future (NOF), Nov. 2018, pp. 88-95.                [34] Y. Bengio, P. Lamblin, D. Popovici, and H. Larochelle, ``Greedy layer-wise
+                                                                                            training of deep networks,'' in Proc. Adv. Neural Inf. Process. Syst., 2007,
+[13] M. Nobakht, V. Sivaraman, and R. Boreli, ``A host-based intrusion detec-               pp. 153-160.
+       tion and mitigation framework for smart home IoT using OpenFlow,'' in
+       Proc. 11th Int. Conf. Availability, Rel. Secur. (ARES), Salzburg, Austria,    [35] A. Gretton, K. Borgwardt, M. Rasch, B. Schölkopf, and A. J. Smola,
+       Aug. 2016, pp. 147-156.                                                              ``A Kernel method for the two-sample-problem,'' in Proc. Adv. Neural Inf.
+                                                                                            Process. Syst., 2007, pp. 513-520.
+[14] J. Ceron, K. Steding-Jessen, C. Hoepers, L. Granville, and C. Margi,
+       ``Improving IoT botnet investigation using an adaptive network layer,''       [36] P. Yang, F. Luo, S. Wu, J. Xu, and D. Zhang, ``Learning unsupervised word
+       Sensors, vol. 19, no. 3, p. 727, Feb. 2019.                                          mapping via maximum mean discrepancy,'' in Proc. CCF Int. Conf. Natu-
+                                                                                            ral Lang. Process. Chin. Comput. Dunhuang, China: Springer, Oct. 2019,
+[15] L. Vu, V. L. Cao, Q. U. Nguyen, D. N. Nguyen, D. T. Hoang, and                         pp. 290-302.
+       E. Dutkiewicz, ``Learning latent distribution for distinguishing network
+       traffic in intrusion detection system,'' in Proc. IEEE Int. Conf. Commun.     [37] S. J. Pan, I. W. Tsang, J. T. Kwok, and Q. Yang, ``Domain adaptation via
+       (ICC), May 2019, pp. 1-6.                                                            transfer component analysis,'' IEEE Trans. Neural Netw., vol. 22, no. 2,
+                                                                                            pp. 199-210, Feb. 2011.
+[16] V. C. Loi, M. Nicolau, and J. McDermott, ``Learning neural representations
+       for network anomaly detection,'' IEEE Trans. Cybern., vol. 49, no. 8,         [38] (2020). Tcptrace Tool for Analysis of TCP Dump Files. [Online]. Available:
+       pp. 3074-3087, Aug. 2019.                                                            http://www.tcptrace.org/
+
+[17] O. Ibidunmoye, A.-R. Rezaie, and E. Elmroth, ``Adaptive anomaly detec-          [39] (2020). Wireshark Tool, the World's Foremost and Widely-Used Network
+       tion in performance metric streams,'' IEEE Trans. Netw. Service Manage.,             Protocol Analyzer. [Online]. Available: https://www.wireshark.org/
+       vol. 15, no. 1, pp. 217-231, Mar. 2018.
+                                                                                     [40] D. J. Hand and R. J. Till, ``A simple generalisation of the area under
+[18] L. Wen, L. Gao, and X. Li, ``A new deep transfer learning based on sparse              the ROC curve for multiple class classification problems,'' Mach. Learn.,
+       auto-encoder for fault diagnosis,'' IEEE Trans. Syst., Man, Cybern. Syst.,           vol. 45, no. 2, pp. 171-186, 2001.
+       vol. 49, no. 1, pp. 136-144, Jan. 2019.
+                                                                                     [41] D. P. Kingma and J. Ba, ``Adam: A method for stochastic
+[19] S. Jialin Pan and Q. Yang, ``A survey on transfer learning,'' IEEE Trans.              optimization,'' 2014, arXiv:1412.6980. [Online]. Available:
+       Knowl. Data Eng., vol. 22, no. 10, pp. 1345-1359, Oct. 2010.                         http://arxiv.org/abs/1412.6980
+
+VOLUME 8, 2020                                                                       [42] J. Yang, R. Yan, and A. G. Hauptmann, ``Cross-domain video concept
+                                                                                            detection using adaptive svms,'' in Proc. 15th Int. Conf. Multimedia (MUL-
+                                                                                            TIMEDIA), 2007, pp. 188-197.
+
+                                                                                     [43] Y. Zhang, T. Liu, M. Long, and M. Jordan, ``Bridging theory and algorithm
+                                                                                            for domain adaptation,'' in Proc. 36th Int. Conf. Mach. Learn., 2019,
+                                                                                            pp. 7404-7413.
+
+                                                                                                                                                                                   107343
+                                                                                  L. Vu et al.: DTL for IoT Attack Detection
+
+        LY VU received the M.S. degree from Inha Univer-                                                         DINH THAI HOANG (Member, IEEE) received
+        sity, South Korea, in 2014. She is currently pursu-                                                      the Ph.D. degree in computer science and engi-
+        ing the Ph.D. degree in the major of mathematics                                                         neering from Nanyang Technological University,
+        theory for information technology with Le Quy                                                            Singapore, in 2016. He is currently a Faculty
+        Don Technical University, Vietnam. Her research                                                          Member of the School of Electrical and Data
+        interests include data mining, machine learning,                                                         Engineering, University of Technology Sydney,
+        deep learning, and network security.                                                                     Australia. His research interests include emerging
+                                                                                                                 topics in wireless communications and network-
+        QUANG UY NGUYEN received the Ph.D. degree                                                                ing such as ambient backscatter communica-
+        from University College Dublin, Ireland, in 2011.                                                        tions, vehicular communications, cybersecurity,
+        He is currently a Senior Lecturer with Le Quy                             the IoT, and 5G networks. He is currently an Editor of the IEEE
+        Don Technical University (LQDTU), where he is                             WIRELESS COMMUNICATIONS LETTERS and the IEEE TRANSACTIONS ON COGNITIVE
+        also the Director of the Machine Learning and                             COMMUNICATIONS AND NETWORKING. He was an Exemplary Reviewer of the
+        Applications Research Group. His research inter-                          IEEE TRANSACTIONS ON COMMUNICATIONS, in 2018, and the IEEE TRANSACTIONS
+        ests include machine learning, computer vision,                           ON WIRELESS COMMUNICATIONS, in 2017 and 2018.
+        information security, evolutionary algorithms, and
+        genetic programming.
+
+                               DIEP N. NGUYEN (Senior Member, IEEE)                                              ERYK DUTKIEWICZ (Senior Member, IEEE)
+                               received the M.E. degree in electrical and com-                                   received the B.E. degree in electrical and electron-
+                               puter engineering from the University of Cali-                                    ics engineering and the M.Sc. degree in applied
+                               fornia San Diego (UCSD) and the Ph.D. degree                                      mathematics from The University of Adelaide,
+                               in electrical and computer engineering from The                                   in 1988 and 1992, respectively, and the Ph.D.
+                               University of Arizona (UA). He is a Faculty Mem-                                  degree in telecommunications from the University
+                               ber of the Faculty of Engineering and Information                                 of Wollongong, in 1996. His industry experience
+                               Technology, University of Technology Sydney                                       includes the management of the Wireless Research
+                               (UTS). Before joining the UTS, he was a DECRA                                     Laboratory, Motorola, in the early 2000s. He also
+                               Research Fellow of Macquarie University, and a                                    holds a professorial appointment at Hokkaido Uni-
+Member of Technical Staff at Broadcom, CA, USA, and ARCON Cor-                    versity, Japan. He is currently the Head of the School of Electrical and
+poration, Boston, consulting the Federal Administration of Aviation on            Data Engineering, University of Technology Sydney, Australia. His current
+turning detection of UAVs and aircraft, a U.S. Air Force Research Lab             research interests include 5G and the IoT networks.
+on anti-jamming. His current research interests include computer network-
+ing, wireless communications, and machine learning applications, with an
+emphasis on systems' performance and security/privacy. He has received
+several awards from LG Electronics, the UCSD, the UA, the U.S. National
+Science Foundation, and the Australian Research Council. He is an Associate
+Editor of the IEEE TRANSACTIONS ON MOBILE COMPUTING and a Guest Editor
+of IEEE ACCESS.
+
+107344                                                                            VOLUME 8, 2020
+

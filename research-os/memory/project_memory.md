@@ -20,6 +20,10 @@ The user explicitly excluded all quadruped/robot-dog work. The active scope is n
 
 A source-backed preliminary shortlist is stored in `literature/venue-direction-brief.md` and `literature_matrix/venue-shortlist.csv`. The lowest-risk legitimate route is conditional on having the robot and logs: RGB-D quadruped visual/task navigation. It is not an acceptance prediction. Current fees, deadlines, indexing and the image-derived list still require verification.
 
+## IoT IDS domain-generalization literature checkpoint
+
+A new literature pass verified that DTL (2020), heterogeneous domain adaptation (2023-2024), domain generalization (2025), leakage studies (2024) and cross-domain validation (2026) are already active. The remaining candidates are benchmark/protocol (IOT-IDS-06), device-fingerprint-aware feature selection (IOT-IDS-07), or resource-aware adaptation comparison (IOT-IDS-08). None is frozen as novel.
+
 ## IoT IDS original-layout preflight checkpoint
 
 The original-layout nine-device N-BaIoT mirror was tested with device-isolated splits. Fixed thresholds were near-perfect while benign-only calibration increased FPR to 1.0 on several devices. A benign device-identity classifier reached 99.08% accuracy in a diagnostic random split. H-IOT-IDS-01 is rejected as a primary method; new gap generation should focus on device fingerprints, leakage and robust evaluation.

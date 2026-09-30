@@ -27,6 +27,10 @@ The screenshot was successfully read and transcribed to `literature/screenshot-v
 
 Ten DOI-verified papers and local reading notes are at `literature/iot-ids/`. Start with P01/P02/P03/P05/P06, then read P09/P10 for cross-domain and label-harmonization risks. The collection is defensive/offline only.
 
+## Domain-generalization literature checkpoint
+
+`literature/iot-ids/domain-generalization-review.md` records real adjacent work: MMD-AE DTL (2020), GGA/ABRSI heterogeneous adaptation (2023), attention-sharing adaptation (2024), domain generalization (2025), leakage study (2024), and cross-domain validation (2026). New candidates are in `ideas/iot-ids-next-candidates.yaml`; no novelty claim is approved.
+
 ## Original-layout preflight checkpoint
 
 `reports/nbaiot-original-preflight-report.md` records a nine-device, 115-feature original-layout mirror test. Benign-only calibration increased false positives and sometimes flagged every benign target row. Device identity was predictable at 99.08% in a diagnostic split. Reject H-IOT-IDS-01 as the primary method.
