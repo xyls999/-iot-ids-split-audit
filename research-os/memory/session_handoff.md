@@ -27,6 +27,10 @@ The screenshot was successfully read and transcribed to `literature/screenshot-v
 
 Ten DOI-verified papers and local reading notes are at `literature/iot-ids/`. Start with P01/P02/P03/P05/P06, then read P09/P10 for cross-domain and label-harmonization risks. The collection is defensive/offline only.
 
+## Device-fingerprint innovation spike
+
+`literature/iot-ids/device-fingerprint-spike-2026-09-30.md` distinguishes attack-feature disentanglement (3D-IDS 2023/DIDS 2025) from a candidate target-free conditional device-nuisance representation (CDIAR). CDIAR is unverified, not approved for implementation. The research subagent failed due unavailable web tools; a reviewer timed out with no output.
+
 ## Domain-generalization literature checkpoint
 
 `literature/iot-ids/domain-generalization-review.md` records real adjacent work: MMD-AE DTL (2020), GGA/ABRSI heterogeneous adaptation (2023), attention-sharing adaptation (2024), domain generalization (2025), leakage study (2024), and cross-domain validation (2026). New candidates are in `ideas/iot-ids-next-candidates.yaml`; no novelty claim is approved.
