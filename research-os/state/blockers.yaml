@@ -15,3 +15,7 @@ blockers:
     severity: medium
     owner: environment
     resolution: "Install/approve a rendering/OCR stack if scanned Chinese PDFs need visual verification."
+  - id: second-auditable-iot-dataset
+    severity: high
+    owner: research
+    resolution: "Obtain official row-to-device identity and timestamp/capture-block schema for a second public dataset. Do not substitute IP addresses, filenames, attack folders, or scenario labels as device IDs."

@@ -1,13 +1,12 @@
 next_action:
-  id: confirm-low-burden-route
+  id: resolve-second-iot-dataset-evidence
   status: blocked
   prerequisites:
-    - confirm or reject public-data air-quality sensor calibration under temporal drift
-    - record available Python/compute environment, deadline, budget, and language preference
-    - keep water and quadruped/robot-dog directions excluded
+    - retain the two-dataset requirement for a device-shortcut audit claim
+    - obtain first-party schema evidence, not inferred IDs or third-party mirrors
+    - keep all work defensive, offline and limited to public data
   steps:
-    - download and checksum the UCI Air Quality dataset
-    - run chronological baseline experiments
-    - test drift and missingness robustness
-    - verify current author instructions and fees
-    - checkpoint the feasibility result before any manuscript drafting
+    - request or locate an owner-provided ToN_IoT row-to-sensor manifest and timestamp-alignment schema
+    - if verified, perform a small metadata-only feasibility inspection before download
+    - otherwise record the two-dataset standard as unmet and pivot away from a device-held-out audit paper
+    - do not start method implementation or manuscript drafting before this gate passes

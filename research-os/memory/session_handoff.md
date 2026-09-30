@@ -29,7 +29,7 @@ Ten DOI-verified papers and local reading notes are at `literature/iot-ids/`. St
 
 ## Device-fingerprint innovation spike
 
-`literature/iot-ids/conditional-shortcut-audit-novelty-check-2026-09-30.md` consolidates a completed three-agent evidence/critic/oracle pass. CDIAR is high-risk and not approved. The Conditional Shortcut Audit Card survives only as a preregistered audit feasibility candidate: CDP must predict DHG across two auditable datasets after coverage/confounding controls, or be rejected. Next task is source verification for a second dataset with device/group and time/capture/provenance metadata.
+`literature/iot-ids/conditional-shortcut-audit-novelty-check-2026-09-30.md` consolidates a completed three-agent evidence/critic/oracle pass. CDIAR is high-risk and not approved. `literature/iot-ids/second-dataset-auditability-scout-2026-09-30.md` rejects all checked families as a second strict device-held-out dataset on currently verified owner evidence; IoT-23 is scenario-only and ToN_IoT needs a first-party row-to-sensor schema. Do not weaken the identity standard. The candidate remains blocked unless that evidence is obtained, otherwise pivot.
 
 ## Domain-generalization literature checkpoint
 

@@ -26,3 +26,6 @@ decisions:
   - id: scope-exclusion-robot-dog
     decision: "Exclude quadruped robots, robot dogs, legged sim-to-real and robot-dog navigation from the active project"
     status: accepted
+  - id: second-dataset-identity-standard
+    decision: "A second IoT IDS validation dataset must have first-party evidence of row-level device/group identity and independent time/capture/provenance blocks; IPs, filenames, attack directories and scenario labels are not substitute device identities."
+    status: accepted
