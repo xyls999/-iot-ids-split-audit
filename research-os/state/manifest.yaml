@@ -98,6 +98,7 @@ artifacts:
   iot_ids_cn_full_translations: literature/iot-ids/translations/
   iot_ids_nearest_paper_check: reviews/iot-ids-nearest-paper-check-2026-09-29.md
   iot_ids_paper_readiness_review: reviews/iot-ids-paper-readiness-review-2026-09-30.md
+  iot_ids_provenance_not_behaviour_fulltext_audit: literature/iot-ids/provenance-not-behaviour-fulltext-audit-2026-09-30.md
   iot_ids_bounded_draft: drafts/iot-ids-split-sensitivity-introduction-and-methods.md
   beginner_research_explanation: README-FOR-BEGINNERS-zh.md
   n_baiot_official_profile: data/n-baiot-uci-profile.md
@@ -131,5 +132,5 @@ review:
 
 last_checkpoint:
   timestamp: 2026-09-30T00:30:00+08:00
-  summary: "Paper-readiness review permits only a bounded technical-report skeleton. It blocks any submission-oriented manuscript because the sole result is a nonofficial mirror, no second strict replication dataset is verified, and the CDP-to-DHG explanatory claim is rejected. No novelty, method, time or leakage claim is allowed."
-  next_action: "Do not implement CDIAR or a CDP-based audit method. Seek only an official manifest that maps N-BaIoT or another public dataset's files/rows to named devices and collection blocks; otherwise formally pivot away from an IoT IDS paper rather than writing an unsupported explanatory claim."
+  summary: "Full-text verification of arXiv:2608.15761 confirms that random-versus-device-held-out IoT IDS evaluation is already published. Current N-BaIoT mirror work is only a bounded technical replication/case study, not a novel evaluation contribution; submission is blocked by the mirror-only evidence, missing second dataset and rejected CDP-to-DHG mechanism."
+  next_action: "Do not implement CDIAR or a CDP-based audit method, and do not present random-versus-device-held-out evaluation as new. Seek an official N-BaIoT manifest or a second audited dataset only if a distinct, full-text-verified research question is identified; otherwise retain this repository as a technical replication record and pivot away from an IoT IDS paper."

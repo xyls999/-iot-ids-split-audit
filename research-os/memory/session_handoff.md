@@ -29,7 +29,7 @@ Ten DOI-verified papers and local reading notes are at `literature/iot-ids/`. St
 
 ## Device-fingerprint innovation spike
 
-`reviews/iot-ids-paper-readiness-review-2026-09-30.md` is the authoritative practical assessment: a bounded technical-report skeleton may start, but a submission-oriented manuscript is blocked. The allowable framing is a Kaggle-mirror, coverage-balanced split-sensitivity case study (Random Forest random minus LODO Macro-F1 0.0500–0.0958); do not call it official UCI, temporal, leakage, novel, or causal. `reports/nbaiot-embedding-probe-feasibility-report.md` rejects CDP→DHG. An official row-to-device plus collection-block manifest or a strict second dataset is required to revive a paper-level replication.
+`literature/iot-ids/provenance-not-behaviour-fulltext-audit-2026-09-30.md` is critical: full text of arXiv:2608.15761 confirms prior IoT IDS random-versus-device-held-out comparison and a provenance-artifact benchmark. Current N-BaIoT Kaggle-mirror work must be framed only as a technical replication/case study, never a novel split-audit contribution. `reports/nbaiot-embedding-probe-feasibility-report.md` still rejects CDP→DHG. Submission remains blocked by mirror-only evidence, lack of second auditable dataset, lack of a distinct full-text-verified question and no causal/leakage support.
 
 ## Domain-generalization literature checkpoint
 

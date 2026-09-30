@@ -13,9 +13,11 @@
 
 ## What may be drafted now
 
-A narrowly framed technical report, or a manuscript skeleton clearly marked as non-submission-ready:
+A narrowly framed technical replication report, clearly marked as non-submission-ready:
 
-> **A reproducible, coverage-balanced split-sensitivity case study on a locally verified N-BaIoT Kaggle mirror:** random-row evaluation exceeded leave-one-device-out Random Forest Macro-F1 by 5.0–9.6 points, with class- and row-window-dependent magnitude.
+> **A coverage-balanced N-BaIoT Kaggle-mirror split-sensitivity replication/case study:** random-row evaluation exceeded leave-one-device-out Random Forest Macro-F1 by 5.0–9.6 points, with class- and row-window-dependent magnitude.
+
+This framing was further narrowed after full-text verification of arXiv:2608.15761, which already compares random and device-held-out evaluation in IoT IDS. The local report may document its data-specific protocol and negative results, but may not position the comparison itself as a new contribution.
 
 Required language:
 

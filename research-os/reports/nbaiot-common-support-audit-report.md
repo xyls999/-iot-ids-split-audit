@@ -75,11 +75,11 @@ This directly falsifies a simplistic story that “device identity is always equ
 
 ## What has been earned
 
-The project now has a defensible **empirical core for a technical report or paper skeleton**:
+The project now has a defensible **empirical core for a bounded technical replication/report**:
 
 > On a coverage-balanced N-BaIoT mirror, random-row evaluation exceeds leave-one-device-out Random Forest multiclass Macro-F1 by 5.0–9.6 points across two ordered sampling windows and five seeds; the discrepancy and device signal are attack-class dependent.
 
-The supported contribution at this point is an **evaluation finding**, not a new detection method and not evidence of leakage.
+arXiv:2608.15761 already compares random and device-held-out evaluation in IoT IDS. Therefore this result is not a novel evaluation contribution; it is a dataset-specific mirror case study with explicit limitations. It remains neither a new detection method nor evidence of leakage.
 
 ## What is still missing before a manuscript claim
 

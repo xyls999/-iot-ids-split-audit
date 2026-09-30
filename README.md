@@ -8,7 +8,7 @@
 
 On a locally verified **Kaggle mirror** laid out like N-BaIoT, a coverage-balanced Random Forest experiment found that random-row Macro-F1 exceeded mean leave-one-device-out Macro-F1 by **0.0500–0.0958** across two ordered-row windows and five seeds.
 
-This is a restricted, mirror-level split-sensitivity finding only. It is **not** evidence of:
+arXiv:2608.15761 already studies random versus device-held-out evaluation and provenance artifacts in IoT IDS. This repository is therefore a restricted, mirror-level replication/case-study record, not a novel split-audit method. It is **not** evidence of:
 
 - official UCI N-BaIoT final-data results;
 - real chronological generalization;
