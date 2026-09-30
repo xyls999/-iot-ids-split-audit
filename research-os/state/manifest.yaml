@@ -14,7 +14,7 @@ target:
 
 workflow:
   current_stage: literature
-  current_task: "validate the surviving IoT IDS innovation candidate against nearest papers"
+  current_task: "generate a new IoT IDS research gap after rejecting threshold calibration"
   auto_continue: false
   status: blocked_pending_user_direction
 
@@ -43,6 +43,9 @@ completed_tasks:
   - task_id: nbaiot-preflight-experiment
     status: completed
     artifact: reports/nbaiot-preflight-report.md
+  - task_id: nbaiot-original-layout-preflight
+    status: completed
+    artifact: reports/nbaiot-original-preflight-report.md
 
 active_tasks: []
 blocked_tasks:
@@ -90,6 +93,7 @@ artifacts:
   n_baiot_official_profile: data/n-baiot-uci-profile.md
   n_baiot_preflight_manifest: data/n-baiot-preflight-manifest.yaml
   n_baiot_preflight_report: reports/nbaiot-preflight-report.md
+  n_baiot_original_preflight_report: reports/nbaiot-original-preflight-report.md
   n_baiot_constrained_check: artifacts/nbaiot-preflight/constrained-results.json
 
 literature:
@@ -114,5 +118,5 @@ review:
 
 last_checkpoint:
   timestamp: 2026-09-30T00:30:00+08:00
-  summary: "A bounded leave-one-group-out preflight and a source-recall-constrained threshold check on a public N-BaIoT-derived mirror showed FPR/recall trade-offs and failures under group shift; file groups lack verified device/time metadata, so the hypothesis remains unvalidated."
-  next_action: "Repeat the preflight on the official UCI archive or an auditable device/time mirror; do not claim the calibration method is validated."
+  summary: "A second original-layout nine-device preflight rejected benign-only threshold calibration as a standalone method: fixed thresholds were near-perfect while calibration increased FPR to 1.0 on several devices; device identity was predictable at 99.08% in a diagnostic split."
+  next_action: "Reject H-IOT-IDS-01 as primary method; generate and audit new gaps around device fingerprints, leakage and robust cross-device evaluation."

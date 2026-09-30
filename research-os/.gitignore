@@ -5,3 +5,5 @@
 /data/raw/*.part*
 /data/processed/
 /tools/__pycache__/
+
+/data/raw/kaggle_parts/

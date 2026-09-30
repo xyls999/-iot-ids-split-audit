@@ -27,6 +27,10 @@ The screenshot was successfully read and transcribed to `literature/screenshot-v
 
 Ten DOI-verified papers and local reading notes are at `literature/iot-ids/`. Start with P01/P02/P03/P05/P06, then read P09/P10 for cross-domain and label-harmonization risks. The collection is defensive/offline only.
 
+## Original-layout preflight checkpoint
+
+`reports/nbaiot-original-preflight-report.md` records a nine-device, 115-feature original-layout mirror test. Benign-only calibration increased false positives and sometimes flagged every benign target row. Device identity was predictable at 99.08% in a diagnostic split. Reject H-IOT-IDS-01 as the primary method.
+
 ## Preflight experiment checkpoint
 
 `reports/nbaiot-preflight-report.md` records a leave-one-group-out smoke test on a public Kaggle-derived mirror. Calibration reduced FPR in many groups but sometimes collapsed recall; no validation claim is allowed because device/time metadata are missing. Official UCI download was interrupted at ~1.3 GB.
