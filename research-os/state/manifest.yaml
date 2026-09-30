@@ -94,6 +94,7 @@ artifacts:
   iot_ids_conditional_shortcut_audit: ideas/conditional-shortcut-audit-candidate.md
   iot_ids_conditional_shortcut_novelty_check: literature/iot-ids/conditional-shortcut-audit-novelty-check-2026-09-30.md
   iot_ids_second_dataset_auditability_scout: literature/iot-ids/second-dataset-auditability-scout-2026-09-30.md
+  iot_ids_second_dataset_owner_schema_hunt: literature/iot-ids/second-dataset-owner-schema-hunt-2026-09-30.md
   iot_ids_cn_full_translations: literature/iot-ids/translations/
   iot_ids_nearest_paper_check: reviews/iot-ids-nearest-paper-check-2026-09-29.md
   n_baiot_official_profile: data/n-baiot-uci-profile.md
@@ -126,5 +127,5 @@ review:
 
 last_checkpoint:
   timestamp: 2026-09-30T00:30:00+08:00
-  summary: "A coverage-balanced N-BaIoT mirror audit found window-sensitive random-row versus LODO gaps, but a three-seed frozen-MLP feasibility test found no stable positive CDP-to-DHG association. The conditional device-probe explanatory claim is rejected; only split-sensitivity reporting remains as a one-mirror evaluation finding, and the second-dataset standard remains unmet."
-  next_action: "Do not implement CDIAR or a CDP-based audit method. Obtain a second official row-to-device/time source for narrowly scoped split-sensitivity replication; otherwise formally pivot away from an IoT IDS paper rather than writing an unsupported explanatory claim."
+  summary: "A coverage-balanced N-BaIoT mirror audit found window-sensitive random-row versus LODO gaps, but a three-seed frozen-MLP feasibility test found no stable positive CDP-to-DHG association. A second independent owner-schema hunt also rejected N-BaIoT, ToN_IoT, IoT-23, CICIoT2023 and IoTID20 for the strict device-held-out replication standard. The conditional-probe claim is rejected and the second-dataset standard remains unmet."
+  next_action: "Do not implement CDIAR or a CDP-based audit method. Seek only an official manifest that maps N-BaIoT or another public dataset's files/rows to named devices and collection blocks; otherwise formally pivot away from an IoT IDS paper rather than writing an unsupported explanatory claim."
