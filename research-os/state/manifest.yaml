@@ -100,6 +100,7 @@ artifacts:
   n_baiot_preflight_manifest: data/n-baiot-preflight-manifest.yaml
   n_baiot_preflight_report: reports/nbaiot-preflight-report.md
   n_baiot_original_preflight_report: reports/nbaiot-original-preflight-report.md
+  n_baiot_common_support_audit: reports/nbaiot-common-support-audit-report.md
   n_baiot_constrained_check: artifacts/nbaiot-preflight/constrained-results.json
 
 literature:
@@ -124,5 +125,5 @@ review:
 
 last_checkpoint:
   timestamp: 2026-09-30T00:30:00+08:00
-  summary: "A primary-source second-dataset scout rejected ToN_IoT, Bot-IoT, CICIoT2023 and Edge-IIoTset for lack of verified row-level device identity plus block provenance; IoT-23 is retained only for scenario/capture robustness. The two-dataset device-audit standard is unmet, so the candidate is blocked rather than weakened."
-  next_action: "Obtain first-party schema/manifest evidence for a second dataset's row-to-device mapping and time/capture alignment; if that cannot be obtained, formally pivot from a two-dataset device-audit paper rather than invent device IDs from IPs or filenames."
+  summary: "A coverage-balanced N-BaIoT mirror audit found a stable Random Forest random-row minus mean leave-one-device-out Macro-F1 gap of 0.0832–0.0958 across five seeds, with strongly class-conditional raw device recoverability. This is a one-mirror evaluation finding, not a validated Shortcut Audit Card; the second-dataset standard remains unmet."
+  next_action: "Run row-offset/capture-block sensitivity on N-BaIoT where support permits, and obtain first-party schema/manifest evidence for a second dataset's row-to-device mapping and time/capture alignment. Do not claim submission readiness until both gates pass."
