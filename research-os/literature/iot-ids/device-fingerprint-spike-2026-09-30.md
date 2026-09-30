@@ -38,6 +38,15 @@ On the original-layout N-BaIoT mirror, a benign-only device-number classifier ac
 6. **Enhancing IoT Attack Classification through Domain Generalization** (2025), DOI `10.1109/ICSC65596.2025.11140153`.
    - Official abstract checked via OpenAlex. It benchmarks GroupDRO, ANDMASK and Mixup across several IoT datasets.
 
+## New close-overlap finding
+
+### Cross-Domain Cybersecurity Threat Detection via Self-Supervised Feature Disentanglement (2025)
+
+- DOI: `10.1109/CISAT66811.2025.11181896`.
+- Semantic Scholar official record and abstract checked; full text was not located during this session.
+- Abstract-level method: self-supervised feature disentanglement explicitly decouples domain-specific and threat-specific features for zero-shot unseen domains, using a dual-branch Transformer, contrastive learning, adversarial training, prototype disentanglement and dynamic feature masking.
+- Consequence: it is a **very close conceptual overlap** with a broad CDIAR algorithm. CDIAR must not be claimed as a novel feature-disentanglement method unless a much narrower, demonstrably different formulation survives full-text comparison.
+
 ## Candidate that might still be distinct
 
 ### Conditional Device-Invariant Attack Representation (CDIAR) — hypothesis only
@@ -80,4 +89,4 @@ A **Device-Shortcut Audit Card for IoT IDS datasets** would measure conditional 
 
 ## Spike conclusion
 
-CDIAR is the first candidate since threshold calibration with a potentially interesting *question*, but its novelty is **unverified and moderate at best**. It must be challenged specifically against conditional domain-adversarial learning, causal/invariant risk methods and the 2025 IoT domain-generalization paper before implementation.
+The broad CDIAR algorithm is now **high-risk and probably not novel enough**, given the 2025 self-supervised domain/threat disentanglement work. Do not implement it as a paper method before full-text comparison. A more defensible successor is an **audit contribution**: quantify conditional device predictability in an IDS representation, measure random-vs-device-held-out evaluation gaps, and report whether attack scores are shortcut-sensitive. This audit idea is also unverified and needs a systematic novelty search.

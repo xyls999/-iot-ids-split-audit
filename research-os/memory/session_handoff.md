@@ -29,7 +29,7 @@ Ten DOI-verified papers and local reading notes are at `literature/iot-ids/`. St
 
 ## Device-fingerprint innovation spike
 
-`literature/iot-ids/device-fingerprint-spike-2026-09-30.md` distinguishes attack-feature disentanglement (3D-IDS 2023/DIDS 2025) from a candidate target-free conditional device-nuisance representation (CDIAR). CDIAR is unverified, not approved for implementation. The research subagent failed due unavailable web tools; a reviewer timed out with no output.
+`literature/iot-ids/device-fingerprint-spike-2026-09-30.md` now includes a close 2025 paper (`10.1109/CISAT66811.2025.11181896`) that disentangles domain-specific and threat-specific features. CDIAR is high-risk and not approved. The next candidate is `ideas/conditional-shortcut-audit-candidate.md`; it needs a systematic novelty check. The research subagent failed due unavailable web tools; a reviewer timed out with no output.
 
 ## Domain-generalization literature checkpoint
 

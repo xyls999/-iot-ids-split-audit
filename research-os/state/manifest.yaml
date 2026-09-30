@@ -91,6 +91,7 @@ artifacts:
   iot_ids_domain_generalization_review: literature/iot-ids/domain-generalization-review.md
   iot_ids_next_candidates: ideas/iot-ids-next-candidates.yaml
   iot_ids_device_fingerprint_spike: literature/iot-ids/device-fingerprint-spike-2026-09-30.md
+  iot_ids_conditional_shortcut_audit: ideas/conditional-shortcut-audit-candidate.md
   iot_ids_cn_full_translations: literature/iot-ids/translations/
   iot_ids_nearest_paper_check: reviews/iot-ids-nearest-paper-check-2026-09-29.md
   n_baiot_official_profile: data/n-baiot-uci-profile.md
@@ -121,5 +122,5 @@ review:
 
 last_checkpoint:
   timestamp: 2026-09-30T00:30:00+08:00
-  summary: "Innovation spike found attack-feature disentanglement (3D-IDS 2023; DIDS 2025) and domain adaptation are established, but a target-free, conditional device-identity suppression formulation remains a candidate only; exact overlap with conditional DANN/causal-invariance literature is unverified."
-  next_action: "Verify CDIAR against conditional domain-adversarial/causal-invariance literature and full text of the 2025 domain-generalization paper before any method implementation."
+  summary: "Innovation spike found 2025 self-supervised domain/threat feature disentanglement with close overlap to CDIAR, so CDIAR is high-risk as a new algorithm. The remaining candidate is a conditional device-shortcut audit framework, whose exact novelty remains unverified."
+  next_action: "Treat CDIAR as high-risk due 2025 self-supervised domain/threat disentanglement; perform a systematic novelty check for the Conditional Shortcut Audit Card before implementation."
