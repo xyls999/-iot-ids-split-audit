@@ -97,6 +97,7 @@ artifacts:
   iot_ids_second_dataset_owner_schema_hunt: literature/iot-ids/second-dataset-owner-schema-hunt-2026-09-30.md
   iot_ids_cn_full_translations: literature/iot-ids/translations/
   iot_ids_nearest_paper_check: reviews/iot-ids-nearest-paper-check-2026-09-29.md
+  iot_ids_paper_readiness_review: reviews/iot-ids-paper-readiness-review-2026-09-30.md
   n_baiot_official_profile: data/n-baiot-uci-profile.md
   n_baiot_primary_protocol_boundary: literature/iot-ids/n-baiot-primary-protocol-boundary-2026-09-30.md
   n_baiot_preflight_manifest: data/n-baiot-preflight-manifest.yaml
@@ -128,5 +129,5 @@ review:
 
 last_checkpoint:
   timestamp: 2026-09-30T00:30:00+08:00
-  summary: "A coverage-balanced N-BaIoT mirror audit found window-sensitive random-row versus LODO gaps, but a three-seed frozen-MLP feasibility test found no stable positive CDP-to-DHG association. The original N-BaIoT paper supports chronological benign partitions in the official collection, but the current mirror cannot inherit that claim without an official layout manifest. No second strict replication dataset is verified; the conditional-probe claim is rejected."
+  summary: "Paper-readiness review permits only a bounded technical-report skeleton. It blocks any submission-oriented manuscript because the sole result is a nonofficial mirror, no second strict replication dataset is verified, and the CDP-to-DHG explanatory claim is rejected. No novelty, method, time or leakage claim is allowed."
   next_action: "Do not implement CDIAR or a CDP-based audit method. Seek only an official manifest that maps N-BaIoT or another public dataset's files/rows to named devices and collection blocks; otherwise formally pivot away from an IoT IDS paper rather than writing an unsupported explanatory claim."

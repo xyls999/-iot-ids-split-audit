@@ -29,7 +29,7 @@ Ten DOI-verified papers and local reading notes are at `literature/iot-ids/`. St
 
 ## Device-fingerprint innovation spike
 
-`reports/nbaiot-common-support-audit-report.md` is the split-sensitivity empirical core: five seeds and two row windows show Random Forest random-row minus mean LODO Macro-F1 of 0.0500–0.0958, with class-dependent raw device probes. `reports/nbaiot-embedding-probe-feasibility-report.md` rejects the CDP→DHG explanatory hypothesis: frozen-MLP probe versus DHG Spearman is -0.600, -0.400, 0.000 over three seeds. Do not implement CDIAR or claim shortcut causality. `literature/iot-ids/n-baiot-primary-protocol-boundary-2026-09-30.md` records a critical distinction: original N-BaIoT benign data were chronologically partitioned, but the current mirror cannot be called temporal without official layout evidence. A second independent owner-schema hunt found no qualifying dataset; only an official row-to-device plus collection-block manifest can revive a narrow replication, otherwise pivot.
+`reviews/iot-ids-paper-readiness-review-2026-09-30.md` is the authoritative practical assessment: a bounded technical-report skeleton may start, but a submission-oriented manuscript is blocked. The allowable framing is a Kaggle-mirror, coverage-balanced split-sensitivity case study (Random Forest random minus LODO Macro-F1 0.0500–0.0958); do not call it official UCI, temporal, leakage, novel, or causal. `reports/nbaiot-embedding-probe-feasibility-report.md` rejects CDP→DHG. An official row-to-device plus collection-block manifest or a strict second dataset is required to revive a paper-level replication.
 
 ## Domain-generalization literature checkpoint
 
