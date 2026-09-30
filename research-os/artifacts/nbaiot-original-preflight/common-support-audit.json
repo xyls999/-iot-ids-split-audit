@@ -11,6 +11,7 @@
   "protocol": {
     "seed": 20260930,
     "rows_per_device_label": 600,
+    "row_offset": 0,
     "labels": [
       "benign",
       "gafgyt.combo",
@@ -166,8 +167,8 @@
           "gafgyt.udp": 0.6610960924059965
         },
         "accuracy": 0.7427160493827161,
-        "fit_seconds": 2.4407030000002123,
-        "inference_us_per_row": 1.4131481482224815,
+        "fit_seconds": 4.104628999997658,
+        "inference_us_per_row": 2.89074074069863,
         "serialized_model_bytes": 12709
       },
       "random_forest": {
@@ -181,8 +182,8 @@
           "gafgyt.udp": 0.7609370589895569
         },
         "accuracy": 0.8948148148148148,
-        "fit_seconds": 0.7489873999984411,
-        "inference_us_per_row": 4.939419753403247,
+        "fit_seconds": 0.8423073000012664,
+        "inference_us_per_row": 7.111037037382765,
         "serialized_model_bytes": 2213498
       }
     },
@@ -201,8 +202,8 @@
               "gafgyt.udp": 0.6640755136035535
             },
             "accuracy": 0.6580555555555555,
-            "fit_seconds": 2.8563184999984514,
-            "inference_us_per_row": 2.037861111400869,
+            "fit_seconds": 5.0990845000014815,
+            "inference_us_per_row": 2.9505277780117467,
             "serialized_model_bytes": 12709,
             "dhg_macro_f1": 0.137836243887
           },
@@ -217,8 +218,8 @@
               "gafgyt.udp": 0.9250965250965251
             },
             "accuracy": 0.8083333333333333,
-            "fit_seconds": 0.7240557000004628,
-            "inference_us_per_row": 9.959583333814711,
+            "fit_seconds": 0.9345056000020122,
+            "inference_us_per_row": 10.89805555542019,
             "serialized_model_bytes": 1990760,
             "dhg_macro_f1": 0.128440892051
           }
@@ -238,8 +239,8 @@
               "gafgyt.udp": 0.016420361247947456
             },
             "accuracy": 0.8011111111111111,
-            "fit_seconds": 2.6231477000001178,
-            "inference_us_per_row": 1.6926388889260124,
+            "fit_seconds": 5.110393099999783,
+            "inference_us_per_row": 2.6844166667514298,
             "serialized_model_bytes": 12709,
             "dhg_macro_f1": -0.059652464069
           },
@@ -254,8 +255,8 @@
               "gafgyt.udp": 0.6674094707520891
             },
             "accuracy": 0.7394444444444445,
-            "fit_seconds": 0.77781700000196,
-            "inference_us_per_row": 10.288000000097478,
+            "fit_seconds": 1.0353852000007464,
+            "inference_us_per_row": 14.349555556489374,
             "serialized_model_bytes": 2206938,
             "dhg_macro_f1": 0.206319699449
           }
@@ -275,8 +276,8 @@
               "gafgyt.udp": 0.019261637239165328
             },
             "accuracy": 0.8111111111111111,
-            "fit_seconds": 2.875486599998112,
-            "inference_us_per_row": 1.5369166663327227,
+            "fit_seconds": 4.786822400001256,
+            "inference_us_per_row": 2.5559444444904025,
             "serialized_model_bytes": 12709,
             "dhg_macro_f1": -0.072556567303
           },
@@ -291,8 +292,8 @@
               "gafgyt.udp": 0.6677814938684504
             },
             "accuracy": 0.8344444444444444,
-            "fit_seconds": 0.788143099998706,
-            "inference_us_per_row": 10.486111110973676,
+            "fit_seconds": 0.9833324999999604,
+            "inference_us_per_row": 14.498638889158935,
             "serialized_model_bytes": 2287811,
             "dhg_macro_f1": 0.10266825988
           }
@@ -312,8 +313,8 @@
               "gafgyt.udp": 0.019769357495881382
             },
             "accuracy": 0.7388888888888889,
-            "fit_seconds": 3.0598432999977376,
-            "inference_us_per_row": 1.7662777776826666,
+            "fit_seconds": 4.853308900001139,
+            "inference_us_per_row": 4.656638888668062,
             "serialized_model_bytes": 12709,
             "dhg_macro_f1": 0.004462091416
           },
@@ -328,8 +329,8 @@
               "gafgyt.udp": 0.6670384829894033
             },
             "accuracy": 0.7227777777777777,
-            "fit_seconds": 0.7047643000005337,
-            "inference_us_per_row": 9.487222222459323,
+            "fit_seconds": 1.1586086999996041,
+            "inference_us_per_row": 12.04969444491629,
             "serialized_model_bytes": 2214339,
             "dhg_macro_f1": 0.228347534937
           }
@@ -349,8 +350,8 @@
               "gafgyt.udp": 0.019417475728155338
             },
             "accuracy": 0.4988888888888889,
-            "fit_seconds": 3.688039500000741,
-            "inference_us_per_row": 1.915333332362934,
+            "fit_seconds": 5.2130250000009255,
+            "inference_us_per_row": 5.835333332571382,
             "serialized_model_bytes": 12709,
             "dhg_macro_f1": 0.24052975294
           },
@@ -365,8 +366,8 @@
               "gafgyt.udp": 0.6674094707520891
             },
             "accuracy": 0.8272222222222222,
-            "fit_seconds": 0.8444405000009283,
-            "inference_us_per_row": 11.070916666034867,
+            "fit_seconds": 0.9727309000008972,
+            "inference_us_per_row": 14.010305555226903,
             "serialized_model_bytes": 2187898,
             "dhg_macro_f1": 0.110224496761
           }
@@ -386,8 +387,8 @@
               "gafgyt.udp": 0.01610305958132045
             },
             "accuracy": 0.8125,
-            "fit_seconds": 5.199594300000172,
-            "inference_us_per_row": 9.170972222515653,
+            "fit_seconds": 4.821058100002119,
+            "inference_us_per_row": 2.4304999998195043,
             "serialized_model_bytes": 12709,
             "dhg_macro_f1": -0.072969098663
           },
@@ -402,8 +403,8 @@
               "gafgyt.udp": 0.9925434962717481
             },
             "accuracy": 0.9975,
-            "fit_seconds": 1.4901768999989145,
-            "inference_us_per_row": 15.753305554729497,
+            "fit_seconds": 1.083654400001251,
+            "inference_us_per_row": 14.577055555693933,
             "serialized_model_bytes": 2280643,
             "dhg_macro_f1": -0.114117797709
           }
@@ -423,8 +424,8 @@
               "gafgyt.udp": 0.01639344262295082
             },
             "accuracy": 0.5647222222222222,
-            "fit_seconds": 8.108441500000481,
-            "inference_us_per_row": 1.9509444448178532,
+            "fit_seconds": 5.232357900000352,
+            "inference_us_per_row": 2.4681388883133573,
             "serialized_model_bytes": 12709,
             "dhg_macro_f1": 0.187722562507
           },
@@ -439,8 +440,8 @@
               "gafgyt.udp": 0.8144119646498981
             },
             "accuracy": 0.8136111111111111,
-            "fit_seconds": 1.5754912000011245,
-            "inference_us_per_row": 24.13005555556285,
+            "fit_seconds": 0.9692169000009017,
+            "inference_us_per_row": 14.469277777809312,
             "serialized_model_bytes": 2235171,
             "dhg_macro_f1": 0.083496227511
           }
@@ -460,8 +461,8 @@
               "gafgyt.udp": 0.015552099533437015
             },
             "accuracy": 0.7858333333333334,
-            "fit_seconds": 5.7926120000011,
-            "inference_us_per_row": 2.0466388893206995,
+            "fit_seconds": 4.913239699999394,
+            "inference_us_per_row": 3.9308333331670537,
             "serialized_model_bytes": 12709,
             "dhg_macro_f1": -0.049132809431
           },
@@ -476,8 +477,8 @@
               "gafgyt.udp": 0.9933665008291874
             },
             "accuracy": 0.99,
-            "fit_seconds": 0.7348510999981954,
-            "inference_us_per_row": 10.587055555030627,
+            "fit_seconds": 1.1355791999994835,
+            "inference_us_per_row": 15.496416666186025,
             "serialized_model_bytes": 2286915,
             "dhg_macro_f1": -0.10661359035
           }
@@ -497,8 +498,8 @@
               "gafgyt.udp": 0.6622369878183831
             },
             "accuracy": 0.6044444444444445,
-            "fit_seconds": 5.536411799999769,
-            "inference_us_per_row": 2.9156944452147906,
+            "fit_seconds": 4.579162799996993,
+            "inference_us_per_row": 2.5578611105932696,
             "serialized_model_bytes": 12709,
             "dhg_macro_f1": 0.148739418734
           },
@@ -513,8 +514,8 @@
               "gafgyt.udp": 0.6674094707520891
             },
             "accuracy": 0.7963888888888889,
-            "fit_seconds": 0.9332998000027146,
-            "inference_us_per_row": 14.879472222067609,
+            "fit_seconds": 0.9721089000013308,
+            "inference_us_per_row": 13.464916666837073,
             "serialized_model_bytes": 2139962,
             "dhg_macro_f1": 0.141170535784
           }

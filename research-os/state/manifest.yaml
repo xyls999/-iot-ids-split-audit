@@ -125,5 +125,5 @@ review:
 
 last_checkpoint:
   timestamp: 2026-09-30T00:30:00+08:00
-  summary: "A coverage-balanced N-BaIoT mirror audit found a stable Random Forest random-row minus mean leave-one-device-out Macro-F1 gap of 0.0832–0.0958 across five seeds, with strongly class-conditional raw device recoverability. This is a one-mirror evaluation finding, not a validated Shortcut Audit Card; the second-dataset standard remains unmet."
+  summary: "A coverage-balanced N-BaIoT mirror audit found Random Forest random-row minus mean leave-one-device-out Macro-F1 gaps of 0.0832–0.0958 in rows 0–599 and 0.0500–0.0535 in rows 2,000–2,599 across five seeds, with strongly class-conditional raw device recoverability. This one-mirror result demonstrates window sensitivity, not a validated Shortcut Audit Card; the second-dataset standard remains unmet."
   next_action: "Run row-offset/capture-block sensitivity on N-BaIoT where support permits, and obtain first-party schema/manifest evidence for a second dataset's row-to-device mapping and time/capture alignment. Do not claim submission readiness until both gates pass."

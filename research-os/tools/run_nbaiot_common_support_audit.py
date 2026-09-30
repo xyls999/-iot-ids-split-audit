@@ -24,6 +24,7 @@ ZIP = ROOT / "data/raw/n-baiot-original-kaggle.zip"
 OUT = ROOT / "artifacts/nbaiot-original-preflight/common-support-audit.json"
 SEED = 20260930
 ROWS_PER_DEVICE_LABEL = 600
+ROW_OFFSET = 0
 
 
 def coverage_report(device_to_labels):
@@ -53,18 +54,25 @@ def filename_label(member, device):
     return name[len(prefix):-4]
 
 
-def read_first(zipped, member, n):
+def read_first(zipped, member, n, start=0):
     frames = []
     remaining = n
+    rows_to_skip = start
     with zipped.open(member) as handle:
         for chunk in pd.read_csv(handle, chunksize=50_000):
+            if rows_to_skip >= len(chunk):
+                rows_to_skip -= len(chunk)
+                continue
+            if rows_to_skip:
+                chunk = chunk.iloc[rows_to_skip:]
+                rows_to_skip = 0
             piece = chunk.iloc[:remaining]
             frames.append(piece)
             remaining -= len(piece)
             if remaining <= 0:
                 break
     if remaining > 0:
-        raise ValueError(f"{member} has fewer than {n} rows")
+        raise ValueError(f"{member} has fewer than {start + n} rows")
     return pd.concat(frames, ignore_index=True).replace([np.inf, -np.inf], np.nan)
 
 
@@ -198,7 +206,9 @@ def main():
         }
         for device in devices:
             for label_index, label in enumerate(labels):
-                frame = read_first(zipped, member_by_label[device][label], ROWS_PER_DEVICE_LABEL)
+                frame = read_first(
+                    zipped, member_by_label[device][label], ROWS_PER_DEVICE_LABEL, ROW_OFFSET
+                )
                 pieces.append(frame)
                 y_parts.append(np.full(len(frame), label_index, dtype=int))
                 device_parts.append(np.full(len(frame), device, dtype=int))
@@ -224,6 +234,7 @@ def main():
         "protocol": {
             "seed": SEED,
             "rows_per_device_label": ROWS_PER_DEVICE_LABEL,
+            "row_offset": ROW_OFFSET,
             "labels": labels,
             "random_split": "25% stratified by device × class cell",
             "held_device_split": "train on the other eight device groups; test the held group; same balanced common-support rows",

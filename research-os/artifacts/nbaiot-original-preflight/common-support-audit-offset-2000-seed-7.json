@@ -1,0 +1,526 @@
+{
+  "source_archive": "E:\\water paper\\research-os\\data\\raw\\n-baiot-original-kaggle.zip",
+  "archive_integrity_test_error": null,
+  "scope": "Offline common-support feasibility audit on a Kaggle original-layout mirror; not an official UCI final result.",
+  "limitations": [
+    "Device numbers are mirror group identifiers, not owner-verified device names.",
+    "The CSV mirror has no explicit timestamps; this audit does not make temporal claims.",
+    "Raw-feature conditional probes are not frozen-model representation probes and do not establish shortcut reliance or causality.",
+    "One dataset cannot test cross-dataset replication of a CDP-to-DHG association."
+  ],
+  "protocol": {
+    "seed": 7,
+    "rows_per_device_label": 600,
+    "row_offset": 2000,
+    "labels": [
+      "benign",
+      "gafgyt.combo",
+      "gafgyt.junk",
+      "gafgyt.scan",
+      "gafgyt.tcp",
+      "gafgyt.udp"
+    ],
+    "random_split": "25% stratified by device × class cell",
+    "held_device_split": "train on the other eight device groups; test the held group; same balanced common-support rows"
+  },
+  "coverage": {
+    "common_labels": [
+      "benign",
+      "gafgyt.combo",
+      "gafgyt.junk",
+      "gafgyt.scan",
+      "gafgyt.tcp",
+      "gafgyt.udp"
+    ],
+    "missing_by_device": {
+      "3": [
+        "mirai.ack",
+        "mirai.scan",
+        "mirai.syn",
+        "mirai.udp",
+        "mirai.udpplain"
+      ],
+      "7": [
+        "mirai.ack",
+        "mirai.scan",
+        "mirai.syn",
+        "mirai.udp",
+        "mirai.udpplain"
+      ]
+    }
+  },
+  "dataset": {
+    "rows": 32400,
+    "features": 115,
+    "devices": 9,
+    "rows_per_device_label": {
+      "1:benign": 600,
+      "1:gafgyt.combo": 600,
+      "1:gafgyt.junk": 600,
+      "1:gafgyt.scan": 600,
+      "1:gafgyt.tcp": 600,
+      "1:gafgyt.udp": 600,
+      "2:benign": 600,
+      "2:gafgyt.combo": 600,
+      "2:gafgyt.junk": 600,
+      "2:gafgyt.scan": 600,
+      "2:gafgyt.tcp": 600,
+      "2:gafgyt.udp": 600,
+      "3:benign": 600,
+      "3:gafgyt.combo": 600,
+      "3:gafgyt.junk": 600,
+      "3:gafgyt.scan": 600,
+      "3:gafgyt.tcp": 600,
+      "3:gafgyt.udp": 600,
+      "4:benign": 600,
+      "4:gafgyt.combo": 600,
+      "4:gafgyt.junk": 600,
+      "4:gafgyt.scan": 600,
+      "4:gafgyt.tcp": 600,
+      "4:gafgyt.udp": 600,
+      "5:benign": 600,
+      "5:gafgyt.combo": 600,
+      "5:gafgyt.junk": 600,
+      "5:gafgyt.scan": 600,
+      "5:gafgyt.tcp": 600,
+      "5:gafgyt.udp": 600,
+      "6:benign": 600,
+      "6:gafgyt.combo": 600,
+      "6:gafgyt.junk": 600,
+      "6:gafgyt.scan": 600,
+      "6:gafgyt.tcp": 600,
+      "6:gafgyt.udp": 600,
+      "7:benign": 600,
+      "7:gafgyt.combo": 600,
+      "7:gafgyt.junk": 600,
+      "7:gafgyt.scan": 600,
+      "7:gafgyt.tcp": 600,
+      "7:gafgyt.udp": 600,
+      "8:benign": 600,
+      "8:gafgyt.combo": 600,
+      "8:gafgyt.junk": 600,
+      "8:gafgyt.scan": 600,
+      "8:gafgyt.tcp": 600,
+      "8:gafgyt.udp": 600,
+      "9:benign": 600,
+      "9:gafgyt.combo": 600,
+      "9:gafgyt.junk": 600,
+      "9:gafgyt.scan": 600,
+      "9:gafgyt.tcp": 600,
+      "9:gafgyt.udp": 600
+    }
+  },
+  "conditional_raw_feature_device_probes": [
+    {
+      "label": "benign",
+      "rows": 5400,
+      "devices": 9,
+      "accuracy": 0.9896296296296296,
+      "macro_f1": 0.9896340001747657
+    },
+    {
+      "label": "gafgyt.combo",
+      "rows": 5400,
+      "devices": 9,
+      "accuracy": 0.605925925925926,
+      "macro_f1": 0.6056449195108737
+    },
+    {
+      "label": "gafgyt.junk",
+      "rows": 5400,
+      "devices": 9,
+      "accuracy": 0.3540740740740741,
+      "macro_f1": 0.35446571794895276
+    },
+    {
+      "label": "gafgyt.scan",
+      "rows": 5400,
+      "devices": 9,
+      "accuracy": 0.32666666666666666,
+      "macro_f1": 0.32627650353038873
+    },
+    {
+      "label": "gafgyt.tcp",
+      "rows": 5400,
+      "devices": 9,
+      "accuracy": 0.2222222222222222,
+      "macro_f1": 0.08158201789755021
+    },
+    {
+      "label": "gafgyt.udp",
+      "rows": 5400,
+      "devices": 9,
+      "accuracy": 0.1111111111111111,
+      "macro_f1": 0.022222222222222223
+    }
+  ],
+  "attack_classification": {
+    "random_row": {
+      "logistic_regression": {
+        "macro_f1": 0.7764469978335403,
+        "per_label_f1": {
+          "benign": 1.0,
+          "gafgyt.combo": 0.9962825278810409,
+          "gafgyt.junk": 0.995197635759143,
+          "gafgyt.scan": 0.9988901220865705,
+          "gafgyt.tcp": 0.6668313163744134,
+          "gafgyt.udp": 0.0014803849000740192
+        },
+        "accuracy": 0.8318518518518518,
+        "fit_seconds": 2.8930707999970764,
+        "inference_us_per_row": 2.148839506125911,
+        "serialized_model_bytes": 12706
+      },
+      "random_forest": {
+        "macro_f1": 0.9218508783386515,
+        "per_label_f1": {
+          "benign": 1.0,
+          "gafgyt.combo": 0.9988901220865705,
+          "gafgyt.junk": 0.9988876529477196,
+          "gafgyt.scan": 1.0,
+          "gafgyt.tcp": 0.714897667777249,
+          "gafgyt.udp": 0.8184298272203698
+        },
+        "accuracy": 0.9256790123456791,
+        "fit_seconds": 0.6339315999975952,
+        "inference_us_per_row": 4.917790123457693,
+        "serialized_model_bytes": 818709
+      }
+    },
+    "leave_one_device_out": [
+      {
+        "held_device": 1,
+        "models": {
+          "logistic_regression": {
+            "macro_f1": 0.7455478394148215,
+            "per_label_f1": {
+              "benign": 0.9966777408637874,
+              "gafgyt.combo": 0.8980716253443526,
+              "gafgyt.junk": 0.9143730886850153,
+              "gafgyt.scan": 0.9974979149291076,
+              "gafgyt.tcp": 0.6666666666666666,
+              "gafgyt.udp": 0.0
+            },
+            "accuracy": 0.8013888888888889,
+            "fit_seconds": 2.789275399998587,
+            "inference_us_per_row": 1.9924999994853148,
+            "serialized_model_bytes": 12706,
+            "dhg_macro_f1": 0.030899158419
+          },
+          "random_forest": {
+            "macro_f1": 0.920352323838081,
+            "per_label_f1": {
+              "benign": 1.0,
+              "gafgyt.combo": 0.7068965517241379,
+              "gafgyt.junk": 0.8152173913043478,
+              "gafgyt.scan": 1.0,
+              "gafgyt.tcp": 1.0,
+              "gafgyt.udp": 1.0
+            },
+            "accuracy": 0.9244444444444444,
+            "fit_seconds": 0.6633848999990732,
+            "inference_us_per_row": 9.582666667079643,
+            "serialized_model_bytes": 764419,
+            "dhg_macro_f1": 0.001498554501
+          }
+        }
+      },
+      {
+        "held_device": 2,
+        "models": {
+          "logistic_regression": {
+            "macro_f1": 0.7783941716557267,
+            "per_label_f1": {
+              "benign": 1.0,
+              "gafgyt.combo": 1.0,
+              "gafgyt.junk": 1.0,
+              "gafgyt.scan": 1.0,
+              "gafgyt.tcp": 0.6670372429127293,
+              "gafgyt.udp": 0.0033277870216306157
+            },
+            "accuracy": 0.8336111111111111,
+            "fit_seconds": 3.079833800002234,
+            "inference_us_per_row": 1.3771944446084994,
+            "serialized_model_bytes": 12706,
+            "dhg_macro_f1": -0.001947173822
+          },
+          "random_forest": {
+            "macro_f1": 0.9997222220293208,
+            "per_label_f1": {
+              "benign": 0.9991673605328892,
+              "gafgyt.combo": 1.0,
+              "gafgyt.junk": 1.0,
+              "gafgyt.scan": 1.0,
+              "gafgyt.tcp": 1.0,
+              "gafgyt.udp": 0.9991659716430359
+            },
+            "accuracy": 0.9997222222222222,
+            "fit_seconds": 0.6597786000020278,
+            "inference_us_per_row": 10.146833332732463,
+            "serialized_model_bytes": 845973,
+            "dhg_macro_f1": -0.077871343691
+          }
+        }
+      },
+      {
+        "held_device": 3,
+        "models": {
+          "logistic_regression": {
+            "macro_f1": 0.7620786288933625,
+            "per_label_f1": {
+              "benign": 0.9482909728308502,
+              "gafgyt.combo": 0.9991673605328892,
+              "gafgyt.junk": 1.0,
+              "gafgyt.scan": 0.954653937947494,
+              "gafgyt.tcp": 0.0033222591362126247,
+              "gafgyt.udp": 0.6670372429127293
+            },
+            "accuracy": 0.8172222222222222,
+            "fit_seconds": 3.1831115999993926,
+            "inference_us_per_row": 1.8758888887128302,
+            "serialized_model_bytes": 12706,
+            "dhg_macro_f1": 0.01436836894
+          },
+          "random_forest": {
+            "macro_f1": 0.7783941716557267,
+            "per_label_f1": {
+              "benign": 1.0,
+              "gafgyt.combo": 1.0,
+              "gafgyt.junk": 1.0,
+              "gafgyt.scan": 1.0,
+              "gafgyt.tcp": 0.0033277870216306157,
+              "gafgyt.udp": 0.6670372429127293
+            },
+            "accuracy": 0.8336111111111111,
+            "fit_seconds": 0.7306376999986242,
+            "inference_us_per_row": 10.738111110792186,
+            "serialized_model_bytes": 882261,
+            "dhg_macro_f1": 0.143456706683
+          }
+        }
+      },
+      {
+        "held_device": 4,
+        "models": {
+          "logistic_regression": {
+            "macro_f1": 0.7639604918697898,
+            "per_label_f1": {
+              "benign": 0.9482909728308502,
+              "gafgyt.combo": 1.0,
+              "gafgyt.junk": 0.9615384615384616,
+              "gafgyt.scan": 1.0,
+              "gafgyt.tcp": 0.0065252854812398045,
+              "gafgyt.udp": 0.6674082313681868
+            },
+            "accuracy": 0.8175,
+            "fit_seconds": 3.3330158999997366,
+            "inference_us_per_row": 4.735527776978819,
+            "serialized_model_bytes": 12706,
+            "dhg_macro_f1": 0.012486505964
+          },
+          "random_forest": {
+            "macro_f1": 0.7790087916067687,
+            "per_label_f1": {
+              "benign": 1.0,
+              "gafgyt.combo": 1.0,
+              "gafgyt.junk": 1.0,
+              "gafgyt.scan": 1.0,
+              "gafgyt.tcp": 0.006644518272425249,
+              "gafgyt.udp": 0.6674082313681868
+            },
+            "accuracy": 0.8338888888888889,
+            "fit_seconds": 0.8356113000008918,
+            "inference_us_per_row": 12.312138888874971,
+            "serialized_model_bytes": 815724,
+            "dhg_macro_f1": 0.142842086732
+          }
+        }
+      },
+      {
+        "held_device": 5,
+        "models": {
+          "logistic_regression": {
+            "macro_f1": 0.723007758313228,
+            "per_label_f1": {
+              "benign": 1.0,
+              "gafgyt.combo": 0.8626887131560029,
+              "gafgyt.junk": 0.8095238095238095,
+              "gafgyt.scan": 0.9991673605328892,
+              "gafgyt.tcp": 0.0,
+              "gafgyt.udp": 0.6666666666666666
+            },
+            "accuracy": 0.78,
+            "fit_seconds": 3.510263299998769,
+            "inference_us_per_row": 5.742916666551739,
+            "serialized_model_bytes": 12706,
+            "dhg_macro_f1": 0.05343923952
+          },
+          "random_forest": {
+            "macro_f1": 0.7777777777777778,
+            "per_label_f1": {
+              "benign": 1.0,
+              "gafgyt.combo": 1.0,
+              "gafgyt.junk": 1.0,
+              "gafgyt.scan": 1.0,
+              "gafgyt.tcp": 0.0,
+              "gafgyt.udp": 0.6666666666666666
+            },
+            "accuracy": 0.8333333333333334,
+            "fit_seconds": 0.7260409999980766,
+            "inference_us_per_row": 10.367916666938173,
+            "serialized_model_bytes": 832309,
+            "dhg_macro_f1": 0.144073100561
+          }
+        }
+      },
+      {
+        "held_device": 6,
+        "models": {
+          "logistic_regression": {
+            "macro_f1": 0.7769739980768612,
+            "per_label_f1": {
+              "benign": 0.9966555183946488,
+              "gafgyt.combo": 1.0,
+              "gafgyt.junk": 1.0,
+              "gafgyt.scan": 1.0,
+              "gafgyt.tcp": 0.6651884700665188,
+              "gafgyt.udp": 0.0
+            },
+            "accuracy": 0.8322222222222222,
+            "fit_seconds": 3.255750199998147,
+            "inference_us_per_row": 3.9901944435567005,
+            "serialized_model_bytes": 12706,
+            "dhg_macro_f1": -0.000527000243
+          },
+          "random_forest": {
+            "macro_f1": 1.0,
+            "per_label_f1": {
+              "benign": 1.0,
+              "gafgyt.combo": 1.0,
+              "gafgyt.junk": 1.0,
+              "gafgyt.scan": 1.0,
+              "gafgyt.tcp": 1.0,
+              "gafgyt.udp": 1.0
+            },
+            "accuracy": 1.0,
+            "fit_seconds": 1.376626599998417,
+            "inference_us_per_row": 15.571805555130899,
+            "serialized_model_bytes": 863445,
+            "dhg_macro_f1": -0.078149121661
+          }
+        }
+      },
+      {
+        "held_device": 7,
+        "models": {
+          "logistic_regression": {
+            "macro_f1": 0.7777777777777778,
+            "per_label_f1": {
+              "benign": 1.0,
+              "gafgyt.combo": 1.0,
+              "gafgyt.junk": 1.0,
+              "gafgyt.scan": 1.0,
+              "gafgyt.tcp": 0.0,
+              "gafgyt.udp": 0.6666666666666666
+            },
+            "accuracy": 0.8333333333333334,
+            "fit_seconds": 6.921764499998972,
+            "inference_us_per_row": 2.053833332966961,
+            "serialized_model_bytes": 12706,
+            "dhg_macro_f1": -0.001330779944
+          },
+          "random_forest": {
+            "macro_f1": 0.8940979321028161,
+            "per_label_f1": {
+              "benign": 1.0,
+              "gafgyt.combo": 0.7746933505487411,
+              "gafgyt.junk": 0.5898942420681551,
+              "gafgyt.scan": 1.0,
+              "gafgyt.tcp": 1.0,
+              "gafgyt.udp": 1.0
+            },
+            "accuracy": 0.9030555555555555,
+            "fit_seconds": 0.7379877999992459,
+            "inference_us_per_row": 12.279194445202139,
+            "serialized_model_bytes": 817068,
+            "dhg_macro_f1": 0.027752946236
+          }
+        }
+      },
+      {
+        "held_device": 8,
+        "models": {
+          "logistic_regression": {
+            "macro_f1": 0.773616770992977,
+            "per_label_f1": {
+              "benign": 0.9847972972972973,
+              "gafgyt.combo": 1.0,
+              "gafgyt.junk": 1.0,
+              "gafgyt.scan": 0.9950248756218906,
+              "gafgyt.tcp": 0.661878453038674,
+              "gafgyt.udp": 0.0
+            },
+            "accuracy": 0.8283333333333334,
+            "fit_seconds": 3.3749114999991434,
+            "inference_us_per_row": 1.8363611110948517,
+            "serialized_model_bytes": 12706,
+            "dhg_macro_f1": 0.002830226841
+          },
+          "random_forest": {
+            "macro_f1": 1.0,
+            "per_label_f1": {
+              "benign": 1.0,
+              "gafgyt.combo": 1.0,
+              "gafgyt.junk": 1.0,
+              "gafgyt.scan": 1.0,
+              "gafgyt.tcp": 1.0,
+              "gafgyt.udp": 1.0
+            },
+            "accuracy": 1.0,
+            "fit_seconds": 0.7360989000007976,
+            "inference_us_per_row": 10.505777777830694,
+            "serialized_model_bytes": 868821,
+            "dhg_macro_f1": -0.078149121661
+          }
+        }
+      },
+      {
+        "held_device": 9,
+        "models": {
+          "logistic_regression": {
+            "macro_f1": 0.7731662322176766,
+            "per_label_f1": {
+              "benign": 0.9917355371900827,
+              "gafgyt.combo": 1.0,
+              "gafgyt.junk": 1.0,
+              "gafgyt.scan": 0.9839119390347163,
+              "gafgyt.tcp": 0.0,
+              "gafgyt.udp": 0.6633499170812603
+            },
+            "accuracy": 0.8280555555555555,
+            "fit_seconds": 3.0376797999997507,
+            "inference_us_per_row": 1.9734722223398018,
+            "serialized_model_bytes": 12706,
+            "dhg_macro_f1": 0.003280765616
+          },
+          "random_forest": {
+            "macro_f1": 0.6656835451179287,
+            "per_label_f1": {
+              "benign": 1.0,
+              "gafgyt.combo": 0.5611510791366906,
+              "gafgyt.junk": 0.7662835249042146,
+              "gafgyt.scan": 1.0,
+              "gafgyt.tcp": 0.0,
+              "gafgyt.udp": 0.6666666666666666
+            },
+            "accuracy": 0.7316666666666667,
+            "fit_seconds": 0.6520921000010276,
+            "inference_us_per_row": 10.304944445225475,
+            "serialized_model_bytes": 817292,
+            "dhg_macro_f1": 0.256167333221
+          }
+        }
+      }
+    ]
+  }
+}

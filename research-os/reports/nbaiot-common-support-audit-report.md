@@ -30,7 +30,18 @@ This experiment does **not** claim that a high device probe proves data leakage 
 | Random Forest | 0.8834–0.8878 | 0.7893–0.8020 | **0.0832–0.0958** (mean 0.0879) | A stable 8.3–9.6 percentage-point aggregate gap in this mirror/protocol. |
 | Logistic Regression | 0.6883–0.6957 | 0.6367 (fixed because source-only fit does not use split seed) | 0.0517–0.0590 (mean 0.0559) | Exploratory only: several fits emitted an `lbfgs` convergence warning at `max_iter=350`. |
 
-The Random Forest result is the most reliable current evidence because it had no convergence warning. It is still only a one-mirror, first-row-sampled result.
+The Random Forest result is the most reliable current evidence because it had no convergence warning. It is still only a one-mirror result.
+
+### Row-window sensitivity
+
+The same five seeds were repeated after moving every device × class sampling window forward by 2,000 rows. This is an ordering sensitivity check, **not** a temporal evaluation: the mirror has no verified timestamps.
+
+| Random Forest window | Random − mean LODO Macro-F1 gap across 5 seeds |
+|---|---:|
+| rows 0–599 | 0.0832–0.0958 (mean 0.0879) |
+| rows 2,000–2,599 | **0.0500–0.0535** (mean 0.0513) |
+
+The gap persists in the later window but is smaller. Therefore the defensible phenomenon is not a fixed “8.8 point” effect. It is a **window-sensitive 5.0–9.6 point random-versus-device-held-out discrepancy** in this mirror and protocol. This strengthens the need to report sampling/capture-window sensitivity rather than choosing a favourable slice.
 
 ### Gap is class-specific
 
@@ -66,14 +77,14 @@ This directly falsifies a simplistic story that “device identity is always equ
 
 The project now has a defensible **empirical core for a technical report or paper skeleton**:
 
-> On a coverage-balanced N-BaIoT mirror, random-row evaluation inflates Random Forest multiclass Macro-F1 by about 8.8 points relative to leave-one-device-out evaluation; the discrepancy and device signal are attack-class dependent.
+> On a coverage-balanced N-BaIoT mirror, random-row evaluation exceeds leave-one-device-out Random Forest multiclass Macro-F1 by 5.0–9.6 points across two ordered sampling windows and five seeds; the discrepancy and device signal are attack-class dependent.
 
 The supported contribution at this point is an **evaluation finding**, not a new detection method and not evidence of leakage.
 
 ## What is still missing before a manuscript claim
 
 1. A second dataset with official row-to-device and capture/time/provenance evidence; the current search gate remains blocked (`literature/iot-ids/second-dataset-auditability-scout-2026-09-30.md`).
-2. Different row-offset/capture-block sampling; the current mirror lacks explicit timestamps, so first-row sampling cannot support a chronological claim.
+2. Additional row-offset/capture-block sampling. The 2,000-row offset already shows magnitude sensitivity, and the current mirror lacks explicit timestamps, so neither window supports a chronological claim.
 3. A converged linear baseline and at least one neural representation if the project retains a frozen-representation CDP claim.
 4. Confidence intervals, duplicate/provenance checks and a preregistered association test before claiming that a conditional device probe predicts any generalization gap.
 

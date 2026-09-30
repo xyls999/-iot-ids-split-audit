@@ -1,6 +1,8 @@
 import importlib.util
 from pathlib import Path
+import tempfile
 import unittest
+import zipfile
 
 
 MODULE_PATH = Path(__file__).with_name("run_nbaiot_common_support_audit.py")
@@ -32,6 +34,16 @@ class CommonSupportAuditTests(unittest.TestCase):
 
         self.assertAlmostEqual(scores["benign"], 2 / 3)
         self.assertAlmostEqual(scores["attack"], 0.8)
+
+    def test_read_first_can_select_a_later_row_window(self):
+        with tempfile.TemporaryDirectory() as directory:
+            archive = Path(directory) / "sample.zip"
+            with zipfile.ZipFile(archive, "w") as zipped:
+                zipped.writestr("sample.csv", "a,b\n1,10\n2,20\n3,30\n4,40\n")
+            with zipfile.ZipFile(archive) as zipped:
+                frame = module.read_first(zipped, "sample.csv", 2, start=1)
+
+        self.assertEqual(frame["a"].tolist(), [2, 3])
 
 
 if __name__ == "__main__":
