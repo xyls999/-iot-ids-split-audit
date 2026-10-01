@@ -1,0 +1,23 @@
+{
+  "status": "protocol_refinement_after_initial_adjudication",
+  "scope": "within-mirror device-independent evaluation only; no cross-dataset or leakage claim",
+  "fixed_claim": "For the nine-group, six-label N-BaIoT mirror, does the evidence identify a model evaluation that is independent of row sharing across device groups?",
+  "state_rule": {
+    "identified": "the supplied tier contains an explicit device-held-out evaluation result on common-support rows",
+    "conditional": "the tier provides only a within-mirror or protocol-limited indication without an explicit held-out result",
+    "not_identifiable": "the tier contains no device-group held-out evidence"
+  },
+  "tiers": {
+    "T0": "random-row result only",
+    "T1": "common-support sampling plus random-row result",
+    "T2": "second ordered sampling window plus random-row/LODO comparison context",
+    "T3": "explicit leave-one-device-out result on common-support rows"
+  },
+  "packets": [
+    {"packet_id":"nbaiot-rf-window0","observations":{"random_row_macro_f1_range":"0.8834-0.8878","mean_lodo_macro_f1_range":"0.7893-0.8020","common_support":"six labels, 600 rows per device-label cell"}},
+    {"packet_id":"nbaiot-rf-window2000","observations":{"random_minus_mean_lodo_gap_range":"0.0500-0.0535","window_semantics":"ordered row offset only; no verified timestamps","common_support":"same six-label rule"}},
+    {"packet_id":"nbaiot-lr-window0","observations":{"random_minus_mean_lodo_gap_range":"0.0517-0.0590","caveat":"some lbfgs convergence warnings","common_support":"same six-label rule"}},
+    {"packet_id":"nbaiot-device-provenance","observations":{"device_groups":9,"held_out_protocol":"train on eight groups, test on ninth using common-support rows","dataset_limit":"one locally verified mirror"}}
+  ],
+  "review_prompt":"Classify every packet x T0-T3 under the fixed claim and explicit state rule. Do not add T4 or cross-dataset claims. Cite one observation per decision."
+}

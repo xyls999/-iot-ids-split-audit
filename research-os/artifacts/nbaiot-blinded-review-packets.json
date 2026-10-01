@@ -1,0 +1,61 @@
+{
+  "status": "blinded_nbaiot_claim_packets_no_state_labels",
+  "claim_boundary": "source/protocol evidence only; do not infer leakage, causality, exploitability, or cross-dataset generalization beyond the supplied evidence",
+  "states": ["identified", "conditional", "not_identifiable"],
+  "claim": "Does the supplied evidence identify a device-independent multiclass generalization claim?",
+  "tiers": {
+    "T0": "random-row result only",
+    "T1": "common-support sampling and five-seed random-row result",
+    "T2": "second ordered row window replication",
+    "T3": "device-group identity plus leave-one-device-out evaluation",
+    "T4": "independent dataset with verified device/provenance mapping"
+  },
+  "packets": [
+    {
+      "packet_id": "nbaiot-rf-window0",
+      "model": "Random Forest",
+      "window": "rows 0-599 per device-label cell",
+      "observations": {
+        "random_row_macro_f1_range": "0.8834-0.8878 across five seeds",
+        "mean_lodo_macro_f1_range": "0.7893-0.8020 across five seeds",
+        "common_support": "six labels present for all nine mirror device groups; 600 rows per cell"
+      },
+      "evidence_source": "research-os/reports/nbaiot-common-support-audit-report.md and common-support-audit.json"
+    },
+    {
+      "packet_id": "nbaiot-rf-window2000",
+      "model": "Random Forest",
+      "window": "rows 2000-2599 per device-label cell",
+      "observations": {
+        "random_minus_mean_lodo_gap_range": "0.0500-0.0535 across five seeds",
+        "window_semantics": "ordered row offset only; mirror has no verified timestamps",
+        "common_support": "same six-label coverage rule"
+      },
+      "evidence_source": "research-os/reports/nbaiot-common-support-audit-report.md"
+    },
+    {
+      "packet_id": "nbaiot-lr-window0",
+      "model": "Logistic Regression",
+      "window": "rows 0-599 per device-label cell",
+      "observations": {
+        "random_minus_mean_lodo_gap_range": "0.0517-0.0590 across five seeds",
+        "caveat": "several fits emitted lbfgs convergence warnings at max_iter=350",
+        "common_support": "same six-label coverage rule"
+      },
+      "evidence_source": "research-os/reports/nbaiot-common-support-audit-report.md"
+    },
+    {
+      "packet_id": "nbaiot-device-provenance",
+      "model": "protocol packet",
+      "window": "all reported windows",
+      "observations": {
+        "device_groups": 9,
+        "held_out_protocol": "train on eight groups, test on the ninth using common-support rows",
+        "dataset_limit": "one locally verified Kaggle-layout mirror; no official second dataset with verified row-to-device provenance",
+        "timestamp_limit": "CSV mirror has no explicit timestamps"
+      },
+      "evidence_source": "research-os/reports/nbaiot-common-support-audit-report.md and nbaiot-original-preflight/common-support-audit.json"
+    }
+  ],
+  "review_prompt": "For each packet and each T0-T4 tier, classify only the supplied claim as identified/conditional/not_identifiable. Cite one observation. Do not convert a conditional or unidentifiable state into a label about leakage or vulnerability."
+}

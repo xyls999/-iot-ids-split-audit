@@ -145,6 +145,9 @@ artifacts:
   evidence_sensitivity_blinded_packets: artifacts/openwrt-blinded-review-packets.json
   evidence_sensitivity_blinded_adjudication: artifacts/openwrt-blinded-review-adjudication.json
   publishability_confirmation: reviews/publishability-and-researchness-confirmation-2026-10-01.md
+  nearest_work_fulltext_audit: literature/iot-security/evidence-sensitivity-nearest-work-fulltext-audit-2026-10-01.md
+  nbaiot_blinded_packets_v2: artifacts/nbaiot-blinded-review-packets-v2.json
+  nbaiot_blinded_cross_case_gate: reviews/nbaiot-blind-adjudication-and-cross-case-gate-2026-10-01.md
   iot_ids_bounded_draft: drafts/iot-ids-split-sensitivity-introduction-and-methods.md
   beginner_research_explanation: README-FOR-BEGINNERS-zh.md
   n_baiot_official_profile: data/n-baiot-uci-profile.md
