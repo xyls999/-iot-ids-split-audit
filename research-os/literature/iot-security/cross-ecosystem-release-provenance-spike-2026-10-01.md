@@ -53,6 +53,28 @@ W5  Variant scope (if any):    architecture / target / configuration applicabili
 
 审计输出只能是 **closure completeness**，例如 `closed`、`partially_witnessed`、`unclosed`、`not_evaluable`；不得写成 `affected`/`not_affected`，从而避免与 OpenVEX 影响状态和 AFV/PatchScout 的 version verdict 混淆。
 
+## 两个官方记录的只读可重放切片
+
+这不是 cohort，不能外推成 rate；目的只是检验 W1–W5 是否能在不同生态产生清楚、非漏洞语义的 closure distinction。
+
+### Debian bookworm-security：source 与 binary artifact 可在同一 signed index 中定位
+
+对 [Debian Security Tracker 的 CVE-2023-0464](https://security-tracker.debian.org/tracker/CVE-2023-0464)：
+
+- **W1：**tracker 将 source package `openssl` 在 `bookworm (security)` 标为 `fixed`，版本 `3.0.22-1~deb12u1`，并给出上游 OpenSSL fix commit URL；
+- **W2：**官方 `bookworm-security/main/binary-amd64/Packages.xz` 列出 `libssl3_3.0.22-1~deb12u1_amd64.deb` 与 SHA-256 `f0a8aa…ba80c1`；
+- **W3：**同 release 的 `main/source/Sources.xz` 列出 `openssl_3.0.22-1~deb12u1.dsc`、orig tarball 与 Debian tarball 的 SHA-256，以及 source VCS；
+- **W4：**本次读取的 `InRelease` 中包含上述 `Sources.xz`（SHA-256 `912ef4…7a692`）与 `Packages.xz`（`ee1c26…19a36`）的 checksum。它把 source/binary index 纳入同一 release metadata，但本 spike 没有取得并验证 archive signing key，也没有取得 build attestation，故不能把它升级为 cryptographic source-to-binary proof；
+- **W5：**binary record 的 `Architecture: amd64` 确定 artifact variant，但 tracker 的 source-level `fixed` 声明不在该页面给出独立 per-architecture rationale。
+
+该单例表明：即使 W1–W4 大多可定位，"status source package"、"source package"、"binary artifact" 和 "architecture-specific subject"仍是不同层；研究不能把这些对象压缩为一个 version string。
+
+### Fedora Bodhi：security update 与 signed build 不自动提供 machine-readable CVE edge
+
+Bodhi 的[官方文档](https://bodhi.fedoraproject.org/docs/)说明它管理 RPM distribution 的 update/release、生成 yum/dnf repositories，并发布 errata。其公开 update JSON 中，`FEDORA-2024-e24211eff0` 与 `FEDORA-2024-e00eceb11c` 均为 `type: security`，分别关联 `F39`/`F38` 的 signed build `dnsmasq-2.90-1.fc39`/`dnsmasq-2.90-1.fc38`，同时把 `cves` 字段返回为 `null`，notes 只给出上游 discussion URL。
+
+这不证明 Fedora 没有别处的 CVE 关联；只证明这个公开 update record 本身不能机械提供 W1。它与 Debian 单例形成了可测量的 **record-level** closure 差异，而不涉及任一 package 的真实漏洞/可利用性结论。
+
 ## 目前可想象、但尚不够格的候选贡献
 
 ### Release Security Claim Closure Audit（条件候选）
