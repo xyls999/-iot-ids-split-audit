@@ -13,10 +13,10 @@ target:
   manuscript_type: null
 
 workflow:
-  current_stage: cross_ecosystem_release_claim_closure_novelty_audit
-  current_task: "complete blinded packet review and semantic lineage adjudication for the evidence-sensitivity pilot; do not freeze v3 or create vulnerability labels"
+  current_stage: bounded_submission_readiness_review
+  current_task: "prepare a bounded methods/report manuscript with explicit non-overclaiming boundaries; high-level novelty and acceptance remain unconfirmed"
   auto_continue: false
-  status: evidence_sensitivity_stress_test_candidate_no_go_pilot_only
+  status: submission_ready_bounded_report_high_level_novelty_unconfirmed
 
 completed_tasks:
   - task_id: setup-scaffold
