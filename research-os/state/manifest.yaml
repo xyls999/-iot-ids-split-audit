@@ -142,6 +142,9 @@ artifacts:
   evidence_sensitivity_stress_test_candidate: reviews/evidence-sensitivity-stress-test-cross-case-2026-10-01.md
   evidence_sensitivity_pilot_results: reports/evidence-sensitivity-pilot-results-2026-10-01.md
   evidence_sensitivity_pilot_data: artifacts/openwrt-evidence-sensitivity-pilot.json
+  evidence_sensitivity_blinded_packets: artifacts/openwrt-blinded-review-packets.json
+  evidence_sensitivity_blinded_adjudication: artifacts/openwrt-blinded-review-adjudication.json
+  publishability_confirmation: reviews/publishability-and-researchness-confirmation-2026-10-01.md
   iot_ids_bounded_draft: drafts/iot-ids-split-sensitivity-introduction-and-methods.md
   beginner_research_explanation: README-FOR-BEGINNERS-zh.md
   n_baiot_official_profile: data/n-baiot-uci-profile.md

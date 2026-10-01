@@ -1,0 +1,33 @@
+{
+  "status": "independent_blind_review_completed_no_cve_labels",
+  "packet_count": 12,
+  "reviewers": ["reviewer", "oracle"],
+  "tiers": ["T0", "T1", "T2", "T3", "T4"],
+  "states": ["identified", "conditional", "not_identifiable"],
+  "agreement": {
+    "cells": 60,
+    "exact_agreement": 60,
+    "rate": 1.0,
+    "note": "Both reviewers returned the same state for every packet-tier cell. This is exploratory agreement, not a population reliability estimate."
+  },
+  "decision_rule": {
+    "T0": "not_identifiable: name/version alone does not establish release-level remediation lineage",
+    "T1": "not_identifiable: package/target identity alone does not establish release-level remediation lineage",
+    "T2": "identified when post_release_contains_remediation_commit=true and pre_release_contains_remediation_commit=false",
+    "T3": "identified when at least one changed path has post_path_exists=true and post_blob_matches_remediation_commit=true; otherwise not_identifiable",
+    "T4": "identified when every observed changed path matches; conditional when some but not all match; not_identifiable when none match"
+  },
+  "results": {
+    "T0": {"identified": 0, "conditional": 0, "not_identifiable": 12},
+    "T1": {"identified": 0, "conditional": 0, "not_identifiable": 12},
+    "T2": {"identified": 12, "conditional": 0, "not_identifiable": 0},
+    "T3": {"identified": 10, "conditional": 0, "not_identifiable": 2},
+    "T4": {"identified": 9, "conditional": 1, "not_identifiable": 2}
+  },
+  "limitations": [
+    "T2 packet wording should explicitly define contains as commit ancestry/reachability.",
+    "T3/T4 should define exact path and blob quantifiers before a preregistered study.",
+    "Agreement is on 12 hash-selected packets and does not establish general inter-rater reliability.",
+    "No state is a CVE affected/not_affected label or exploitability claim."
+  ]
+}
