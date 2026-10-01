@@ -13,10 +13,10 @@ target:
   manuscript_type: null
 
 workflow:
-  current_stage: protocol_design
-  current_task: "preregister an official OpenWrt metadata-only package-release-CVE pilot before writing offline audit code"
+  current_stage: feasibility_gate
+  current_task: "preserve the failed fixed-scope OpenWrt backport-cohort feasibility result; do not implement scoring code"
   auto_continue: false
-  status: openwrt_provenance_pilot_metadata_frozen
+  status: blocked_insufficient_openwrt_backport_cohort
 
 completed_tasks:
   - task_id: setup-scaffold
@@ -109,6 +109,7 @@ artifacts:
   openwrt_adjudication_sheet: data/openwrt-provenance-adjudication.csv
   openwrt_cve_seed_screen: literature/iot-security/openwrt-cve-seed-screen-2026-10-01.md
   openwrt_backport_seeds: data/openwrt-provenance-backport-seeds.yaml
+  openwrt_cohort_feasibility_report: reports/openwrt-provenance-cohort-feasibility-report.md
   iot_ids_bounded_draft: drafts/iot-ids-split-sensitivity-introduction-and-methods.md
   beginner_research_explanation: README-FOR-BEGINNERS-zh.md
   n_baiot_official_profile: data/n-baiot-uci-profile.md
@@ -142,5 +143,5 @@ review:
 
 last_checkpoint:
   timestamp: 2026-09-30T00:30:00+08:00
-  summary: "The IoT IDS line remains a technical replication record only. The OpenWrt candidate passed a conditional four-paper overlap gate. Metadata, 13 pinned CVE JSON records and a frozen Dropbear evidence chain total 1,915,933 bytes. CVE-2023-48795 / Dropbear 2022.82-6 in OpenWrt 23.05.5 x86/64 is a confirmed positive-control evidence chain: the target manifest lists Dropbear, the CVE description covers Dropbear through 2022.83, and the release tag includes an explicit CVE-linked strict-KEX patch. It is one seed, not a final human label or a sufficient experimental cohort."
-  next_action: "Continue searching official OpenWrt maintenance-branch commits/patches for target-present packages with the same evidence chain as the Dropbear seed. Do not write audit code or claim a false-affected improvement until enough independently reviewed backport cases exist."
+  summary: "The IoT IDS line remains a technical replication record only. The fixed-scope OpenWrt provenance route passed a conditional literature gate but failed its cohort feasibility gate: metadata, 13 CVE JSON records and Dropbear evidence yield one confirmed positive-control chain (CVE-2023-48795), one partial libtommath case and no further confirmed retained-version backports in bounded 23.05/24.10 searches. This is far below the preregistered 30 binary-label / ~100-candidate minimum, so no scoring code, effect metric or submission claim is allowed."
+  next_action: "Do not expand the current OpenWrt cohort opportunistically. Either preserve this as a feasibility negative result, or obtain explicit approval for a separately preregistered broader release/target sampling frame and restart its data/overlap/label gates from zero."

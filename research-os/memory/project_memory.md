@@ -22,7 +22,7 @@ A source-backed preliminary shortlist is stored in `literature/venue-direction-b
 
 ## IoT IDS device-fingerprint innovation spike
 
-The N-BaIoT IoT IDS work remains only a technical replication/case study. The selected candidate is release-provenance-assisted OpenWrt vulnerability applicability. The four-paper nearest-work audit conditionally passes. One actual positive-control evidence chain is frozen in `data/openwrt-provenance-backport-seeds.yaml`: OpenWrt 23.05.5 x86/64 manifest lists Dropbear 2022.82-6; the official CVE-2023-48795 description covers Dropbear through 2022.83; an explicit CVE-naming OpenWrt commit and v23.05.5 strict-KEX patch support a release backport. It is one candidate, not a final human label and far below the cohort needed to measure an effect. Continue seeking equivalent target-present same-version backport cases; do not implement scoring code or claim any false-affected reduction yet.
+The N-BaIoT IoT IDS work remains only a technical replication/case study. The fixed-scope OpenWrt release-provenance route has now failed its cohort-feasibility gate (`reports/openwrt-provenance-cohort-feasibility-report.md`). It has one confirmed Dropbear/CVE-2023-48795 positive-control evidence chain, one partial bundled-libtommath case and no further retained-version backports in bounded 23.05/24.10 searches—far below the preregistered 30 binary-label/~100-candidate minimum. Do not implement scoring code or claim false-affected reduction. Preserve it as a transparent negative feasibility result unless the user explicitly approves a wholly new broader release/target sampling frame.
 
 ## IoT IDS domain-generalization literature checkpoint
 

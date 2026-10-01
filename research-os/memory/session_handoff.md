@@ -29,7 +29,7 @@ Ten DOI-verified papers and local reading notes are at `literature/iot-ids/`. St
 
 ## Device-fingerprint innovation spike
 
-IoT IDS N-BaIoT is frozen as technical replication. OpenWrt provenance has a conditional literature GO. The first verified positive-control is in `data/openwrt-provenance-backport-seeds.yaml`: Dropbear 2022.82-6 is listed in the frozen 23.05.5 x86/64 manifest, CVE-2023-48795 officially covers Dropbear through 2022.83, and the v23.05.5 tag contains the explicit CVE-linked strict-KEX backport. This is one evidence chain, not a final label or cohort. The next gate is to find enough further target-present same-version backports; do not write audit code or claim a method benefit before then.
+IoT IDS N-BaIoT is frozen as technical replication. The fixed-scope OpenWrt provenance candidate also stops before code: `reports/openwrt-provenance-cohort-feasibility-report.md` records one confirmed Dropbear/CVE-2023-48795 evidence chain, one partial CVE-2023-36328 case and no further confirmed retained-version backports in bounded 23.05/24.10 searches. It fails the 30 binary-label/~100-candidate preregistered minimum. No audit code, effect metric or submission framing is permitted. Any future OpenWrt continuation needs explicit approval for a wholly new, broader sampling-frame protocol; it cannot opportunistically add releases to this failed one.
 
 ## Domain-generalization literature checkpoint
 
