@@ -13,10 +13,10 @@ target:
   manuscript_type: null
 
 workflow:
-  current_stage: blinded_evidence_review
-  current_task: "complete blinded second review and adjudication of the fixed OpenWrt v2 evidence-label set before any metric code"
+  current_stage: v2_evidence_review_and_paired_cohort_feasibility
+  current_task: "complete the remaining frozen v2 evidence review and independently assess a pre-registered pre-fix/post-fix cohort; do not write metric code"
   auto_continue: false
-  status: openwrt_v2_label_sample_frozen_pending_review
+  status: openwrt_v2_gate_b_numeric_passed_class_balance_blocked
 
 completed_tasks:
   - task_id: setup-scaffold
@@ -103,6 +103,7 @@ artifacts:
   iot_ids_label_support_harmonization_audit: literature/iot-ids/label-support-harmonization-audit-2026-09-30.md
   iot_security_pivot_options: ideas/iot-security-pivot-options-2026-10-01.md
   openwrt_nearest_work_audit: literature/iot-security/openwrt-sbom-nearest-work-audit-2026-10-01.md
+  openwrt_broader_nearest_work_audit: literature/iot-security/openwrt-provenance-broader-nearest-work-audit-2026-10-01.md
   openwrt_research_plan_zh: plans/openwrt-provenance-pilot-plan-zh.md
   openwrt_pilot_manifest: data/openwrt-provenance-pilot.yaml
   openwrt_label_schema: data/openwrt-provenance-label-schema.md
@@ -123,6 +124,9 @@ artifacts:
   openwrt_v2_temporal_eligibility_diagnostic: reports/openwrt-v2-temporal-eligibility-diagnostic.md
   openwrt_v2_round1_labels: data/openwrt-v2-label-round1.csv
   openwrt_v2_round1_second_review_packet: data/openwrt-v2-round1-second-review-packet.csv
+  openwrt_v2_round2_blind_labels: data/openwrt-v2-label-round2-blind.csv
+  openwrt_v2_label_adjudication: data/openwrt-v2-label-adjudication.csv
+  openwrt_v2_gate_b_class_balance_report: reports/openwrt-v2-gate-b-and-class-balance-report.md
   iot_ids_bounded_draft: drafts/iot-ids-split-sensitivity-introduction-and-methods.md
   beginner_research_explanation: README-FOR-BEGINNERS-zh.md
   n_baiot_official_profile: data/n-baiot-uci-profile.md
