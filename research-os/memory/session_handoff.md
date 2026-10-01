@@ -29,7 +29,7 @@ Ten DOI-verified papers and local reading notes are at `literature/iot-ids/`. St
 
 ## Device-fingerprint innovation spike
 
-IoT IDS N-BaIoT is frozen as technical replication. The fixed-scope OpenWrt route remains a negative feasibility result. The separate v2 study passed population-completeness Gate A: `reports/openwrt-v2-gate-a-population-report.md` records all 24 final numeric 22.03.x/23.05.x/24.10.x releases before cutoff across x86/64 and ath79/generic; 222 metadata files match OpenWrt checksums and 18 nonpublished BOMs remain explicit. Next: construct only a source-pinned CVE candidate registry; do not open labels or write scoring code until Gate B's sample/cluster thresholds pass.
+IoT IDS N-BaIoT is frozen as technical replication. The fixed-scope OpenWrt route remains a negative feasibility result. V2 Gate A passed; a Git-history candidate registry has 19,229 raw explicit-CVE records, 231 exact target-present clusters and 129 pinned CVE JSON records. `data/openwrt-v2-label-sample.csv` freezes 76 units/38 clusters whose commit messages use backport/cherry-pick language; the sampling protocol and preflight report are adjacent. Next: independently audit frozen evidence and produce labels without changing this review set. No metric code until Gate B has >=30 binary labels and >=10 clusters.
 
 ## Domain-generalization literature checkpoint
 

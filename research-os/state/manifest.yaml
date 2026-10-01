@@ -13,10 +13,10 @@ target:
   manuscript_type: null
 
 workflow:
-  current_stage: candidate_registry
-  current_task: "build a source-pinned OpenWrt v2 CVE candidate registry after passing population-completeness Gate A"
+  current_stage: blinded_evidence_review
+  current_task: "independently audit the fixed 76-unit OpenWrt v2 backport-language review set before any metric code"
   auto_continue: false
-  status: openwrt_v2_gate_a_passed_metadata_frozen
+  status: openwrt_v2_label_sample_frozen_pending_review
 
 completed_tasks:
   - task_id: setup-scaffold
@@ -113,6 +113,13 @@ artifacts:
   openwrt_broader_sampling_frame_v2: plans/openwrt-broader-sampling-frame-v2-zh.md
   openwrt_v2_release_population: data/openwrt-v2-release-population.yaml
   openwrt_v2_gate_a_report: reports/openwrt-v2-gate-a-population-report.md
+  openwrt_v2_candidate_registry: data/openwrt-v2-cve-commit-registry.csv
+  openwrt_v2_target_package_inventory: data/openwrt-v2-target-package-inventory.csv
+  openwrt_v2_backport_candidate_registry: data/openwrt-v2-explicit-backport-candidates.csv
+  openwrt_v2_label_sample_protocol: data/openwrt-v2-label-sample-protocol.md
+  openwrt_v2_label_sample: data/openwrt-v2-label-sample.csv
+  openwrt_v2_candidate_registry_report: reports/openwrt-v2-candidate-registry-report.md
+  openwrt_v2_label_sample_preflight: reports/openwrt-v2-label-sample-preflight.md
   iot_ids_bounded_draft: drafts/iot-ids-split-sensitivity-introduction-and-methods.md
   beginner_research_explanation: README-FOR-BEGINNERS-zh.md
   n_baiot_official_profile: data/n-baiot-uci-profile.md
@@ -146,5 +153,5 @@ review:
 
 last_checkpoint:
   timestamp: 2026-09-30T00:30:00+08:00
-  summary: "The IoT IDS line remains a technical replication record only. The failed fixed-scope OpenWrt protocol remains preserved separately. Its v2 successor passed population-completeness Gate A: all 24 official final numeric 22.03.x/23.05.x/24.10.x releases before the 2026-10-01 cutoff were enumerated across fixed x86/64 and ath79/generic targets; 222 metadata files matched published checksums and 18 absent BOMs were recorded rather than substituted. CVE candidate extraction may begin, but no labels, score code, effect metric or submission claim is allowed yet."
-  next_action: "Build and freeze a CVE candidate registry from only official changelogs, advisories and explicit CVE-linked package patches. Count raw records and unique package-CVE-fix clusters before opening any human labels or audit-code task."
+  summary: "The IoT IDS line remains a technical replication record only. The failed fixed-scope OpenWrt protocol remains preserved separately. V2 passed Gate A and then used official blob-less stable-branch history plus fixed manifests to create a source-pinned candidate registry: 19,229 raw explicit-CVE commit records, 231 target-present commit-CVE clusters and 129 downloaded CVE JSON records. A rule-defined backport-language subset is frozen for review: 76 release-target units / 38 clusters with fixed CVE JSON. It contains no labels or method results; Gate B remains unpassed until independent evidence review produces enough binary labels."
+  next_action: "Audit the frozen 76-unit review set against fixed CVE JSON, release-tag package source and patch/commit evidence; preserve insufficient evidence and do not alter the sample. Do not write metric code unless Gate B's 30 binary-label and 10-cluster conditions pass."
