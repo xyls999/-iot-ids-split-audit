@@ -14,7 +14,7 @@ target:
 
 workflow:
   current_stage: blinded_evidence_review
-  current_task: "independently audit the fixed 76-unit OpenWrt v2 backport-language review set before any metric code"
+  current_task: "complete blinded second review and adjudication of the fixed OpenWrt v2 evidence-label set before any metric code"
   auto_continue: false
   status: openwrt_v2_label_sample_frozen_pending_review
 
@@ -121,6 +121,8 @@ artifacts:
   openwrt_v2_candidate_registry_report: reports/openwrt-v2-candidate-registry-report.md
   openwrt_v2_label_sample_preflight: reports/openwrt-v2-label-sample-preflight.md
   openwrt_v2_temporal_eligibility_diagnostic: reports/openwrt-v2-temporal-eligibility-diagnostic.md
+  openwrt_v2_round1_labels: data/openwrt-v2-label-round1.csv
+  openwrt_v2_round1_second_review_packet: data/openwrt-v2-round1-second-review-packet.csv
   iot_ids_bounded_draft: drafts/iot-ids-split-sensitivity-introduction-and-methods.md
   beginner_research_explanation: README-FOR-BEGINNERS-zh.md
   n_baiot_official_profile: data/n-baiot-uci-profile.md
