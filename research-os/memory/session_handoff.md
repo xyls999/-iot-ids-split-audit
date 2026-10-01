@@ -51,6 +51,12 @@ The proposed point is not proven novel. `reviews/iot-ids-novelty-audit.md` recor
 
 Candidate ideas: `ideas/iot-ids-candidates.yaml`; independent critique: `ideas/iot-ids-critic.md`; surviving hypothesis: `hypotheses/iot-ids-active.yaml`. Only modified IOT-IDS-01 survived: benign-only target-device threshold calibration under leakage-controlled leave-one-device-out evaluation. Novelty is not yet established.
 
+## Current deliverables
+
+- Methods/report draft: `research-os/drafts/evidence-sensitivity-stress-test-methods-report-draft-zh.md`
+- Experiment direction plan: `research-os/plans/evidence-sensitivity-stress-test-experiment-plan-zh.md`
+- The draft must retain the initial N-BaIoT 16/20 schema ambiguity and the refined 16/16 result; do not report only the refined agreement.
+
 ## Next action
 
 Complete nearest-paper verification for P09/P10, then decide whether modified H-IOT-IDS-01 passes a bounded N-BaIoT feasibility gate.

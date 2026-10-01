@@ -14,7 +14,7 @@ target:
 
 workflow:
   current_stage: bounded_submission_readiness_review
-  current_task: "prepare a bounded methods/report manuscript with explicit non-overclaiming boundaries; high-level novelty and acceptance remain unconfirmed"
+  current_task: "review the ESST methods/report draft, then run a new outcome-blind OpenWrt cohort and third N-BaIoT packet replay before any venue selection"
   auto_continue: false
   status: submission_ready_bounded_report_high_level_novelty_unconfirmed
 
@@ -148,6 +148,8 @@ artifacts:
   nearest_work_fulltext_audit: literature/iot-security/evidence-sensitivity-nearest-work-fulltext-audit-2026-10-01.md
   nbaiot_blinded_packets_v2: artifacts/nbaiot-blinded-review-packets-v2.json
   nbaiot_blinded_cross_case_gate: reviews/nbaiot-blind-adjudication-and-cross-case-gate-2026-10-01.md
+  esst_methods_report_draft: drafts/evidence-sensitivity-stress-test-methods-report-draft-zh.md
+  esst_experiment_plan: plans/evidence-sensitivity-stress-test-experiment-plan-zh.md
   iot_ids_bounded_draft: drafts/iot-ids-split-sensitivity-introduction-and-methods.md
   beginner_research_explanation: README-FOR-BEGINNERS-zh.md
   n_baiot_official_profile: data/n-baiot-uci-profile.md
