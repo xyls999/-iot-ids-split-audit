@@ -13,10 +13,10 @@ target:
   manuscript_type: null
 
 workflow:
-  current_stage: feasibility_gate
-  current_task: "preserve the failed fixed-scope OpenWrt backport-cohort feasibility result; do not implement scoring code"
+  current_stage: candidate_registry
+  current_task: "build a source-pinned OpenWrt v2 CVE candidate registry after passing population-completeness Gate A"
   auto_continue: false
-  status: blocked_insufficient_openwrt_backport_cohort
+  status: openwrt_v2_gate_a_passed_metadata_frozen
 
 completed_tasks:
   - task_id: setup-scaffold
@@ -110,6 +110,9 @@ artifacts:
   openwrt_cve_seed_screen: literature/iot-security/openwrt-cve-seed-screen-2026-10-01.md
   openwrt_backport_seeds: data/openwrt-provenance-backport-seeds.yaml
   openwrt_cohort_feasibility_report: reports/openwrt-provenance-cohort-feasibility-report.md
+  openwrt_broader_sampling_frame_v2: plans/openwrt-broader-sampling-frame-v2-zh.md
+  openwrt_v2_release_population: data/openwrt-v2-release-population.yaml
+  openwrt_v2_gate_a_report: reports/openwrt-v2-gate-a-population-report.md
   iot_ids_bounded_draft: drafts/iot-ids-split-sensitivity-introduction-and-methods.md
   beginner_research_explanation: README-FOR-BEGINNERS-zh.md
   n_baiot_official_profile: data/n-baiot-uci-profile.md
@@ -143,5 +146,5 @@ review:
 
 last_checkpoint:
   timestamp: 2026-09-30T00:30:00+08:00
-  summary: "The IoT IDS line remains a technical replication record only. The fixed-scope OpenWrt provenance route passed a conditional literature gate but failed its cohort feasibility gate: metadata, 13 CVE JSON records and Dropbear evidence yield one confirmed positive-control chain (CVE-2023-48795), one partial libtommath case and no further confirmed retained-version backports in bounded 23.05/24.10 searches. This is far below the preregistered 30 binary-label / ~100-candidate minimum, so no scoring code, effect metric or submission claim is allowed."
-  next_action: "Do not expand the current OpenWrt cohort opportunistically. Either preserve this as a feasibility negative result, or obtain explicit approval for a separately preregistered broader release/target sampling frame and restart its data/overlap/label gates from zero."
+  summary: "The IoT IDS line remains a technical replication record only. The failed fixed-scope OpenWrt protocol remains preserved separately. Its v2 successor passed population-completeness Gate A: all 24 official final numeric 22.03.x/23.05.x/24.10.x releases before the 2026-10-01 cutoff were enumerated across fixed x86/64 and ath79/generic targets; 222 metadata files matched published checksums and 18 absent BOMs were recorded rather than substituted. CVE candidate extraction may begin, but no labels, score code, effect metric or submission claim is allowed yet."
+  next_action: "Build and freeze a CVE candidate registry from only official changelogs, advisories and explicit CVE-linked package patches. Count raw records and unique package-CVE-fix clusters before opening any human labels or audit-code task."

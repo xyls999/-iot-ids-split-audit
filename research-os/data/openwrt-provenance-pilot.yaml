@@ -8,13 +8,13 @@ source_repositories:
   openwrt:
     url: https://github.com/openwrt/openwrt.git
     tags:
-      "23.05.5": "6ed7fa1939443542f729f531bd6b7729e12bcc10"
-      "24.10.0": "2a8e54eb38252d4bdf41fbd6d2844457a2653f4e"
-      "24.10.4": "cd867602958dc9180d2d91d6583a46eac2bbf272"
+      "23.05.5": "28cf53e6bd9bb68958aae7958e7950d967f02b46"
+      "24.10.0": "1fad1b4965dc6f4e5f4ba7b9605987f443a4c276"
+      "24.10.4": "78b23a26c4c98938d549e7ff5876508544e33d4d"
 releases:
   - release: "23.05.5"
     source_tag: v23.05.5
-    source_commit: "6ed7fa1939443542f729f531bd6b7729e12bcc10"
+    source_commit: "28cf53e6bd9bb68958aae7958e7950d967f02b46"
     targets:
       - target: x86/64
         source_url: https://downloads.openwrt.org/releases/23.05.5/targets/x86/64/
@@ -32,7 +32,7 @@ releases:
         release_checksums_path: openwrt-provenance-snapshots/releases/23.05.5/ath79_generic/sha256sums
   - release: "24.10.0"
     source_tag: v24.10.0
-    source_commit: "2a8e54eb38252d4bdf41fbd6d2844457a2653f4e"
+    source_commit: "1fad1b4965dc6f4e5f4ba7b9605987f443a4c276"
     targets:
       - target: x86/64
         source_url: https://downloads.openwrt.org/releases/24.10.0/targets/x86/64/
@@ -50,7 +50,7 @@ releases:
         release_checksums_path: openwrt-provenance-snapshots/releases/24.10.0/ath79_generic/sha256sums
   - release: "24.10.4"
     source_tag: v24.10.4
-    source_commit: "cd867602958dc9180d2d91d6583a46eac2bbf272"
+    source_commit: "78b23a26c4c98938d549e7ff5876508544e33d4d"
     targets:
       - target: x86/64
         source_url: https://downloads.openwrt.org/releases/24.10.4/targets/x86/64/

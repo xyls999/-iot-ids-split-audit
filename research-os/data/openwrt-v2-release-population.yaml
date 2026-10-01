@@ -1,0 +1,111 @@
+population_id: openwrt-provenance-v2-release-population
+status: gate_a_passed_metadata_checksum_verified
+cutoff_utc: "2026-10-01T00:00:00Z"
+release_directory_url: https://downloads.openwrt.org/releases/
+selection_rule: "Enumerate all final numeric directories matching 22.03.x, 23.05.x or 24.10.x; retain only tags whose peeled OpenWrt source commit timestamp is at or before the cutoff. The tag commit timestamp is a conservative reproducible inclusion proxy, not a claim of exact public-release time."
+fixed_targets:
+  - x86/64
+  - ath79/generic
+included_releases:
+  - release: "22.03.0"
+    tag: v22.03.0
+    peeled_commit: "17bd6b04777d71d081ddf4ff8fbf44ccaf6f422e"
+    commit_timestamp_utc: "2022-09-03T16:49:01Z"
+  - release: "22.03.1"
+    tag: v22.03.1
+    peeled_commit: "eca6fc6ea0bc6b30988cf2076f55f60b10e91019"
+    commit_timestamp_utc: "2022-10-09T17:32:19Z"
+  - release: "22.03.2"
+    tag: v22.03.2
+    peeled_commit: "ea845f76ea2406a4c70d96141d6386b81bba5431"
+    commit_timestamp_utc: "2022-10-15T12:45:57Z"
+  - release: "22.03.3"
+    tag: v22.03.3
+    peeled_commit: "221fbfa2d854ccb6cd003c065ec308fbc0651b11"
+    commit_timestamp_utc: "2023-01-03T21:03:37Z"
+  - release: "22.03.4"
+    tag: v22.03.4
+    peeled_commit: "94adc23fa693d1b129ce1718573dfb12594f20f8"
+    commit_timestamp_utc: "2023-04-09T22:35:19Z"
+  - release: "22.03.5"
+    tag: v22.03.5
+    peeled_commit: "863f769b75beb17b1965786f473b700e0ba0f879"
+    commit_timestamp_utc: "2023-04-27T21:05:23Z"
+  - release: "22.03.6"
+    tag: v22.03.6
+    peeled_commit: "f372b715d439d03d81755062d77f80eb4ce77e33"
+    commit_timestamp_utc: "2023-12-03T19:02:20Z"
+  - release: "22.03.7"
+    tag: v22.03.7
+    peeled_commit: "b5dc35c8bb260e56ab7280264fb9270544a7d69f"
+    commit_timestamp_utc: "2024-07-22T22:56:37Z"
+  - release: "23.05.0"
+    tag: v23.05.0
+    peeled_commit: "bd4f415efacfc03bbe5b79ae1d39c1451f5f7385"
+    commit_timestamp_utc: "2023-10-11T21:06:24Z"
+  - release: "23.05.1"
+    tag: v23.05.1
+    peeled_commit: "a58a86693f8593974ff7c26bb42e280b62a8724c"
+    commit_timestamp_utc: "2023-11-12T20:20:49Z"
+  - release: "23.05.2"
+    tag: v23.05.2
+    peeled_commit: "1c26bcb10819f072964a658e2cc29bb87613a6f5"
+    commit_timestamp_utc: "2023-11-14T23:00:53Z"
+  - release: "23.05.3"
+    tag: v23.05.3
+    peeled_commit: "01170d518da1c8ade9d26e56d0135d12cda8e781"
+    commit_timestamp_utc: "2024-03-22T22:26:03Z"
+  - release: "23.05.4"
+    tag: v23.05.4
+    peeled_commit: "b9510660cebf46665aa0b74430b24306ebd0beed"
+    commit_timestamp_utc: "2024-07-16T21:51:19Z"
+  - release: "23.05.5"
+    tag: v23.05.5
+    peeled_commit: "28cf53e6bd9bb68958aae7958e7950d967f02b46"
+    commit_timestamp_utc: "2024-09-23T22:53:33Z"
+  - release: "23.05.6"
+    tag: v23.05.6
+    peeled_commit: "761ee326d7e0c9be4569ec1428816c008a202757"
+    commit_timestamp_utc: "2025-08-15T22:10:50Z"
+  - release: "24.10.0"
+    tag: v24.10.0
+    peeled_commit: "1fad1b4965dc6f4e5f4ba7b9605987f443a4c276"
+    commit_timestamp_utc: "2025-02-03T23:10:35Z"
+  - release: "24.10.1"
+    tag: v24.10.1
+    peeled_commit: "d183d7bb7827a469f09bf77f2f22fd9d70ac0ed6"
+    commit_timestamp_utc: "2025-04-13T23:07:35Z"
+  - release: "24.10.2"
+    tag: v24.10.2
+    peeled_commit: "bb59922007043c0a0813d62b0d9f6e801caff9df"
+    commit_timestamp_utc: "2025-06-23T21:32:07Z"
+  - release: "24.10.3"
+    tag: v24.10.3
+    peeled_commit: "dbd975a3b674c917d2f3b6663864084421944909"
+    commit_timestamp_utc: "2025-09-20T20:35:21Z"
+  - release: "24.10.4"
+    tag: v24.10.4
+    peeled_commit: "78b23a26c4c98938d549e7ff5876508544e33d4d"
+    commit_timestamp_utc: "2025-10-20T22:00:21Z"
+  - release: "24.10.5"
+    tag: v24.10.5
+    peeled_commit: "4f7e6e554be2aef6a55be36f9f954d56705eb2ee"
+    commit_timestamp_utc: "2025-12-18T20:39:34Z"
+  - release: "24.10.6"
+    tag: v24.10.6
+    peeled_commit: "ec8eeaa8fbd3122b9b9e68b7db02707884a19c9c"
+    commit_timestamp_utc: "2026-03-17T22:48:40Z"
+  - release: "24.10.7"
+    tag: v24.10.7
+    peeled_commit: "b40dfac0a31695596f7c1f5f1519302ca8237f6e"
+    commit_timestamp_utc: "2026-05-30T00:23:02Z"
+  - release: "24.10.8"
+    tag: v24.10.8
+    peeled_commit: "0b795ce79e23b553aa184080c390f9ce92a2b6d4"
+    commit_timestamp_utc: "2026-07-24T23:54:19Z"
+excluded_after_cutoff: []
+counts:
+  included_releases: 24
+  fixed_targets_per_release: 2
+  release_target_cells_expected: 48
+next_gate: "Build a source-pinned CVE candidate registry from official branch changelogs, advisories and explicit CVE-linked package patches; do not score candidates yet."
