@@ -14,7 +14,7 @@ target:
 
 workflow:
   current_stage: cross_ecosystem_release_claim_closure_novelty_audit
-  current_task: "test the evidence-sensitivity stress-test candidate on prior N-BaIoT and fresh non-posthoc package evidence packets; do not freeze v3 or create vulnerability labels"
+  current_task: "complete blinded packet review and semantic lineage adjudication for the evidence-sensitivity pilot; do not freeze v3 or create vulnerability labels"
   auto_continue: false
   status: evidence_sensitivity_stress_test_candidate_no_go_pilot_only
 
@@ -140,6 +140,8 @@ artifacts:
   publishable_candidate_security_update_evidence_join: reviews/publishable-candidate-security-update-evidence-join-2026-10-01.md
   cross_case_security_claim_identifiability_synthesis: reviews/cross-case-security-claim-identifiability-synthesis-2026-10-01.md
   evidence_sensitivity_stress_test_candidate: reviews/evidence-sensitivity-stress-test-cross-case-2026-10-01.md
+  evidence_sensitivity_pilot_results: reports/evidence-sensitivity-pilot-results-2026-10-01.md
+  evidence_sensitivity_pilot_data: artifacts/openwrt-evidence-sensitivity-pilot.json
   iot_ids_bounded_draft: drafts/iot-ids-split-sensitivity-introduction-and-methods.md
   beginner_research_explanation: README-FOR-BEGINNERS-zh.md
   n_baiot_official_profile: data/n-baiot-uci-profile.md

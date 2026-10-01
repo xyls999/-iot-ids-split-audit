@@ -1,0 +1,1846 @@
+{
+  "status": "exploratory_evidence_sensitivity_probe_not_labels",
+  "selection_rule": "sort all scout pairs by SHA-256 of the fixed identity key; select first two per stable family for a 12-pair pilot; no closure outcome is used",
+  "evidence_semantics": "signals only; no signal is a CVE affected/not_affected truth",
+  "input": "research-os/artifacts/openwrt-paired-cohort-closure-probe.json",
+  "counts": {
+    "pairs": 62,
+    "families": 6,
+    "clusters": 32,
+    "tier0_name_version_record": 62,
+    "tier1_package_target_presence": 62,
+    "tier2_post_ancestor_pre_exclusion": 62,
+    "tier3_any_changed_path_blob_retention": 54,
+    "tier4_strict_all_changed_path_blob_retention": 50,
+    "pilot_selected": 12
+  },
+  "transitions": {
+    "tier2_to_tier3_downgraded": 8,
+    "tier3_to_tier4_downgraded": 4,
+    "tier2_to_tier4_downgraded": 12
+  },
+  "pilot_selected_keys": [
+    "18.06|18.06.1|18.06.2|ar71xx/generic|dropbear|CVE-2018-15473|97fddb2fddbf81535f06f168752c9b7e4abaa87a",
+    "18.06|18.06.1|18.06.2|x86/64|dropbear|CVE-2018-15473|8bb9d053eb17c98659f5fb04d7a7c3bafdf42e9c",
+    "19.07|19.07.5|19.07.6|ath79/generic|dnsmasq|CVE-2020-25687|8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+    "19.07|19.07.5|19.07.6|ath79/generic|dnsmasq|CVE-2020-25685|8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+    "21.02|21.02.5|21.02.6|x86/64|dnsmasq|CVE-2022-0934|18f05da13dcb4283f61c5a03fbdc48411df6b0f7",
+    "21.02|21.02.5|21.02.6|ath79/generic|dnsmasq|CVE-2022-0934|18f05da13dcb4283f61c5a03fbdc48411df6b0f7",
+    "22.03|22.03.6|22.03.7|ath79/generic|dropbear|CVE-2023-36328|38cea0bea17941b7a392fcdbef4faec2d146a398",
+    "22.03|22.03.2|22.03.3|x86/64|dnsmasq|CVE-2022-0934|77522d4eb7ef7df6805d7aa377bc3fad84a2910a",
+    "23.05|23.05.2|23.05.3|ath79/generic|dnsmasq|CVE-2023-50868|875822f283163c038c93fd5405c6dd9796228eb7",
+    "23.05|23.05.2|23.05.3|x86/64|dropbear|CVE-2023-48795|6549a711be6cb9788aaaec6d31e3396b21893163",
+    "24.10|24.10.4|24.10.5|x86/64|dropbear|CVE-2019-6111|0f52a05723988633882d6c52122009ce11f8956b",
+    "24.10|24.10.4|24.10.5|x86/64|dropbear|CVE-2025-14282|0f52a05723988633882d6c52122009ce11f8956b"
+  ],
+  "cluster_summary": [
+    {
+      "commit_sha": "0f52a05723988633882d6c52122009ce11f8956b",
+      "cve_id": "CVE-2019-6111",
+      "pair_count": 2,
+      "tier2_all": true,
+      "tier3_all": true,
+      "tier4_all": true
+    },
+    {
+      "commit_sha": "0f52a05723988633882d6c52122009ce11f8956b",
+      "cve_id": "CVE-2025-14282",
+      "pair_count": 2,
+      "tier2_all": true,
+      "tier3_all": true,
+      "tier4_all": true
+    },
+    {
+      "commit_sha": "13bd217821e766110298498d0b73c4394e3330bd",
+      "cve_id": "CVE-2022-30065",
+      "pair_count": 2,
+      "tier2_all": true,
+      "tier3_all": true,
+      "tier4_all": true
+    },
+    {
+      "commit_sha": "15250e11aa4e77e47cee3afca0625fca02c97917",
+      "cve_id": "CVE-2026-4890",
+      "pair_count": 2,
+      "tier2_all": true,
+      "tier3_all": true,
+      "tier4_all": true
+    },
+    {
+      "commit_sha": "18f05da13dcb4283f61c5a03fbdc48411df6b0f7",
+      "cve_id": "CVE-2022-0934",
+      "pair_count": 2,
+      "tier2_all": true,
+      "tier3_all": true,
+      "tier4_all": true
+    },
+    {
+      "commit_sha": "1a0f2c3a3ecb19f65bdc269818ed373958d032e6",
+      "cve_id": "CVE-2022-1304",
+      "pair_count": 1,
+      "tier2_all": true,
+      "tier3_all": true,
+      "tier4_all": true
+    },
+    {
+      "commit_sha": "262c09368fda76c85c519b7554f33bb98fb3263f",
+      "cve_id": "CVE-2019-6111",
+      "pair_count": 2,
+      "tier2_all": true,
+      "tier3_all": true,
+      "tier4_all": true
+    },
+    {
+      "commit_sha": "262c09368fda76c85c519b7554f33bb98fb3263f",
+      "cve_id": "CVE-2026-35385",
+      "pair_count": 2,
+      "tier2_all": true,
+      "tier3_all": true,
+      "tier4_all": true
+    },
+    {
+      "commit_sha": "38cea0bea17941b7a392fcdbef4faec2d146a398",
+      "cve_id": "CVE-2023-36328",
+      "pair_count": 2,
+      "tier2_all": true,
+      "tier3_all": true,
+      "tier4_all": true
+    },
+    {
+      "commit_sha": "38cea0bea17941b7a392fcdbef4faec2d146a398",
+      "cve_id": "CVE-2023-48795",
+      "pair_count": 2,
+      "tier2_all": true,
+      "tier3_all": true,
+      "tier4_all": true
+    },
+    {
+      "commit_sha": "4c1779ac2cb4face8676c470aa366161db7c6534",
+      "cve_id": "CVE-2020-8597",
+      "pair_count": 2,
+      "tier2_all": true,
+      "tier3_all": true,
+      "tier4_all": true
+    },
+    {
+      "commit_sha": "6549a711be6cb9788aaaec6d31e3396b21893163",
+      "cve_id": "CVE-2023-36328",
+      "pair_count": 2,
+      "tier2_all": true,
+      "tier3_all": true,
+      "tier4_all": true
+    },
+    {
+      "commit_sha": "6549a711be6cb9788aaaec6d31e3396b21893163",
+      "cve_id": "CVE-2023-48795",
+      "pair_count": 2,
+      "tier2_all": true,
+      "tier3_all": true,
+      "tier4_all": true
+    },
+    {
+      "commit_sha": "77522d4eb7ef7df6805d7aa377bc3fad84a2910a",
+      "cve_id": "CVE-2022-0934",
+      "pair_count": 2,
+      "tier2_all": true,
+      "tier3_all": true,
+      "tier4_all": true
+    },
+    {
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "cve_id": "CVE-2020-25681",
+      "pair_count": 2,
+      "tier2_all": true,
+      "tier3_all": true,
+      "tier4_all": true
+    },
+    {
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "cve_id": "CVE-2020-25682",
+      "pair_count": 2,
+      "tier2_all": true,
+      "tier3_all": true,
+      "tier4_all": true
+    },
+    {
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "cve_id": "CVE-2020-25683",
+      "pair_count": 2,
+      "tier2_all": true,
+      "tier3_all": true,
+      "tier4_all": true
+    },
+    {
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "cve_id": "CVE-2020-25684",
+      "pair_count": 2,
+      "tier2_all": true,
+      "tier3_all": true,
+      "tier4_all": true
+    },
+    {
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "cve_id": "CVE-2020-25685",
+      "pair_count": 2,
+      "tier2_all": true,
+      "tier3_all": true,
+      "tier4_all": true
+    },
+    {
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "cve_id": "CVE-2020-25686",
+      "pair_count": 2,
+      "tier2_all": true,
+      "tier3_all": true,
+      "tier4_all": true
+    },
+    {
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "cve_id": "CVE-2020-25687",
+      "pair_count": 2,
+      "tier2_all": true,
+      "tier3_all": true,
+      "tier4_all": true
+    },
+    {
+      "commit_sha": "875822f283163c038c93fd5405c6dd9796228eb7",
+      "cve_id": "CVE-2023-50387",
+      "pair_count": 2,
+      "tier2_all": true,
+      "tier3_all": false,
+      "tier4_all": false
+    },
+    {
+      "commit_sha": "875822f283163c038c93fd5405c6dd9796228eb7",
+      "cve_id": "CVE-2023-50868",
+      "pair_count": 2,
+      "tier2_all": true,
+      "tier3_all": false,
+      "tier4_all": false
+    },
+    {
+      "commit_sha": "8bb9d053eb17c98659f5fb04d7a7c3bafdf42e9c",
+      "cve_id": "CVE-2018-15473",
+      "pair_count": 2,
+      "tier2_all": true,
+      "tier3_all": true,
+      "tier4_all": false
+    },
+    {
+      "commit_sha": "8bb9d053eb17c98659f5fb04d7a7c3bafdf42e9c",
+      "cve_id": "CVE-2018-15599",
+      "pair_count": 2,
+      "tier2_all": true,
+      "tier3_all": true,
+      "tier4_all": false
+    },
+    {
+      "commit_sha": "97e9be4e3a4c4121056f8946c78709967046afe7",
+      "cve_id": "CVE-2019-5094",
+      "pair_count": 1,
+      "tier2_all": true,
+      "tier3_all": true,
+      "tier4_all": true
+    },
+    {
+      "commit_sha": "97fddb2fddbf81535f06f168752c9b7e4abaa87a",
+      "cve_id": "CVE-2018-15473",
+      "pair_count": 2,
+      "tier2_all": true,
+      "tier3_all": false,
+      "tier4_all": false
+    },
+    {
+      "commit_sha": "97fddb2fddbf81535f06f168752c9b7e4abaa87a",
+      "cve_id": "CVE-2018-15599",
+      "pair_count": 2,
+      "tier2_all": true,
+      "tier3_all": false,
+      "tier4_all": false
+    },
+    {
+      "commit_sha": "bf3ea23f5a7f26e88d829b4217d1067cc68f9d5c",
+      "cve_id": "CVE-2014-5461",
+      "pair_count": 2,
+      "tier2_all": true,
+      "tier3_all": true,
+      "tier4_all": true
+    },
+    {
+      "commit_sha": "c155900f66d5345fcc12ab8a398a134fcb954eda",
+      "cve_id": "CVE-2020-7982",
+      "pair_count": 2,
+      "tier2_all": true,
+      "tier3_all": true,
+      "tier4_all": true
+    },
+    {
+      "commit_sha": "ca47026b7d1d3fdafbd7368fe3c334f964134091",
+      "cve_id": "CVE-2020-7982",
+      "pair_count": 2,
+      "tier2_all": true,
+      "tier3_all": true,
+      "tier4_all": true
+    },
+    {
+      "commit_sha": "cf118077cd4f909a7ad68e6efdc07fe93f63b650",
+      "cve_id": "CVE-2020-8597",
+      "pair_count": 2,
+      "tier2_all": true,
+      "tier3_all": true,
+      "tier4_all": true
+    }
+  ],
+  "pairs": [
+    {
+      "stable_key": "24.10|24.10.4|24.10.5|x86/64|dropbear|CVE-2019-6111|0f52a05723988633882d6c52122009ce11f8956b",
+      "selection_hash": "0375fb790caea634bb5ce43f3269242d75baac9f895775890123e6ce3566923d",
+      "stable_family": "24.10",
+      "pre_release": "24.10.4",
+      "post_release": "24.10.5",
+      "target": "x86/64",
+      "package": "dropbear",
+      "cve_id": "CVE-2019-6111",
+      "commit_sha": "0f52a05723988633882d6c52122009ce11f8956b",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": true
+    },
+    {
+      "stable_key": "18.06|18.06.1|18.06.2|ar71xx/generic|dropbear|CVE-2018-15473|97fddb2fddbf81535f06f168752c9b7e4abaa87a",
+      "selection_hash": "0cdfeb051b3dfdf51b4d2d2699c2b7ec6c618634bfd32a2820585b7e4d55731f",
+      "stable_family": "18.06",
+      "pre_release": "18.06.1",
+      "post_release": "18.06.2",
+      "target": "ar71xx/generic",
+      "package": "dropbear",
+      "cve_id": "CVE-2018-15473",
+      "commit_sha": "97fddb2fddbf81535f06f168752c9b7e4abaa87a",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": false,
+        "tier4_strict_all_changed_path_blob_retention": false
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": false,
+        "strict_blob_support_signal": false
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": true
+    },
+    {
+      "stable_key": "22.03|22.03.6|22.03.7|ath79/generic|dropbear|CVE-2023-36328|38cea0bea17941b7a392fcdbef4faec2d146a398",
+      "selection_hash": "11b8eebfe34713f3fa4cb86b0e2e3acf6c599ff42cbd60dcbef93c84a55befde",
+      "stable_family": "22.03",
+      "pre_release": "22.03.6",
+      "post_release": "22.03.7",
+      "target": "ath79/generic",
+      "package": "dropbear",
+      "cve_id": "CVE-2023-36328",
+      "commit_sha": "38cea0bea17941b7a392fcdbef4faec2d146a398",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": true
+    },
+    {
+      "stable_key": "19.07|19.07.5|19.07.6|ath79/generic|dnsmasq|CVE-2020-25687|8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "selection_hash": "1bce3dc19153541c9507e29781701f003b41acad87cdb0a09e5e15955f6cafc7",
+      "stable_family": "19.07",
+      "pre_release": "19.07.5",
+      "post_release": "19.07.6",
+      "target": "ath79/generic",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2020-25687",
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": true
+    },
+    {
+      "stable_key": "19.07|19.07.5|19.07.6|ath79/generic|dnsmasq|CVE-2020-25685|8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "selection_hash": "1e3b6bf53aa0711d702d37a988ade12b8472ea05f5be08bb30281beeaaee48ad",
+      "stable_family": "19.07",
+      "pre_release": "19.07.5",
+      "post_release": "19.07.6",
+      "target": "ath79/generic",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2020-25685",
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": true
+    },
+    {
+      "stable_key": "24.10|24.10.4|24.10.5|x86/64|dropbear|CVE-2025-14282|0f52a05723988633882d6c52122009ce11f8956b",
+      "selection_hash": "1e8bddac647ddab89748760b8f872450fe5018c81b4da3d765ce48b3a5a109c0",
+      "stable_family": "24.10",
+      "pre_release": "24.10.4",
+      "post_release": "24.10.5",
+      "target": "x86/64",
+      "package": "dropbear",
+      "cve_id": "CVE-2025-14282",
+      "commit_sha": "0f52a05723988633882d6c52122009ce11f8956b",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": true
+    },
+    {
+      "stable_key": "18.06|18.06.1|18.06.2|x86/64|dropbear|CVE-2018-15473|8bb9d053eb17c98659f5fb04d7a7c3bafdf42e9c",
+      "selection_hash": "26035c0b4dbd96a93eeb9a48ff0a5991b5fcf11f1d905324a63e06ea33a1440b",
+      "stable_family": "18.06",
+      "pre_release": "18.06.1",
+      "post_release": "18.06.2",
+      "target": "x86/64",
+      "package": "dropbear",
+      "cve_id": "CVE-2018-15473",
+      "commit_sha": "8bb9d053eb17c98659f5fb04d7a7c3bafdf42e9c",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": false
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": false
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": true
+    },
+    {
+      "stable_key": "22.03|22.03.2|22.03.3|x86/64|dnsmasq|CVE-2022-0934|77522d4eb7ef7df6805d7aa377bc3fad84a2910a",
+      "selection_hash": "2905a07bab832d4da27e39f4c76a3721a1a391dc5dbcd3a914712691e212f89e",
+      "stable_family": "22.03",
+      "pre_release": "22.03.2",
+      "post_release": "22.03.3",
+      "target": "x86/64",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2022-0934",
+      "commit_sha": "77522d4eb7ef7df6805d7aa377bc3fad84a2910a",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": true
+    },
+    {
+      "stable_key": "19.07|19.07.1|19.07.2|x86/64|ppp|CVE-2020-8597|cf118077cd4f909a7ad68e6efdc07fe93f63b650",
+      "selection_hash": "2b3c9c6e8bf75954ea655de95416581ecc25d75367145b76a2a3e97f693b6126",
+      "stable_family": "19.07",
+      "pre_release": "19.07.1",
+      "post_release": "19.07.2",
+      "target": "x86/64",
+      "package": "ppp",
+      "cve_id": "CVE-2020-8597",
+      "commit_sha": "cf118077cd4f909a7ad68e6efdc07fe93f63b650",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "19.07|19.07.5|19.07.6|x86/64|dnsmasq|CVE-2020-25684|8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "selection_hash": "2cf4a5f4fa09af304f9c5a16f0d9f79fa563279e4c748c1544fabcde05581aee",
+      "stable_family": "19.07",
+      "pre_release": "19.07.5",
+      "post_release": "19.07.6",
+      "target": "x86/64",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2020-25684",
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "18.06|18.06.1|18.06.2|ar71xx/generic|dropbear|CVE-2018-15599|8bb9d053eb17c98659f5fb04d7a7c3bafdf42e9c",
+      "selection_hash": "2df23766e3b1c5bb87d94c51c00e46c5f9bb76561ada90c08a56e8aa5157b44e",
+      "stable_family": "18.06",
+      "pre_release": "18.06.1",
+      "post_release": "18.06.2",
+      "target": "ar71xx/generic",
+      "package": "dropbear",
+      "cve_id": "CVE-2018-15599",
+      "commit_sha": "8bb9d053eb17c98659f5fb04d7a7c3bafdf42e9c",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": false
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": false
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "22.03|22.03.2|22.03.3|x86/64|busybox|CVE-2022-30065|13bd217821e766110298498d0b73c4394e3330bd",
+      "selection_hash": "3da8f126761d6b9f0769fcf1a02caf919d9f44e7c8ac64929d8a6dc4881382eb",
+      "stable_family": "22.03",
+      "pre_release": "22.03.2",
+      "post_release": "22.03.3",
+      "target": "x86/64",
+      "package": "busybox",
+      "cve_id": "CVE-2022-30065",
+      "commit_sha": "13bd217821e766110298498d0b73c4394e3330bd",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "23.05|23.05.2|23.05.3|ath79/generic|dnsmasq|CVE-2023-50868|875822f283163c038c93fd5405c6dd9796228eb7",
+      "selection_hash": "43b9e09afd77d47af70f501fbede1d2511ad41efe9f20caaf5aa7bb71f7a265d",
+      "stable_family": "23.05",
+      "pre_release": "23.05.2",
+      "post_release": "23.05.3",
+      "target": "ath79/generic",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2023-50868",
+      "commit_sha": "875822f283163c038c93fd5405c6dd9796228eb7",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": false,
+        "tier4_strict_all_changed_path_blob_retention": false
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": false,
+        "strict_blob_support_signal": false
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": true
+    },
+    {
+      "stable_key": "24.10|24.10.7|24.10.8|x86/64|dropbear|CVE-2026-35385|262c09368fda76c85c519b7554f33bb98fb3263f",
+      "selection_hash": "47d81c5151b581afd08ac455d3f3aae2b90727563d943c37eaaef8a9b88f16c9",
+      "stable_family": "24.10",
+      "pre_release": "24.10.7",
+      "post_release": "24.10.8",
+      "target": "x86/64",
+      "package": "dropbear",
+      "cve_id": "CVE-2026-35385",
+      "commit_sha": "262c09368fda76c85c519b7554f33bb98fb3263f",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "19.07|19.07.5|19.07.6|x86/64|dnsmasq|CVE-2020-25686|8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "selection_hash": "4db9086f242207bb3e66799549fa50203d8b4ef88fea725595fbeb891e2d0a9e",
+      "stable_family": "19.07",
+      "pre_release": "19.07.5",
+      "post_release": "19.07.6",
+      "target": "x86/64",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2020-25686",
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "21.02|21.02.5|21.02.6|x86/64|dnsmasq|CVE-2022-0934|18f05da13dcb4283f61c5a03fbdc48411df6b0f7",
+      "selection_hash": "4ec3d25e10e00af6efeec04368051ae6099c7a7e75aa6452cf48aab1f2741fee",
+      "stable_family": "21.02",
+      "pre_release": "21.02.5",
+      "post_release": "21.02.6",
+      "target": "x86/64",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2022-0934",
+      "commit_sha": "18f05da13dcb4283f61c5a03fbdc48411df6b0f7",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": true
+    },
+    {
+      "stable_key": "19.07|19.07.5|19.07.6|ath79/generic|dnsmasq|CVE-2020-25686|8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "selection_hash": "509013b6fdadc2c4286ca200100edbc5530c58d5b42f4d59045aa6dd64e1ac88",
+      "stable_family": "19.07",
+      "pre_release": "19.07.5",
+      "post_release": "19.07.6",
+      "target": "ath79/generic",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2020-25686",
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "23.05|23.05.2|23.05.3|x86/64|dropbear|CVE-2023-48795|6549a711be6cb9788aaaec6d31e3396b21893163",
+      "selection_hash": "53286d7f9f0d2c813459116e534760d4fb3bc24e5c583216e16e67e36eed8fbe",
+      "stable_family": "23.05",
+      "pre_release": "23.05.2",
+      "post_release": "23.05.3",
+      "target": "x86/64",
+      "package": "dropbear",
+      "cve_id": "CVE-2023-48795",
+      "commit_sha": "6549a711be6cb9788aaaec6d31e3396b21893163",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": true
+    },
+    {
+      "stable_key": "19.07|19.07.5|19.07.6|ath79/generic|dnsmasq|CVE-2020-25684|8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "selection_hash": "5441fc9dd3a4c58185de25843827b912c64e0fc201c398a42717d1f78333db0b",
+      "stable_family": "19.07",
+      "pre_release": "19.07.5",
+      "post_release": "19.07.6",
+      "target": "ath79/generic",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2020-25684",
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "24.10|24.10.4|24.10.5|ath79/generic|dropbear|CVE-2025-14282|0f52a05723988633882d6c52122009ce11f8956b",
+      "selection_hash": "592742b35419c24d462693bb2274256461c984904005ed3d57acafb4b696d3ed",
+      "stable_family": "24.10",
+      "pre_release": "24.10.4",
+      "post_release": "24.10.5",
+      "target": "ath79/generic",
+      "package": "dropbear",
+      "cve_id": "CVE-2025-14282",
+      "commit_sha": "0f52a05723988633882d6c52122009ce11f8956b",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "19.07|19.07.5|19.07.6|x86/64|dnsmasq|CVE-2020-25682|8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "selection_hash": "5c51aa1b9d10bfb87fd312b3da701976e9c943332e8941d61174be08c7f813ae",
+      "stable_family": "19.07",
+      "pre_release": "19.07.5",
+      "post_release": "19.07.6",
+      "target": "x86/64",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2020-25682",
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "19.07|19.07.5|19.07.6|ath79/generic|dnsmasq|CVE-2020-25682|8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "selection_hash": "5c56ba35b5c2fe7b41c1abc69e9af7bb06590ff0d02721cc28d43ad32837c0ff",
+      "stable_family": "19.07",
+      "pre_release": "19.07.5",
+      "post_release": "19.07.6",
+      "target": "ath79/generic",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2020-25682",
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "22.03|22.03.6|22.03.7|x86/64|lua|CVE-2014-5461|bf3ea23f5a7f26e88d829b4217d1067cc68f9d5c",
+      "selection_hash": "5e185bddb6b18830ce05640ba2ab2c02e122cb4a20b2efd982ddf97a2bafb80b",
+      "stable_family": "22.03",
+      "pre_release": "22.03.6",
+      "post_release": "22.03.7",
+      "target": "x86/64",
+      "package": "lua",
+      "cve_id": "CVE-2014-5461",
+      "commit_sha": "bf3ea23f5a7f26e88d829b4217d1067cc68f9d5c",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "24.10|24.10.7|24.10.8|x86/64|dropbear|CVE-2019-6111|262c09368fda76c85c519b7554f33bb98fb3263f",
+      "selection_hash": "5e4e5210ae2513b7321940b385ff1b0fbfcfbb7b37602f343565139934449aad",
+      "stable_family": "24.10",
+      "pre_release": "24.10.7",
+      "post_release": "24.10.8",
+      "target": "x86/64",
+      "package": "dropbear",
+      "cve_id": "CVE-2019-6111",
+      "commit_sha": "262c09368fda76c85c519b7554f33bb98fb3263f",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "19.07|19.07.5|19.07.6|x86/64|dnsmasq|CVE-2020-25683|8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "selection_hash": "612c7bf692a13da3769fae6677b88229a0f1ea7befb02d64907db26de2399cee",
+      "stable_family": "19.07",
+      "pre_release": "19.07.5",
+      "post_release": "19.07.6",
+      "target": "x86/64",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2020-25683",
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "22.03|22.03.6|22.03.7|ath79/generic|lua|CVE-2014-5461|bf3ea23f5a7f26e88d829b4217d1067cc68f9d5c",
+      "selection_hash": "6256ad0159625c8f59d1a0c842b42f4ac29e1a1420ad0bf5a63437ef9189816b",
+      "stable_family": "22.03",
+      "pre_release": "22.03.6",
+      "post_release": "22.03.7",
+      "target": "ath79/generic",
+      "package": "lua",
+      "cve_id": "CVE-2014-5461",
+      "commit_sha": "bf3ea23f5a7f26e88d829b4217d1067cc68f9d5c",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "18.06|18.06.7|18.06.8|ar71xx/generic|ppp|CVE-2020-8597|4c1779ac2cb4face8676c470aa366161db7c6534",
+      "selection_hash": "6646dd58ce9a2d238056201ef0826ab87ae95b47ce6c8fda6092c9a49fd85579",
+      "stable_family": "18.06",
+      "pre_release": "18.06.7",
+      "post_release": "18.06.8",
+      "target": "ar71xx/generic",
+      "package": "ppp",
+      "cve_id": "CVE-2020-8597",
+      "commit_sha": "4c1779ac2cb4face8676c470aa366161db7c6534",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "23.05|23.05.2|23.05.3|ath79/generic|dnsmasq|CVE-2023-50387|875822f283163c038c93fd5405c6dd9796228eb7",
+      "selection_hash": "706a8399b0cdf4d503c28fd32442a4c272876ea7764af2ab1887b0a9b8c91aa6",
+      "stable_family": "23.05",
+      "pre_release": "23.05.2",
+      "post_release": "23.05.3",
+      "target": "ath79/generic",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2023-50387",
+      "commit_sha": "875822f283163c038c93fd5405c6dd9796228eb7",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": false,
+        "tier4_strict_all_changed_path_blob_retention": false
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": false,
+        "strict_blob_support_signal": false
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "22.03|22.03.6|22.03.7|ath79/generic|dropbear|CVE-2023-48795|38cea0bea17941b7a392fcdbef4faec2d146a398",
+      "selection_hash": "72d4b12fab752f5f4f377e568853aba8fa2f327ae62459992bd98a53c297db14",
+      "stable_family": "22.03",
+      "pre_release": "22.03.6",
+      "post_release": "22.03.7",
+      "target": "ath79/generic",
+      "package": "dropbear",
+      "cve_id": "CVE-2023-48795",
+      "commit_sha": "38cea0bea17941b7a392fcdbef4faec2d146a398",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "23.05|23.05.2|23.05.3|x86/64|dnsmasq|CVE-2023-50868|875822f283163c038c93fd5405c6dd9796228eb7",
+      "selection_hash": "78d1f37dd1c5933b70c044cc6de5b9d0a6a6d9e87466d0688d062563f3ae295b",
+      "stable_family": "23.05",
+      "pre_release": "23.05.2",
+      "post_release": "23.05.3",
+      "target": "x86/64",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2023-50868",
+      "commit_sha": "875822f283163c038c93fd5405c6dd9796228eb7",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": false,
+        "tier4_strict_all_changed_path_blob_retention": false
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": false,
+        "strict_blob_support_signal": false
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "24.10|24.10.6|24.10.7|x86/64|dnsmasq|CVE-2026-4890|15250e11aa4e77e47cee3afca0625fca02c97917",
+      "selection_hash": "7eba59c581b1bd484eb3991ff7d4c3c11e392bbe63f177559334145278f25697",
+      "stable_family": "24.10",
+      "pre_release": "24.10.6",
+      "post_release": "24.10.7",
+      "target": "x86/64",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2026-4890",
+      "commit_sha": "15250e11aa4e77e47cee3afca0625fca02c97917",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "19.07|19.07.5|19.07.6|x86/64|dnsmasq|CVE-2020-25685|8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "selection_hash": "81641b19204c5d43b65aefd39231ad5c70e6eec966f5b5a0855ab40329f0a674",
+      "stable_family": "19.07",
+      "pre_release": "19.07.5",
+      "post_release": "19.07.6",
+      "target": "x86/64",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2020-25685",
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "22.03|22.03.2|22.03.3|ath79/generic|dnsmasq|CVE-2022-0934|77522d4eb7ef7df6805d7aa377bc3fad84a2910a",
+      "selection_hash": "81c37e80f26c735f2d4c32ef38f7db5e080d786bb928858f7b0828bd202e7b68",
+      "stable_family": "22.03",
+      "pre_release": "22.03.2",
+      "post_release": "22.03.3",
+      "target": "ath79/generic",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2022-0934",
+      "commit_sha": "77522d4eb7ef7df6805d7aa377bc3fad84a2910a",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "19.07|19.07.0|19.07.1|ath79/generic|opkg|CVE-2020-7982|c155900f66d5345fcc12ab8a398a134fcb954eda",
+      "selection_hash": "8661f9a8ece6a5ed994c683b5babc808dc2468a8d40698ab9784d8a7061a74c7",
+      "stable_family": "19.07",
+      "pre_release": "19.07.0",
+      "post_release": "19.07.1",
+      "target": "ath79/generic",
+      "package": "opkg",
+      "cve_id": "CVE-2020-7982",
+      "commit_sha": "c155900f66d5345fcc12ab8a398a134fcb954eda",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "18.06|18.06.1|18.06.2|x86/64|dropbear|CVE-2018-15473|97fddb2fddbf81535f06f168752c9b7e4abaa87a",
+      "selection_hash": "8754610702029823a9d71b990b6d11dae8950221dcb3a249dfd1421f93070923",
+      "stable_family": "18.06",
+      "pre_release": "18.06.1",
+      "post_release": "18.06.2",
+      "target": "x86/64",
+      "package": "dropbear",
+      "cve_id": "CVE-2018-15473",
+      "commit_sha": "97fddb2fddbf81535f06f168752c9b7e4abaa87a",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": false,
+        "tier4_strict_all_changed_path_blob_retention": false
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": false,
+        "strict_blob_support_signal": false
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "18.06|18.06.7|18.06.8|x86/64|ppp|CVE-2020-8597|4c1779ac2cb4face8676c470aa366161db7c6534",
+      "selection_hash": "88ffad01f793bcec237fe11a93232d55fc75bf7295f79a04db45417455a9959b",
+      "stable_family": "18.06",
+      "pre_release": "18.06.7",
+      "post_release": "18.06.8",
+      "target": "x86/64",
+      "package": "ppp",
+      "cve_id": "CVE-2020-8597",
+      "commit_sha": "4c1779ac2cb4face8676c470aa366161db7c6534",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "18.06|18.06.6|18.06.7|x86/64|opkg|CVE-2020-7982|ca47026b7d1d3fdafbd7368fe3c334f964134091",
+      "selection_hash": "89b11fbc1c510e414a460b1250ecca3c4b13cf0c9a6e9812c9b683521360bbdd",
+      "stable_family": "18.06",
+      "pre_release": "18.06.6",
+      "post_release": "18.06.7",
+      "target": "x86/64",
+      "package": "opkg",
+      "cve_id": "CVE-2020-7982",
+      "commit_sha": "ca47026b7d1d3fdafbd7368fe3c334f964134091",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "22.03|22.03.6|22.03.7|x86/64|dropbear|CVE-2023-36328|38cea0bea17941b7a392fcdbef4faec2d146a398",
+      "selection_hash": "96283f70acb8aa65b4e6f750fc28b4d51509be69fbbd8f8fe45b524d6bad26bf",
+      "stable_family": "22.03",
+      "pre_release": "22.03.6",
+      "post_release": "22.03.7",
+      "target": "x86/64",
+      "package": "dropbear",
+      "cve_id": "CVE-2023-36328",
+      "commit_sha": "38cea0bea17941b7a392fcdbef4faec2d146a398",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "19.07|19.07.0|19.07.1|x86/64|opkg|CVE-2020-7982|c155900f66d5345fcc12ab8a398a134fcb954eda",
+      "selection_hash": "96b93fe4e97742058ca03d81fdf1163b2995cbf0fb575a28ca29df6205400e97",
+      "stable_family": "19.07",
+      "pre_release": "19.07.0",
+      "post_release": "19.07.1",
+      "target": "x86/64",
+      "package": "opkg",
+      "cve_id": "CVE-2020-7982",
+      "commit_sha": "c155900f66d5345fcc12ab8a398a134fcb954eda",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "18.06|18.06.1|18.06.2|x86/64|dropbear|CVE-2018-15599|97fddb2fddbf81535f06f168752c9b7e4abaa87a",
+      "selection_hash": "9c541f6fe51e95c41be82224a2c740acfe4d1a3fc96350ac633af6fddc4457b7",
+      "stable_family": "18.06",
+      "pre_release": "18.06.1",
+      "post_release": "18.06.2",
+      "target": "x86/64",
+      "package": "dropbear",
+      "cve_id": "CVE-2018-15599",
+      "commit_sha": "97fddb2fddbf81535f06f168752c9b7e4abaa87a",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": false,
+        "tier4_strict_all_changed_path_blob_retention": false
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": false,
+        "strict_blob_support_signal": false
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "24.10|24.10.4|24.10.5|ath79/generic|dropbear|CVE-2019-6111|0f52a05723988633882d6c52122009ce11f8956b",
+      "selection_hash": "9d4ea279485080e813d7201a59388c22827d710394ee80a2b1bee3380127b84d",
+      "stable_family": "24.10",
+      "pre_release": "24.10.4",
+      "post_release": "24.10.5",
+      "target": "ath79/generic",
+      "package": "dropbear",
+      "cve_id": "CVE-2019-6111",
+      "commit_sha": "0f52a05723988633882d6c52122009ce11f8956b",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "24.10|24.10.6|24.10.7|ath79/generic|dnsmasq|CVE-2026-4890|15250e11aa4e77e47cee3afca0625fca02c97917",
+      "selection_hash": "9d74663c9bed80e53c6ae60f1a694b27189c2e535cc501cd6d725563fb576402",
+      "stable_family": "24.10",
+      "pre_release": "24.10.6",
+      "post_release": "24.10.7",
+      "target": "ath79/generic",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2026-4890",
+      "commit_sha": "15250e11aa4e77e47cee3afca0625fca02c97917",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "19.07|19.07.5|19.07.6|ath79/generic|dnsmasq|CVE-2020-25683|8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "selection_hash": "a0dc515bf5a7972b7df9f0558fa33d64ab1fe5a91425ec542f68cfbbdfdc6d8c",
+      "stable_family": "19.07",
+      "pre_release": "19.07.5",
+      "post_release": "19.07.6",
+      "target": "ath79/generic",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2020-25683",
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "22.03|22.03.2|22.03.3|ath79/generic|busybox|CVE-2022-30065|13bd217821e766110298498d0b73c4394e3330bd",
+      "selection_hash": "aa3281b696342af707c6603db219e19005e04aec666cdf1add8744ba9b82fc75",
+      "stable_family": "22.03",
+      "pre_release": "22.03.2",
+      "post_release": "22.03.3",
+      "target": "ath79/generic",
+      "package": "busybox",
+      "cve_id": "CVE-2022-30065",
+      "commit_sha": "13bd217821e766110298498d0b73c4394e3330bd",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "22.03|22.03.6|22.03.7|x86/64|dropbear|CVE-2023-48795|38cea0bea17941b7a392fcdbef4faec2d146a398",
+      "selection_hash": "afa9db891c21c42f060096662bb2edf44df5d6f035bf857ef34e94f1ae696c1d",
+      "stable_family": "22.03",
+      "pre_release": "22.03.6",
+      "post_release": "22.03.7",
+      "target": "x86/64",
+      "package": "dropbear",
+      "cve_id": "CVE-2023-48795",
+      "commit_sha": "38cea0bea17941b7a392fcdbef4faec2d146a398",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "19.07|19.07.5|19.07.6|ath79/generic|dnsmasq|CVE-2020-25681|8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "selection_hash": "b222d6115c004d6e3c648c8b3bb54f6316bc4092a1742f1db4246dc0b46e1da1",
+      "stable_family": "19.07",
+      "pre_release": "19.07.5",
+      "post_release": "19.07.6",
+      "target": "ath79/generic",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2020-25681",
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "23.05|23.05.2|23.05.3|ath79/generic|dropbear|CVE-2023-36328|6549a711be6cb9788aaaec6d31e3396b21893163",
+      "selection_hash": "b4d601e08738c4849d0327658b156524ddc19a84358a327628587ee97f17ad67",
+      "stable_family": "23.05",
+      "pre_release": "23.05.2",
+      "post_release": "23.05.3",
+      "target": "ath79/generic",
+      "package": "dropbear",
+      "cve_id": "CVE-2023-36328",
+      "commit_sha": "6549a711be6cb9788aaaec6d31e3396b21893163",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "21.02|21.02.5|21.02.6|ath79/generic|dnsmasq|CVE-2022-0934|18f05da13dcb4283f61c5a03fbdc48411df6b0f7",
+      "selection_hash": "be5cd90b3c504f122fbd8cb91568746083649165f3add44a80771fbc4afd5496",
+      "stable_family": "21.02",
+      "pre_release": "21.02.5",
+      "post_release": "21.02.6",
+      "target": "ath79/generic",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2022-0934",
+      "commit_sha": "18f05da13dcb4283f61c5a03fbdc48411df6b0f7",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": true
+    },
+    {
+      "stable_key": "23.05|23.05.2|23.05.3|x86/64|dnsmasq|CVE-2023-50387|875822f283163c038c93fd5405c6dd9796228eb7",
+      "selection_hash": "bf43036ba58ffabd2c6ab49231ed8feb5a37693aa5ec11f04e9b0a1dec8e5c55",
+      "stable_family": "23.05",
+      "pre_release": "23.05.2",
+      "post_release": "23.05.3",
+      "target": "x86/64",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2023-50387",
+      "commit_sha": "875822f283163c038c93fd5405c6dd9796228eb7",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": false,
+        "tier4_strict_all_changed_path_blob_retention": false
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": false,
+        "strict_blob_support_signal": false
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "19.07|19.07.1|19.07.2|ath79/generic|ppp|CVE-2020-8597|cf118077cd4f909a7ad68e6efdc07fe93f63b650",
+      "selection_hash": "c2056674e4db90929f4ef1e886056fc80b295ccc20239fa45666fd253e139eb5",
+      "stable_family": "19.07",
+      "pre_release": "19.07.1",
+      "post_release": "19.07.2",
+      "target": "ath79/generic",
+      "package": "ppp",
+      "cve_id": "CVE-2020-8597",
+      "commit_sha": "cf118077cd4f909a7ad68e6efdc07fe93f63b650",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "18.06|18.06.5|18.06.6|x86/64|e2fsprogs|CVE-2019-5094|97e9be4e3a4c4121056f8946c78709967046afe7",
+      "selection_hash": "c796e419dab8897ff99d7c87a03d9e3b60943bb0b7520375a863ecd59bee2e41",
+      "stable_family": "18.06",
+      "pre_release": "18.06.5",
+      "post_release": "18.06.6",
+      "target": "x86/64",
+      "package": "e2fsprogs",
+      "cve_id": "CVE-2019-5094",
+      "commit_sha": "97e9be4e3a4c4121056f8946c78709967046afe7",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "24.10|24.10.7|24.10.8|ath79/generic|dropbear|CVE-2026-35385|262c09368fda76c85c519b7554f33bb98fb3263f",
+      "selection_hash": "c804b563c853806d1a6508de411e8ef09240ed60df1386430b3d763c8b9985ea",
+      "stable_family": "24.10",
+      "pre_release": "24.10.7",
+      "post_release": "24.10.8",
+      "target": "ath79/generic",
+      "package": "dropbear",
+      "cve_id": "CVE-2026-35385",
+      "commit_sha": "262c09368fda76c85c519b7554f33bb98fb3263f",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "18.06|18.06.1|18.06.2|ar71xx/generic|dropbear|CVE-2018-15473|8bb9d053eb17c98659f5fb04d7a7c3bafdf42e9c",
+      "selection_hash": "c9c45fc924e46d1cdb28fc9b43d5758aee9740a9509d43fbf39577690e9c6eee",
+      "stable_family": "18.06",
+      "pre_release": "18.06.1",
+      "post_release": "18.06.2",
+      "target": "ar71xx/generic",
+      "package": "dropbear",
+      "cve_id": "CVE-2018-15473",
+      "commit_sha": "8bb9d053eb17c98659f5fb04d7a7c3bafdf42e9c",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": false
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": false
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "23.05|23.05.2|23.05.3|ath79/generic|dropbear|CVE-2023-48795|6549a711be6cb9788aaaec6d31e3396b21893163",
+      "selection_hash": "cd6a9f5d9ee7634d13094df2ecb7de05eb9c93a2e6fd6734c6a43ae7043b668f",
+      "stable_family": "23.05",
+      "pre_release": "23.05.2",
+      "post_release": "23.05.3",
+      "target": "ath79/generic",
+      "package": "dropbear",
+      "cve_id": "CVE-2023-48795",
+      "commit_sha": "6549a711be6cb9788aaaec6d31e3396b21893163",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "18.06|18.06.1|18.06.2|ar71xx/generic|dropbear|CVE-2018-15599|97fddb2fddbf81535f06f168752c9b7e4abaa87a",
+      "selection_hash": "cf454178879f574944d6551db34c2806c3f501dbcc55553d7949c752e4f65301",
+      "stable_family": "18.06",
+      "pre_release": "18.06.1",
+      "post_release": "18.06.2",
+      "target": "ar71xx/generic",
+      "package": "dropbear",
+      "cve_id": "CVE-2018-15599",
+      "commit_sha": "97fddb2fddbf81535f06f168752c9b7e4abaa87a",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": false,
+        "tier4_strict_all_changed_path_blob_retention": false
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": false,
+        "strict_blob_support_signal": false
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "22.03|22.03.2|22.03.3|x86/64|e2fsprogs|CVE-2022-1304|1a0f2c3a3ecb19f65bdc269818ed373958d032e6",
+      "selection_hash": "d7614a78934a006c28a347bcb32595856cd92e5eac1c1840e1f8c1282ebf207f",
+      "stable_family": "22.03",
+      "pre_release": "22.03.2",
+      "post_release": "22.03.3",
+      "target": "x86/64",
+      "package": "e2fsprogs",
+      "cve_id": "CVE-2022-1304",
+      "commit_sha": "1a0f2c3a3ecb19f65bdc269818ed373958d032e6",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "23.05|23.05.2|23.05.3|x86/64|dropbear|CVE-2023-36328|6549a711be6cb9788aaaec6d31e3396b21893163",
+      "selection_hash": "de1a9727f84a45223acec56efa12bacbfdb83409d426b4dbb9cd00f387c819a7",
+      "stable_family": "23.05",
+      "pre_release": "23.05.2",
+      "post_release": "23.05.3",
+      "target": "x86/64",
+      "package": "dropbear",
+      "cve_id": "CVE-2023-36328",
+      "commit_sha": "6549a711be6cb9788aaaec6d31e3396b21893163",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "19.07|19.07.5|19.07.6|x86/64|dnsmasq|CVE-2020-25687|8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "selection_hash": "dea391dc6951228c495b731b854f9b017b459a0225d84102b31695eff60d3eec",
+      "stable_family": "19.07",
+      "pre_release": "19.07.5",
+      "post_release": "19.07.6",
+      "target": "x86/64",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2020-25687",
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "19.07|19.07.5|19.07.6|x86/64|dnsmasq|CVE-2020-25681|8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "selection_hash": "df0e7a4957518b0c1bc5f8a76e2b500f0fede6220ca94e3c79b97c4da66d6d9e",
+      "stable_family": "19.07",
+      "pre_release": "19.07.5",
+      "post_release": "19.07.6",
+      "target": "x86/64",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2020-25681",
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "18.06|18.06.1|18.06.2|x86/64|dropbear|CVE-2018-15599|8bb9d053eb17c98659f5fb04d7a7c3bafdf42e9c",
+      "selection_hash": "e2d0c0f252ad6b09d2eb3ea494ec708d026d0c64a4979906c360f3edaf39a81f",
+      "stable_family": "18.06",
+      "pre_release": "18.06.1",
+      "post_release": "18.06.2",
+      "target": "x86/64",
+      "package": "dropbear",
+      "cve_id": "CVE-2018-15599",
+      "commit_sha": "8bb9d053eb17c98659f5fb04d7a7c3bafdf42e9c",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": false
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": false
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "24.10|24.10.7|24.10.8|ath79/generic|dropbear|CVE-2019-6111|262c09368fda76c85c519b7554f33bb98fb3263f",
+      "selection_hash": "e4d5ce2c675e7d555ffb5a89b55f64375be212b1d70b823486f6ceb3f5d4c6d9",
+      "stable_family": "24.10",
+      "pre_release": "24.10.7",
+      "post_release": "24.10.8",
+      "target": "ath79/generic",
+      "package": "dropbear",
+      "cve_id": "CVE-2019-6111",
+      "commit_sha": "262c09368fda76c85c519b7554f33bb98fb3263f",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    },
+    {
+      "stable_key": "18.06|18.06.6|18.06.7|ar71xx/generic|opkg|CVE-2020-7982|ca47026b7d1d3fdafbd7368fe3c334f964134091",
+      "selection_hash": "e5f9d3a493538f7dcadf1e8db671bf2d25bb71e0b9532e15b32237f22f5f9be2",
+      "stable_family": "18.06",
+      "pre_release": "18.06.6",
+      "post_release": "18.06.7",
+      "target": "ar71xx/generic",
+      "package": "opkg",
+      "cve_id": "CVE-2020-7982",
+      "commit_sha": "ca47026b7d1d3fdafbd7368fe3c334f964134091",
+      "evidence_tiers": {
+        "tier0_name_version_record": true,
+        "tier1_package_target_presence": true,
+        "tier2_post_ancestor_pre_exclusion": true,
+        "tier3_any_changed_path_blob_retention": true,
+        "tier4_strict_all_changed_path_blob_retention": true
+      },
+      "ablation_states": {
+        "ancestry_only_support_signal": true,
+        "any_blob_support_signal": true,
+        "strict_blob_support_signal": true
+      },
+      "label_status": "not_a_cve_label",
+      "pilot_selected_by_hash_rule": false
+    }
+  ]
+}
