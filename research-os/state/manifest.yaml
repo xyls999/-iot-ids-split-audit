@@ -14,9 +14,9 @@ target:
 
 workflow:
   current_stage: cross_ecosystem_release_claim_closure_novelty_audit
-  current_task: "run only the pre-registered design/pilot gate for Security Update Evidence-Join Reliability; first finish Macaron scope audit and freeze edge rules, do not freeze v3 or write vulnerability metrics"
+  current_task: "run only an adversarial pilot for cross-case security claim identifiability; do not freeze v3, create vulnerability labels, or claim a publishable contribution"
   auto_continue: false
-  status: security_update_evidence_join_candidate_conditional_go_pilot_only
+  status: cross_case_claim_identifiability_no_go_pilot_only
 
 completed_tasks:
   - task_id: setup-scaffold
@@ -138,6 +138,7 @@ artifacts:
   cross_ecosystem_release_provenance_spike: literature/iot-security/cross-ecosystem-release-provenance-spike-2026-10-01.md
   release_claim_synthesis_adversarial_review: reviews/release-claim-synthesis-adversarial-review-2026-10-01.md
   publishable_candidate_security_update_evidence_join: reviews/publishable-candidate-security-update-evidence-join-2026-10-01.md
+  cross_case_security_claim_identifiability_synthesis: reviews/cross-case-security-claim-identifiability-synthesis-2026-10-01.md
   iot_ids_bounded_draft: drafts/iot-ids-split-sensitivity-introduction-and-methods.md
   beginner_research_explanation: README-FOR-BEGINNERS-zh.md
   n_baiot_official_profile: data/n-baiot-uci-profile.md
