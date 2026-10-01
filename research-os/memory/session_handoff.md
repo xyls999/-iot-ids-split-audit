@@ -29,7 +29,7 @@ Ten DOI-verified papers and local reading notes are at `literature/iot-ids/`. St
 
 ## Device-fingerprint innovation spike
 
-`literature/iot-ids/provenance-not-behaviour-fulltext-audit-2026-09-30.md` confirms prior IoT IDS random-versus-device-held-out comparison and provenance-artifact auditing. `literature/iot-ids/bridge-fulltext-audit-2026-09-30.md` confirms BRIDGE random windows, temporal split and held-dataset evaluation. `literature/iot-ids/label-support-harmonization-audit-2026-09-30.md` confirms explicit shared-category selection has IoT domain-adaptation precedent, though exact all-held-group multiclass intersection was not verified. Neither remaining difference is novelty evidence. Current N-BaIoT Kaggle-mirror work is strictly a technical replication/case study; CDP→DHG is rejected and submission remains blocked.
+IoT IDS N-BaIoT work is frozen as a technical replication/case study: direct overlap covers random/device-held-out, benchmark splits and shared categories; CDP→DHG is rejected. New route selection is in `ideas/iot-security-pivot-options-2026-10-01.md`: OpenWrt release-provenance-assisted vulnerability applicability ranks first, MUD DNS binding second and a vendor-CVE metadata audit third. Before experiments, audit the four cited OpenWrt/SBOM nearest works in full text and prove official artifacts can support a blinded, independently adjudicated package-release-CVE cohort.
 
 ## Domain-generalization literature checkpoint
 
