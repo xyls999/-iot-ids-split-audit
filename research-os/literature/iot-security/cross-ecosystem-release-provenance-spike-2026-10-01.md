@@ -95,13 +95,27 @@ Bodhi 的[官方文档](https://bodhi.fedoraproject.org/docs/)说明它管理 RP
 - Helmke & vom Dorp 已阻断 configuration-aware version filtering；kernel 不能作为“target sensitivity”新颖性来源。
 - 任何跨生态比较若只展示公开接口差异，而没有预先定义的 audit outcome、独立复查和实证的 policy/identity consequence，只是工程目录，不是研究贡献。
 
+## 更窄且可检验的候选：Security Update Evidence-Join Reliability
+
+综合新增全文后，release-claim closure 继续收缩为一个 edge-level empirical study，而不是新的 closure framework：
+
+```text
+研究对象：公开 security update 记录之间的 E1–E5 evidence joins
+研究输出：explicit_anchored / explicit_replayable / inferred / absent
+研究结论：closure/failure profile 与审查一致性
+明确不输出：affected/not_affected、VEX、exploitability、漏洞质量排名
+```
+
+该候选与 Linux distribution lifecycle study、release-note traceability、SVS-TEST、Hidden Dependencies/VEX scanner benchmark 的单位和输出均不同，详细协议见 `reviews/publishable-candidate-security-update-evidence-join-2026-10-01.md`。它是目前唯一值得做三生态各 10 条的最小 pilot 的方向；pilot 前仍不能称已创新或冻结 v3。
+
 ## 当前 spike verdict
 
 ```text
 原 OpenWrt applicability algorithm:                       STOP
 泛化 SBOM/VEX/SLSA evidence graph:                         STOP
-跨生态 release-security-claim closure audit:               CONDITIONAL, 未达“足够创新”
-立即冻结新 cohort、写指标/系统、或投稿主张:                 NO-GO
+一般 release-claim closure:                                CONDITIONAL, 高风险
+Security Update Evidence-Join Reliability（edge-level）：  CONDITIONAL-GO, 仅允许最小 pilot
+立即冻结 cohort、写效果指标/系统、或投稿主张：              NO-GO
 ```
 
 ## 最有信息量的下一步
