@@ -29,7 +29,7 @@ Ten DOI-verified papers and local reading notes are at `literature/iot-ids/`. St
 
 ## Device-fingerprint innovation spike
 
-IoT IDS N-BaIoT work is frozen as a technical replication/case study: direct overlap covers random/device-held-out, benchmark splits and shared categories; CDP→DHG is rejected. New route selection is in `ideas/iot-security-pivot-options-2026-10-01.md`: OpenWrt release-provenance-assisted vulnerability applicability ranks first, MUD DNS binding second and a vendor-CVE metadata audit third. Before experiments, audit the four cited OpenWrt/SBOM nearest works in full text and prove official artifacts can support a blinded, independently adjudicated package-release-CVE cohort.
+IoT IDS N-BaIoT is frozen as a technical replication/case study. The OpenWrt release-provenance pilot has a conditional literature GO: `literature/iot-security/openwrt-sbom-nearest-work-audit-2026-10-01.md` finds four nearest papers partial/adjacent rather than direct. Official metadata snapshots for releases 23.05.5, 24.10.0, 24.10.4 and targets x86/64/ath79-generic are frozen in `data/openwrt-provenance-snapshots/` and recorded by hashes in `data/openwrt-provenance-pilot.yaml`; total is 1,660,189 bytes and each downloaded artifact matched the official target sha256sums. The Chinese study protocol is `plans/openwrt-provenance-pilot-plan-zh.md`; blank blinded annotation fields and rules are under `data/openwrt-provenance-*`. Next: preregister a bounded individual-CVE cohort and prove it can produce enough independently adjudicated package-release-CVE labels; do not write code before that gate.
 
 ## Domain-generalization literature checkpoint
 

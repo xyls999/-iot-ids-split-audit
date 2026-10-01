@@ -1,0 +1,187 @@
+{
+  "files_checked": 30,
+  "all_match": true,
+  "total_bytes": 1660189,
+  "files": [
+    {
+      "path": "research-os/data/openwrt-provenance-snapshots/releases/23.05.5/ath79_generic/config.buildinfo",
+      "sha256": "fe633171e5e67e197d601956a7c62d3eb7cca2c16e01d09eac4a6d95a7875cef",
+      "published_sha256": "fe633171e5e67e197d601956a7c62d3eb7cca2c16e01d09eac4a6d95a7875cef",
+      "matches_published": true
+    },
+    {
+      "path": "research-os/data/openwrt-provenance-snapshots/releases/23.05.5/ath79_generic/feeds.buildinfo",
+      "sha256": "6ae0d2a301d8d5d931ca2f93cbf32dab0688c9110e172608985fa5483ac34cdb",
+      "published_sha256": "6ae0d2a301d8d5d931ca2f93cbf32dab0688c9110e172608985fa5483ac34cdb",
+      "matches_published": true
+    },
+    {
+      "path": "research-os/data/openwrt-provenance-snapshots/releases/23.05.5/ath79_generic/openwrt-23.05.5-ath79-generic.bom.cdx.json",
+      "sha256": "5beb7e6f86ed0b99482704691d4aa93922de703caf765c8c156d5abdaa1049fe",
+      "published_sha256": "5beb7e6f86ed0b99482704691d4aa93922de703caf765c8c156d5abdaa1049fe",
+      "matches_published": true
+    },
+    {
+      "path": "research-os/data/openwrt-provenance-snapshots/releases/23.05.5/ath79_generic/openwrt-23.05.5-ath79-generic.manifest",
+      "sha256": "b5f62e6ec3ef970a8ec8e6e37389df8335c3702df759bfd4f6873d9863febcf8",
+      "published_sha256": "b5f62e6ec3ef970a8ec8e6e37389df8335c3702df759bfd4f6873d9863febcf8",
+      "matches_published": true
+    },
+    {
+      "path": "research-os/data/openwrt-provenance-snapshots/releases/23.05.5/ath79_generic/version.buildinfo",
+      "sha256": "5726fd4bdf66e06c5d7b6a9f5e40e2ba8018ab35c3aee265f1deacda3f291d80",
+      "published_sha256": "5726fd4bdf66e06c5d7b6a9f5e40e2ba8018ab35c3aee265f1deacda3f291d80",
+      "matches_published": true
+    },
+    {
+      "path": "research-os/data/openwrt-provenance-snapshots/releases/23.05.5/x86_64/config.buildinfo",
+      "sha256": "5d11121f7b37d7d7c11b0701514345c58a41f5e0857a9ed297503f928417e37d",
+      "published_sha256": "5d11121f7b37d7d7c11b0701514345c58a41f5e0857a9ed297503f928417e37d",
+      "matches_published": true
+    },
+    {
+      "path": "research-os/data/openwrt-provenance-snapshots/releases/23.05.5/x86_64/feeds.buildinfo",
+      "sha256": "6ae0d2a301d8d5d931ca2f93cbf32dab0688c9110e172608985fa5483ac34cdb",
+      "published_sha256": "6ae0d2a301d8d5d931ca2f93cbf32dab0688c9110e172608985fa5483ac34cdb",
+      "matches_published": true
+    },
+    {
+      "path": "research-os/data/openwrt-provenance-snapshots/releases/23.05.5/x86_64/openwrt-23.05.5-x86-64.bom.cdx.json",
+      "sha256": "1f5972b44c19f49914e21654f13dceb7db4c59f79d6a4e0f7b19a95da9a62e07",
+      "published_sha256": "1f5972b44c19f49914e21654f13dceb7db4c59f79d6a4e0f7b19a95da9a62e07",
+      "matches_published": true
+    },
+    {
+      "path": "research-os/data/openwrt-provenance-snapshots/releases/23.05.5/x86_64/openwrt-23.05.5-x86-64.manifest",
+      "sha256": "dd40f52bc073870ebafe260463683419b2bb36e226c34d4c0002e6b62195b8d6",
+      "published_sha256": "dd40f52bc073870ebafe260463683419b2bb36e226c34d4c0002e6b62195b8d6",
+      "matches_published": true
+    },
+    {
+      "path": "research-os/data/openwrt-provenance-snapshots/releases/23.05.5/x86_64/version.buildinfo",
+      "sha256": "5726fd4bdf66e06c5d7b6a9f5e40e2ba8018ab35c3aee265f1deacda3f291d80",
+      "published_sha256": "5726fd4bdf66e06c5d7b6a9f5e40e2ba8018ab35c3aee265f1deacda3f291d80",
+      "matches_published": true
+    },
+    {
+      "path": "research-os/data/openwrt-provenance-snapshots/releases/24.10.0/ath79_generic/config.buildinfo",
+      "sha256": "fb07b67830069d3481e21c0cc033a6769f608ab3b09ed0d4b5a3267cae1aa77b",
+      "published_sha256": "fb07b67830069d3481e21c0cc033a6769f608ab3b09ed0d4b5a3267cae1aa77b",
+      "matches_published": true
+    },
+    {
+      "path": "research-os/data/openwrt-provenance-snapshots/releases/24.10.0/ath79_generic/feeds.buildinfo",
+      "sha256": "c7d97cd938d1e7407bb29d96ee29e6355552951d6ad23ba60ebff257cf59cd57",
+      "published_sha256": "c7d97cd938d1e7407bb29d96ee29e6355552951d6ad23ba60ebff257cf59cd57",
+      "matches_published": true
+    },
+    {
+      "path": "research-os/data/openwrt-provenance-snapshots/releases/24.10.0/ath79_generic/openwrt-24.10.0-ath79-generic.bom.cdx.json",
+      "sha256": "cefe8e89eefdeb6bdf2cccbd0cd89aac5d2fe78cef61f066a77f638a51b50515",
+      "published_sha256": "cefe8e89eefdeb6bdf2cccbd0cd89aac5d2fe78cef61f066a77f638a51b50515",
+      "matches_published": true
+    },
+    {
+      "path": "research-os/data/openwrt-provenance-snapshots/releases/24.10.0/ath79_generic/openwrt-24.10.0-ath79-generic.manifest",
+      "sha256": "05c9d100227c230845e64482f2c7e1b96f0c8c7c2ce6bab567809acfde589872",
+      "published_sha256": "05c9d100227c230845e64482f2c7e1b96f0c8c7c2ce6bab567809acfde589872",
+      "matches_published": true
+    },
+    {
+      "path": "research-os/data/openwrt-provenance-snapshots/releases/24.10.0/ath79_generic/version.buildinfo",
+      "sha256": "47914cae8bab8a1c928fce61317425390cd9e5bd4320559990f70002752b228a",
+      "published_sha256": "47914cae8bab8a1c928fce61317425390cd9e5bd4320559990f70002752b228a",
+      "matches_published": true
+    },
+    {
+      "path": "research-os/data/openwrt-provenance-snapshots/releases/24.10.0/x86_64/config.buildinfo",
+      "sha256": "dc432aeb9ca85bae0df6e27a1cce65ea52975762eb2c53dde0ffcd73aaf5a151",
+      "published_sha256": "dc432aeb9ca85bae0df6e27a1cce65ea52975762eb2c53dde0ffcd73aaf5a151",
+      "matches_published": true
+    },
+    {
+      "path": "research-os/data/openwrt-provenance-snapshots/releases/24.10.0/x86_64/feeds.buildinfo",
+      "sha256": "c7d97cd938d1e7407bb29d96ee29e6355552951d6ad23ba60ebff257cf59cd57",
+      "published_sha256": "c7d97cd938d1e7407bb29d96ee29e6355552951d6ad23ba60ebff257cf59cd57",
+      "matches_published": true
+    },
+    {
+      "path": "research-os/data/openwrt-provenance-snapshots/releases/24.10.0/x86_64/openwrt-24.10.0-x86-64.bom.cdx.json",
+      "sha256": "ea38f0b0cd9c870cd3e65b5a8bc71d9a3cdab79d6f6313e16229257136068713",
+      "published_sha256": "ea38f0b0cd9c870cd3e65b5a8bc71d9a3cdab79d6f6313e16229257136068713",
+      "matches_published": true
+    },
+    {
+      "path": "research-os/data/openwrt-provenance-snapshots/releases/24.10.0/x86_64/openwrt-24.10.0-x86-64.manifest",
+      "sha256": "2d473f5565378ba386776c3e8f9a3b908cd1fec10f5d567636402f5709b3ecf1",
+      "published_sha256": "2d473f5565378ba386776c3e8f9a3b908cd1fec10f5d567636402f5709b3ecf1",
+      "matches_published": true
+    },
+    {
+      "path": "research-os/data/openwrt-provenance-snapshots/releases/24.10.0/x86_64/version.buildinfo",
+      "sha256": "47914cae8bab8a1c928fce61317425390cd9e5bd4320559990f70002752b228a",
+      "published_sha256": "47914cae8bab8a1c928fce61317425390cd9e5bd4320559990f70002752b228a",
+      "matches_published": true
+    },
+    {
+      "path": "research-os/data/openwrt-provenance-snapshots/releases/24.10.4/ath79_generic/config.buildinfo",
+      "sha256": "c95c5f9ff5f43550adc70fb9b15858b9ac05824b44b064a15b8c35e12bf0aa02",
+      "published_sha256": "c95c5f9ff5f43550adc70fb9b15858b9ac05824b44b064a15b8c35e12bf0aa02",
+      "matches_published": true
+    },
+    {
+      "path": "research-os/data/openwrt-provenance-snapshots/releases/24.10.4/ath79_generic/feeds.buildinfo",
+      "sha256": "0f7070afbf307a14427b86181381eef01cbd7904366936cd5b18ca15ce9aec42",
+      "published_sha256": "0f7070afbf307a14427b86181381eef01cbd7904366936cd5b18ca15ce9aec42",
+      "matches_published": true
+    },
+    {
+      "path": "research-os/data/openwrt-provenance-snapshots/releases/24.10.4/ath79_generic/openwrt-24.10.4-ath79-generic.bom.cdx.json",
+      "sha256": "5731f3ea27fe3d7dc0bddf70e406df025f7c6cc9997aa775cce3e25e8bb3641c",
+      "published_sha256": "5731f3ea27fe3d7dc0bddf70e406df025f7c6cc9997aa775cce3e25e8bb3641c",
+      "matches_published": true
+    },
+    {
+      "path": "research-os/data/openwrt-provenance-snapshots/releases/24.10.4/ath79_generic/openwrt-24.10.4-ath79-generic.manifest",
+      "sha256": "2b781fb591ab2b766dd2816234d980ebfdcca9d6485a02525afd7a46e1ae8dbb",
+      "published_sha256": "2b781fb591ab2b766dd2816234d980ebfdcca9d6485a02525afd7a46e1ae8dbb",
+      "matches_published": true
+    },
+    {
+      "path": "research-os/data/openwrt-provenance-snapshots/releases/24.10.4/ath79_generic/version.buildinfo",
+      "sha256": "9917f6a9b797588d131304dbcbf97b164d7bf1f34a6223575c577ea1b76dd932",
+      "published_sha256": "9917f6a9b797588d131304dbcbf97b164d7bf1f34a6223575c577ea1b76dd932",
+      "matches_published": true
+    },
+    {
+      "path": "research-os/data/openwrt-provenance-snapshots/releases/24.10.4/x86_64/config.buildinfo",
+      "sha256": "d9373a8d29cfae18975fbf48170f1d304b6df14ce3ca810ddcab916ec8eacae5",
+      "published_sha256": "d9373a8d29cfae18975fbf48170f1d304b6df14ce3ca810ddcab916ec8eacae5",
+      "matches_published": true
+    },
+    {
+      "path": "research-os/data/openwrt-provenance-snapshots/releases/24.10.4/x86_64/feeds.buildinfo",
+      "sha256": "0f7070afbf307a14427b86181381eef01cbd7904366936cd5b18ca15ce9aec42",
+      "published_sha256": "0f7070afbf307a14427b86181381eef01cbd7904366936cd5b18ca15ce9aec42",
+      "matches_published": true
+    },
+    {
+      "path": "research-os/data/openwrt-provenance-snapshots/releases/24.10.4/x86_64/openwrt-24.10.4-x86-64.bom.cdx.json",
+      "sha256": "c35c542daff86733081d685ea4ee7f44f24a9094cf84bfd99e6eee32a45e9f99",
+      "published_sha256": "c35c542daff86733081d685ea4ee7f44f24a9094cf84bfd99e6eee32a45e9f99",
+      "matches_published": true
+    },
+    {
+      "path": "research-os/data/openwrt-provenance-snapshots/releases/24.10.4/x86_64/openwrt-24.10.4-x86-64.manifest",
+      "sha256": "989e9ce44f7e9f8cf4c278d68b300c91a48e3d44980d60afe98fdd37c49a3b65",
+      "published_sha256": "989e9ce44f7e9f8cf4c278d68b300c91a48e3d44980d60afe98fdd37c49a3b65",
+      "matches_published": true
+    },
+    {
+      "path": "research-os/data/openwrt-provenance-snapshots/releases/24.10.4/x86_64/version.buildinfo",
+      "sha256": "9917f6a9b797588d131304dbcbf97b164d7bf1f34a6223575c577ea1b76dd932",
+      "published_sha256": "9917f6a9b797588d131304dbcbf97b164d7bf1f34a6223575c577ea1b76dd932",
+      "matches_published": true
+    }
+  ]
+}

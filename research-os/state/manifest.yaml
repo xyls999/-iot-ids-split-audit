@@ -13,10 +13,10 @@ target:
   manuscript_type: null
 
 workflow:
-  current_stage: literature
-  current_task: "audit the OpenWrt release-provenance vulnerability-applicability pivot before any new experiment"
+  current_stage: protocol_design
+  current_task: "preregister an official OpenWrt metadata-only package-release-CVE pilot before writing offline audit code"
   auto_continue: false
-  status: candidate_screening_openwrt_provenance
+  status: openwrt_provenance_pilot_metadata_frozen
 
 completed_tasks:
   - task_id: setup-scaffold
@@ -102,6 +102,11 @@ artifacts:
   iot_ids_bridge_fulltext_audit: literature/iot-ids/bridge-fulltext-audit-2026-09-30.md
   iot_ids_label_support_harmonization_audit: literature/iot-ids/label-support-harmonization-audit-2026-09-30.md
   iot_security_pivot_options: ideas/iot-security-pivot-options-2026-10-01.md
+  openwrt_nearest_work_audit: literature/iot-security/openwrt-sbom-nearest-work-audit-2026-10-01.md
+  openwrt_research_plan_zh: plans/openwrt-provenance-pilot-plan-zh.md
+  openwrt_pilot_manifest: data/openwrt-provenance-pilot.yaml
+  openwrt_label_schema: data/openwrt-provenance-label-schema.md
+  openwrt_adjudication_sheet: data/openwrt-provenance-adjudication.csv
   iot_ids_bounded_draft: drafts/iot-ids-split-sensitivity-introduction-and-methods.md
   beginner_research_explanation: README-FOR-BEGINNERS-zh.md
   n_baiot_official_profile: data/n-baiot-uci-profile.md
@@ -135,5 +140,5 @@ review:
 
 last_checkpoint:
   timestamp: 2026-09-30T00:30:00+08:00
-  summary: "The IoT IDS line is retained only as a technical replication record after direct benchmark/label-control overlap. A new publication-oriented screen ranks release-provenance-assisted OpenWrt vulnerability applicability above MUD DNS-binding and vendor-CVE constraint audits, pending full-text nearest-work checks and an official-artifact feasibility gate."
-  next_action: "Do not expand the IoT IDS manuscript. Audit full texts of the four identified OpenWrt/SBOM nearest works, then verify official manifests/BOMs/source history can form an independently adjudicated package-release-CVE cohort before implementation."
+  summary: "The IoT IDS line remains a technical replication record only. The OpenWrt release-provenance candidate passed a conditional four-paper full-text overlap gate: all are partial/adjacent, none reports the exact package-release-CVE recipe/feed/backport versus name/version benchmark. Official metadata for three releases (23.05.5, 24.10.0, 24.10.4) and two targets (x86/64, ath79/generic) is frozen at 1,660,189 bytes; every downloaded manifest/BOM/build-info file matches OpenWrt's published target sha256sums."
+  next_action: "Select and preregister a bounded package-release-CVE cohort using only individual official CVE JSON and release-relevant OpenWrt source/patch evidence. Do not write audit code until the cohort and blinded label protocol are feasible."

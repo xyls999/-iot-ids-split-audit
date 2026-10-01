@@ -1,0 +1,73 @@
+pilot_id: openwrt-provenance-v1
+status: frozen_metadata_only
+retrieved_at_utc: "2026-10-01T06:44:51Z"
+research_boundary: "Offline defensive release-metadata audit only; no firmware images, execution, scanning, target contact, or exploitation."
+size_budget_bytes: 52428800
+snapshot_root: openwrt-provenance-snapshots/releases
+source_repositories:
+  openwrt:
+    url: https://github.com/openwrt/openwrt.git
+    tags:
+      "23.05.5": "6ed7fa1939443542f729f531bd6b7729e12bcc10"
+      "24.10.0": "2a8e54eb38252d4bdf41fbd6d2844457a2653f4e"
+      "24.10.4": "cd867602958dc9180d2d91d6583a46eac2bbf272"
+releases:
+  - release: "23.05.5"
+    source_tag: v23.05.5
+    source_commit: "6ed7fa1939443542f729f531bd6b7729e12bcc10"
+    targets:
+      - target: x86/64
+        source_url: https://downloads.openwrt.org/releases/23.05.5/targets/x86/64/
+        manifest_path: openwrt-provenance-snapshots/releases/23.05.5/x86_64/openwrt-23.05.5-x86-64.manifest
+        manifest_sha256: "dd40f52bc073870ebafe260463683419b2bb36e226c34d4c0002e6b62195b8d6"
+        bom_path: openwrt-provenance-snapshots/releases/23.05.5/x86_64/openwrt-23.05.5-x86-64.bom.cdx.json
+        bom_sha256: "1f5972b44c19f49914e21654f13dceb7db4c59f79d6a4e0f7b19a95da9a62e07"
+        release_checksums_path: openwrt-provenance-snapshots/releases/23.05.5/x86_64/sha256sums
+      - target: ath79/generic
+        source_url: https://downloads.openwrt.org/releases/23.05.5/targets/ath79/generic/
+        manifest_path: openwrt-provenance-snapshots/releases/23.05.5/ath79_generic/openwrt-23.05.5-ath79-generic.manifest
+        manifest_sha256: "b5f62e6ec3ef970a8ec8e6e37389df8335c3702df759bfd4f6873d9863febcf8"
+        bom_path: openwrt-provenance-snapshots/releases/23.05.5/ath79_generic/openwrt-23.05.5-ath79-generic.bom.cdx.json
+        bom_sha256: "5beb7e6f86ed0b99482704691d4aa93922de703caf765c8c156d5abdaa1049fe"
+        release_checksums_path: openwrt-provenance-snapshots/releases/23.05.5/ath79_generic/sha256sums
+  - release: "24.10.0"
+    source_tag: v24.10.0
+    source_commit: "2a8e54eb38252d4bdf41fbd6d2844457a2653f4e"
+    targets:
+      - target: x86/64
+        source_url: https://downloads.openwrt.org/releases/24.10.0/targets/x86/64/
+        manifest_path: openwrt-provenance-snapshots/releases/24.10.0/x86_64/openwrt-24.10.0-x86-64.manifest
+        manifest_sha256: "2d473f5565378ba386776c3e8f9a3b908cd1fec10f5d567636402f5709b3ecf1"
+        bom_path: openwrt-provenance-snapshots/releases/24.10.0/x86_64/openwrt-24.10.0-x86-64.bom.cdx.json
+        bom_sha256: "ea38f0b0cd9c870cd3e65b5a8bc71d9a3cdab79d6f6313e16229257136068713"
+        release_checksums_path: openwrt-provenance-snapshots/releases/24.10.0/x86_64/sha256sums
+      - target: ath79/generic
+        source_url: https://downloads.openwrt.org/releases/24.10.0/targets/ath79/generic/
+        manifest_path: openwrt-provenance-snapshots/releases/24.10.0/ath79_generic/openwrt-24.10.0-ath79-generic.manifest
+        manifest_sha256: "05c9d100227c230845e64482f2c7e1b96f0c8c7c2ce6bab567809acfde589872"
+        bom_path: openwrt-provenance-snapshots/releases/24.10.0/ath79_generic/openwrt-24.10.0-ath79-generic.bom.cdx.json
+        bom_sha256: "cefe8e89eefdeb6bdf2cccbd0cd89aac5d2fe78cef61f066a77f638a51b50515"
+        release_checksums_path: openwrt-provenance-snapshots/releases/24.10.0/ath79_generic/sha256sums
+  - release: "24.10.4"
+    source_tag: v24.10.4
+    source_commit: "cd867602958dc9180d2d91d6583a46eac2bbf272"
+    targets:
+      - target: x86/64
+        source_url: https://downloads.openwrt.org/releases/24.10.4/targets/x86/64/
+        manifest_path: openwrt-provenance-snapshots/releases/24.10.4/x86_64/openwrt-24.10.4-x86-64.manifest
+        manifest_sha256: "989e9ce44f7e9f8cf4c278d68b300c91a48e3d44980d60afe98fdd37c49a3b65"
+        bom_path: openwrt-provenance-snapshots/releases/24.10.4/x86_64/openwrt-24.10.4-x86-64.bom.cdx.json
+        bom_sha256: "c35c542daff86733081d685ea4ee7f44f24a9094cf84bfd99e6eee32a45e9f99"
+        release_checksums_path: openwrt-provenance-snapshots/releases/24.10.4/x86_64/sha256sums
+      - target: ath79/generic
+        source_url: https://downloads.openwrt.org/releases/24.10.4/targets/ath79/generic/
+        manifest_path: openwrt-provenance-snapshots/releases/24.10.4/ath79_generic/openwrt-24.10.4-ath79-generic.manifest
+        manifest_sha256: "2b781fb591ab2b766dd2816234d980ebfdcca9d6485a02525afd7a46e1ae8dbb"
+        bom_path: openwrt-provenance-snapshots/releases/24.10.4/ath79_generic/openwrt-24.10.4-ath79-generic.bom.cdx.json
+        bom_sha256: "5731f3ea27fe3d7dc0bddf70e406df025f7c6cc9997aa775cce3e25e8bb3641c"
+        release_checksums_path: openwrt-provenance-snapshots/releases/24.10.4/ath79_generic/sha256sums
+collection_summary:
+  files: 36
+  bytes: 1660189
+  official_release_checksum_verification: "all downloaded manifest, BOM, config, feeds and version files matched their target-level sha256sums entries"
+next_gate: "Select a preregistered CVE cohort and acquire only individual official CVE JSON plus release-relevant source/patch evidence."
