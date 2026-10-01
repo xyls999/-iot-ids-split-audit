@@ -100,6 +100,7 @@ artifacts:
   iot_ids_paper_readiness_review: reviews/iot-ids-paper-readiness-review-2026-09-30.md
   iot_ids_provenance_not_behaviour_fulltext_audit: literature/iot-ids/provenance-not-behaviour-fulltext-audit-2026-09-30.md
   iot_ids_bridge_fulltext_audit: literature/iot-ids/bridge-fulltext-audit-2026-09-30.md
+  iot_ids_label_support_harmonization_audit: literature/iot-ids/label-support-harmonization-audit-2026-09-30.md
   iot_ids_bounded_draft: drafts/iot-ids-split-sensitivity-introduction-and-methods.md
   beginner_research_explanation: README-FOR-BEGINNERS-zh.md
   n_baiot_official_profile: data/n-baiot-uci-profile.md
@@ -133,5 +134,5 @@ review:
 
 last_checkpoint:
   timestamp: 2026-09-30T00:30:00+08:00
-  summary: "Full-text verification of arXiv:2608.15761 confirms random-versus-device-held-out IoT IDS evaluation is already published; BRIDGE (arXiv:2604.11324) additionally covers random windows, temporal split and held-dataset evaluation. BRIDGE does not directly report groupwise multiclass-label intersection or a window sweep, but this is not novelty evidence. Current N-BaIoT mirror work remains a technical replication/case study only."
+  summary: "Full-text verification confirms prior IoT IDS random-versus-device-held-out evaluation (arXiv:2608.15761), random/temporal/held-dataset benchmark protocols (BRIDGE), and explicit shared-category selection in IoT domain adaptation. Exact all-held-group multiclass intersection was not verified, but that is not novelty evidence. Current N-BaIoT mirror work remains a technical replication/case study only."
   next_action: "Do not implement CDIAR or a CDP-based audit method, and do not present random-versus-device-held-out evaluation as new. Seek an official N-BaIoT manifest or a second audited dataset only if a distinct, full-text-verified research question is identified; otherwise retain this repository as a technical replication record and pivot away from an IoT IDS paper."
