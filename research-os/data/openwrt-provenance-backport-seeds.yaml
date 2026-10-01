@@ -1,0 +1,42 @@
+seed_set_id: openwrt-provenance-backport-seeds-v1
+status: "one confirmed positive-control candidate; insufficient for pilot preregistration"
+research_boundary: "A seed demonstrates package-release-CVE applicability evidence only. It does not establish exploitability, reachability, deployed-device exposure, or a method-effect result."
+confirmed:
+  - case_id: "23.05.5-x86_64-dropbear-CVE-2023-48795"
+    release: "23.05.5"
+    target: x86/64
+    package: dropbear
+    manifest_evidence:
+      path: openwrt-provenance-snapshots/releases/23.05.5/x86_64/openwrt-23.05.5-x86-64.manifest
+      required_line: "dropbear - 2022.82-6"
+    default_image_inclusion_evidence:
+      target_defaults_path: openwrt-provenance-snapshots/openwrt-evidence/CVE-2023-48795/v23.05.5-target.mk
+      target_makefile_path: openwrt-provenance-snapshots/openwrt-evidence/CVE-2023-48795/v23.05.5-x86-Makefile
+      device_definition_path: openwrt-provenance-snapshots/openwrt-evidence/CVE-2023-48795/v23.05.5-x86-64.mk
+    package_version_evidence:
+      path: openwrt-provenance-snapshots/openwrt-evidence/CVE-2023-48795/v23.05.5-dropbear-Makefile
+      declared_version: "2022.82"
+      declared_release: "6"
+    cve:
+      id: CVE-2023-48795
+      cvelist_commit: "5657707bc397bc80237e9aea2d7e01994208f1b2"
+      path: openwrt-provenance-snapshots/cvelistV5/CVE-2023-48795.json
+      sha256: "6245f198b3b89bb0ce1ca70cf48604dbd5946ee31b3d2ef99a16ee60a2a83124"
+      affected_range_basis: "The official CNA English description explicitly lists Dropbear through 2022.83; structured affected fields are n/a."
+    explicit_openwrt_fix_evidence:
+      introducing_commit: "b5cde260487eae86db1661a53e5e5e0823936aab"
+      introducing_commit_patch: openwrt-provenance-snapshots/openwrt-evidence/CVE-2023-48795/introducing-commit.patch
+      release_tag_patch: openwrt-provenance-snapshots/openwrt-evidence/CVE-2023-48795/021-Implement-Strict-KEX-mode.patch
+      release_tag_patch_sha256: "f92d984c6d36ae5ddef28bb888743d444e7d9426122344e3604a5be1ad2e8589"
+      statement: "The OpenWrt introducing commit explicitly names CVE-2023-48795 and the v23.05.5 patch implements strict KEX. The two patch blobs are not asserted identical."
+    method_a_expected_candidate: affected
+    provenance_evidence_expected_conclusion: "candidate for not_affected adjudication, pending human review of the frozen evidence"
+    status: confirmed_evidence_chain_not_final_label
+excluded_or_partial:
+  - candidate: "openssl/CVE-2024-13176, CVE-2024-9143, CVE-2025-9230"
+    reason: "OpenSSL does not occur in the six currently selected target BOMs; source version alone does not meet the target-package inclusion rule."
+  - candidate: "libtommath/CVE-2023-36328 via Dropbear"
+    reason: "OpenWrt patch evidence exists, but bundled libtommath component identity/version-to-CVE linkage is not yet proven."
+  - candidate: "BusyBox and Mbed TLS first seed rows"
+    reason: "They show version-range or version-upgrade evidence, not verified same-upstream-version OpenWrt backports; cannot test provenance increment." 
+next_gate: "Find enough additional confirmed evidence chains before creating any prediction or metric output."

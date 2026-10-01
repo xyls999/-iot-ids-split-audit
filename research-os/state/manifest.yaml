@@ -108,6 +108,7 @@ artifacts:
   openwrt_label_schema: data/openwrt-provenance-label-schema.md
   openwrt_adjudication_sheet: data/openwrt-provenance-adjudication.csv
   openwrt_cve_seed_screen: literature/iot-security/openwrt-cve-seed-screen-2026-10-01.md
+  openwrt_backport_seeds: data/openwrt-provenance-backport-seeds.yaml
   iot_ids_bounded_draft: drafts/iot-ids-split-sensitivity-introduction-and-methods.md
   beginner_research_explanation: README-FOR-BEGINNERS-zh.md
   n_baiot_official_profile: data/n-baiot-uci-profile.md
@@ -141,5 +142,5 @@ review:
 
 last_checkpoint:
   timestamp: 2026-09-30T00:30:00+08:00
-  summary: "The IoT IDS line remains a technical replication record only. The OpenWrt release-provenance candidate passed a conditional four-paper full-text overlap gate. Official metadata for three releases and two targets plus 12 official CVE JSON seed records is frozen at 1,760,168 bytes. The CVE seed screen rejects immediate pilot preregistration: OpenSSL is absent from the selected target BOMs, and Mbed TLS/BusyBox seeds presently show version boundaries/ranges rather than verified same-version OpenWrt backports, so they cannot yet test the added value of provenance evidence."
-  next_action: "Search official OpenWrt maintenance-branch commits/patches for target-present packages whose declared upstream version remains in an official CVE affected range despite an explicit release-specific backport. Do not write audit code or claim a false-affected improvement until a sufficient cohort of those cases exists."
+  summary: "The IoT IDS line remains a technical replication record only. The OpenWrt candidate passed a conditional four-paper overlap gate. Metadata, 13 pinned CVE JSON records and a frozen Dropbear evidence chain total 1,915,933 bytes. CVE-2023-48795 / Dropbear 2022.82-6 in OpenWrt 23.05.5 x86/64 is a confirmed positive-control evidence chain: the target manifest lists Dropbear, the CVE description covers Dropbear through 2022.83, and the release tag includes an explicit CVE-linked strict-KEX patch. It is one seed, not a final human label or a sufficient experimental cohort."
+  next_action: "Continue searching official OpenWrt maintenance-branch commits/patches for target-present packages with the same evidence chain as the Dropbear seed. Do not write audit code or claim a false-affected improvement until enough independently reviewed backport cases exist."
