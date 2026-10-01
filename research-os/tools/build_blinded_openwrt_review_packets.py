@@ -18,12 +18,30 @@ def key(row):
 
 
 def main():
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--rank-start", type=int, default=0)
+    ap.add_argument("--per-family", type=int, default=2)
+    ap.add_argument("--output", default="research-os/artifacts/openwrt-blinded-review-packets.json")
+    ap.add_argument("--fill", dest="fill", action="store_true", default=True)
+    ap.add_argument("--no-fill", dest="fill", action="store_false")
+    args = ap.parse_args()
     source = json.loads(Path("research-os/artifacts/openwrt-paired-cohort-closure-probe.json").read_text())
     pilot = json.loads(Path("research-os/artifacts/openwrt-evidence-sensitivity-pilot.json").read_text())
-    selected = set(pilot["pilot_selected_keys"])
     rows = {key(r): r for r in source["pairs"]}
+    by_family = {}
+    for identity in sorted(rows, key=lambda value: hashlib.sha256(value.encode()).hexdigest()):
+        by_family.setdefault(rows[identity]["stable_family"], []).append(identity)
+    selected_keys = []
+    for family in sorted(by_family):
+        selected_keys.extend(by_family[family][args.rank_start:args.rank_start + args.per_family])
+    target_count = args.per_family * len(by_family)
+    if args.fill and len(selected_keys) < target_count:
+        selected_set = set(selected_keys)
+        remaining = [identity for identity in sorted(rows, key=lambda value: hashlib.sha256(value.encode()).hexdigest()) if identity not in selected_set]
+        selected_keys.extend(remaining[:target_count - len(selected_keys)])
     packets = []
-    for identity in pilot["pilot_selected_keys"]:
+    for identity in selected_keys:
         row = rows[identity]
         packet_id = "packet-" + hashlib.sha256(identity.encode()).hexdigest()[:12]
         observations = []
@@ -63,17 +81,20 @@ def main():
                     "T4": "Does every changed-path blob retained at post release identify strict source retention?",
                 },
             },
-            "selection_provenance": "two lowest SHA-256 identity-key ranks per stable family; no closure outcome used",
+            "selection_provenance": f"SHA-256 identity-key ranks {args.rank_start}..{args.rank_start + args.per_family - 1} per stable family, with deterministic global hash fill if a family has fewer rows; no closure outcome used",
         })
-    assert len(packets) == 12 and all(key(rows[k]) in selected for k in selected)
+    if args.fill:
+        assert len(packets) == target_count
+    else:
+        assert len(packets) == sum(min(args.per_family, max(0, len(items) - args.rank_start)) for items in by_family.values())
     out = {
         "status": "blinded_openwrt_review_packets_no_aggregate_outcomes",
         "packet_count": len(packets),
-        "selection_rule": "two lowest SHA-256 identity-key ranks per stable family",
+        "selection_rule": f"SHA-256 identity-key ranks {args.rank_start}..{args.rank_start + args.per_family - 1} per stable family" + (", deterministic global hash fill to target count" if args.fill else ", no fill"),
         "review_states": ["identified", "conditional", "not_identifiable"],
         "packets": packets,
     }
-    Path("research-os/artifacts/openwrt-blinded-review-packets.json").write_text(json.dumps(out, indent=2) + "\n")
+    Path(args.output).write_text(json.dumps(out, indent=2) + "\n")
     print(json.dumps({"packet_count": len(packets), "families": sorted({p['identity']['stable_family'] for p in packets})}))
 
 

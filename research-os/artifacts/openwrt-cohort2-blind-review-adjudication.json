@@ -1,0 +1,25 @@
+{
+  "status": "independent_blind_review_completed_no_cve_labels",
+  "cohort": "SHA-256 identity-key ranks 2..3 per stable family, no fill",
+  "packet_count": 10,
+  "reviewers": ["reviewer", "oracle"],
+  "agreement": {"cells": 50, "exact_agreement": 50, "rate": 1.0, "note": "Exploratory agreement on a second, non-overlapping cohort; not a population reliability estimate."},
+  "results": {
+    "T0": {"identified": 0, "conditional": 0, "not_identifiable": 10},
+    "T1": {"identified": 0, "conditional": 0, "not_identifiable": 10},
+    "T2": {"identified": 10, "conditional": 0, "not_identifiable": 0},
+    "T3": {"identified": 8, "conditional": 0, "not_identifiable": 2},
+    "T4": {"identified": 7, "conditional": 1, "not_identifiable": 2}
+  },
+  "decision_rule": {
+    "T0_T1": "not_identifiable: metadata identity alone does not establish remediation lineage",
+    "T2": "identified iff post contains the remediation commit and pre excludes it",
+    "T3": "identified iff at least one changed path exists post-release and its blob matches the remediation commit; otherwise not_identifiable",
+    "T4": "identified iff every changed-path blob matches; conditional iff some but not all match; not_identifiable iff none match"
+  },
+  "limitations": [
+    "The cohort contains 10 units because the 21.02 family had no rows after rank 1; no deterministic fill was used to avoid overlap with the first pilot.",
+    "Exact blob retention remains a source-evidence convenience signal, not semantic remediation truth.",
+    "No state is an affected/not_affected label or exploitability claim."
+  ]
+}

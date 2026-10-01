@@ -1,0 +1,696 @@
+{
+  "status": "blinded_openwrt_review_packets_no_aggregate_outcomes",
+  "packet_count": 10,
+  "selection_rule": "SHA-256 identity-key ranks 2..3 per stable family, no fill",
+  "review_states": [
+    "identified",
+    "conditional",
+    "not_identifiable"
+  ],
+  "packets": [
+    {
+      "packet_id": "packet-2df23766e3b1",
+      "identity": {
+        "stable_family": "18.06",
+        "pre_release": "18.06.1",
+        "post_release": "18.06.2",
+        "target": "ar71xx/generic",
+        "package": "dropbear",
+        "cve_id": "CVE-2018-15599",
+        "remediation_commit": "8bb9d053eb17c98659f5fb04d7a7c3bafdf42e9c",
+        "commit_subject": "dropbear: backport upstream fix for CVE-2018-15599"
+      },
+      "claim_boundary": "source-evidence binding only; do not infer affected/not_affected, exploitability, or device exposure",
+      "source_observations": {
+        "post_release_contains_remediation_commit": true,
+        "pre_release_contains_remediation_commit": false,
+        "changed_path_observations": [
+          {
+            "changed_path": "package/network/services/dropbear/Makefile",
+            "pre_path_exists": true,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": false
+          },
+          {
+            "changed_path": "package/network/services/dropbear/patches/020-Wait-to-fail-invalid-usernames.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/dropbear/patches/100-pubkey_path.patch",
+            "pre_path_exists": true,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          }
+        ]
+      },
+      "review_prompt": {
+        "states": [
+          "identified",
+          "conditional",
+          "not_identifiable"
+        ],
+        "task": "At each tier, rate only the specified claim support. Give one sentence and cite the observation used.",
+        "tier_claims": {
+          "T0": "Can name/version alone identify release-level remediation lineage?",
+          "T1": "Can package/target identity alone identify release-level remediation lineage?",
+          "T2": "Does post ancestry plus pre exclusion identify remediation lineage in the post release?",
+          "T3": "Does at least one changed-path blob retained at post release identify artifact-level retention?",
+          "T4": "Does every changed-path blob retained at post release identify strict source retention?"
+        }
+      },
+      "selection_provenance": "SHA-256 identity-key ranks 2..3 per stable family, with deterministic global hash fill if a family has fewer rows; no closure outcome used"
+    },
+    {
+      "packet_id": "packet-6646dd58ce9a",
+      "identity": {
+        "stable_family": "18.06",
+        "pre_release": "18.06.7",
+        "post_release": "18.06.8",
+        "target": "ar71xx/generic",
+        "package": "ppp",
+        "cve_id": "CVE-2020-8597",
+        "remediation_commit": "4c1779ac2cb4face8676c470aa366161db7c6534",
+        "commit_subject": "ppp: backport security fixes"
+      },
+      "claim_boundary": "source-evidence binding only; do not infer affected/not_affected, exploitability, or device exposure",
+      "source_observations": {
+        "post_release_contains_remediation_commit": true,
+        "pre_release_contains_remediation_commit": false,
+        "changed_path_observations": [
+          {
+            "changed_path": "package/network/services/ppp/Makefile",
+            "pre_path_exists": true,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/ppp/patches/700-radius-Prevent-buffer-overflow-in-rc_mksid.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/ppp/patches/701-pppd-Fix-bounds-check-in-EAP-code.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/ppp/patches/702-pppd-Ignore-received-EAP-messages-when-not-doing-EAP.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          }
+        ]
+      },
+      "review_prompt": {
+        "states": [
+          "identified",
+          "conditional",
+          "not_identifiable"
+        ],
+        "task": "At each tier, rate only the specified claim support. Give one sentence and cite the observation used.",
+        "tier_claims": {
+          "T0": "Can name/version alone identify release-level remediation lineage?",
+          "T1": "Can package/target identity alone identify release-level remediation lineage?",
+          "T2": "Does post ancestry plus pre exclusion identify remediation lineage in the post release?",
+          "T3": "Does at least one changed-path blob retained at post release identify artifact-level retention?",
+          "T4": "Does every changed-path blob retained at post release identify strict source retention?"
+        }
+      },
+      "selection_provenance": "SHA-256 identity-key ranks 2..3 per stable family, with deterministic global hash fill if a family has fewer rows; no closure outcome used"
+    },
+    {
+      "packet_id": "packet-2b3c9c6e8bf7",
+      "identity": {
+        "stable_family": "19.07",
+        "pre_release": "19.07.1",
+        "post_release": "19.07.2",
+        "target": "x86/64",
+        "package": "ppp",
+        "cve_id": "CVE-2020-8597",
+        "remediation_commit": "cf118077cd4f909a7ad68e6efdc07fe93f63b650",
+        "commit_subject": "ppp: backport security fixes"
+      },
+      "claim_boundary": "source-evidence binding only; do not infer affected/not_affected, exploitability, or device exposure",
+      "source_observations": {
+        "post_release_contains_remediation_commit": true,
+        "pre_release_contains_remediation_commit": false,
+        "changed_path_observations": [
+          {
+            "changed_path": "package/network/services/ppp/Makefile",
+            "pre_path_exists": true,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/ppp/patches/700-radius-Prevent-buffer-overflow-in-rc_mksid.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/ppp/patches/701-pppd-Fix-bounds-check-in-EAP-code.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/ppp/patches/702-pppd-Ignore-received-EAP-messages-when-not-doing-EAP.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          }
+        ]
+      },
+      "review_prompt": {
+        "states": [
+          "identified",
+          "conditional",
+          "not_identifiable"
+        ],
+        "task": "At each tier, rate only the specified claim support. Give one sentence and cite the observation used.",
+        "tier_claims": {
+          "T0": "Can name/version alone identify release-level remediation lineage?",
+          "T1": "Can package/target identity alone identify release-level remediation lineage?",
+          "T2": "Does post ancestry plus pre exclusion identify remediation lineage in the post release?",
+          "T3": "Does at least one changed-path blob retained at post release identify artifact-level retention?",
+          "T4": "Does every changed-path blob retained at post release identify strict source retention?"
+        }
+      },
+      "selection_provenance": "SHA-256 identity-key ranks 2..3 per stable family, with deterministic global hash fill if a family has fewer rows; no closure outcome used"
+    },
+    {
+      "packet_id": "packet-2cf4a5f4fa09",
+      "identity": {
+        "stable_family": "19.07",
+        "pre_release": "19.07.5",
+        "post_release": "19.07.6",
+        "target": "x86/64",
+        "package": "dnsmasq",
+        "cve_id": "CVE-2020-25684",
+        "remediation_commit": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+        "commit_subject": "dnsmasq: Backport some security updates"
+      },
+      "claim_boundary": "source-evidence binding only; do not infer affected/not_affected, exploitability, or device exposure",
+      "source_observations": {
+        "post_release_contains_remediation_commit": true,
+        "pre_release_contains_remediation_commit": false,
+        "changed_path_observations": [
+          {
+            "changed_path": "package/network/services/dnsmasq/Makefile",
+            "pre_path_exists": true,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/dnsmasq/patches/0102-Fix-remote-buffer-overflow-CERT-VU-434904.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/dnsmasq/patches/0103-Check-destination-of-DNS-UDP-query-replies.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/dnsmasq/patches/0104-Use-SHA-256-to-provide-security-against-DNS-cache-po.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/dnsmasq/patches/0105-Optimse-RR-digest-calculation-in-DNSSEC.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/dnsmasq/patches/0107-Add-missing-check-for-NULL-return-from-allocate_rfd.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/dnsmasq/patches/0108-Handle-multiple-identical-near-simultaneous-DNS-quer.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/dnsmasq/patches/0109-Handle-caching-with-EDNS-options-better.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/dnsmasq/patches/0110-Support-hash-function-from-nettle-only.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/dnsmasq/patches/0111-Small-cleanups-in-frec_src-datastucture-handling.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/dnsmasq/patches/0112-Add-CVE-numbers-to-security-update-descriptions-in-C.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/dnsmasq/patches/0113-Fix-warning-message-logic.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/dnsmasq/patches/0115-Update-to-new-struct-frec-fields-in-conntrack-code.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/dnsmasq/patches/050-crypto-use-nettle-ecc_curve-access-functions.patch",
+            "pre_path_exists": true,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          }
+        ]
+      },
+      "review_prompt": {
+        "states": [
+          "identified",
+          "conditional",
+          "not_identifiable"
+        ],
+        "task": "At each tier, rate only the specified claim support. Give one sentence and cite the observation used.",
+        "tier_claims": {
+          "T0": "Can name/version alone identify release-level remediation lineage?",
+          "T1": "Can package/target identity alone identify release-level remediation lineage?",
+          "T2": "Does post ancestry plus pre exclusion identify remediation lineage in the post release?",
+          "T3": "Does at least one changed-path blob retained at post release identify artifact-level retention?",
+          "T4": "Does every changed-path blob retained at post release identify strict source retention?"
+        }
+      },
+      "selection_provenance": "SHA-256 identity-key ranks 2..3 per stable family, with deterministic global hash fill if a family has fewer rows; no closure outcome used"
+    },
+    {
+      "packet_id": "packet-3da8f126761d",
+      "identity": {
+        "stable_family": "22.03",
+        "pre_release": "22.03.2",
+        "post_release": "22.03.3",
+        "target": "x86/64",
+        "package": "busybox",
+        "cve_id": "CVE-2022-30065",
+        "remediation_commit": "13bd217821e766110298498d0b73c4394e3330bd",
+        "commit_subject": "busybox: awk: fix use after free (CVE-2022-30065)"
+      },
+      "claim_boundary": "source-evidence binding only; do not infer affected/not_affected, exploitability, or device exposure",
+      "source_observations": {
+        "post_release_contains_remediation_commit": true,
+        "pre_release_contains_remediation_commit": false,
+        "changed_path_observations": [
+          {
+            "changed_path": "package/utils/busybox/patches/001-CVE-2022-30065-awk-fix-use-after-free.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          }
+        ]
+      },
+      "review_prompt": {
+        "states": [
+          "identified",
+          "conditional",
+          "not_identifiable"
+        ],
+        "task": "At each tier, rate only the specified claim support. Give one sentence and cite the observation used.",
+        "tier_claims": {
+          "T0": "Can name/version alone identify release-level remediation lineage?",
+          "T1": "Can package/target identity alone identify release-level remediation lineage?",
+          "T2": "Does post ancestry plus pre exclusion identify remediation lineage in the post release?",
+          "T3": "Does at least one changed-path blob retained at post release identify artifact-level retention?",
+          "T4": "Does every changed-path blob retained at post release identify strict source retention?"
+        }
+      },
+      "selection_provenance": "SHA-256 identity-key ranks 2..3 per stable family, with deterministic global hash fill if a family has fewer rows; no closure outcome used"
+    },
+    {
+      "packet_id": "packet-5e185bddb6b1",
+      "identity": {
+        "stable_family": "22.03",
+        "pre_release": "22.03.6",
+        "post_release": "22.03.7",
+        "target": "x86/64",
+        "package": "lua",
+        "cve_id": "CVE-2014-5461",
+        "remediation_commit": "bf3ea23f5a7f26e88d829b4217d1067cc68f9d5c",
+        "commit_subject": "lua: fix CVE-2014-5461"
+      },
+      "claim_boundary": "source-evidence binding only; do not infer affected/not_affected, exploitability, or device exposure",
+      "source_observations": {
+        "post_release_contains_remediation_commit": true,
+        "pre_release_contains_remediation_commit": false,
+        "changed_path_observations": [
+          {
+            "changed_path": "package/utils/lua/Makefile",
+            "pre_path_exists": true,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/utils/lua/patches-host/001-include-version-number.patch",
+            "pre_path_exists": true,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/utils/lua/patches-host/013-lnum-strtoul-parsing-fixes.patch",
+            "pre_path_exists": true,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/utils/lua/patches-host/100-no_readline.patch",
+            "pre_path_exists": true,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/utils/lua/patches-host/400-CVE-2014-5461.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/utils/lua/patches/001-include-version-number.patch",
+            "pre_path_exists": true,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/utils/lua/patches/013-lnum-strtoul-parsing-fixes.patch",
+            "pre_path_exists": true,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/utils/lua/patches/400-CVE-2014-5461.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          }
+        ]
+      },
+      "review_prompt": {
+        "states": [
+          "identified",
+          "conditional",
+          "not_identifiable"
+        ],
+        "task": "At each tier, rate only the specified claim support. Give one sentence and cite the observation used.",
+        "tier_claims": {
+          "T0": "Can name/version alone identify release-level remediation lineage?",
+          "T1": "Can package/target identity alone identify release-level remediation lineage?",
+          "T2": "Does post ancestry plus pre exclusion identify remediation lineage in the post release?",
+          "T3": "Does at least one changed-path blob retained at post release identify artifact-level retention?",
+          "T4": "Does every changed-path blob retained at post release identify strict source retention?"
+        }
+      },
+      "selection_provenance": "SHA-256 identity-key ranks 2..3 per stable family, with deterministic global hash fill if a family has fewer rows; no closure outcome used"
+    },
+    {
+      "packet_id": "packet-706a8399b0cd",
+      "identity": {
+        "stable_family": "23.05",
+        "pre_release": "23.05.2",
+        "post_release": "23.05.3",
+        "target": "ath79/generic",
+        "package": "dnsmasq",
+        "cve_id": "CVE-2023-50387",
+        "remediation_commit": "875822f283163c038c93fd5405c6dd9796228eb7",
+        "commit_subject": "dnsmasq: version 2.90"
+      },
+      "claim_boundary": "source-evidence binding only; do not infer affected/not_affected, exploitability, or device exposure",
+      "source_observations": {
+        "post_release_contains_remediation_commit": true,
+        "pre_release_contains_remediation_commit": false,
+        "changed_path_observations": [
+          {
+            "changed_path": "package/network/services/dnsmasq/Makefile",
+            "pre_path_exists": true,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": false
+          },
+          {
+            "changed_path": "package/network/services/dnsmasq/patches/200-ubus_dns.patch",
+            "pre_path_exists": true,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": false
+          }
+        ]
+      },
+      "review_prompt": {
+        "states": [
+          "identified",
+          "conditional",
+          "not_identifiable"
+        ],
+        "task": "At each tier, rate only the specified claim support. Give one sentence and cite the observation used.",
+        "tier_claims": {
+          "T0": "Can name/version alone identify release-level remediation lineage?",
+          "T1": "Can package/target identity alone identify release-level remediation lineage?",
+          "T2": "Does post ancestry plus pre exclusion identify remediation lineage in the post release?",
+          "T3": "Does at least one changed-path blob retained at post release identify artifact-level retention?",
+          "T4": "Does every changed-path blob retained at post release identify strict source retention?"
+        }
+      },
+      "selection_provenance": "SHA-256 identity-key ranks 2..3 per stable family, with deterministic global hash fill if a family has fewer rows; no closure outcome used"
+    },
+    {
+      "packet_id": "packet-78d1f37dd1c5",
+      "identity": {
+        "stable_family": "23.05",
+        "pre_release": "23.05.2",
+        "post_release": "23.05.3",
+        "target": "x86/64",
+        "package": "dnsmasq",
+        "cve_id": "CVE-2023-50868",
+        "remediation_commit": "875822f283163c038c93fd5405c6dd9796228eb7",
+        "commit_subject": "dnsmasq: version 2.90"
+      },
+      "claim_boundary": "source-evidence binding only; do not infer affected/not_affected, exploitability, or device exposure",
+      "source_observations": {
+        "post_release_contains_remediation_commit": true,
+        "pre_release_contains_remediation_commit": false,
+        "changed_path_observations": [
+          {
+            "changed_path": "package/network/services/dnsmasq/Makefile",
+            "pre_path_exists": true,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": false
+          },
+          {
+            "changed_path": "package/network/services/dnsmasq/patches/200-ubus_dns.patch",
+            "pre_path_exists": true,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": false
+          }
+        ]
+      },
+      "review_prompt": {
+        "states": [
+          "identified",
+          "conditional",
+          "not_identifiable"
+        ],
+        "task": "At each tier, rate only the specified claim support. Give one sentence and cite the observation used.",
+        "tier_claims": {
+          "T0": "Can name/version alone identify release-level remediation lineage?",
+          "T1": "Can package/target identity alone identify release-level remediation lineage?",
+          "T2": "Does post ancestry plus pre exclusion identify remediation lineage in the post release?",
+          "T3": "Does at least one changed-path blob retained at post release identify artifact-level retention?",
+          "T4": "Does every changed-path blob retained at post release identify strict source retention?"
+        }
+      },
+      "selection_provenance": "SHA-256 identity-key ranks 2..3 per stable family, with deterministic global hash fill if a family has fewer rows; no closure outcome used"
+    },
+    {
+      "packet_id": "packet-47d81c5151b5",
+      "identity": {
+        "stable_family": "24.10",
+        "pre_release": "24.10.7",
+        "post_release": "24.10.8",
+        "target": "x86/64",
+        "package": "dropbear",
+        "cve_id": "CVE-2026-35385",
+        "remediation_commit": "262c09368fda76c85c519b7554f33bb98fb3263f",
+        "commit_subject": "dropbear: backport some security fixes from 2026.90"
+      },
+      "claim_boundary": "source-evidence binding only; do not infer affected/not_affected, exploitability, or device exposure",
+      "source_observations": {
+        "post_release_contains_remediation_commit": true,
+        "pre_release_contains_remediation_commit": false,
+        "changed_path_observations": [
+          {
+            "changed_path": "package/network/services/dropbear/Makefile",
+            "pre_path_exists": true,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/dropbear/patches/011-Fix-incorrect-index-closing-listeners.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/dropbear/patches/012-scp-clear-setuid-setgid-bits-on-received-files.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/dropbear/patches/013-scp-Disallow-r-to-an-existing-directory.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/dropbear/patches/014-scp-more-CVE-2019-6111-fix.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/dropbear/patches/015-server-open-authorized_keys-files-nonblocking.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/dropbear/patches/016-Rework-pubkey_options-struct.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/dropbear/patches/100-pubkey_path.patch",
+            "pre_path_exists": true,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          }
+        ]
+      },
+      "review_prompt": {
+        "states": [
+          "identified",
+          "conditional",
+          "not_identifiable"
+        ],
+        "task": "At each tier, rate only the specified claim support. Give one sentence and cite the observation used.",
+        "tier_claims": {
+          "T0": "Can name/version alone identify release-level remediation lineage?",
+          "T1": "Can package/target identity alone identify release-level remediation lineage?",
+          "T2": "Does post ancestry plus pre exclusion identify remediation lineage in the post release?",
+          "T3": "Does at least one changed-path blob retained at post release identify artifact-level retention?",
+          "T4": "Does every changed-path blob retained at post release identify strict source retention?"
+        }
+      },
+      "selection_provenance": "SHA-256 identity-key ranks 2..3 per stable family, with deterministic global hash fill if a family has fewer rows; no closure outcome used"
+    },
+    {
+      "packet_id": "packet-592742b35419",
+      "identity": {
+        "stable_family": "24.10",
+        "pre_release": "24.10.4",
+        "post_release": "24.10.5",
+        "target": "ath79/generic",
+        "package": "dropbear",
+        "cve_id": "CVE-2025-14282",
+        "remediation_commit": "0f52a05723988633882d6c52122009ce11f8956b",
+        "commit_subject": "dropbear: backport security fixes"
+      },
+      "claim_boundary": "source-evidence binding only; do not infer affected/not_affected, exploitability, or device exposure",
+      "source_observations": {
+        "post_release_contains_remediation_commit": true,
+        "pre_release_contains_remediation_commit": false,
+        "changed_path_observations": [
+          {
+            "changed_path": "package/network/services/dropbear/Makefile",
+            "pre_path_exists": true,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/dropbear/patches/001-Drop-privileges-after-user-authentication.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/dropbear/patches/002-Remove-return-code-from-login_login.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/dropbear/patches/003-Retain-utmp-saved-group-when-dropping-privileges.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/dropbear/patches/004-Limit-rekey-to-current-hostkey-type.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/dropbear/patches/005-Restore-seteuid-for-authorized_keys.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/dropbear/patches/006-scp-CVE-2019-6111-fix.patch",
+            "pre_path_exists": false,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          },
+          {
+            "changed_path": "package/network/services/dropbear/patches/110-change_user.patch",
+            "pre_path_exists": true,
+            "post_path_exists": true,
+            "post_blob_matches_remediation_commit": true
+          }
+        ]
+      },
+      "review_prompt": {
+        "states": [
+          "identified",
+          "conditional",
+          "not_identifiable"
+        ],
+        "task": "At each tier, rate only the specified claim support. Give one sentence and cite the observation used.",
+        "tier_claims": {
+          "T0": "Can name/version alone identify release-level remediation lineage?",
+          "T1": "Can package/target identity alone identify release-level remediation lineage?",
+          "T2": "Does post ancestry plus pre exclusion identify remediation lineage in the post release?",
+          "T3": "Does at least one changed-path blob retained at post release identify artifact-level retention?",
+          "T4": "Does every changed-path blob retained at post release identify strict source retention?"
+        }
+      },
+      "selection_provenance": "SHA-256 identity-key ranks 2..3 per stable family, with deterministic global hash fill if a family has fewer rows; no closure outcome used"
+    }
+  ]
+}
