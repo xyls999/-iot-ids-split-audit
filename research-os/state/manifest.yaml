@@ -14,7 +14,7 @@ target:
 
 workflow:
   current_stage: bounded_submission_readiness_review
-  current_task: "review the ESST methods/report draft, then run a new outcome-blind OpenWrt cohort and third N-BaIoT packet replay before any venue selection"
+  current_task: "review the 《物联网学报》 v0.2 manuscript against official format and claim boundaries, then complete OpenWrt lineage adjudication before submission"
   auto_continue: false
   status: submission_ready_bounded_report_high_level_novelty_unconfirmed
 
@@ -149,6 +149,7 @@ artifacts:
   nbaiot_blinded_packets_v2: artifacts/nbaiot-blinded-review-packets-v2.json
   nbaiot_blinded_cross_case_gate: reviews/nbaiot-blind-adjudication-and-cross-case-gate-2026-10-01.md
   esst_methods_report_draft: drafts/evidence-sensitivity-stress-test-methods-report-draft-zh.md
+  wlwxb_submission_draft_v02: drafts/wlwxb-submission-draft-v0.2-zh.md
   esst_experiment_plan: plans/evidence-sensitivity-stress-test-experiment-plan-zh.md
   wlwxb_official_fit_check: literature/venue-wlwxb-fit-check-2026-10-01.md
   wlwxb_scope_nearest_articles: literature/venue-wlwxb-scope-and-nearest-articles-2026-10-01.md
