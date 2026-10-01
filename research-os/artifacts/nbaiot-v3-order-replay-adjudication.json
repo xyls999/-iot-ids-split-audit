@@ -1,0 +1,15 @@
+{
+  "status": "order_invariance_replay_schema_failure",
+  "input": "research-os/artifacts/nbaiot-blinded-review-packets-v3-order-replay.json",
+  "reviewers": ["reviewer", "oracle"],
+  "cells": 20,
+  "exact_agreement": 17,
+  "agreement_rate": 0.85,
+  "disagreements": [
+    {"packet_id":"nbaiot-lr-window0","tier":"T3","reviewer":"conditional","oracle":"identified","cause":"gap-only observation versus explicit LODO result interpretation"},
+    {"packet_id":"nbaiot-rf-window2000","tier":"T3","reviewer":"conditional","oracle":"identified","cause":"gap-only observation versus explicit LODO result interpretation"},
+    {"packet_id":"nbaiot-rf-window0","tier":"T0","reviewer":"not_identifiable","oracle":"conditional","cause":"random-row observation is present but its role under the fixed claim is not encoded per tier"}
+  ],
+  "diagnosis": "The replay did not preserve v2 adjudication because observations were stored as a flat packet rather than explicit tier-scoped evidence. This is a protocol/schema defect, not a result to average away.",
+  "action": "freeze an explicit per-tier evidence schema before the next replay; retain this 16/20 failure in the report"
+}

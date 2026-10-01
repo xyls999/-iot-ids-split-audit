@@ -1,0 +1,20 @@
+{
+  "status": "explicit_tier_order_replay_completed",
+  "input": "research-os/artifacts/nbaiot-blinded-review-packets-v4-explicit-tiers.json",
+  "reviewers": ["reviewer", "oracle"],
+  "cells": 16,
+  "exact_agreement": 16,
+  "agreement_rate": 1.0,
+  "results": {
+    "nbaiot-device-provenance": {"T0":"not_identifiable","T1":"not_identifiable","T2":"not_identifiable","T3":"conditional"},
+    "nbaiot-lr-window0": {"T0":"not_identifiable","T1":"not_identifiable","T2":"not_identifiable","T3":"identified"},
+    "nbaiot-rf-window2000": {"T0":"not_identifiable","T1":"not_identifiable","T2":"conditional","T3":"identified"},
+    "nbaiot-rf-window0": {"T0":"not_identifiable","T1":"conditional","T2":"not_identifiable","T3":"identified"}
+  },
+  "interpretation": "The explicit tier_evidence schema removed the order-replay ambiguity observed in v3. This is protocol repeatability on four packets, not population reliability or model validity.",
+  "limitations": [
+    "Gap-only observations are accepted as bounded LODO results only because the frozen state rule says so.",
+    "The device-provenance packet remains conditional because it has a protocol but no result metric.",
+    "No state implies leakage, causality, exploitability, or vulnerability status."
+  ]
+}

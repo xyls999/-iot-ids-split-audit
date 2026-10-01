@@ -155,6 +155,10 @@ artifacts:
   openwrt_cohort2_packets: artifacts/openwrt-blinded-review-packets-cohort2.json
   openwrt_cohort2_adjudication: artifacts/openwrt-cohort2-blind-review-adjudication.json
   wlwxb_cohort2_results: reports/wlwxb-research-materials-and-cohort2-results-2026-10-01.md
+  nbaiot_v3_order_replay: artifacts/nbaiot-v3-order-replay-adjudication.json
+  nbaiot_v4_tier_replay: artifacts/nbaiot-v4-explicit-tier-adjudication.json
+  nbaiot_replay_results: reports/nbaiot-order-replay-and-claim-lint-results-2026-10-01.md
+  esst_claim_lint: tools/lint_esst_claims.py
   iot_ids_bounded_draft: drafts/iot-ids-split-sensitivity-introduction-and-methods.md
   beginner_research_explanation: README-FOR-BEGINNERS-zh.md
   n_baiot_official_profile: data/n-baiot-uci-profile.md

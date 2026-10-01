@@ -236,6 +236,8 @@ v2 的状态模式为：
 
 这验证了一个重要限制：协议的可重复性依赖于 claim wording、tier quantifier 和“result vs protocol”定义。它不是可以事后自由命名的通用评分表。
 
+随后进行 order-invariance replay：保持 claim、数据和状态规则不变，仅反转 packet/tier 顺序。v3 的 flat-observation schema 只达到 17/20 一致，暴露 gap-only result 与 tier-scoped evidence 未被显式编码的问题。将每个 packet 改为显式 `tier_evidence` 字段并冻结相同语义后，v4 达到 16/16 一致。本文保留 v3 失败，不只报告 v4 成功；v4 仍只是四个 packet 的协议复现，不是总体可靠性估计。
+
 ---
 
 # 5. 结果综合

@@ -113,9 +113,17 @@ packet 不包含：
 ### D3. 负结果和审查分歧
 
 - 保留初始 16/20 ambiguity 作为 protocol refinement evidence；
+- 保留第三轮 order replay 的 17/20 schema failure；
 - 不能只报告修订后的 16/16；
-- 主文同时报告“初始规则不充分”和“修订规则下重复性改善”；
-- 不把 16/16 当总体 inter-rater reliability。
+- 主文同时报告“初始规则不充分”“顺序重放暴露 flat schema 缺陷”和“显式 tier schema 下重复性改善”；
+- 不把任一 16/16 当总体 inter-rater reliability。
+
+### D4. Tier schema robustness
+
+- packet 必须包含显式 `tier_evidence`，不允许 reviewer 从 flat observations 反推 tier 内容；
+- order-invariance replay 应在不改变 claim、数据和 state rule 的情况下反转 packet/tier 顺序；
+- 若 v3 类似的 flat-schema disagreement 再出现，暂停扩样，先修订 schema；
+- 将 schema failure 作为结果报告，不作为异常删除。
 
 ## E. 阶段 3：跨案例 synthesis
 

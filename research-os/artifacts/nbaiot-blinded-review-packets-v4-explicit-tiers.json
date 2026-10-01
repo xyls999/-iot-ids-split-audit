@@ -1,0 +1,35 @@
+{
+  "status": "explicit_tier_schema_order_replay",
+  "scope": "within-mirror device-independent evaluation only; no cross-dataset or leakage claim",
+  "fixed_claim": "For the nine-group, six-label N-BaIoT mirror, does the evidence identify a model evaluation that is independent of row sharing across device groups?",
+  "state_rule": {
+    "T0": "not_identifiable for this claim even when a random-row metric is present, because random-row evidence does not test device independence",
+    "T1": "conditional iff common-support sampling and a random-row metric are both explicitly present; otherwise not_identifiable",
+    "T2": "conditional iff an ordered-window result and comparison context are both explicitly present; otherwise not_identifiable",
+    "T3": "identified iff an explicit LODO metric or bounded LODO gap is present; conditional iff only held-out protocol is present; otherwise not_identifiable"
+  },
+  "tiers": ["T3", "T2", "T1", "T0"],
+  "packets": [
+    {
+      "packet_id": "nbaiot-device-provenance",
+      "tier_evidence": {"T0":{"random_row_metric":false},"T1":{"common_support":false,"random_row_metric":false},"T2":{"ordered_window_result":false,"comparison_context":false},"T3":{"lod_result_kind":"protocol_only","held_out_protocol":true}},
+      "observations": {"device_groups":9,"held_out_protocol":"train on eight groups, test on ninth using common-support rows","dataset_limit":"one locally verified mirror"}
+    },
+    {
+      "packet_id": "nbaiot-lr-window0",
+      "tier_evidence": {"T0":{"random_row_metric":false},"T1":{"common_support":true,"random_row_metric":false},"T2":{"ordered_window_result":false,"comparison_context":false},"T3":{"lod_result_kind":"bounded_gap","held_out_protocol":true}},
+      "observations": {"random_minus_mean_lodo_gap_range":"0.0517-0.0590","caveat":"some lbfgs convergence warnings","common_support":"same six-label rule"}
+    },
+    {
+      "packet_id": "nbaiot-rf-window2000",
+      "tier_evidence": {"T0":{"random_row_metric":false},"T1":{"common_support":true,"random_row_metric":false},"T2":{"ordered_window_result":true,"comparison_context":true},"T3":{"lod_result_kind":"bounded_gap","held_out_protocol":true}},
+      "observations": {"random_minus_mean_lodo_gap_range":"0.0500-0.0535","window_semantics":"ordered row offset only; no verified timestamps","common_support":"same six-label rule"}
+    },
+    {
+      "packet_id": "nbaiot-rf-window0",
+      "tier_evidence": {"T0":{"random_row_metric":true},"T1":{"common_support":true,"random_row_metric":true},"T2":{"ordered_window_result":false,"comparison_context":false},"T3":{"lod_result_kind":"metric","held_out_protocol":true}},
+      "observations": {"random_row_macro_f1_range":"0.8834-0.8878","mean_lodo_macro_f1_range":"0.7893-0.8020","common_support":"six labels, 600 rows per device-label cell"}
+    }
+  ],
+  "review_prompt":"Use only the explicit tier_evidence fields and fixed state_rule. Packet and tier order are intentionally reversed relative to earlier replays. Return each packet x T0-T3 state and cite the tier field."
+}
