@@ -13,10 +13,10 @@ target:
   manuscript_type: null
 
 workflow:
-  current_stage: v2_evidence_review_and_paired_cohort_feasibility
-  current_task: "complete the remaining frozen v2 evidence review and independently assess a pre-registered pre-fix/post-fix cohort; do not write metric code"
+  current_stage: conditional_artifact_closure_novelty_audit
+  current_task: "audit artifact-level source-evidence closure against critical nearest work; do not freeze v3 or write metric code"
   auto_continue: false
-  status: openwrt_v2_gate_b_numeric_passed_class_balance_blocked
+  status: openwrt_artifact_closure_hypothesis_conditional
 
 completed_tasks:
   - task_id: setup-scaffold
@@ -131,6 +131,9 @@ artifacts:
   openwrt_v2_paired_release_feasibility_data: artifacts/openwrt-v2-paired-release-feasibility.json
   openwrt_expanded_paired_cohort_scout: reports/openwrt-expanded-paired-cohort-scout-report.md
   openwrt_expanded_paired_cohort_scout_data: artifacts/openwrt-paired-cohort-expanded-scout.json
+  openwrt_critical_nearest_work_triangulation: literature/iot-security/openwrt-provenance-critical-triangulation-audit-2026-10-01.md
+  openwrt_artifact_closure_probe: reports/openwrt-artifact-level-evidence-closure-probe.md
+  openwrt_artifact_closure_probe_data: artifacts/openwrt-paired-cohort-closure-probe.json
   iot_ids_bounded_draft: drafts/iot-ids-split-sensitivity-introduction-and-methods.md
   beginner_research_explanation: README-FOR-BEGINNERS-zh.md
   n_baiot_official_profile: data/n-baiot-uci-profile.md

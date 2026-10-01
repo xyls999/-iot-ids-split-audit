@@ -1,0 +1,4489 @@
+{
+  "status": "exploratory_mechanical_evidence_closure_probe_not_labels",
+  "generated_at_utc": "2026-10-01T09:25:03.627451+00:00",
+  "definition": "strict exact blob retention means every file changed by the remediation commit has the same blob at the post tag; it is a source-evidence convenience signal, not proof of CVE status or patch absence",
+  "counts": {
+    "pairs": 62,
+    "post_ancestor": 62,
+    "pre_not_ancestor": 62,
+    "strict_all_changed_path_blob_retention": 50,
+    "any_changed_path_blob_retention": 54,
+    "no_changed_path_blob_retention": 8,
+    "total_changed_paths": 366,
+    "post_equal_path_blobs": 350
+  },
+  "pairs": [
+    {
+      "source": "historical_scout",
+      "stable_family": "18.06",
+      "pre_release": "18.06.7",
+      "post_release": "18.06.8",
+      "target": "x86/64",
+      "package": "ppp",
+      "cve_id": "CVE-2020-8597",
+      "commit_sha": "4c1779ac2cb4face8676c470aa366161db7c6534",
+      "commit_subject": "ppp: backport security fixes",
+      "pre_version": "2.4.7-12",
+      "post_version": "2.4.7-13",
+      "changed_paths": [
+        "package/network/services/ppp/Makefile",
+        "package/network/services/ppp/patches/700-radius-Prevent-buffer-overflow-in-rc_mksid.patch",
+        "package/network/services/ppp/patches/701-pppd-Fix-bounds-check-in-EAP-code.patch",
+        "package/network/services/ppp/patches/702-pppd-Ignore-received-EAP-messages-when-not-doing-EAP.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/ppp/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/ppp/patches/700-radius-Prevent-buffer-overflow-in-rc_mksid.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/ppp/patches/701-pppd-Fix-bounds-check-in-EAP-code.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/ppp/patches/702-pppd-Ignore-received-EAP-messages-when-not-doing-EAP.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "18.06",
+      "pre_release": "18.06.7",
+      "post_release": "18.06.8",
+      "target": "ar71xx/generic",
+      "package": "ppp",
+      "cve_id": "CVE-2020-8597",
+      "commit_sha": "4c1779ac2cb4face8676c470aa366161db7c6534",
+      "commit_subject": "ppp: backport security fixes",
+      "pre_version": "2.4.7-12",
+      "post_version": "2.4.7-13",
+      "changed_paths": [
+        "package/network/services/ppp/Makefile",
+        "package/network/services/ppp/patches/700-radius-Prevent-buffer-overflow-in-rc_mksid.patch",
+        "package/network/services/ppp/patches/701-pppd-Fix-bounds-check-in-EAP-code.patch",
+        "package/network/services/ppp/patches/702-pppd-Ignore-received-EAP-messages-when-not-doing-EAP.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/ppp/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/ppp/patches/700-radius-Prevent-buffer-overflow-in-rc_mksid.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/ppp/patches/701-pppd-Fix-bounds-check-in-EAP-code.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/ppp/patches/702-pppd-Ignore-received-EAP-messages-when-not-doing-EAP.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "18.06",
+      "pre_release": "18.06.6",
+      "post_release": "18.06.7",
+      "target": "x86/64",
+      "package": "opkg",
+      "cve_id": "CVE-2020-7982",
+      "commit_sha": "ca47026b7d1d3fdafbd7368fe3c334f964134091",
+      "commit_subject": "opkg: update to latest Git HEAD",
+      "pre_version": "2019-06-14-dcbc142e-1",
+      "post_version": "2020-01-25-c09fe209-1",
+      "changed_paths": [
+        "package/system/opkg/Makefile"
+      ],
+      "path_states": [
+        {
+          "path": "package/system/opkg/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "18.06",
+      "pre_release": "18.06.6",
+      "post_release": "18.06.7",
+      "target": "ar71xx/generic",
+      "package": "opkg",
+      "cve_id": "CVE-2020-7982",
+      "commit_sha": "ca47026b7d1d3fdafbd7368fe3c334f964134091",
+      "commit_subject": "opkg: update to latest Git HEAD",
+      "pre_version": "2019-06-14-dcbc142e-1",
+      "post_version": "2020-01-25-c09fe209-1",
+      "changed_paths": [
+        "package/system/opkg/Makefile"
+      ],
+      "path_states": [
+        {
+          "path": "package/system/opkg/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "18.06",
+      "pre_release": "18.06.5",
+      "post_release": "18.06.6",
+      "target": "x86/64",
+      "package": "e2fsprogs",
+      "cve_id": "CVE-2019-5094",
+      "commit_sha": "97e9be4e3a4c4121056f8946c78709967046afe7",
+      "commit_subject": "e2fsprogs: Fix CVE-2019-5094 in libsupport",
+      "pre_version": "1.44.1-1",
+      "post_version": "1.44.1-2",
+      "changed_paths": [
+        "package/utils/e2fsprogs/Makefile",
+        "package/utils/e2fsprogs/patches/100-CVE-2019-5094-libsupport.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/utils/e2fsprogs/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/utils/e2fsprogs/patches/100-CVE-2019-5094-libsupport.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "18.06",
+      "pre_release": "18.06.1",
+      "post_release": "18.06.2",
+      "target": "x86/64",
+      "package": "dropbear",
+      "cve_id": "CVE-2018-15473",
+      "commit_sha": "97fddb2fddbf81535f06f168752c9b7e4abaa87a",
+      "commit_subject": "dropbear: backport upstream fix for CVE-2018-15599",
+      "pre_version": "2017.75-5",
+      "post_version": "2017.75-7.1",
+      "changed_paths": [
+        "package/network/services/dropbear/Makefile"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dropbear/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": false,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "18.06",
+      "pre_release": "18.06.1",
+      "post_release": "18.06.2",
+      "target": "ar71xx/generic",
+      "package": "dropbear",
+      "cve_id": "CVE-2018-15473",
+      "commit_sha": "97fddb2fddbf81535f06f168752c9b7e4abaa87a",
+      "commit_subject": "dropbear: backport upstream fix for CVE-2018-15599",
+      "pre_version": "2017.75-5",
+      "post_version": "2017.75-7.1",
+      "changed_paths": [
+        "package/network/services/dropbear/Makefile"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dropbear/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": false,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "18.06",
+      "pre_release": "18.06.1",
+      "post_release": "18.06.2",
+      "target": "x86/64",
+      "package": "dropbear",
+      "cve_id": "CVE-2018-15599",
+      "commit_sha": "97fddb2fddbf81535f06f168752c9b7e4abaa87a",
+      "commit_subject": "dropbear: backport upstream fix for CVE-2018-15599",
+      "pre_version": "2017.75-5",
+      "post_version": "2017.75-7.1",
+      "changed_paths": [
+        "package/network/services/dropbear/Makefile"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dropbear/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": false,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "18.06",
+      "pre_release": "18.06.1",
+      "post_release": "18.06.2",
+      "target": "ar71xx/generic",
+      "package": "dropbear",
+      "cve_id": "CVE-2018-15599",
+      "commit_sha": "97fddb2fddbf81535f06f168752c9b7e4abaa87a",
+      "commit_subject": "dropbear: backport upstream fix for CVE-2018-15599",
+      "pre_version": "2017.75-5",
+      "post_version": "2017.75-7.1",
+      "changed_paths": [
+        "package/network/services/dropbear/Makefile"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dropbear/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": false,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "18.06",
+      "pre_release": "18.06.1",
+      "post_release": "18.06.2",
+      "target": "x86/64",
+      "package": "dropbear",
+      "cve_id": "CVE-2018-15473",
+      "commit_sha": "8bb9d053eb17c98659f5fb04d7a7c3bafdf42e9c",
+      "commit_subject": "dropbear: backport upstream fix for CVE-2018-15599",
+      "pre_version": "2017.75-5",
+      "post_version": "2017.75-7.1",
+      "changed_paths": [
+        "package/network/services/dropbear/Makefile",
+        "package/network/services/dropbear/patches/020-Wait-to-fail-invalid-usernames.patch",
+        "package/network/services/dropbear/patches/100-pubkey_path.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dropbear/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": false,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/020-Wait-to-fail-invalid-usernames.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/100-pubkey_path.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "18.06",
+      "pre_release": "18.06.1",
+      "post_release": "18.06.2",
+      "target": "ar71xx/generic",
+      "package": "dropbear",
+      "cve_id": "CVE-2018-15473",
+      "commit_sha": "8bb9d053eb17c98659f5fb04d7a7c3bafdf42e9c",
+      "commit_subject": "dropbear: backport upstream fix for CVE-2018-15599",
+      "pre_version": "2017.75-5",
+      "post_version": "2017.75-7.1",
+      "changed_paths": [
+        "package/network/services/dropbear/Makefile",
+        "package/network/services/dropbear/patches/020-Wait-to-fail-invalid-usernames.patch",
+        "package/network/services/dropbear/patches/100-pubkey_path.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dropbear/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": false,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/020-Wait-to-fail-invalid-usernames.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/100-pubkey_path.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "18.06",
+      "pre_release": "18.06.1",
+      "post_release": "18.06.2",
+      "target": "x86/64",
+      "package": "dropbear",
+      "cve_id": "CVE-2018-15599",
+      "commit_sha": "8bb9d053eb17c98659f5fb04d7a7c3bafdf42e9c",
+      "commit_subject": "dropbear: backport upstream fix for CVE-2018-15599",
+      "pre_version": "2017.75-5",
+      "post_version": "2017.75-7.1",
+      "changed_paths": [
+        "package/network/services/dropbear/Makefile",
+        "package/network/services/dropbear/patches/020-Wait-to-fail-invalid-usernames.patch",
+        "package/network/services/dropbear/patches/100-pubkey_path.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dropbear/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": false,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/020-Wait-to-fail-invalid-usernames.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/100-pubkey_path.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "18.06",
+      "pre_release": "18.06.1",
+      "post_release": "18.06.2",
+      "target": "ar71xx/generic",
+      "package": "dropbear",
+      "cve_id": "CVE-2018-15599",
+      "commit_sha": "8bb9d053eb17c98659f5fb04d7a7c3bafdf42e9c",
+      "commit_subject": "dropbear: backport upstream fix for CVE-2018-15599",
+      "pre_version": "2017.75-5",
+      "post_version": "2017.75-7.1",
+      "changed_paths": [
+        "package/network/services/dropbear/Makefile",
+        "package/network/services/dropbear/patches/020-Wait-to-fail-invalid-usernames.patch",
+        "package/network/services/dropbear/patches/100-pubkey_path.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dropbear/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": false,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/020-Wait-to-fail-invalid-usernames.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/100-pubkey_path.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "19.07",
+      "pre_release": "19.07.5",
+      "post_release": "19.07.6",
+      "target": "x86/64",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2020-25681",
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "commit_subject": "dnsmasq: Backport some security updates",
+      "pre_version": "2.80-16.1",
+      "post_version": "2.80-16.2",
+      "changed_paths": [
+        "package/network/services/dnsmasq/Makefile",
+        "package/network/services/dnsmasq/patches/0102-Fix-remote-buffer-overflow-CERT-VU-434904.patch",
+        "package/network/services/dnsmasq/patches/0103-Check-destination-of-DNS-UDP-query-replies.patch",
+        "package/network/services/dnsmasq/patches/0104-Use-SHA-256-to-provide-security-against-DNS-cache-po.patch",
+        "package/network/services/dnsmasq/patches/0105-Optimse-RR-digest-calculation-in-DNSSEC.patch",
+        "package/network/services/dnsmasq/patches/0107-Add-missing-check-for-NULL-return-from-allocate_rfd.patch",
+        "package/network/services/dnsmasq/patches/0108-Handle-multiple-identical-near-simultaneous-DNS-quer.patch",
+        "package/network/services/dnsmasq/patches/0109-Handle-caching-with-EDNS-options-better.patch",
+        "package/network/services/dnsmasq/patches/0110-Support-hash-function-from-nettle-only.patch",
+        "package/network/services/dnsmasq/patches/0111-Small-cleanups-in-frec_src-datastucture-handling.patch",
+        "package/network/services/dnsmasq/patches/0112-Add-CVE-numbers-to-security-update-descriptions-in-C.patch",
+        "package/network/services/dnsmasq/patches/0113-Fix-warning-message-logic.patch",
+        "package/network/services/dnsmasq/patches/0115-Update-to-new-struct-frec-fields-in-conntrack-code.patch",
+        "package/network/services/dnsmasq/patches/050-crypto-use-nettle-ecc_curve-access-functions.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dnsmasq/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0102-Fix-remote-buffer-overflow-CERT-VU-434904.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0103-Check-destination-of-DNS-UDP-query-replies.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0104-Use-SHA-256-to-provide-security-against-DNS-cache-po.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0105-Optimse-RR-digest-calculation-in-DNSSEC.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0107-Add-missing-check-for-NULL-return-from-allocate_rfd.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0108-Handle-multiple-identical-near-simultaneous-DNS-quer.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0109-Handle-caching-with-EDNS-options-better.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0110-Support-hash-function-from-nettle-only.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0111-Small-cleanups-in-frec_src-datastucture-handling.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0112-Add-CVE-numbers-to-security-update-descriptions-in-C.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0113-Fix-warning-message-logic.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0115-Update-to-new-struct-frec-fields-in-conntrack-code.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/050-crypto-use-nettle-ecc_curve-access-functions.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "19.07",
+      "pre_release": "19.07.5",
+      "post_release": "19.07.6",
+      "target": "ath79/generic",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2020-25681",
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "commit_subject": "dnsmasq: Backport some security updates",
+      "pre_version": "2.80-16.1",
+      "post_version": "2.80-16.2",
+      "changed_paths": [
+        "package/network/services/dnsmasq/Makefile",
+        "package/network/services/dnsmasq/patches/0102-Fix-remote-buffer-overflow-CERT-VU-434904.patch",
+        "package/network/services/dnsmasq/patches/0103-Check-destination-of-DNS-UDP-query-replies.patch",
+        "package/network/services/dnsmasq/patches/0104-Use-SHA-256-to-provide-security-against-DNS-cache-po.patch",
+        "package/network/services/dnsmasq/patches/0105-Optimse-RR-digest-calculation-in-DNSSEC.patch",
+        "package/network/services/dnsmasq/patches/0107-Add-missing-check-for-NULL-return-from-allocate_rfd.patch",
+        "package/network/services/dnsmasq/patches/0108-Handle-multiple-identical-near-simultaneous-DNS-quer.patch",
+        "package/network/services/dnsmasq/patches/0109-Handle-caching-with-EDNS-options-better.patch",
+        "package/network/services/dnsmasq/patches/0110-Support-hash-function-from-nettle-only.patch",
+        "package/network/services/dnsmasq/patches/0111-Small-cleanups-in-frec_src-datastucture-handling.patch",
+        "package/network/services/dnsmasq/patches/0112-Add-CVE-numbers-to-security-update-descriptions-in-C.patch",
+        "package/network/services/dnsmasq/patches/0113-Fix-warning-message-logic.patch",
+        "package/network/services/dnsmasq/patches/0115-Update-to-new-struct-frec-fields-in-conntrack-code.patch",
+        "package/network/services/dnsmasq/patches/050-crypto-use-nettle-ecc_curve-access-functions.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dnsmasq/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0102-Fix-remote-buffer-overflow-CERT-VU-434904.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0103-Check-destination-of-DNS-UDP-query-replies.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0104-Use-SHA-256-to-provide-security-against-DNS-cache-po.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0105-Optimse-RR-digest-calculation-in-DNSSEC.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0107-Add-missing-check-for-NULL-return-from-allocate_rfd.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0108-Handle-multiple-identical-near-simultaneous-DNS-quer.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0109-Handle-caching-with-EDNS-options-better.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0110-Support-hash-function-from-nettle-only.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0111-Small-cleanups-in-frec_src-datastucture-handling.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0112-Add-CVE-numbers-to-security-update-descriptions-in-C.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0113-Fix-warning-message-logic.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0115-Update-to-new-struct-frec-fields-in-conntrack-code.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/050-crypto-use-nettle-ecc_curve-access-functions.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "19.07",
+      "pre_release": "19.07.5",
+      "post_release": "19.07.6",
+      "target": "x86/64",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2020-25682",
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "commit_subject": "dnsmasq: Backport some security updates",
+      "pre_version": "2.80-16.1",
+      "post_version": "2.80-16.2",
+      "changed_paths": [
+        "package/network/services/dnsmasq/Makefile",
+        "package/network/services/dnsmasq/patches/0102-Fix-remote-buffer-overflow-CERT-VU-434904.patch",
+        "package/network/services/dnsmasq/patches/0103-Check-destination-of-DNS-UDP-query-replies.patch",
+        "package/network/services/dnsmasq/patches/0104-Use-SHA-256-to-provide-security-against-DNS-cache-po.patch",
+        "package/network/services/dnsmasq/patches/0105-Optimse-RR-digest-calculation-in-DNSSEC.patch",
+        "package/network/services/dnsmasq/patches/0107-Add-missing-check-for-NULL-return-from-allocate_rfd.patch",
+        "package/network/services/dnsmasq/patches/0108-Handle-multiple-identical-near-simultaneous-DNS-quer.patch",
+        "package/network/services/dnsmasq/patches/0109-Handle-caching-with-EDNS-options-better.patch",
+        "package/network/services/dnsmasq/patches/0110-Support-hash-function-from-nettle-only.patch",
+        "package/network/services/dnsmasq/patches/0111-Small-cleanups-in-frec_src-datastucture-handling.patch",
+        "package/network/services/dnsmasq/patches/0112-Add-CVE-numbers-to-security-update-descriptions-in-C.patch",
+        "package/network/services/dnsmasq/patches/0113-Fix-warning-message-logic.patch",
+        "package/network/services/dnsmasq/patches/0115-Update-to-new-struct-frec-fields-in-conntrack-code.patch",
+        "package/network/services/dnsmasq/patches/050-crypto-use-nettle-ecc_curve-access-functions.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dnsmasq/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0102-Fix-remote-buffer-overflow-CERT-VU-434904.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0103-Check-destination-of-DNS-UDP-query-replies.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0104-Use-SHA-256-to-provide-security-against-DNS-cache-po.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0105-Optimse-RR-digest-calculation-in-DNSSEC.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0107-Add-missing-check-for-NULL-return-from-allocate_rfd.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0108-Handle-multiple-identical-near-simultaneous-DNS-quer.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0109-Handle-caching-with-EDNS-options-better.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0110-Support-hash-function-from-nettle-only.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0111-Small-cleanups-in-frec_src-datastucture-handling.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0112-Add-CVE-numbers-to-security-update-descriptions-in-C.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0113-Fix-warning-message-logic.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0115-Update-to-new-struct-frec-fields-in-conntrack-code.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/050-crypto-use-nettle-ecc_curve-access-functions.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "19.07",
+      "pre_release": "19.07.5",
+      "post_release": "19.07.6",
+      "target": "ath79/generic",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2020-25682",
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "commit_subject": "dnsmasq: Backport some security updates",
+      "pre_version": "2.80-16.1",
+      "post_version": "2.80-16.2",
+      "changed_paths": [
+        "package/network/services/dnsmasq/Makefile",
+        "package/network/services/dnsmasq/patches/0102-Fix-remote-buffer-overflow-CERT-VU-434904.patch",
+        "package/network/services/dnsmasq/patches/0103-Check-destination-of-DNS-UDP-query-replies.patch",
+        "package/network/services/dnsmasq/patches/0104-Use-SHA-256-to-provide-security-against-DNS-cache-po.patch",
+        "package/network/services/dnsmasq/patches/0105-Optimse-RR-digest-calculation-in-DNSSEC.patch",
+        "package/network/services/dnsmasq/patches/0107-Add-missing-check-for-NULL-return-from-allocate_rfd.patch",
+        "package/network/services/dnsmasq/patches/0108-Handle-multiple-identical-near-simultaneous-DNS-quer.patch",
+        "package/network/services/dnsmasq/patches/0109-Handle-caching-with-EDNS-options-better.patch",
+        "package/network/services/dnsmasq/patches/0110-Support-hash-function-from-nettle-only.patch",
+        "package/network/services/dnsmasq/patches/0111-Small-cleanups-in-frec_src-datastucture-handling.patch",
+        "package/network/services/dnsmasq/patches/0112-Add-CVE-numbers-to-security-update-descriptions-in-C.patch",
+        "package/network/services/dnsmasq/patches/0113-Fix-warning-message-logic.patch",
+        "package/network/services/dnsmasq/patches/0115-Update-to-new-struct-frec-fields-in-conntrack-code.patch",
+        "package/network/services/dnsmasq/patches/050-crypto-use-nettle-ecc_curve-access-functions.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dnsmasq/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0102-Fix-remote-buffer-overflow-CERT-VU-434904.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0103-Check-destination-of-DNS-UDP-query-replies.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0104-Use-SHA-256-to-provide-security-against-DNS-cache-po.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0105-Optimse-RR-digest-calculation-in-DNSSEC.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0107-Add-missing-check-for-NULL-return-from-allocate_rfd.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0108-Handle-multiple-identical-near-simultaneous-DNS-quer.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0109-Handle-caching-with-EDNS-options-better.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0110-Support-hash-function-from-nettle-only.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0111-Small-cleanups-in-frec_src-datastucture-handling.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0112-Add-CVE-numbers-to-security-update-descriptions-in-C.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0113-Fix-warning-message-logic.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0115-Update-to-new-struct-frec-fields-in-conntrack-code.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/050-crypto-use-nettle-ecc_curve-access-functions.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "19.07",
+      "pre_release": "19.07.5",
+      "post_release": "19.07.6",
+      "target": "x86/64",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2020-25683",
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "commit_subject": "dnsmasq: Backport some security updates",
+      "pre_version": "2.80-16.1",
+      "post_version": "2.80-16.2",
+      "changed_paths": [
+        "package/network/services/dnsmasq/Makefile",
+        "package/network/services/dnsmasq/patches/0102-Fix-remote-buffer-overflow-CERT-VU-434904.patch",
+        "package/network/services/dnsmasq/patches/0103-Check-destination-of-DNS-UDP-query-replies.patch",
+        "package/network/services/dnsmasq/patches/0104-Use-SHA-256-to-provide-security-against-DNS-cache-po.patch",
+        "package/network/services/dnsmasq/patches/0105-Optimse-RR-digest-calculation-in-DNSSEC.patch",
+        "package/network/services/dnsmasq/patches/0107-Add-missing-check-for-NULL-return-from-allocate_rfd.patch",
+        "package/network/services/dnsmasq/patches/0108-Handle-multiple-identical-near-simultaneous-DNS-quer.patch",
+        "package/network/services/dnsmasq/patches/0109-Handle-caching-with-EDNS-options-better.patch",
+        "package/network/services/dnsmasq/patches/0110-Support-hash-function-from-nettle-only.patch",
+        "package/network/services/dnsmasq/patches/0111-Small-cleanups-in-frec_src-datastucture-handling.patch",
+        "package/network/services/dnsmasq/patches/0112-Add-CVE-numbers-to-security-update-descriptions-in-C.patch",
+        "package/network/services/dnsmasq/patches/0113-Fix-warning-message-logic.patch",
+        "package/network/services/dnsmasq/patches/0115-Update-to-new-struct-frec-fields-in-conntrack-code.patch",
+        "package/network/services/dnsmasq/patches/050-crypto-use-nettle-ecc_curve-access-functions.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dnsmasq/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0102-Fix-remote-buffer-overflow-CERT-VU-434904.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0103-Check-destination-of-DNS-UDP-query-replies.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0104-Use-SHA-256-to-provide-security-against-DNS-cache-po.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0105-Optimse-RR-digest-calculation-in-DNSSEC.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0107-Add-missing-check-for-NULL-return-from-allocate_rfd.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0108-Handle-multiple-identical-near-simultaneous-DNS-quer.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0109-Handle-caching-with-EDNS-options-better.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0110-Support-hash-function-from-nettle-only.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0111-Small-cleanups-in-frec_src-datastucture-handling.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0112-Add-CVE-numbers-to-security-update-descriptions-in-C.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0113-Fix-warning-message-logic.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0115-Update-to-new-struct-frec-fields-in-conntrack-code.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/050-crypto-use-nettle-ecc_curve-access-functions.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "19.07",
+      "pre_release": "19.07.5",
+      "post_release": "19.07.6",
+      "target": "ath79/generic",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2020-25683",
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "commit_subject": "dnsmasq: Backport some security updates",
+      "pre_version": "2.80-16.1",
+      "post_version": "2.80-16.2",
+      "changed_paths": [
+        "package/network/services/dnsmasq/Makefile",
+        "package/network/services/dnsmasq/patches/0102-Fix-remote-buffer-overflow-CERT-VU-434904.patch",
+        "package/network/services/dnsmasq/patches/0103-Check-destination-of-DNS-UDP-query-replies.patch",
+        "package/network/services/dnsmasq/patches/0104-Use-SHA-256-to-provide-security-against-DNS-cache-po.patch",
+        "package/network/services/dnsmasq/patches/0105-Optimse-RR-digest-calculation-in-DNSSEC.patch",
+        "package/network/services/dnsmasq/patches/0107-Add-missing-check-for-NULL-return-from-allocate_rfd.patch",
+        "package/network/services/dnsmasq/patches/0108-Handle-multiple-identical-near-simultaneous-DNS-quer.patch",
+        "package/network/services/dnsmasq/patches/0109-Handle-caching-with-EDNS-options-better.patch",
+        "package/network/services/dnsmasq/patches/0110-Support-hash-function-from-nettle-only.patch",
+        "package/network/services/dnsmasq/patches/0111-Small-cleanups-in-frec_src-datastucture-handling.patch",
+        "package/network/services/dnsmasq/patches/0112-Add-CVE-numbers-to-security-update-descriptions-in-C.patch",
+        "package/network/services/dnsmasq/patches/0113-Fix-warning-message-logic.patch",
+        "package/network/services/dnsmasq/patches/0115-Update-to-new-struct-frec-fields-in-conntrack-code.patch",
+        "package/network/services/dnsmasq/patches/050-crypto-use-nettle-ecc_curve-access-functions.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dnsmasq/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0102-Fix-remote-buffer-overflow-CERT-VU-434904.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0103-Check-destination-of-DNS-UDP-query-replies.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0104-Use-SHA-256-to-provide-security-against-DNS-cache-po.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0105-Optimse-RR-digest-calculation-in-DNSSEC.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0107-Add-missing-check-for-NULL-return-from-allocate_rfd.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0108-Handle-multiple-identical-near-simultaneous-DNS-quer.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0109-Handle-caching-with-EDNS-options-better.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0110-Support-hash-function-from-nettle-only.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0111-Small-cleanups-in-frec_src-datastucture-handling.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0112-Add-CVE-numbers-to-security-update-descriptions-in-C.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0113-Fix-warning-message-logic.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0115-Update-to-new-struct-frec-fields-in-conntrack-code.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/050-crypto-use-nettle-ecc_curve-access-functions.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "19.07",
+      "pre_release": "19.07.5",
+      "post_release": "19.07.6",
+      "target": "x86/64",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2020-25684",
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "commit_subject": "dnsmasq: Backport some security updates",
+      "pre_version": "2.80-16.1",
+      "post_version": "2.80-16.2",
+      "changed_paths": [
+        "package/network/services/dnsmasq/Makefile",
+        "package/network/services/dnsmasq/patches/0102-Fix-remote-buffer-overflow-CERT-VU-434904.patch",
+        "package/network/services/dnsmasq/patches/0103-Check-destination-of-DNS-UDP-query-replies.patch",
+        "package/network/services/dnsmasq/patches/0104-Use-SHA-256-to-provide-security-against-DNS-cache-po.patch",
+        "package/network/services/dnsmasq/patches/0105-Optimse-RR-digest-calculation-in-DNSSEC.patch",
+        "package/network/services/dnsmasq/patches/0107-Add-missing-check-for-NULL-return-from-allocate_rfd.patch",
+        "package/network/services/dnsmasq/patches/0108-Handle-multiple-identical-near-simultaneous-DNS-quer.patch",
+        "package/network/services/dnsmasq/patches/0109-Handle-caching-with-EDNS-options-better.patch",
+        "package/network/services/dnsmasq/patches/0110-Support-hash-function-from-nettle-only.patch",
+        "package/network/services/dnsmasq/patches/0111-Small-cleanups-in-frec_src-datastucture-handling.patch",
+        "package/network/services/dnsmasq/patches/0112-Add-CVE-numbers-to-security-update-descriptions-in-C.patch",
+        "package/network/services/dnsmasq/patches/0113-Fix-warning-message-logic.patch",
+        "package/network/services/dnsmasq/patches/0115-Update-to-new-struct-frec-fields-in-conntrack-code.patch",
+        "package/network/services/dnsmasq/patches/050-crypto-use-nettle-ecc_curve-access-functions.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dnsmasq/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0102-Fix-remote-buffer-overflow-CERT-VU-434904.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0103-Check-destination-of-DNS-UDP-query-replies.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0104-Use-SHA-256-to-provide-security-against-DNS-cache-po.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0105-Optimse-RR-digest-calculation-in-DNSSEC.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0107-Add-missing-check-for-NULL-return-from-allocate_rfd.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0108-Handle-multiple-identical-near-simultaneous-DNS-quer.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0109-Handle-caching-with-EDNS-options-better.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0110-Support-hash-function-from-nettle-only.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0111-Small-cleanups-in-frec_src-datastucture-handling.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0112-Add-CVE-numbers-to-security-update-descriptions-in-C.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0113-Fix-warning-message-logic.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0115-Update-to-new-struct-frec-fields-in-conntrack-code.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/050-crypto-use-nettle-ecc_curve-access-functions.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "19.07",
+      "pre_release": "19.07.5",
+      "post_release": "19.07.6",
+      "target": "ath79/generic",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2020-25684",
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "commit_subject": "dnsmasq: Backport some security updates",
+      "pre_version": "2.80-16.1",
+      "post_version": "2.80-16.2",
+      "changed_paths": [
+        "package/network/services/dnsmasq/Makefile",
+        "package/network/services/dnsmasq/patches/0102-Fix-remote-buffer-overflow-CERT-VU-434904.patch",
+        "package/network/services/dnsmasq/patches/0103-Check-destination-of-DNS-UDP-query-replies.patch",
+        "package/network/services/dnsmasq/patches/0104-Use-SHA-256-to-provide-security-against-DNS-cache-po.patch",
+        "package/network/services/dnsmasq/patches/0105-Optimse-RR-digest-calculation-in-DNSSEC.patch",
+        "package/network/services/dnsmasq/patches/0107-Add-missing-check-for-NULL-return-from-allocate_rfd.patch",
+        "package/network/services/dnsmasq/patches/0108-Handle-multiple-identical-near-simultaneous-DNS-quer.patch",
+        "package/network/services/dnsmasq/patches/0109-Handle-caching-with-EDNS-options-better.patch",
+        "package/network/services/dnsmasq/patches/0110-Support-hash-function-from-nettle-only.patch",
+        "package/network/services/dnsmasq/patches/0111-Small-cleanups-in-frec_src-datastucture-handling.patch",
+        "package/network/services/dnsmasq/patches/0112-Add-CVE-numbers-to-security-update-descriptions-in-C.patch",
+        "package/network/services/dnsmasq/patches/0113-Fix-warning-message-logic.patch",
+        "package/network/services/dnsmasq/patches/0115-Update-to-new-struct-frec-fields-in-conntrack-code.patch",
+        "package/network/services/dnsmasq/patches/050-crypto-use-nettle-ecc_curve-access-functions.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dnsmasq/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0102-Fix-remote-buffer-overflow-CERT-VU-434904.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0103-Check-destination-of-DNS-UDP-query-replies.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0104-Use-SHA-256-to-provide-security-against-DNS-cache-po.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0105-Optimse-RR-digest-calculation-in-DNSSEC.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0107-Add-missing-check-for-NULL-return-from-allocate_rfd.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0108-Handle-multiple-identical-near-simultaneous-DNS-quer.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0109-Handle-caching-with-EDNS-options-better.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0110-Support-hash-function-from-nettle-only.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0111-Small-cleanups-in-frec_src-datastucture-handling.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0112-Add-CVE-numbers-to-security-update-descriptions-in-C.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0113-Fix-warning-message-logic.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0115-Update-to-new-struct-frec-fields-in-conntrack-code.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/050-crypto-use-nettle-ecc_curve-access-functions.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "19.07",
+      "pre_release": "19.07.5",
+      "post_release": "19.07.6",
+      "target": "x86/64",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2020-25685",
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "commit_subject": "dnsmasq: Backport some security updates",
+      "pre_version": "2.80-16.1",
+      "post_version": "2.80-16.2",
+      "changed_paths": [
+        "package/network/services/dnsmasq/Makefile",
+        "package/network/services/dnsmasq/patches/0102-Fix-remote-buffer-overflow-CERT-VU-434904.patch",
+        "package/network/services/dnsmasq/patches/0103-Check-destination-of-DNS-UDP-query-replies.patch",
+        "package/network/services/dnsmasq/patches/0104-Use-SHA-256-to-provide-security-against-DNS-cache-po.patch",
+        "package/network/services/dnsmasq/patches/0105-Optimse-RR-digest-calculation-in-DNSSEC.patch",
+        "package/network/services/dnsmasq/patches/0107-Add-missing-check-for-NULL-return-from-allocate_rfd.patch",
+        "package/network/services/dnsmasq/patches/0108-Handle-multiple-identical-near-simultaneous-DNS-quer.patch",
+        "package/network/services/dnsmasq/patches/0109-Handle-caching-with-EDNS-options-better.patch",
+        "package/network/services/dnsmasq/patches/0110-Support-hash-function-from-nettle-only.patch",
+        "package/network/services/dnsmasq/patches/0111-Small-cleanups-in-frec_src-datastucture-handling.patch",
+        "package/network/services/dnsmasq/patches/0112-Add-CVE-numbers-to-security-update-descriptions-in-C.patch",
+        "package/network/services/dnsmasq/patches/0113-Fix-warning-message-logic.patch",
+        "package/network/services/dnsmasq/patches/0115-Update-to-new-struct-frec-fields-in-conntrack-code.patch",
+        "package/network/services/dnsmasq/patches/050-crypto-use-nettle-ecc_curve-access-functions.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dnsmasq/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0102-Fix-remote-buffer-overflow-CERT-VU-434904.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0103-Check-destination-of-DNS-UDP-query-replies.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0104-Use-SHA-256-to-provide-security-against-DNS-cache-po.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0105-Optimse-RR-digest-calculation-in-DNSSEC.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0107-Add-missing-check-for-NULL-return-from-allocate_rfd.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0108-Handle-multiple-identical-near-simultaneous-DNS-quer.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0109-Handle-caching-with-EDNS-options-better.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0110-Support-hash-function-from-nettle-only.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0111-Small-cleanups-in-frec_src-datastucture-handling.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0112-Add-CVE-numbers-to-security-update-descriptions-in-C.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0113-Fix-warning-message-logic.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0115-Update-to-new-struct-frec-fields-in-conntrack-code.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/050-crypto-use-nettle-ecc_curve-access-functions.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "19.07",
+      "pre_release": "19.07.5",
+      "post_release": "19.07.6",
+      "target": "ath79/generic",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2020-25685",
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "commit_subject": "dnsmasq: Backport some security updates",
+      "pre_version": "2.80-16.1",
+      "post_version": "2.80-16.2",
+      "changed_paths": [
+        "package/network/services/dnsmasq/Makefile",
+        "package/network/services/dnsmasq/patches/0102-Fix-remote-buffer-overflow-CERT-VU-434904.patch",
+        "package/network/services/dnsmasq/patches/0103-Check-destination-of-DNS-UDP-query-replies.patch",
+        "package/network/services/dnsmasq/patches/0104-Use-SHA-256-to-provide-security-against-DNS-cache-po.patch",
+        "package/network/services/dnsmasq/patches/0105-Optimse-RR-digest-calculation-in-DNSSEC.patch",
+        "package/network/services/dnsmasq/patches/0107-Add-missing-check-for-NULL-return-from-allocate_rfd.patch",
+        "package/network/services/dnsmasq/patches/0108-Handle-multiple-identical-near-simultaneous-DNS-quer.patch",
+        "package/network/services/dnsmasq/patches/0109-Handle-caching-with-EDNS-options-better.patch",
+        "package/network/services/dnsmasq/patches/0110-Support-hash-function-from-nettle-only.patch",
+        "package/network/services/dnsmasq/patches/0111-Small-cleanups-in-frec_src-datastucture-handling.patch",
+        "package/network/services/dnsmasq/patches/0112-Add-CVE-numbers-to-security-update-descriptions-in-C.patch",
+        "package/network/services/dnsmasq/patches/0113-Fix-warning-message-logic.patch",
+        "package/network/services/dnsmasq/patches/0115-Update-to-new-struct-frec-fields-in-conntrack-code.patch",
+        "package/network/services/dnsmasq/patches/050-crypto-use-nettle-ecc_curve-access-functions.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dnsmasq/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0102-Fix-remote-buffer-overflow-CERT-VU-434904.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0103-Check-destination-of-DNS-UDP-query-replies.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0104-Use-SHA-256-to-provide-security-against-DNS-cache-po.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0105-Optimse-RR-digest-calculation-in-DNSSEC.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0107-Add-missing-check-for-NULL-return-from-allocate_rfd.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0108-Handle-multiple-identical-near-simultaneous-DNS-quer.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0109-Handle-caching-with-EDNS-options-better.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0110-Support-hash-function-from-nettle-only.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0111-Small-cleanups-in-frec_src-datastucture-handling.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0112-Add-CVE-numbers-to-security-update-descriptions-in-C.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0113-Fix-warning-message-logic.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0115-Update-to-new-struct-frec-fields-in-conntrack-code.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/050-crypto-use-nettle-ecc_curve-access-functions.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "19.07",
+      "pre_release": "19.07.5",
+      "post_release": "19.07.6",
+      "target": "x86/64",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2020-25686",
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "commit_subject": "dnsmasq: Backport some security updates",
+      "pre_version": "2.80-16.1",
+      "post_version": "2.80-16.2",
+      "changed_paths": [
+        "package/network/services/dnsmasq/Makefile",
+        "package/network/services/dnsmasq/patches/0102-Fix-remote-buffer-overflow-CERT-VU-434904.patch",
+        "package/network/services/dnsmasq/patches/0103-Check-destination-of-DNS-UDP-query-replies.patch",
+        "package/network/services/dnsmasq/patches/0104-Use-SHA-256-to-provide-security-against-DNS-cache-po.patch",
+        "package/network/services/dnsmasq/patches/0105-Optimse-RR-digest-calculation-in-DNSSEC.patch",
+        "package/network/services/dnsmasq/patches/0107-Add-missing-check-for-NULL-return-from-allocate_rfd.patch",
+        "package/network/services/dnsmasq/patches/0108-Handle-multiple-identical-near-simultaneous-DNS-quer.patch",
+        "package/network/services/dnsmasq/patches/0109-Handle-caching-with-EDNS-options-better.patch",
+        "package/network/services/dnsmasq/patches/0110-Support-hash-function-from-nettle-only.patch",
+        "package/network/services/dnsmasq/patches/0111-Small-cleanups-in-frec_src-datastucture-handling.patch",
+        "package/network/services/dnsmasq/patches/0112-Add-CVE-numbers-to-security-update-descriptions-in-C.patch",
+        "package/network/services/dnsmasq/patches/0113-Fix-warning-message-logic.patch",
+        "package/network/services/dnsmasq/patches/0115-Update-to-new-struct-frec-fields-in-conntrack-code.patch",
+        "package/network/services/dnsmasq/patches/050-crypto-use-nettle-ecc_curve-access-functions.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dnsmasq/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0102-Fix-remote-buffer-overflow-CERT-VU-434904.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0103-Check-destination-of-DNS-UDP-query-replies.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0104-Use-SHA-256-to-provide-security-against-DNS-cache-po.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0105-Optimse-RR-digest-calculation-in-DNSSEC.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0107-Add-missing-check-for-NULL-return-from-allocate_rfd.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0108-Handle-multiple-identical-near-simultaneous-DNS-quer.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0109-Handle-caching-with-EDNS-options-better.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0110-Support-hash-function-from-nettle-only.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0111-Small-cleanups-in-frec_src-datastucture-handling.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0112-Add-CVE-numbers-to-security-update-descriptions-in-C.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0113-Fix-warning-message-logic.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0115-Update-to-new-struct-frec-fields-in-conntrack-code.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/050-crypto-use-nettle-ecc_curve-access-functions.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "19.07",
+      "pre_release": "19.07.5",
+      "post_release": "19.07.6",
+      "target": "ath79/generic",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2020-25686",
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "commit_subject": "dnsmasq: Backport some security updates",
+      "pre_version": "2.80-16.1",
+      "post_version": "2.80-16.2",
+      "changed_paths": [
+        "package/network/services/dnsmasq/Makefile",
+        "package/network/services/dnsmasq/patches/0102-Fix-remote-buffer-overflow-CERT-VU-434904.patch",
+        "package/network/services/dnsmasq/patches/0103-Check-destination-of-DNS-UDP-query-replies.patch",
+        "package/network/services/dnsmasq/patches/0104-Use-SHA-256-to-provide-security-against-DNS-cache-po.patch",
+        "package/network/services/dnsmasq/patches/0105-Optimse-RR-digest-calculation-in-DNSSEC.patch",
+        "package/network/services/dnsmasq/patches/0107-Add-missing-check-for-NULL-return-from-allocate_rfd.patch",
+        "package/network/services/dnsmasq/patches/0108-Handle-multiple-identical-near-simultaneous-DNS-quer.patch",
+        "package/network/services/dnsmasq/patches/0109-Handle-caching-with-EDNS-options-better.patch",
+        "package/network/services/dnsmasq/patches/0110-Support-hash-function-from-nettle-only.patch",
+        "package/network/services/dnsmasq/patches/0111-Small-cleanups-in-frec_src-datastucture-handling.patch",
+        "package/network/services/dnsmasq/patches/0112-Add-CVE-numbers-to-security-update-descriptions-in-C.patch",
+        "package/network/services/dnsmasq/patches/0113-Fix-warning-message-logic.patch",
+        "package/network/services/dnsmasq/patches/0115-Update-to-new-struct-frec-fields-in-conntrack-code.patch",
+        "package/network/services/dnsmasq/patches/050-crypto-use-nettle-ecc_curve-access-functions.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dnsmasq/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0102-Fix-remote-buffer-overflow-CERT-VU-434904.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0103-Check-destination-of-DNS-UDP-query-replies.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0104-Use-SHA-256-to-provide-security-against-DNS-cache-po.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0105-Optimse-RR-digest-calculation-in-DNSSEC.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0107-Add-missing-check-for-NULL-return-from-allocate_rfd.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0108-Handle-multiple-identical-near-simultaneous-DNS-quer.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0109-Handle-caching-with-EDNS-options-better.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0110-Support-hash-function-from-nettle-only.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0111-Small-cleanups-in-frec_src-datastucture-handling.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0112-Add-CVE-numbers-to-security-update-descriptions-in-C.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0113-Fix-warning-message-logic.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0115-Update-to-new-struct-frec-fields-in-conntrack-code.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/050-crypto-use-nettle-ecc_curve-access-functions.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "19.07",
+      "pre_release": "19.07.5",
+      "post_release": "19.07.6",
+      "target": "x86/64",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2020-25687",
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "commit_subject": "dnsmasq: Backport some security updates",
+      "pre_version": "2.80-16.1",
+      "post_version": "2.80-16.2",
+      "changed_paths": [
+        "package/network/services/dnsmasq/Makefile",
+        "package/network/services/dnsmasq/patches/0102-Fix-remote-buffer-overflow-CERT-VU-434904.patch",
+        "package/network/services/dnsmasq/patches/0103-Check-destination-of-DNS-UDP-query-replies.patch",
+        "package/network/services/dnsmasq/patches/0104-Use-SHA-256-to-provide-security-against-DNS-cache-po.patch",
+        "package/network/services/dnsmasq/patches/0105-Optimse-RR-digest-calculation-in-DNSSEC.patch",
+        "package/network/services/dnsmasq/patches/0107-Add-missing-check-for-NULL-return-from-allocate_rfd.patch",
+        "package/network/services/dnsmasq/patches/0108-Handle-multiple-identical-near-simultaneous-DNS-quer.patch",
+        "package/network/services/dnsmasq/patches/0109-Handle-caching-with-EDNS-options-better.patch",
+        "package/network/services/dnsmasq/patches/0110-Support-hash-function-from-nettle-only.patch",
+        "package/network/services/dnsmasq/patches/0111-Small-cleanups-in-frec_src-datastucture-handling.patch",
+        "package/network/services/dnsmasq/patches/0112-Add-CVE-numbers-to-security-update-descriptions-in-C.patch",
+        "package/network/services/dnsmasq/patches/0113-Fix-warning-message-logic.patch",
+        "package/network/services/dnsmasq/patches/0115-Update-to-new-struct-frec-fields-in-conntrack-code.patch",
+        "package/network/services/dnsmasq/patches/050-crypto-use-nettle-ecc_curve-access-functions.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dnsmasq/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0102-Fix-remote-buffer-overflow-CERT-VU-434904.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0103-Check-destination-of-DNS-UDP-query-replies.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0104-Use-SHA-256-to-provide-security-against-DNS-cache-po.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0105-Optimse-RR-digest-calculation-in-DNSSEC.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0107-Add-missing-check-for-NULL-return-from-allocate_rfd.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0108-Handle-multiple-identical-near-simultaneous-DNS-quer.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0109-Handle-caching-with-EDNS-options-better.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0110-Support-hash-function-from-nettle-only.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0111-Small-cleanups-in-frec_src-datastucture-handling.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0112-Add-CVE-numbers-to-security-update-descriptions-in-C.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0113-Fix-warning-message-logic.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0115-Update-to-new-struct-frec-fields-in-conntrack-code.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/050-crypto-use-nettle-ecc_curve-access-functions.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "19.07",
+      "pre_release": "19.07.5",
+      "post_release": "19.07.6",
+      "target": "ath79/generic",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2020-25687",
+      "commit_sha": "8055e38794741313f8f4e6059f83c71dc0ab1d1c",
+      "commit_subject": "dnsmasq: Backport some security updates",
+      "pre_version": "2.80-16.1",
+      "post_version": "2.80-16.2",
+      "changed_paths": [
+        "package/network/services/dnsmasq/Makefile",
+        "package/network/services/dnsmasq/patches/0102-Fix-remote-buffer-overflow-CERT-VU-434904.patch",
+        "package/network/services/dnsmasq/patches/0103-Check-destination-of-DNS-UDP-query-replies.patch",
+        "package/network/services/dnsmasq/patches/0104-Use-SHA-256-to-provide-security-against-DNS-cache-po.patch",
+        "package/network/services/dnsmasq/patches/0105-Optimse-RR-digest-calculation-in-DNSSEC.patch",
+        "package/network/services/dnsmasq/patches/0107-Add-missing-check-for-NULL-return-from-allocate_rfd.patch",
+        "package/network/services/dnsmasq/patches/0108-Handle-multiple-identical-near-simultaneous-DNS-quer.patch",
+        "package/network/services/dnsmasq/patches/0109-Handle-caching-with-EDNS-options-better.patch",
+        "package/network/services/dnsmasq/patches/0110-Support-hash-function-from-nettle-only.patch",
+        "package/network/services/dnsmasq/patches/0111-Small-cleanups-in-frec_src-datastucture-handling.patch",
+        "package/network/services/dnsmasq/patches/0112-Add-CVE-numbers-to-security-update-descriptions-in-C.patch",
+        "package/network/services/dnsmasq/patches/0113-Fix-warning-message-logic.patch",
+        "package/network/services/dnsmasq/patches/0115-Update-to-new-struct-frec-fields-in-conntrack-code.patch",
+        "package/network/services/dnsmasq/patches/050-crypto-use-nettle-ecc_curve-access-functions.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dnsmasq/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0102-Fix-remote-buffer-overflow-CERT-VU-434904.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0103-Check-destination-of-DNS-UDP-query-replies.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0104-Use-SHA-256-to-provide-security-against-DNS-cache-po.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0105-Optimse-RR-digest-calculation-in-DNSSEC.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0107-Add-missing-check-for-NULL-return-from-allocate_rfd.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0108-Handle-multiple-identical-near-simultaneous-DNS-quer.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0109-Handle-caching-with-EDNS-options-better.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0110-Support-hash-function-from-nettle-only.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0111-Small-cleanups-in-frec_src-datastucture-handling.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0112-Add-CVE-numbers-to-security-update-descriptions-in-C.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0113-Fix-warning-message-logic.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/0115-Update-to-new-struct-frec-fields-in-conntrack-code.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/050-crypto-use-nettle-ecc_curve-access-functions.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "19.07",
+      "pre_release": "19.07.1",
+      "post_release": "19.07.2",
+      "target": "x86/64",
+      "package": "ppp",
+      "cve_id": "CVE-2020-8597",
+      "commit_sha": "cf118077cd4f909a7ad68e6efdc07fe93f63b650",
+      "commit_subject": "ppp: backport security fixes",
+      "pre_version": "2.4.7.git-2019-05-25-2",
+      "post_version": "2.4.7.git-2019-05-25-3",
+      "changed_paths": [
+        "package/network/services/ppp/Makefile",
+        "package/network/services/ppp/patches/700-radius-Prevent-buffer-overflow-in-rc_mksid.patch",
+        "package/network/services/ppp/patches/701-pppd-Fix-bounds-check-in-EAP-code.patch",
+        "package/network/services/ppp/patches/702-pppd-Ignore-received-EAP-messages-when-not-doing-EAP.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/ppp/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/ppp/patches/700-radius-Prevent-buffer-overflow-in-rc_mksid.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/ppp/patches/701-pppd-Fix-bounds-check-in-EAP-code.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/ppp/patches/702-pppd-Ignore-received-EAP-messages-when-not-doing-EAP.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "19.07",
+      "pre_release": "19.07.1",
+      "post_release": "19.07.2",
+      "target": "ath79/generic",
+      "package": "ppp",
+      "cve_id": "CVE-2020-8597",
+      "commit_sha": "cf118077cd4f909a7ad68e6efdc07fe93f63b650",
+      "commit_subject": "ppp: backport security fixes",
+      "pre_version": "2.4.7.git-2019-05-25-2",
+      "post_version": "2.4.7.git-2019-05-25-3",
+      "changed_paths": [
+        "package/network/services/ppp/Makefile",
+        "package/network/services/ppp/patches/700-radius-Prevent-buffer-overflow-in-rc_mksid.patch",
+        "package/network/services/ppp/patches/701-pppd-Fix-bounds-check-in-EAP-code.patch",
+        "package/network/services/ppp/patches/702-pppd-Ignore-received-EAP-messages-when-not-doing-EAP.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/ppp/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/ppp/patches/700-radius-Prevent-buffer-overflow-in-rc_mksid.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/ppp/patches/701-pppd-Fix-bounds-check-in-EAP-code.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/ppp/patches/702-pppd-Ignore-received-EAP-messages-when-not-doing-EAP.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "19.07",
+      "pre_release": "19.07.0",
+      "post_release": "19.07.1",
+      "target": "x86/64",
+      "package": "opkg",
+      "cve_id": "CVE-2020-7982",
+      "commit_sha": "c155900f66d5345fcc12ab8a398a134fcb954eda",
+      "commit_subject": "opkg: update to latest Git HEAD",
+      "pre_version": "2019-06-14-dcbc142e-1",
+      "post_version": "2020-01-25-c09fe209-1",
+      "changed_paths": [
+        "package/system/opkg/Makefile"
+      ],
+      "path_states": [
+        {
+          "path": "package/system/opkg/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "19.07",
+      "pre_release": "19.07.0",
+      "post_release": "19.07.1",
+      "target": "ath79/generic",
+      "package": "opkg",
+      "cve_id": "CVE-2020-7982",
+      "commit_sha": "c155900f66d5345fcc12ab8a398a134fcb954eda",
+      "commit_subject": "opkg: update to latest Git HEAD",
+      "pre_version": "2019-06-14-dcbc142e-1",
+      "post_version": "2020-01-25-c09fe209-1",
+      "changed_paths": [
+        "package/system/opkg/Makefile"
+      ],
+      "path_states": [
+        {
+          "path": "package/system/opkg/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "21.02",
+      "pre_release": "21.02.5",
+      "post_release": "21.02.6",
+      "target": "x86/64",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2022-0934",
+      "commit_sha": "18f05da13dcb4283f61c5a03fbdc48411df6b0f7",
+      "commit_subject": "dnsmasq: Backport DHCPv6 server fix (CVE-2022-0934)",
+      "pre_version": "2.85-8",
+      "post_version": "2.85-9",
+      "changed_paths": [
+        "package/network/services/dnsmasq/patches/001-CVE-2022-0934-Fix-write-after-free-error-in-DHCPv6-code.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dnsmasq/patches/001-CVE-2022-0934-Fix-write-after-free-error-in-DHCPv6-code.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "historical_scout",
+      "stable_family": "21.02",
+      "pre_release": "21.02.5",
+      "post_release": "21.02.6",
+      "target": "ath79/generic",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2022-0934",
+      "commit_sha": "18f05da13dcb4283f61c5a03fbdc48411df6b0f7",
+      "commit_subject": "dnsmasq: Backport DHCPv6 server fix (CVE-2022-0934)",
+      "pre_version": "2.85-8",
+      "post_version": "2.85-9",
+      "changed_paths": [
+        "package/network/services/dnsmasq/patches/001-CVE-2022-0934-Fix-write-after-free-error-in-DHCPv6-code.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dnsmasq/patches/001-CVE-2022-0934-Fix-write-after-free-error-in-DHCPv6-code.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "v2_population_exploratory_pair",
+      "stable_family": "22.03",
+      "pre_release": "22.03.2",
+      "post_release": "22.03.3",
+      "target": "ath79/generic",
+      "package": "busybox",
+      "cve_id": "CVE-2022-30065",
+      "commit_sha": "13bd217821e766110298498d0b73c4394e3330bd",
+      "commit_subject": "busybox: awk: fix use after free (CVE-2022-30065)",
+      "pre_version": "1.35.0-4",
+      "post_version": "1.35.0-5",
+      "changed_paths": [
+        "package/utils/busybox/patches/001-CVE-2022-30065-awk-fix-use-after-free.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/utils/busybox/patches/001-CVE-2022-30065-awk-fix-use-after-free.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "v2_population_exploratory_pair",
+      "stable_family": "22.03",
+      "pre_release": "22.03.2",
+      "post_release": "22.03.3",
+      "target": "x86/64",
+      "package": "busybox",
+      "cve_id": "CVE-2022-30065",
+      "commit_sha": "13bd217821e766110298498d0b73c4394e3330bd",
+      "commit_subject": "busybox: awk: fix use after free (CVE-2022-30065)",
+      "pre_version": "1.35.0-4",
+      "post_version": "1.35.0-5",
+      "changed_paths": [
+        "package/utils/busybox/patches/001-CVE-2022-30065-awk-fix-use-after-free.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/utils/busybox/patches/001-CVE-2022-30065-awk-fix-use-after-free.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "v2_population_exploratory_pair",
+      "stable_family": "22.03",
+      "pre_release": "22.03.2",
+      "post_release": "22.03.3",
+      "target": "x86/64",
+      "package": "e2fsprogs",
+      "cve_id": "CVE-2022-1304",
+      "commit_sha": "1a0f2c3a3ecb19f65bdc269818ed373958d032e6",
+      "commit_subject": "e2fsprogs: Fix CVE-2022-1304",
+      "pre_version": "1.46.5-1",
+      "post_version": "1.46.5-2",
+      "changed_paths": [
+        "package/utils/e2fsprogs/Makefile",
+        "package/utils/e2fsprogs/patches/004-CVE-2022-1304-libext2fs-add-sanity-check-to-extent-manipulation.patch",
+        "tools/e2fsprogs/Makefile",
+        "tools/e2fsprogs/patches/004-CVE-2022-1304-libext2fs-add-sanity-check-to-extent-manipulation.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/utils/e2fsprogs/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/utils/e2fsprogs/patches/004-CVE-2022-1304-libext2fs-add-sanity-check-to-extent-manipulation.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "tools/e2fsprogs/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "tools/e2fsprogs/patches/004-CVE-2022-1304-libext2fs-add-sanity-check-to-extent-manipulation.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "v2_population_exploratory_pair",
+      "stable_family": "22.03",
+      "pre_release": "22.03.2",
+      "post_release": "22.03.3",
+      "target": "ath79/generic",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2022-0934",
+      "commit_sha": "77522d4eb7ef7df6805d7aa377bc3fad84a2910a",
+      "commit_subject": "dnsmasq: Backport DHCPv6 server fix (CVE-2022-0934)",
+      "pre_version": "2.86-14",
+      "post_version": "2.86-15",
+      "changed_paths": [
+        "package/network/services/dnsmasq/patches/001-CVE-2022-0934-Fix-write-after-free-error-in-DHCPv6-code.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dnsmasq/patches/001-CVE-2022-0934-Fix-write-after-free-error-in-DHCPv6-code.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "v2_population_exploratory_pair",
+      "stable_family": "22.03",
+      "pre_release": "22.03.2",
+      "post_release": "22.03.3",
+      "target": "x86/64",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2022-0934",
+      "commit_sha": "77522d4eb7ef7df6805d7aa377bc3fad84a2910a",
+      "commit_subject": "dnsmasq: Backport DHCPv6 server fix (CVE-2022-0934)",
+      "pre_version": "2.86-14",
+      "post_version": "2.86-15",
+      "changed_paths": [
+        "package/network/services/dnsmasq/patches/001-CVE-2022-0934-Fix-write-after-free-error-in-DHCPv6-code.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dnsmasq/patches/001-CVE-2022-0934-Fix-write-after-free-error-in-DHCPv6-code.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "v2_population_exploratory_pair",
+      "stable_family": "22.03",
+      "pre_release": "22.03.6",
+      "post_release": "22.03.7",
+      "target": "ath79/generic",
+      "package": "dropbear",
+      "cve_id": "CVE-2023-36328",
+      "commit_sha": "38cea0bea17941b7a392fcdbef4faec2d146a398",
+      "commit_subject": "dropbear: cherry-pick upstream patches",
+      "pre_version": "2022.82-3",
+      "post_version": "2022.82-4",
+      "changed_paths": [
+        "package/network/services/dropbear/patches/015-libtommath-fix-possible-integer-overflow.patch",
+        "package/network/services/dropbear/patches/021-Implement-Strict-KEX-mode.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dropbear/patches/015-libtommath-fix-possible-integer-overflow.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/021-Implement-Strict-KEX-mode.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "v2_population_exploratory_pair",
+      "stable_family": "22.03",
+      "pre_release": "22.03.6",
+      "post_release": "22.03.7",
+      "target": "x86/64",
+      "package": "dropbear",
+      "cve_id": "CVE-2023-36328",
+      "commit_sha": "38cea0bea17941b7a392fcdbef4faec2d146a398",
+      "commit_subject": "dropbear: cherry-pick upstream patches",
+      "pre_version": "2022.82-3",
+      "post_version": "2022.82-4",
+      "changed_paths": [
+        "package/network/services/dropbear/patches/015-libtommath-fix-possible-integer-overflow.patch",
+        "package/network/services/dropbear/patches/021-Implement-Strict-KEX-mode.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dropbear/patches/015-libtommath-fix-possible-integer-overflow.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/021-Implement-Strict-KEX-mode.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "v2_population_exploratory_pair",
+      "stable_family": "22.03",
+      "pre_release": "22.03.6",
+      "post_release": "22.03.7",
+      "target": "ath79/generic",
+      "package": "dropbear",
+      "cve_id": "CVE-2023-48795",
+      "commit_sha": "38cea0bea17941b7a392fcdbef4faec2d146a398",
+      "commit_subject": "dropbear: cherry-pick upstream patches",
+      "pre_version": "2022.82-3",
+      "post_version": "2022.82-4",
+      "changed_paths": [
+        "package/network/services/dropbear/patches/015-libtommath-fix-possible-integer-overflow.patch",
+        "package/network/services/dropbear/patches/021-Implement-Strict-KEX-mode.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dropbear/patches/015-libtommath-fix-possible-integer-overflow.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/021-Implement-Strict-KEX-mode.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "v2_population_exploratory_pair",
+      "stable_family": "22.03",
+      "pre_release": "22.03.6",
+      "post_release": "22.03.7",
+      "target": "x86/64",
+      "package": "dropbear",
+      "cve_id": "CVE-2023-48795",
+      "commit_sha": "38cea0bea17941b7a392fcdbef4faec2d146a398",
+      "commit_subject": "dropbear: cherry-pick upstream patches",
+      "pre_version": "2022.82-3",
+      "post_version": "2022.82-4",
+      "changed_paths": [
+        "package/network/services/dropbear/patches/015-libtommath-fix-possible-integer-overflow.patch",
+        "package/network/services/dropbear/patches/021-Implement-Strict-KEX-mode.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dropbear/patches/015-libtommath-fix-possible-integer-overflow.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/021-Implement-Strict-KEX-mode.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "v2_population_exploratory_pair",
+      "stable_family": "22.03",
+      "pre_release": "22.03.6",
+      "post_release": "22.03.7",
+      "target": "ath79/generic",
+      "package": "lua",
+      "cve_id": "CVE-2014-5461",
+      "commit_sha": "bf3ea23f5a7f26e88d829b4217d1067cc68f9d5c",
+      "commit_subject": "lua: fix CVE-2014-5461",
+      "pre_version": "5.1.5-10",
+      "post_version": "5.1.5-11",
+      "changed_paths": [
+        "package/utils/lua/Makefile",
+        "package/utils/lua/patches-host/001-include-version-number.patch",
+        "package/utils/lua/patches-host/013-lnum-strtoul-parsing-fixes.patch",
+        "package/utils/lua/patches-host/100-no_readline.patch",
+        "package/utils/lua/patches-host/400-CVE-2014-5461.patch",
+        "package/utils/lua/patches/001-include-version-number.patch",
+        "package/utils/lua/patches/013-lnum-strtoul-parsing-fixes.patch",
+        "package/utils/lua/patches/400-CVE-2014-5461.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/utils/lua/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/utils/lua/patches-host/001-include-version-number.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/utils/lua/patches-host/013-lnum-strtoul-parsing-fixes.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/utils/lua/patches-host/100-no_readline.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/utils/lua/patches-host/400-CVE-2014-5461.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/utils/lua/patches/001-include-version-number.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/utils/lua/patches/013-lnum-strtoul-parsing-fixes.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/utils/lua/patches/400-CVE-2014-5461.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "v2_population_exploratory_pair",
+      "stable_family": "22.03",
+      "pre_release": "22.03.6",
+      "post_release": "22.03.7",
+      "target": "x86/64",
+      "package": "lua",
+      "cve_id": "CVE-2014-5461",
+      "commit_sha": "bf3ea23f5a7f26e88d829b4217d1067cc68f9d5c",
+      "commit_subject": "lua: fix CVE-2014-5461",
+      "pre_version": "5.1.5-10",
+      "post_version": "5.1.5-11",
+      "changed_paths": [
+        "package/utils/lua/Makefile",
+        "package/utils/lua/patches-host/001-include-version-number.patch",
+        "package/utils/lua/patches-host/013-lnum-strtoul-parsing-fixes.patch",
+        "package/utils/lua/patches-host/100-no_readline.patch",
+        "package/utils/lua/patches-host/400-CVE-2014-5461.patch",
+        "package/utils/lua/patches/001-include-version-number.patch",
+        "package/utils/lua/patches/013-lnum-strtoul-parsing-fixes.patch",
+        "package/utils/lua/patches/400-CVE-2014-5461.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/utils/lua/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/utils/lua/patches-host/001-include-version-number.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/utils/lua/patches-host/013-lnum-strtoul-parsing-fixes.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/utils/lua/patches-host/100-no_readline.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/utils/lua/patches-host/400-CVE-2014-5461.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/utils/lua/patches/001-include-version-number.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/utils/lua/patches/013-lnum-strtoul-parsing-fixes.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/utils/lua/patches/400-CVE-2014-5461.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "v2_population_exploratory_pair",
+      "stable_family": "23.05",
+      "pre_release": "23.05.2",
+      "post_release": "23.05.3",
+      "target": "ath79/generic",
+      "package": "dropbear",
+      "cve_id": "CVE-2023-36328",
+      "commit_sha": "6549a711be6cb9788aaaec6d31e3396b21893163",
+      "commit_subject": "dropbear: cherry-pick upstream patches",
+      "pre_version": "2022.82-5",
+      "post_version": "2022.82-6",
+      "changed_paths": [
+        "package/network/services/dropbear/Makefile",
+        "package/network/services/dropbear/patches/015-libtommath-fix-possible-integer-overflow.patch",
+        "package/network/services/dropbear/patches/021-Implement-Strict-KEX-mode.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dropbear/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/015-libtommath-fix-possible-integer-overflow.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/021-Implement-Strict-KEX-mode.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "v2_population_exploratory_pair",
+      "stable_family": "23.05",
+      "pre_release": "23.05.2",
+      "post_release": "23.05.3",
+      "target": "x86/64",
+      "package": "dropbear",
+      "cve_id": "CVE-2023-36328",
+      "commit_sha": "6549a711be6cb9788aaaec6d31e3396b21893163",
+      "commit_subject": "dropbear: cherry-pick upstream patches",
+      "pre_version": "2022.82-5",
+      "post_version": "2022.82-6",
+      "changed_paths": [
+        "package/network/services/dropbear/Makefile",
+        "package/network/services/dropbear/patches/015-libtommath-fix-possible-integer-overflow.patch",
+        "package/network/services/dropbear/patches/021-Implement-Strict-KEX-mode.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dropbear/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/015-libtommath-fix-possible-integer-overflow.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/021-Implement-Strict-KEX-mode.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "v2_population_exploratory_pair",
+      "stable_family": "23.05",
+      "pre_release": "23.05.2",
+      "post_release": "23.05.3",
+      "target": "ath79/generic",
+      "package": "dropbear",
+      "cve_id": "CVE-2023-48795",
+      "commit_sha": "6549a711be6cb9788aaaec6d31e3396b21893163",
+      "commit_subject": "dropbear: cherry-pick upstream patches",
+      "pre_version": "2022.82-5",
+      "post_version": "2022.82-6",
+      "changed_paths": [
+        "package/network/services/dropbear/Makefile",
+        "package/network/services/dropbear/patches/015-libtommath-fix-possible-integer-overflow.patch",
+        "package/network/services/dropbear/patches/021-Implement-Strict-KEX-mode.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dropbear/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/015-libtommath-fix-possible-integer-overflow.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/021-Implement-Strict-KEX-mode.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "v2_population_exploratory_pair",
+      "stable_family": "23.05",
+      "pre_release": "23.05.2",
+      "post_release": "23.05.3",
+      "target": "x86/64",
+      "package": "dropbear",
+      "cve_id": "CVE-2023-48795",
+      "commit_sha": "6549a711be6cb9788aaaec6d31e3396b21893163",
+      "commit_subject": "dropbear: cherry-pick upstream patches",
+      "pre_version": "2022.82-5",
+      "post_version": "2022.82-6",
+      "changed_paths": [
+        "package/network/services/dropbear/Makefile",
+        "package/network/services/dropbear/patches/015-libtommath-fix-possible-integer-overflow.patch",
+        "package/network/services/dropbear/patches/021-Implement-Strict-KEX-mode.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dropbear/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/015-libtommath-fix-possible-integer-overflow.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/021-Implement-Strict-KEX-mode.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "v2_population_exploratory_pair",
+      "stable_family": "23.05",
+      "pre_release": "23.05.2",
+      "post_release": "23.05.3",
+      "target": "ath79/generic",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2023-50387",
+      "commit_sha": "875822f283163c038c93fd5405c6dd9796228eb7",
+      "commit_subject": "dnsmasq: version 2.90",
+      "pre_version": "2.89-4",
+      "post_version": "2.90-2",
+      "changed_paths": [
+        "package/network/services/dnsmasq/Makefile",
+        "package/network/services/dnsmasq/patches/200-ubus_dns.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dnsmasq/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": false,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/200-ubus_dns.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": false,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "v2_population_exploratory_pair",
+      "stable_family": "23.05",
+      "pre_release": "23.05.2",
+      "post_release": "23.05.3",
+      "target": "x86/64",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2023-50387",
+      "commit_sha": "875822f283163c038c93fd5405c6dd9796228eb7",
+      "commit_subject": "dnsmasq: version 2.90",
+      "pre_version": "2.89-4",
+      "post_version": "2.90-2",
+      "changed_paths": [
+        "package/network/services/dnsmasq/Makefile",
+        "package/network/services/dnsmasq/patches/200-ubus_dns.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dnsmasq/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": false,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/200-ubus_dns.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": false,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "v2_population_exploratory_pair",
+      "stable_family": "23.05",
+      "pre_release": "23.05.2",
+      "post_release": "23.05.3",
+      "target": "ath79/generic",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2023-50868",
+      "commit_sha": "875822f283163c038c93fd5405c6dd9796228eb7",
+      "commit_subject": "dnsmasq: version 2.90",
+      "pre_version": "2.89-4",
+      "post_version": "2.90-2",
+      "changed_paths": [
+        "package/network/services/dnsmasq/Makefile",
+        "package/network/services/dnsmasq/patches/200-ubus_dns.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dnsmasq/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": false,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/200-ubus_dns.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": false,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "v2_population_exploratory_pair",
+      "stable_family": "23.05",
+      "pre_release": "23.05.2",
+      "post_release": "23.05.3",
+      "target": "x86/64",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2023-50868",
+      "commit_sha": "875822f283163c038c93fd5405c6dd9796228eb7",
+      "commit_subject": "dnsmasq: version 2.90",
+      "pre_version": "2.89-4",
+      "post_version": "2.90-2",
+      "changed_paths": [
+        "package/network/services/dnsmasq/Makefile",
+        "package/network/services/dnsmasq/patches/200-ubus_dns.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dnsmasq/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": false,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/200-ubus_dns.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": false,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "v2_population_exploratory_pair",
+      "stable_family": "24.10",
+      "pre_release": "24.10.4",
+      "post_release": "24.10.5",
+      "target": "ath79/generic",
+      "package": "dropbear",
+      "cve_id": "CVE-2019-6111",
+      "commit_sha": "0f52a05723988633882d6c52122009ce11f8956b",
+      "commit_subject": "dropbear: backport security fixes",
+      "pre_version": "2024.86-r1",
+      "post_version": "2024.86-r2",
+      "changed_paths": [
+        "package/network/services/dropbear/Makefile",
+        "package/network/services/dropbear/patches/001-Drop-privileges-after-user-authentication.patch",
+        "package/network/services/dropbear/patches/002-Remove-return-code-from-login_login.patch",
+        "package/network/services/dropbear/patches/003-Retain-utmp-saved-group-when-dropping-privileges.patch",
+        "package/network/services/dropbear/patches/004-Limit-rekey-to-current-hostkey-type.patch",
+        "package/network/services/dropbear/patches/005-Restore-seteuid-for-authorized_keys.patch",
+        "package/network/services/dropbear/patches/006-scp-CVE-2019-6111-fix.patch",
+        "package/network/services/dropbear/patches/110-change_user.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dropbear/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/001-Drop-privileges-after-user-authentication.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/002-Remove-return-code-from-login_login.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/003-Retain-utmp-saved-group-when-dropping-privileges.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/004-Limit-rekey-to-current-hostkey-type.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/005-Restore-seteuid-for-authorized_keys.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/006-scp-CVE-2019-6111-fix.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/110-change_user.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "v2_population_exploratory_pair",
+      "stable_family": "24.10",
+      "pre_release": "24.10.4",
+      "post_release": "24.10.5",
+      "target": "x86/64",
+      "package": "dropbear",
+      "cve_id": "CVE-2019-6111",
+      "commit_sha": "0f52a05723988633882d6c52122009ce11f8956b",
+      "commit_subject": "dropbear: backport security fixes",
+      "pre_version": "2024.86-r1",
+      "post_version": "2024.86-r2",
+      "changed_paths": [
+        "package/network/services/dropbear/Makefile",
+        "package/network/services/dropbear/patches/001-Drop-privileges-after-user-authentication.patch",
+        "package/network/services/dropbear/patches/002-Remove-return-code-from-login_login.patch",
+        "package/network/services/dropbear/patches/003-Retain-utmp-saved-group-when-dropping-privileges.patch",
+        "package/network/services/dropbear/patches/004-Limit-rekey-to-current-hostkey-type.patch",
+        "package/network/services/dropbear/patches/005-Restore-seteuid-for-authorized_keys.patch",
+        "package/network/services/dropbear/patches/006-scp-CVE-2019-6111-fix.patch",
+        "package/network/services/dropbear/patches/110-change_user.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dropbear/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/001-Drop-privileges-after-user-authentication.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/002-Remove-return-code-from-login_login.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/003-Retain-utmp-saved-group-when-dropping-privileges.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/004-Limit-rekey-to-current-hostkey-type.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/005-Restore-seteuid-for-authorized_keys.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/006-scp-CVE-2019-6111-fix.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/110-change_user.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "v2_population_exploratory_pair",
+      "stable_family": "24.10",
+      "pre_release": "24.10.4",
+      "post_release": "24.10.5",
+      "target": "ath79/generic",
+      "package": "dropbear",
+      "cve_id": "CVE-2025-14282",
+      "commit_sha": "0f52a05723988633882d6c52122009ce11f8956b",
+      "commit_subject": "dropbear: backport security fixes",
+      "pre_version": "2024.86-r1",
+      "post_version": "2024.86-r2",
+      "changed_paths": [
+        "package/network/services/dropbear/Makefile",
+        "package/network/services/dropbear/patches/001-Drop-privileges-after-user-authentication.patch",
+        "package/network/services/dropbear/patches/002-Remove-return-code-from-login_login.patch",
+        "package/network/services/dropbear/patches/003-Retain-utmp-saved-group-when-dropping-privileges.patch",
+        "package/network/services/dropbear/patches/004-Limit-rekey-to-current-hostkey-type.patch",
+        "package/network/services/dropbear/patches/005-Restore-seteuid-for-authorized_keys.patch",
+        "package/network/services/dropbear/patches/006-scp-CVE-2019-6111-fix.patch",
+        "package/network/services/dropbear/patches/110-change_user.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dropbear/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/001-Drop-privileges-after-user-authentication.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/002-Remove-return-code-from-login_login.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/003-Retain-utmp-saved-group-when-dropping-privileges.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/004-Limit-rekey-to-current-hostkey-type.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/005-Restore-seteuid-for-authorized_keys.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/006-scp-CVE-2019-6111-fix.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/110-change_user.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "v2_population_exploratory_pair",
+      "stable_family": "24.10",
+      "pre_release": "24.10.4",
+      "post_release": "24.10.5",
+      "target": "x86/64",
+      "package": "dropbear",
+      "cve_id": "CVE-2025-14282",
+      "commit_sha": "0f52a05723988633882d6c52122009ce11f8956b",
+      "commit_subject": "dropbear: backport security fixes",
+      "pre_version": "2024.86-r1",
+      "post_version": "2024.86-r2",
+      "changed_paths": [
+        "package/network/services/dropbear/Makefile",
+        "package/network/services/dropbear/patches/001-Drop-privileges-after-user-authentication.patch",
+        "package/network/services/dropbear/patches/002-Remove-return-code-from-login_login.patch",
+        "package/network/services/dropbear/patches/003-Retain-utmp-saved-group-when-dropping-privileges.patch",
+        "package/network/services/dropbear/patches/004-Limit-rekey-to-current-hostkey-type.patch",
+        "package/network/services/dropbear/patches/005-Restore-seteuid-for-authorized_keys.patch",
+        "package/network/services/dropbear/patches/006-scp-CVE-2019-6111-fix.patch",
+        "package/network/services/dropbear/patches/110-change_user.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dropbear/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/001-Drop-privileges-after-user-authentication.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/002-Remove-return-code-from-login_login.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/003-Retain-utmp-saved-group-when-dropping-privileges.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/004-Limit-rekey-to-current-hostkey-type.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/005-Restore-seteuid-for-authorized_keys.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/006-scp-CVE-2019-6111-fix.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/110-change_user.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "v2_population_exploratory_pair",
+      "stable_family": "24.10",
+      "pre_release": "24.10.6",
+      "post_release": "24.10.7",
+      "target": "ath79/generic",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2026-4890",
+      "commit_sha": "15250e11aa4e77e47cee3afca0625fca02c97917",
+      "commit_subject": "dnsmasq: apply six CVE-fix upstream patches to 2.90",
+      "pre_version": "2.90-r4",
+      "post_version": "2.90-r5",
+      "changed_paths": [
+        "package/network/services/dnsmasq/Makefile",
+        "package/network/services/dnsmasq/patches/001-CVE-2026-2291.patch",
+        "package/network/services/dnsmasq/patches/002-CVE-2026-4890.dnsmasq-2.91.patch",
+        "package/network/services/dnsmasq/patches/003-CVE-2026-4891.patch",
+        "package/network/services/dnsmasq/patches/004-CVE-2026-4892.patch",
+        "package/network/services/dnsmasq/patches/005-CVE-2026-4893.patch",
+        "package/network/services/dnsmasq/patches/006-CVE-2026-5172.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dnsmasq/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/001-CVE-2026-2291.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/002-CVE-2026-4890.dnsmasq-2.91.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/003-CVE-2026-4891.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/004-CVE-2026-4892.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/005-CVE-2026-4893.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/006-CVE-2026-5172.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "v2_population_exploratory_pair",
+      "stable_family": "24.10",
+      "pre_release": "24.10.6",
+      "post_release": "24.10.7",
+      "target": "x86/64",
+      "package": "dnsmasq",
+      "cve_id": "CVE-2026-4890",
+      "commit_sha": "15250e11aa4e77e47cee3afca0625fca02c97917",
+      "commit_subject": "dnsmasq: apply six CVE-fix upstream patches to 2.90",
+      "pre_version": "2.90-r4",
+      "post_version": "2.90-r5",
+      "changed_paths": [
+        "package/network/services/dnsmasq/Makefile",
+        "package/network/services/dnsmasq/patches/001-CVE-2026-2291.patch",
+        "package/network/services/dnsmasq/patches/002-CVE-2026-4890.dnsmasq-2.91.patch",
+        "package/network/services/dnsmasq/patches/003-CVE-2026-4891.patch",
+        "package/network/services/dnsmasq/patches/004-CVE-2026-4892.patch",
+        "package/network/services/dnsmasq/patches/005-CVE-2026-4893.patch",
+        "package/network/services/dnsmasq/patches/006-CVE-2026-5172.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dnsmasq/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/001-CVE-2026-2291.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/002-CVE-2026-4890.dnsmasq-2.91.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/003-CVE-2026-4891.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/004-CVE-2026-4892.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/005-CVE-2026-4893.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dnsmasq/patches/006-CVE-2026-5172.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "v2_population_exploratory_pair",
+      "stable_family": "24.10",
+      "pre_release": "24.10.7",
+      "post_release": "24.10.8",
+      "target": "ath79/generic",
+      "package": "dropbear",
+      "cve_id": "CVE-2019-6111",
+      "commit_sha": "262c09368fda76c85c519b7554f33bb98fb3263f",
+      "commit_subject": "dropbear: backport some security fixes from 2026.90",
+      "pre_version": "2024.86-r2",
+      "post_version": "2024.86-r3",
+      "changed_paths": [
+        "package/network/services/dropbear/Makefile",
+        "package/network/services/dropbear/patches/011-Fix-incorrect-index-closing-listeners.patch",
+        "package/network/services/dropbear/patches/012-scp-clear-setuid-setgid-bits-on-received-files.patch",
+        "package/network/services/dropbear/patches/013-scp-Disallow-r-to-an-existing-directory.patch",
+        "package/network/services/dropbear/patches/014-scp-more-CVE-2019-6111-fix.patch",
+        "package/network/services/dropbear/patches/015-server-open-authorized_keys-files-nonblocking.patch",
+        "package/network/services/dropbear/patches/016-Rework-pubkey_options-struct.patch",
+        "package/network/services/dropbear/patches/100-pubkey_path.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dropbear/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/011-Fix-incorrect-index-closing-listeners.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/012-scp-clear-setuid-setgid-bits-on-received-files.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/013-scp-Disallow-r-to-an-existing-directory.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/014-scp-more-CVE-2019-6111-fix.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/015-server-open-authorized_keys-files-nonblocking.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/016-Rework-pubkey_options-struct.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/100-pubkey_path.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "v2_population_exploratory_pair",
+      "stable_family": "24.10",
+      "pre_release": "24.10.7",
+      "post_release": "24.10.8",
+      "target": "x86/64",
+      "package": "dropbear",
+      "cve_id": "CVE-2019-6111",
+      "commit_sha": "262c09368fda76c85c519b7554f33bb98fb3263f",
+      "commit_subject": "dropbear: backport some security fixes from 2026.90",
+      "pre_version": "2024.86-r2",
+      "post_version": "2024.86-r3",
+      "changed_paths": [
+        "package/network/services/dropbear/Makefile",
+        "package/network/services/dropbear/patches/011-Fix-incorrect-index-closing-listeners.patch",
+        "package/network/services/dropbear/patches/012-scp-clear-setuid-setgid-bits-on-received-files.patch",
+        "package/network/services/dropbear/patches/013-scp-Disallow-r-to-an-existing-directory.patch",
+        "package/network/services/dropbear/patches/014-scp-more-CVE-2019-6111-fix.patch",
+        "package/network/services/dropbear/patches/015-server-open-authorized_keys-files-nonblocking.patch",
+        "package/network/services/dropbear/patches/016-Rework-pubkey_options-struct.patch",
+        "package/network/services/dropbear/patches/100-pubkey_path.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dropbear/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/011-Fix-incorrect-index-closing-listeners.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/012-scp-clear-setuid-setgid-bits-on-received-files.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/013-scp-Disallow-r-to-an-existing-directory.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/014-scp-more-CVE-2019-6111-fix.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/015-server-open-authorized_keys-files-nonblocking.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/016-Rework-pubkey_options-struct.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/100-pubkey_path.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "v2_population_exploratory_pair",
+      "stable_family": "24.10",
+      "pre_release": "24.10.7",
+      "post_release": "24.10.8",
+      "target": "ath79/generic",
+      "package": "dropbear",
+      "cve_id": "CVE-2026-35385",
+      "commit_sha": "262c09368fda76c85c519b7554f33bb98fb3263f",
+      "commit_subject": "dropbear: backport some security fixes from 2026.90",
+      "pre_version": "2024.86-r2",
+      "post_version": "2024.86-r3",
+      "changed_paths": [
+        "package/network/services/dropbear/Makefile",
+        "package/network/services/dropbear/patches/011-Fix-incorrect-index-closing-listeners.patch",
+        "package/network/services/dropbear/patches/012-scp-clear-setuid-setgid-bits-on-received-files.patch",
+        "package/network/services/dropbear/patches/013-scp-Disallow-r-to-an-existing-directory.patch",
+        "package/network/services/dropbear/patches/014-scp-more-CVE-2019-6111-fix.patch",
+        "package/network/services/dropbear/patches/015-server-open-authorized_keys-files-nonblocking.patch",
+        "package/network/services/dropbear/patches/016-Rework-pubkey_options-struct.patch",
+        "package/network/services/dropbear/patches/100-pubkey_path.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dropbear/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/011-Fix-incorrect-index-closing-listeners.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/012-scp-clear-setuid-setgid-bits-on-received-files.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/013-scp-Disallow-r-to-an-existing-directory.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/014-scp-more-CVE-2019-6111-fix.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/015-server-open-authorized_keys-files-nonblocking.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/016-Rework-pubkey_options-struct.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/100-pubkey_path.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    },
+    {
+      "source": "v2_population_exploratory_pair",
+      "stable_family": "24.10",
+      "pre_release": "24.10.7",
+      "post_release": "24.10.8",
+      "target": "x86/64",
+      "package": "dropbear",
+      "cve_id": "CVE-2026-35385",
+      "commit_sha": "262c09368fda76c85c519b7554f33bb98fb3263f",
+      "commit_subject": "dropbear: backport some security fixes from 2026.90",
+      "pre_version": "2024.86-r2",
+      "post_version": "2024.86-r3",
+      "changed_paths": [
+        "package/network/services/dropbear/Makefile",
+        "package/network/services/dropbear/patches/011-Fix-incorrect-index-closing-listeners.patch",
+        "package/network/services/dropbear/patches/012-scp-clear-setuid-setgid-bits-on-received-files.patch",
+        "package/network/services/dropbear/patches/013-scp-Disallow-r-to-an-existing-directory.patch",
+        "package/network/services/dropbear/patches/014-scp-more-CVE-2019-6111-fix.patch",
+        "package/network/services/dropbear/patches/015-server-open-authorized_keys-files-nonblocking.patch",
+        "package/network/services/dropbear/patches/016-Rework-pubkey_options-struct.patch",
+        "package/network/services/dropbear/patches/100-pubkey_path.patch"
+      ],
+      "path_states": [
+        {
+          "path": "package/network/services/dropbear/Makefile",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/011-Fix-incorrect-index-closing-listeners.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/012-scp-clear-setuid-setgid-bits-on-received-files.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/013-scp-Disallow-r-to-an-existing-directory.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/014-scp-more-CVE-2019-6111-fix.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/015-server-open-authorized_keys-files-nonblocking.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/016-Rework-pubkey_options-struct.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": false,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        },
+        {
+          "path": "package/network/services/dropbear/patches/100-pubkey_path.patch",
+          "in_commit": true,
+          "post_exists": true,
+          "pre_exists": true,
+          "post_blob_equals_commit": true,
+          "pre_blob_equals_commit": false
+        }
+      ],
+      "post_commit_is_ancestor": true,
+      "pre_commit_is_ancestor": false
+    }
+  ]
+}
