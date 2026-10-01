@@ -107,6 +107,7 @@ artifacts:
   openwrt_pilot_manifest: data/openwrt-provenance-pilot.yaml
   openwrt_label_schema: data/openwrt-provenance-label-schema.md
   openwrt_adjudication_sheet: data/openwrt-provenance-adjudication.csv
+  openwrt_cve_seed_screen: literature/iot-security/openwrt-cve-seed-screen-2026-10-01.md
   iot_ids_bounded_draft: drafts/iot-ids-split-sensitivity-introduction-and-methods.md
   beginner_research_explanation: README-FOR-BEGINNERS-zh.md
   n_baiot_official_profile: data/n-baiot-uci-profile.md
@@ -140,5 +141,5 @@ review:
 
 last_checkpoint:
   timestamp: 2026-09-30T00:30:00+08:00
-  summary: "The IoT IDS line remains a technical replication record only. The OpenWrt release-provenance candidate passed a conditional four-paper full-text overlap gate: all are partial/adjacent, none reports the exact package-release-CVE recipe/feed/backport versus name/version benchmark. Official metadata for three releases (23.05.5, 24.10.0, 24.10.4) and two targets (x86/64, ath79/generic) is frozen at 1,660,189 bytes; every downloaded manifest/BOM/build-info file matches OpenWrt's published target sha256sums."
-  next_action: "Select and preregister a bounded package-release-CVE cohort using only individual official CVE JSON and release-relevant OpenWrt source/patch evidence. Do not write audit code until the cohort and blinded label protocol are feasible."
+  summary: "The IoT IDS line remains a technical replication record only. The OpenWrt release-provenance candidate passed a conditional four-paper full-text overlap gate. Official metadata for three releases and two targets plus 12 official CVE JSON seed records is frozen at 1,760,168 bytes. The CVE seed screen rejects immediate pilot preregistration: OpenSSL is absent from the selected target BOMs, and Mbed TLS/BusyBox seeds presently show version boundaries/ranges rather than verified same-version OpenWrt backports, so they cannot yet test the added value of provenance evidence."
+  next_action: "Search official OpenWrt maintenance-branch commits/patches for target-present packages whose declared upstream version remains in an official CVE affected range despite an explicit release-specific backport. Do not write audit code or claim a false-affected improvement until a sufficient cohort of those cases exists."
