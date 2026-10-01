@@ -31,6 +31,19 @@
 
 **与本研究的边界。** 该文已经覆盖“package ecosystems 的 backport 实践、低版本 train 和漏洞修复”这一大背景。因此不能把这些概念本身当贡献。全文没有报告 OpenWrt、target manifest、distribution recipe/feed、tag-contained patch retention、release-target-CVE 三元证据链或 `insufficient_evidence` 标注。
 
+### David & Gervais, “Patch2Vuln: Agentic Reconstruction of Vulnerabilities from Linux Distribution Binary Patches” (arXiv:2605.06601, 2026)
+
+- 一手全文：https://arxiv.org/pdf/2605.06601
+- 本地只读抽取：`research-os/.cache/literature/patch2vuln.pdf`（17 页，不入库的缓存）
+
+**实际任务。** 该文研究 Ubuntu `.deb` 的 old/new binary package pair：从 ELF、Ghidra/Ghidriff 的函数 diff 中重建安全更新的 root-cause 类别和验证计划。分析阶段被明确禁止访问 CVE、USN、source patch、package changelog 和 Web（第 1、4 页），所以它不是基于 release recipe/commit/tag patch 的适用性审计。
+
+**数据与真值。** 它评估 25 个 Ubuntu pair（20 个安全更新、5 个负对照），并以私有 source-patch/binary-function ground truth 做人工 adjudication（第 1、6–8 页）。论文报告在 20 个安全 pair 中定位到经验证安全相关函数 10 个、接受 final root-cause 类别 11 个；5 个负对照均为 `unknown`（第 1、7、13 页）。
+
+**与本研究的关系。** 这是目前发现的**最接近 pair-level Linux distribution 工作**，已经覆盖“发行版 old/new package pair + 人工真值 + 漏洞更新”的高层构造。因此 OpenWrt 方向不能把 pair 数据集本身、离线分析或 Linux distribution 场景称为创新。可区分之处只可能是：该文故意隐藏 source/advisory 并重建漏洞语义；本方向若继续，则只审计公开 OpenWrt source provenance 对固定 release-target package-CVE 的证据充分性，且不做二进制 diff、agent root-cause 重建、运行或 exploit 验证。
+
+它同时提高了新方向的门槛：需要证明 source-provenance applicability/VEX-style verdict 对 package-level false-positive 控制有独立价值，而不只是把 Patch2Vuln 的 old/new pair 换成 OpenWrt。
+
 ## 高风险近邻：已确认摘要，全文仍需核验
 
 下列论文会影响新颖性；在取得全文前不得做“未覆盖”断言。
