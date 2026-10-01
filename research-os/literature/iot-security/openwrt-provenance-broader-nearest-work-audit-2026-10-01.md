@@ -44,14 +44,14 @@
 
 它同时提高了新方向的门槛：需要证明 source-provenance applicability/VEX-style verdict 对 package-level false-positive 控制有独立价值，而不只是把 Patch2Vuln 的 old/new pair 换成 OpenWrt。
 
-## 高风险近邻：已确认摘要，全文仍需核验
+## 高风险近邻：历史筛选记录（部分已被后续全文审计取代）
 
-下列论文会影响新颖性；在取得全文前不得做“未覆盖”断言。
+本节保留最初筛选过程。AFV 与 PatchScout 的全文结论已由 `openwrt-provenance-critical-triangulation-audit-2026-10-01.md` 取代；不得再把下表中的“待核验”用于它们。PatchScope 仍未取得全文。
 
 | 工作 | 已确认的摘要级事实 | 对 OpenWrt 方案的风险 | 当前处理 |
 |---|---|---|---|
-| *Precise (Un)Affected Version Analysis for Web Vulnerabilities* (ISSTA 2022), DOI `10.1145/3551349.3556933` | 从 patch 提取漏洞逻辑，在版本间精确判断 affected/unaffected；报告 34 CVE、299 versions。 | **高**：直接相邻于 patch-based version applicability。 | ACM PDF 的自动请求被 Cloudflare 拒绝；必须取得全文后再界定其是否处理 distribution backports。 |
-| *Locating the Security Patches for Disclosed OSS Vulnerabilities with Vulnerability-Commit Correlation Ranking* (ESEC/FSE 2021), DOI `10.1145/3460120.3484593` | PatchScout 对 CVE–commit 相关性排序，并报告跨 branch 的 patch deployment study。 | **中高**：可能覆盖 CVE patch association 与分支部署，但摘要未显示 release package adjudication。 | 全文待核验。 |
+| *Precise (Un)Affected Version Analysis for Web Vulnerabilities* (ASE 2022), DOI `10.1145/3551349.3556933` | 从 patch 提取漏洞逻辑，在版本间输出 affected/unaffected/unknown，并收集 cherry-pick、同 diff、同 message 的 backport。 | **直接重叠**：已否定泛化 patch/backport-aware version applicability 主张。 | **全文已读；以 critical triangulation audit 为准。** |
+| *Locating the Security Patches for Disclosed OSS Vulnerabilities with Vulnerability-Commit Correlation Ranking* (CCS 2021), DOI `10.1145/3460120.3484593` | PatchScout 对 CVE–commit 排名，并对 stable/release branch 的 patch deployment 做人工分层。 | **直接重叠**：已否定 CVE×branch patched/unpatched/not-affected 主张。 | **全文已读；以 critical triangulation audit 为准。** |
 | *Automated patch backporting in Linux* (ESEC/FSE 2021), DOI `10.1145/3460319.3464821` | FixMorph 自动把 mainline patch 迁移到旧 stable Linux；350 patches。 | **中**：覆盖 patch 生成，不是发布物适用性。 | 不可包装为“自动回补”创新。 |
 | *Enhancing OSS Patch Backporting with Semantics* (FSE 2023), DOI `10.1145/3576915.3623188` | TSBPORT 用语义/PDG 迁移 Linux security patches，1,815 对 patch。 | **中**：同样覆盖 patch migration，不是 release verdict。 | 不可包装为“自动回补”创新。 |
 | *PatchScope: LLM-Enhanced Fine-Grained Stable Patch Classification for Linux Kernel* (2025), DOI `10.1145/3728944` | 对 stable patch 的具体 LTS merge status 预测。 | **中高**：接近 branch-local eligibility，但任务是预测应合入哪个 LTS，而非审计已发布 package 的 CVE 状态。 | 需全文核验数据与评价差异。 |

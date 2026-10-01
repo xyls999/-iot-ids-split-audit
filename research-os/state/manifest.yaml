@@ -14,7 +14,7 @@ target:
 
 workflow:
   current_stage: cross_ecosystem_release_claim_closure_novelty_audit
-  current_task: "audit whether a cross-ecosystem release-security-claim closure study survives GUAC and Macaron; do not freeze v3 or write metric code"
+  current_task: "obtain and audit Macaron before deciding whether release-security-claim closure is more than GUAC/SLSA/VEX composition; do not freeze v3 or write metric code"
   auto_continue: false
   status: release_claim_closure_hypothesis_conditional_not_innovation
 
@@ -136,6 +136,7 @@ artifacts:
   openwrt_artifact_closure_probe_data: artifacts/openwrt-paired-cohort-closure-probe.json
   openwrt_applicability_vex_semantics_audit: literature/iot-security/openwrt-applicability-vex-semantics-audit-2026-10-01.md
   cross_ecosystem_release_provenance_spike: literature/iot-security/cross-ecosystem-release-provenance-spike-2026-10-01.md
+  release_claim_synthesis_adversarial_review: reviews/release-claim-synthesis-adversarial-review-2026-10-01.md
   iot_ids_bounded_draft: drafts/iot-ids-split-sensitivity-introduction-and-methods.md
   beginner_research_explanation: README-FOR-BEGINNERS-zh.md
   n_baiot_official_profile: data/n-baiot-uci-profile.md
