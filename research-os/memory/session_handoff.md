@@ -53,6 +53,9 @@ Candidate ideas: `ideas/iot-ids-candidates.yaml`; independent critique: `ideas/i
 
 ## Current deliverables
 
+- Consolidated project summary: `research-os/reports/project-current-state-summary-zh.md`
+
+
 - Methods/report draft: `research-os/drafts/evidence-sensitivity-stress-test-methods-report-draft-zh.md`
 - Experiment direction plan: `research-os/plans/evidence-sensitivity-stress-test-experiment-plan-zh.md`
 - The draft must retain the initial N-BaIoT 16/20 schema ambiguity and the refined 16/16 result; do not report only the refined agreement.

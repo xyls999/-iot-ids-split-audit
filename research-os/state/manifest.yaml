@@ -150,6 +150,7 @@ artifacts:
   nbaiot_blinded_cross_case_gate: reviews/nbaiot-blind-adjudication-and-cross-case-gate-2026-10-01.md
   esst_methods_report_draft: drafts/evidence-sensitivity-stress-test-methods-report-draft-zh.md
   wlwxb_submission_draft_v02: drafts/wlwxb-submission-draft-v0.2-zh.md
+  project_current_state_summary: reports/project-current-state-summary-zh.md
   esst_experiment_plan: plans/evidence-sensitivity-stress-test-experiment-plan-zh.md
   wlwxb_official_fit_check: literature/venue-wlwxb-fit-check-2026-10-01.md
   wlwxb_scope_nearest_articles: literature/venue-wlwxb-scope-and-nearest-articles-2026-10-01.md
