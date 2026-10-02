@@ -1,0 +1,218 @@
+{
+  "status": "exploratory_dg_preflight_not_novelty_claim",
+  "protocol": {
+    "rows_per_cell": 600,
+    "epochs": 20,
+    "seed": 20260930,
+    "labels": [
+      "benign",
+      "gafgyt.combo",
+      "gafgyt.junk",
+      "gafgyt.scan",
+      "gafgyt.tcp",
+      "gafgyt.udp"
+    ],
+    "coral_lambda": 0.01
+  },
+  "summary": {
+    "mlp": {
+      "mean_lodo_macro_f1": 0.6500343251580573,
+      "std_lodo_macro_f1": 0.09843028770655203
+    },
+    "coral": {
+      "mean_lodo_macro_f1": 0.6506156508487175,
+      "std_lodo_macro_f1": 0.08827878485225665
+    },
+    "groupdro": {
+      "mean_lodo_macro_f1": 0.6464818210206046,
+      "std_lodo_macro_f1": 0.05690811882935757
+    },
+    "mixup": {
+      "mean_lodo_macro_f1": 0.6522576529422248,
+      "std_lodo_macro_f1": 0.10105775903949862
+    }
+  },
+  "folds": [
+    {
+      "held_device": 1,
+      "method": "mlp",
+      "macro_f1": 0.5521394567465202
+    },
+    {
+      "held_device": 1,
+      "method": "coral",
+      "macro_f1": 0.55623815635469
+    },
+    {
+      "held_device": 1,
+      "method": "groupdro",
+      "macro_f1": 0.633117632132049
+    },
+    {
+      "held_device": 1,
+      "method": "mixup",
+      "macro_f1": 0.5466887313308456
+    },
+    {
+      "held_device": 2,
+      "method": "mlp",
+      "macro_f1": 0.5832446864762649
+    },
+    {
+      "held_device": 2,
+      "method": "coral",
+      "macro_f1": 0.6285727961828895
+    },
+    {
+      "held_device": 2,
+      "method": "groupdro",
+      "macro_f1": 0.5577230768890847
+    },
+    {
+      "held_device": 2,
+      "method": "mixup",
+      "macro_f1": 0.735007593749439
+    },
+    {
+      "held_device": 3,
+      "method": "mlp",
+      "macro_f1": 0.7473780152056883
+    },
+    {
+      "held_device": 3,
+      "method": "coral",
+      "macro_f1": 0.746325524968175
+    },
+    {
+      "held_device": 3,
+      "method": "groupdro",
+      "macro_f1": 0.6295121199585452
+    },
+    {
+      "held_device": 3,
+      "method": "mixup",
+      "macro_f1": 0.7637754471155924
+    },
+    {
+      "held_device": 4,
+      "method": "mlp",
+      "macro_f1": 0.7706188092643588
+    },
+    {
+      "held_device": 4,
+      "method": "coral",
+      "macro_f1": 0.743191387353702
+    },
+    {
+      "held_device": 4,
+      "method": "groupdro",
+      "macro_f1": 0.7481402859488643
+    },
+    {
+      "held_device": 4,
+      "method": "mixup",
+      "macro_f1": 0.7076887772747806
+    },
+    {
+      "held_device": 5,
+      "method": "mlp",
+      "macro_f1": 0.5643275028340886
+    },
+    {
+      "held_device": 5,
+      "method": "coral",
+      "macro_f1": 0.5464194270088402
+    },
+    {
+      "held_device": 5,
+      "method": "groupdro",
+      "macro_f1": 0.7205499976709598
+    },
+    {
+      "held_device": 5,
+      "method": "mixup",
+      "macro_f1": 0.5124742724191761
+    },
+    {
+      "held_device": 6,
+      "method": "mlp",
+      "macro_f1": 0.7619330541975032
+    },
+    {
+      "held_device": 6,
+      "method": "coral",
+      "macro_f1": 0.7516326091244324
+    },
+    {
+      "held_device": 6,
+      "method": "groupdro",
+      "macro_f1": 0.6696170176161463
+    },
+    {
+      "held_device": 6,
+      "method": "mixup",
+      "macro_f1": 0.7057763668862934
+    },
+    {
+      "held_device": 7,
+      "method": "mlp",
+      "macro_f1": 0.4938974202064766
+    },
+    {
+      "held_device": 7,
+      "method": "coral",
+      "macro_f1": 0.5160563881763857
+    },
+    {
+      "held_device": 7,
+      "method": "groupdro",
+      "macro_f1": 0.6052199458079005
+    },
+    {
+      "held_device": 7,
+      "method": "mixup",
+      "macro_f1": 0.49224302783630236
+    },
+    {
+      "held_device": 8,
+      "method": "mlp",
+      "macro_f1": 0.7196000175974803
+    },
+    {
+      "held_device": 8,
+      "method": "coral",
+      "macro_f1": 0.7125137332871362
+    },
+    {
+      "held_device": 8,
+      "method": "groupdro",
+      "macro_f1": 0.5955864609918521
+    },
+    {
+      "held_device": 8,
+      "method": "mixup",
+      "macro_f1": 0.7542601531881941
+    },
+    {
+      "held_device": 9,
+      "method": "mlp",
+      "macro_f1": 0.6571699638941345
+    },
+    {
+      "held_device": 9,
+      "method": "coral",
+      "macro_f1": 0.6545908351822064
+    },
+    {
+      "held_device": 9,
+      "method": "groupdro",
+      "macro_f1": 0.6588698521700392
+    },
+    {
+      "held_device": 9,
+      "method": "mixup",
+      "macro_f1": 0.6524045066794004
+    }
+  ],
+  "runtime_seconds": 69.75273823738098
+}

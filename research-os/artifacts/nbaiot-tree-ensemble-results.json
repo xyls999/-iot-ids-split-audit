@@ -1,0 +1,981 @@
+{
+  "status": "exploratory_tree_ensemble_benchmark_not_novelty_claim",
+  "scope": "offline common-support N-BaIoT mirror; device-held-out folds; labels withheld from held device during training",
+  "protocol": {
+    "rows_per_cell": 600,
+    "row_offset": 0,
+    "seeds": [
+      20260930,
+      20260931,
+      20260932,
+      20260933,
+      20260934
+    ],
+    "trees": 200,
+    "min_leaf": 1,
+    "labels": [
+      "benign",
+      "gafgyt.combo",
+      "gafgyt.junk",
+      "gafgyt.scan",
+      "gafgyt.tcp",
+      "gafgyt.udp"
+    ],
+    "ensemble": "mean of ExtraTrees and HistGradientBoosting class probabilities"
+  },
+  "summary": {
+    "mean_lodo_macro_f1": 0.8106758969583345,
+    "std_lodo_macro_f1": 0.10592378019302948,
+    "mean_lodo_macro_fpr": 0.030320987654320987,
+    "min_fold_macro_f1": 0.6126898664810846,
+    "max_fold_macro_f1": 0.9974999149276608
+  },
+  "folds": [
+    {
+      "held_device": 1,
+      "seed": 20260930,
+      "metrics": {
+        "macro_f1": 0.7955392988526024,
+        "per_class_f1": [
+          1.0,
+          0.23788546255506607,
+          0.6980802792321117,
+          1.0,
+          0.9120580235720761,
+          0.9252120277563608
+        ],
+        "macro_fpr": 0.034222222222222216
+      },
+      "fit_seconds": 1.8101753999944776,
+      "ensemble_inference_seconds": 0.00010380000458098948,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 58348,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 2,
+      "seed": 20260930,
+      "metrics": {
+        "macro_f1": 0.7639565986202977,
+        "per_class_f1": [
+          1.0,
+          0.9538950715421304,
+          0.9492119089316988,
+          1.0,
+          0.013223140495867768,
+          0.6674094707520891
+        ],
+        "macro_fpr": 0.03638888888888889
+      },
+      "fit_seconds": 1.8874155000085011,
+      "ensemble_inference_seconds": 9.889999637380242e-05,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 62740,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 3,
+      "seed": 20260930,
+      "metrics": {
+        "macro_f1": 0.7802327467956753,
+        "per_class_f1": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.013245033112582781,
+          0.6681514476614699
+        ],
+        "macro_fpr": 0.03311111111111111
+      },
+      "fit_seconds": 1.9217401999922004,
+      "ensemble_inference_seconds": 0.00010569998994469643,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 68846,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 4,
+      "seed": 20260930,
+      "metrics": {
+        "macro_f1": 0.7799549688249963,
+        "per_class_f1": [
+          0.9991659716430359,
+          1.0,
+          1.0,
+          0.9991673605328892,
+          0.013245033112582781,
+          0.6681514476614699
+        ],
+        "macro_fpr": 0.033166666666666664
+      },
+      "fit_seconds": 1.7400038999912795,
+      "ensemble_inference_seconds": 7.690000347793102e-05,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 67608,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 5,
+      "seed": 20260930,
+      "metrics": {
+        "macro_f1": 0.771998721419707,
+        "per_class_f1": [
+          1.0,
+          0.9868421052631579,
+          0.9752348420153715,
+          0.989282769991756,
+          0.013223140495867768,
+          0.6674094707520891
+        ],
+        "macro_fpr": 0.034777777777777776
+      },
+      "fit_seconds": 1.827558199991472,
+      "ensemble_inference_seconds": 9.439999121241271e-05,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 66460,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 6,
+      "seed": 20260930,
+      "metrics": {
+        "macro_f1": 0.9972221369569816,
+        "per_class_f1": [
+          0.9991659716430359,
+          1.0,
+          1.0,
+          0.9991673605328892,
+          0.9924559932942163,
+          0.9925434962717481
+        ],
+        "macro_fpr": 0.0005555555555555556
+      },
+      "fit_seconds": 2.15378029999556,
+      "ensemble_inference_seconds": 0.0001154000055976212,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 68446,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 7,
+      "seed": 20260930,
+      "metrics": {
+        "macro_f1": 0.8112954932194185,
+        "per_class_f1": [
+          1.0,
+          0.7707129094412332,
+          0.5765124555160143,
+          1.0,
+          0.7061356297093649,
+          0.8144119646498981
+        ],
+        "macro_fpr": 0.035
+      },
+      "fit_seconds": 2.148189100000309,
+      "ensemble_inference_seconds": 0.00010129998554475605,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 65820,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 8,
+      "seed": 20260930,
+      "metrics": {
+        "macro_f1": 0.9852601193417847,
+        "per_class_f1": [
+          1.0,
+          0.963855421686747,
+          0.961038961038961,
+          1.0,
+          0.9932998324958124,
+          0.9933665008291874
+        ],
+        "macro_fpr": 0.0029444444444444444
+      },
+      "fit_seconds": 2.214153599983547,
+      "ensemble_inference_seconds": 0.00010099998326040804,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 68316,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 9,
+      "seed": 20260930,
+      "metrics": {
+        "macro_f1": 0.6589615729546159,
+        "per_class_f1": [
+          0.9237875288683602,
+          0.6486486486486487,
+          0.7926023778071334,
+          0.908098271155596,
+          0.013223140495867768,
+          0.6674094707520891
+        ],
+        "macro_fpr": 0.05611111111111111
+      },
+      "fit_seconds": 2.025791499996558,
+      "ensemble_inference_seconds": 0.00014509999891743064,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 61862,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 1,
+      "seed": 20260931,
+      "metrics": {
+        "macro_f1": 0.763820872785537,
+        "per_class_f1": [
+          1.0,
+          0.0707395498392283,
+          0.6749156355455568,
+          1.0,
+          0.9120580235720761,
+          0.9252120277563608
+        ],
+        "macro_fpr": 0.0375
+      },
+      "fit_seconds": 2.6157267999951728,
+      "ensemble_inference_seconds": 0.00011720001930370927,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 57636,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 2,
+      "seed": 20260931,
+      "metrics": {
+        "macro_f1": 0.758716048234713,
+        "per_class_f1": [
+          0.9975062344139651,
+          0.9433962264150944,
+          0.9361702127659575,
+          0.9974937343358395,
+          0.009950248756218905,
+          0.667779632721202
+        ],
+        "macro_fpr": 0.037333333333333336
+      },
+      "fit_seconds": 2.5953573000151664,
+      "ensemble_inference_seconds": 0.00012779998360201716,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 62834,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 3,
+      "seed": 20260931,
+      "metrics": {
+        "macro_f1": 0.7807138573389113,
+        "per_class_f1": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0165016501650165,
+          0.6677814938684504
+        ],
+        "macro_fpr": 0.03311111111111111
+      },
+      "fit_seconds": 3.240841399994679,
+      "ensemble_inference_seconds": 0.00012509999214671552,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 68450,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 4,
+      "seed": 20260931,
+      "metrics": {
+        "macro_f1": 0.7799703107329269,
+        "per_class_f1": [
+          0.9991673605328892,
+          1.0,
+          1.0,
+          1.0,
+          0.013245033112582781,
+          0.6674094707520891
+        ],
+        "macro_fpr": 0.033166666666666664
+      },
+      "fit_seconds": 2.368419000005815,
+      "ensemble_inference_seconds": 0.00010919998749159276,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 67364,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 5,
+      "seed": 20260931,
+      "metrics": {
+        "macro_f1": 0.765150027984026,
+        "per_class_f1": [
+          1.0,
+          1.0,
+          0.9547038327526133,
+          0.9584664536741214,
+          0.009950248756218905,
+          0.667779632721202
+        ],
+        "macro_fpr": 0.036055555555555556
+      },
+      "fit_seconds": 2.6049939000222366,
+      "ensemble_inference_seconds": 0.00015199999324977398,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 65558,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 6,
+      "seed": 20260931,
+      "metrics": {
+        "macro_f1": 0.9974999149276608,
+        "per_class_f1": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.9924559932942163,
+          0.9925434962717481
+        ],
+        "macro_fpr": 0.0005
+      },
+      "fit_seconds": 2.5366309999953955,
+      "ensemble_inference_seconds": 0.00010890001431107521,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 68342,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 7,
+      "seed": 20260931,
+      "metrics": {
+        "macro_f1": 0.8112318223667314,
+        "per_class_f1": [
+          1.0,
+          0.7707129094412332,
+          0.5765124555160143,
+          1.0,
+          0.7055016181229773,
+          0.814663951120163
+        ],
+        "macro_fpr": 0.034999999999999996
+      },
+      "fit_seconds": 2.554614099994069,
+      "ensemble_inference_seconds": 0.0002479999966453761,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 66792,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 8,
+      "seed": 20260931,
+      "metrics": {
+        "macro_f1": 0.9858178778466037,
+        "per_class_f1": [
+          1.0,
+          0.9654062751407884,
+          0.9628349178910977,
+          1.0,
+          0.9932885906040269,
+          0.9933774834437086
+        ],
+        "macro_fpr": 0.0028333333333333335
+      },
+      "fit_seconds": 2.4546137000143062,
+      "ensemble_inference_seconds": 0.00014489999739453197,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 67902,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 9,
+      "seed": 20260931,
+      "metrics": {
+        "macro_f1": 0.7089518091000694,
+        "per_class_f1": [
+          0.9925558312655087,
+          0.7887323943661971,
+          0.8327550312283136,
+          0.9619377162629758,
+          0.009950248756218905,
+          0.667779632721202
+        ],
+        "macro_fpr": 0.04716666666666667
+      },
+      "fit_seconds": 4.228802099998575,
+      "ensemble_inference_seconds": 0.0003212000010535121,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 61964,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 1,
+      "seed": 20260932,
+      "metrics": {
+        "macro_f1": 0.754050280795436,
+        "per_class_f1": [
+          0.9991659716430359,
+          0.019801980198019802,
+          0.6688963210702341,
+          0.9991673605328892,
+          0.9120580235720761,
+          0.9252120277563608
+        ],
+        "macro_fpr": 0.03844444444444444
+      },
+      "fit_seconds": 5.758287800010294,
+      "ensemble_inference_seconds": 0.0002353000163566321,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 58506,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 2,
+      "seed": 20260932,
+      "metrics": {
+        "macro_f1": 0.7628393144431908,
+        "per_class_f1": [
+          0.9991673605328892,
+          0.9516256938937351,
+          0.9464442493415277,
+          0.9991659716430359,
+          0.013223140495867768,
+          0.6674094707520891
+        ],
+        "macro_fpr": 0.03661111111111111
+      },
+      "fit_seconds": 5.479453699983424,
+      "ensemble_inference_seconds": 0.00013010000111535192,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 62604,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 3,
+      "seed": 20260932,
+      "metrics": {
+        "macro_f1": 0.7807138573389113,
+        "per_class_f1": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0165016501650165,
+          0.6677814938684504
+        ],
+        "macro_fpr": 0.03311111111111111
+      },
+      "fit_seconds": 4.705431699985638,
+      "ensemble_inference_seconds": 0.00017830001888796687,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 68088,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 4,
+      "seed": 20260932,
+      "metrics": {
+        "macro_f1": 0.7799703107329269,
+        "per_class_f1": [
+          0.9991673605328892,
+          1.0,
+          1.0,
+          1.0,
+          0.013245033112582781,
+          0.6674094707520891
+        ],
+        "macro_fpr": 0.033166666666666664
+      },
+      "fit_seconds": 3.2058505000022706,
+      "ensemble_inference_seconds": 0.00011539997649379075,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 67762,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 5,
+      "seed": 20260932,
+      "metrics": {
+        "macro_f1": 0.752133407235965,
+        "per_class_f1": [
+          1.0,
+          1.0,
+          0.9090909090909091,
+          0.9230769230769231,
+          0.013223140495867768,
+          0.6674094707520891
+        ],
+        "macro_fpr": 0.03872222222222222
+      },
+      "fit_seconds": 3.1916485000110697,
+      "ensemble_inference_seconds": 0.0001303000026382506,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 66106,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 6,
+      "seed": 20260932,
+      "metrics": {
+        "macro_f1": 0.9974999149276608,
+        "per_class_f1": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.9924559932942163,
+          0.9925434962717481
+        ],
+        "macro_fpr": 0.0005
+      },
+      "fit_seconds": 2.75295520000509,
+      "ensemble_inference_seconds": 0.00011829999857582152,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 67192,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 7,
+      "seed": 20260932,
+      "metrics": {
+        "macro_f1": 0.8112954932194185,
+        "per_class_f1": [
+          1.0,
+          0.7707129094412332,
+          0.5765124555160143,
+          1.0,
+          0.7061356297093649,
+          0.8144119646498981
+        ],
+        "macro_fpr": 0.035
+      },
+      "fit_seconds": 2.6156867999816313,
+      "ensemble_inference_seconds": 0.00013040000339969993,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 65662,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 8,
+      "seed": 20260932,
+      "metrics": {
+        "macro_f1": 0.9886067513535722,
+        "per_class_f1": [
+          0.99581589958159,
+          0.9771986970684039,
+          0.9761092150170648,
+          0.995850622406639,
+          0.9932885906040269,
+          0.9933774834437086
+        ],
+        "macro_fpr": 0.002277777777777778
+      },
+      "fit_seconds": 2.9079594000068028,
+      "ensemble_inference_seconds": 0.0001227000029757619,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 67932,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 9,
+      "seed": 20260932,
+      "metrics": {
+        "macro_f1": 0.6251139057984149,
+        "per_class_f1": [
+          0.8253094910591472,
+          0.7460815047021944,
+          0.8130081300813008,
+          0.6856516976998904,
+          0.013223140495867768,
+          0.6674094707520891
+        ],
+        "macro_fpr": 0.0626111111111111
+      },
+      "fit_seconds": 2.217694799997844,
+      "ensemble_inference_seconds": 0.00013530001160688698,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 62130,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 1,
+      "seed": 20260933,
+      "metrics": {
+        "macro_f1": 0.754050280795436,
+        "per_class_f1": [
+          0.9991659716430359,
+          0.019801980198019802,
+          0.6688963210702341,
+          0.9991673605328892,
+          0.9120580235720761,
+          0.9252120277563608
+        ],
+        "macro_fpr": 0.03844444444444444
+      },
+      "fit_seconds": 2.0453736999770626,
+      "ensemble_inference_seconds": 0.000145500001963228,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 58182,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 2,
+      "seed": 20260933,
+      "metrics": {
+        "macro_f1": 0.7648706500029591,
+        "per_class_f1": [
+          1.0,
+          0.9577015163607342,
+          0.953792502179599,
+          1.0,
+          0.009950248756218905,
+          0.667779632721202
+        ],
+        "macro_fpr": 0.036111111111111115
+      },
+      "fit_seconds": 2.1723442999937106,
+      "ensemble_inference_seconds": 7.809998351149261e-05,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 62840,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 3,
+      "seed": 20260933,
+      "metrics": {
+        "macro_f1": 0.7802327467956753,
+        "per_class_f1": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.013245033112582781,
+          0.6681514476614699
+        ],
+        "macro_fpr": 0.03311111111111111
+      },
+      "fit_seconds": 2.4075473000120837,
+      "ensemble_inference_seconds": 0.00017720001051202416,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 69312,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 4,
+      "seed": 20260933,
+      "metrics": {
+        "macro_f1": 0.7799549688249963,
+        "per_class_f1": [
+          0.9991659716430359,
+          1.0,
+          1.0,
+          0.9991673605328892,
+          0.013245033112582781,
+          0.6681514476614699
+        ],
+        "macro_fpr": 0.033166666666666664
+      },
+      "fit_seconds": 2.2896194999921136,
+      "ensemble_inference_seconds": 0.00015249999705702066,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 67590,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 5,
+      "seed": 20260933,
+      "metrics": {
+        "macro_f1": 0.7601407461446632,
+        "per_class_f1": [
+          1.0,
+          0.9693053311793215,
+          0.9389920424403183,
+          0.974817221770918,
+          0.009950248756218905,
+          0.667779632721202
+        ],
+        "macro_fpr": 0.037
+      },
+      "fit_seconds": 2.0537644999858458,
+      "ensemble_inference_seconds": 0.00013550001312978566,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 66368,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 6,
+      "seed": 20260933,
+      "metrics": {
+        "macro_f1": 0.9972220813964103,
+        "per_class_f1": [
+          0.9991659716430359,
+          1.0,
+          1.0,
+          0.9991673605328892,
+          0.9924433249370277,
+          0.9925558312655087
+        ],
+        "macro_fpr": 0.0005555555555555556
+      },
+      "fit_seconds": 2.296706199995242,
+      "ensemble_inference_seconds": 0.00017529999604448676,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 67532,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 7,
+      "seed": 20260933,
+      "metrics": {
+        "macro_f1": 0.8112318223667314,
+        "per_class_f1": [
+          1.0,
+          0.7707129094412332,
+          0.5765124555160143,
+          1.0,
+          0.7055016181229773,
+          0.814663951120163
+        ],
+        "macro_fpr": 0.034999999999999996
+      },
+      "fit_seconds": 2.2812327000137884,
+      "ensemble_inference_seconds": 0.0001145999995060265,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 66338,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 8,
+      "seed": 20260933,
+      "metrics": {
+        "macro_f1": 0.9874901209058436,
+        "per_class_f1": [
+          1.0,
+          0.9700889248181084,
+          0.9681857265692175,
+          1.0,
+          0.9932885906040269,
+          0.9933774834437086
+        ],
+        "macro_fpr": 0.0025
+      },
+      "fit_seconds": 2.4970275000086986,
+      "ensemble_inference_seconds": 0.00015349997556768358,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 68142,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 9,
+      "seed": 20260933,
+      "metrics": {
+        "macro_f1": 0.6126898664810846,
+        "per_class_f1": [
+          0.7994670219853431,
+          0.7654320987654321,
+          0.8207934336525308,
+          0.6127167630057804,
+          0.009950248756218905,
+          0.667779632721202
+        ],
+        "macro_fpr": 0.06444444444444444
+      },
+      "fit_seconds": 2.675743200001307,
+      "ensemble_inference_seconds": 0.00017100002150982618,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 62210,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 1,
+      "seed": 20260934,
+      "metrics": {
+        "macro_f1": 0.7573403981529906,
+        "per_class_f1": [
+          1.0,
+          0.03600654664484452,
+          0.6707657909446618,
+          1.0,
+          0.9120580235720761,
+          0.9252120277563608
+        ],
+        "macro_fpr": 0.03811111111111111
+      },
+      "fit_seconds": 1.9896491000254173,
+      "ensemble_inference_seconds": 0.00012700000661425292,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 57576,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 2,
+      "seed": 20260934,
+      "metrics": {
+        "macro_f1": 0.7665460330023978,
+        "per_class_f1": [
+          1.0,
+          0.9623095429029671,
+          0.9592367736339983,
+          1.0,
+          0.009950248756218905,
+          0.667779632721202
+        ],
+        "macro_fpr": 0.035777777777777776
+      },
+      "fit_seconds": 2.0950938999885693,
+      "ensemble_inference_seconds": 0.0001244999875780195,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 62416,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 3,
+      "seed": 20260934,
+      "metrics": {
+        "macro_f1": 0.7802327467956753,
+        "per_class_f1": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.013245033112582781,
+          0.6681514476614699
+        ],
+        "macro_fpr": 0.03311111111111111
+      },
+      "fit_seconds": 2.2218695000046864,
+      "ensemble_inference_seconds": 0.00015070001245476305,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 68232,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 4,
+      "seed": 20260934,
+      "metrics": {
+        "macro_f1": 0.7799549688249963,
+        "per_class_f1": [
+          0.9991659716430359,
+          1.0,
+          1.0,
+          0.9991673605328892,
+          0.013245033112582781,
+          0.6681514476614699
+        ],
+        "macro_fpr": 0.033166666666666664
+      },
+      "fit_seconds": 2.439459099987289,
+      "ensemble_inference_seconds": 0.00013860000763088465,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 66490,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 5,
+      "seed": 20260934,
+      "metrics": {
+        "macro_f1": 0.7471688710018491,
+        "per_class_f1": [
+          1.0,
+          0.9764035801464606,
+          0.8950276243093923,
+          0.933852140077821,
+          0.009950248756218905,
+          0.667779632721202
+        ],
+        "macro_fpr": 0.0395
+      },
+      "fit_seconds": 2.598559699981706,
+      "ensemble_inference_seconds": 0.00013950001448392868,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 66148,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 6,
+      "seed": 20260934,
+      "metrics": {
+        "macro_f1": 0.9974998593670895,
+        "per_class_f1": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.9924433249370277,
+          0.9925558312655087
+        ],
+        "macro_fpr": 0.0005
+      },
+      "fit_seconds": 2.6856208000099286,
+      "ensemble_inference_seconds": 0.0001249000197276473,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 67040,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 7,
+      "seed": 20260934,
+      "metrics": {
+        "macro_f1": 0.8112318223667314,
+        "per_class_f1": [
+          1.0,
+          0.7707129094412332,
+          0.5765124555160143,
+          1.0,
+          0.7055016181229773,
+          0.814663951120163
+        ],
+        "macro_fpr": 0.034999999999999996
+      },
+      "fit_seconds": 2.337729400023818,
+      "ensemble_inference_seconds": 0.00030189999961294234,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 66318,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 8,
+      "seed": 20260934,
+      "metrics": {
+        "macro_f1": 0.9855400998759244,
+        "per_class_f1": [
+          0.9991659716430359,
+          0.9654062751407884,
+          0.9628349178910977,
+          0.9991673605328892,
+          0.9932885906040269,
+          0.9933774834437086
+        ],
+        "macro_fpr": 0.0028888888888888888
+      },
+      "fit_seconds": 2.440987000009045,
+      "ensemble_inference_seconds": 0.0001272000081371516,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 67384,
+      "hgb_iterations": 150
+    },
+    {
+      "held_device": 9,
+      "seed": 20260934,
+      "metrics": {
+        "macro_f1": 0.65849984587484,
+        "per_class_f1": [
+          0.8701957940536621,
+          0.7903225806451613,
+          0.8310249307479224,
+          0.7817258883248731,
+          0.009950248756218905,
+          0.667779632721202
+        ],
+        "macro_fpr": 0.056666666666666664
+      },
+      "fit_seconds": 2.421912899997551,
+      "ensemble_inference_seconds": 0.00010679999832063913,
+      "extra_trees_estimators": 200,
+      "extra_trees_nodes": 62162,
+      "hgb_iterations": 150
+    }
+  ],
+  "runtime_seconds": 144.52464246749878
+}

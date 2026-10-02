@@ -12,7 +12,7 @@
 
 ## 阶段 0：现代方向筛选
 
-当前最值得预研的是 source-free tabular test-time adaptation（TTA） under unseen-device shift，而不是继续堆叠 DANN。PFT3A（ICLR 2026）、AdapTable、TabLog、FTAT、Tent/EATA、CoTTA 和 IoT domain-adaptation 工作已经覆盖大量组件，因此先做完整 baseline，不先命名新方法。
+当前优先级已由实验结果更新：source-free tabular TTA（PFT3A、AdapTable、TabLog、FTAT、Tent/EATA、CoTTA）和 CORAL/GroupDRO/Mixup 在首轮协议下没有稳定优势；异构 ExtraTrees + HistGradientBoosting 集成明显优于 MLP/DANN，先作为有效升级 baseline。该集成本身不冻结为新算法，需先完成 per-class/FPR/延迟和第二数据集复现。
 
 具体环境：source 设备有标签训练；target 设备前 K 个 batch 仅用于无标签 adaptation；后续 target batch 做评估。K 取 0、1、5、10，并记录 F1、FPR、entropy collapse、更新次数、CPU 时间和内存。
 
@@ -43,6 +43,8 @@
 - Macro-F1、per-class F1、FPR、参数量、CPU 推理时间。
 
 ## 阶段 2：算法候选筛选
+
+当前有效升级 baseline：ExtraTrees + HistGradientBoosting 概率集成（5 seeds × 9 LODO folds mean Macro-F1=0.8107）。它是模型族升级和实验基线，不直接作为学术新算法。
 
 ### 候选 E：uncertainty-gated class-safe resource-aware TTA
 

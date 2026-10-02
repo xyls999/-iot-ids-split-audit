@@ -153,6 +153,8 @@ artifacts:
   nbaiot_algorithm_preflight: reports/nbaiot-algorithm-preflight-results-2026-10-01.md
   nbaiot_algorithm_plan: plans/nbaiot-algorithm-paper-research-plan-zh.md
   modern_adaptation_methods_audit: literature/iot-ids-modern-adaptation-methods-audit-2026-10-01.md
+  algorithm_upgrade_experiment: reports/nbaiot-algorithm-upgrade-experiment-2026-10-01.md
+  tree_ensemble_artifact: artifacts/nbaiot-tree-ensemble-results.json
   nbaiot_algorithm_script: tools/run_nbaiot_device_robust_baselines.py
   nbaiot_algorithm_results: artifacts/nbaiot-device-robust-baselines.json
   project_current_state_summary: reports/project-current-state-summary-zh.md

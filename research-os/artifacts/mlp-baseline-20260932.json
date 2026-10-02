@@ -1,0 +1,124 @@
+{
+  "status": "exploratory_algorithm_preflight_not_novelty_claim",
+  "scope": "offline N-BaIoT Kaggle-layout mirror; common-support rows; no leakage or causality claim",
+  "protocol": {
+    "rows_per_cell": 600,
+    "row_offset": 0,
+    "epochs": 20,
+    "seed": 20260932,
+    "grl": 0.1,
+    "labels": [
+      "benign",
+      "gafgyt.combo",
+      "gafgyt.junk",
+      "gafgyt.scan",
+      "gafgyt.tcp",
+      "gafgyt.udp"
+    ]
+  },
+  "models": {
+    "mlp": "supervised encoder/classifier",
+    "device_adversarial_mlp": "encoder/classifier plus gradient-reversal device head; DANN-style baseline"
+  },
+  "results": {
+    "random_row": {
+      "mlp": {
+        "macro_f1": 0.6997999431104134
+      },
+      "device_adversarial_mlp": {
+        "macro_f1": 0.7016892022535978
+      }
+    },
+    "lodo": {
+      "mlp": [
+        {
+          "held_device": 1,
+          "macro_f1": 0.5505722195848683
+        },
+        {
+          "held_device": 2,
+          "macro_f1": 0.5542124418611335
+        },
+        {
+          "held_device": 3,
+          "macro_f1": 0.7458779658692927
+        },
+        {
+          "held_device": 4,
+          "macro_f1": 0.7539502339950289
+        },
+        {
+          "held_device": 5,
+          "macro_f1": 0.6257823095822757
+        },
+        {
+          "held_device": 6,
+          "macro_f1": 0.7583333956854156
+        },
+        {
+          "held_device": 7,
+          "macro_f1": 0.5039123636037728
+        },
+        {
+          "held_device": 8,
+          "macro_f1": 0.7371334017558189
+        },
+        {
+          "held_device": 9,
+          "macro_f1": 0.6625355909908299
+        }
+      ],
+      "device_adversarial_mlp": [
+        {
+          "held_device": 1,
+          "macro_f1": 0.5505105325859685
+        },
+        {
+          "held_device": 2,
+          "macro_f1": 0.5559007325802773
+        },
+        {
+          "held_device": 3,
+          "macro_f1": 0.7463135867226303
+        },
+        {
+          "held_device": 4,
+          "macro_f1": 0.7458152883800349
+        },
+        {
+          "held_device": 5,
+          "macro_f1": 0.6255675843472968
+        },
+        {
+          "held_device": 6,
+          "macro_f1": 0.7592355142208548
+        },
+        {
+          "held_device": 7,
+          "macro_f1": 0.5241083415924996
+        },
+        {
+          "held_device": 8,
+          "macro_f1": 0.7342966631171252
+        },
+        {
+          "held_device": 9,
+          "macro_f1": 0.6647425383111721
+        }
+      ]
+    },
+    "summary": {
+      "mlp": {
+        "random_row_macro_f1": 0.6997999431104134,
+        "mean_lodo_macro_f1": 0.654701102547604,
+        "gap": 0.04509884056280933
+      },
+      "device_adversarial_mlp": {
+        "random_row_macro_f1": 0.7016892022535978,
+        "mean_lodo_macro_f1": 0.6562767535397622,
+        "gap": 0.04541244871383554
+      }
+    }
+  },
+  "runtime_seconds": 145.44328022003174
+}
