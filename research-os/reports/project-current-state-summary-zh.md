@@ -410,7 +410,7 @@ N-BaIoT 的 random-row/LODO 比较不是新 IDS 方法，也不是首次发现 s
 | DANN λ=0.10 | 0.6996 | 0.6497 | 0.0499 |
 | DANN λ=0.20 | 0.6997 | 0.6554 | 0.0443 |
 
-结论：当前 DANN-style 原型没有稳定改善，不能称为新算法。下一步先做 CORAL、GroupDRO、Mixup 等已有 baseline；只有出现稳定、跨窗口、跨种子的 LODO 改善，才设计新的资源约束算法。
+结论：当前 DANN-style 原型没有稳定改善，不能称为新算法。现代方向筛选后，最值得验证的是“未见设备上的 source-free tabular test-time adaptation（TTA）”，但 PFT3A、AdapTable、TabLog、FTAT、Tent/EATA、CoTTA 和 IoT domain adaptation 已构成高风险近邻。下一步先做这些已有 baseline；只有发现明确的 failure interval，才设计 uncertainty-gated、class-safe、resource-aware TTA。
 
 详细结果：`reports/nbaiot-algorithm-preflight-results-2026-10-01.md`。算法计划：`plans/nbaiot-algorithm-paper-research-plan-zh.md`。
 

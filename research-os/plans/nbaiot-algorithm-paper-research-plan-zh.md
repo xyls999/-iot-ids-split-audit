@@ -10,6 +10,12 @@
 
 这不是“随机切分分数最高”的问题，而是 LODO 下的泛化问题。
 
+## 阶段 0：现代方向筛选
+
+当前最值得预研的是 source-free tabular test-time adaptation（TTA） under unseen-device shift，而不是继续堆叠 DANN。PFT3A（ICLR 2026）、AdapTable、TabLog、FTAT、Tent/EATA、CoTTA 和 IoT domain-adaptation 工作已经覆盖大量组件，因此先做完整 baseline，不先命名新方法。
+
+具体环境：source 设备有标签训练；target 设备前 K 个 batch 仅用于无标签 adaptation；后续 target batch 做评估。K 取 0、1、5、10，并记录 F1、FPR、entropy collapse、更新次数、CPU 时间和内存。
+
 ## 阶段 1：基线矩阵
 
 必须实现并统一评估：
@@ -20,7 +26,13 @@
 4. DANN-style device-adversarial MLP；
 5. CORAL 或 MMD-style alignment；
 6. GroupDRO；
-7. Mixup/feature-noise 作为简单正则化 baseline。
+7. Mixup/feature-noise 作为简单正则化 baseline；
+8. BN/statistics adaptation；
+9. Tent；
+10. EATA 或 SAR；
+11. FTAT；
+12. PFT3A（若复现依赖可满足）；
+13. CoTTA/continual TTA 作为资源成本对照。
 
 每个方法都使用：
 
@@ -31,6 +43,10 @@
 - Macro-F1、per-class F1、FPR、参数量、CPU 推理时间。
 
 ## 阶段 2：算法候选筛选
+
+### 候选 E：uncertainty-gated class-safe resource-aware TTA
+
+只在现代 TTA baseline 出现明确 failure interval 后考虑：检测 feature shift，限制只更新轻量 adapter/normalization 参数，使用 uncertainty gate 和 class-prior drift constraint，并在 collapse 时停止更新。该候选与 PFT3A、FTAT、Tent/EATA 有直接重叠，必须先完成全文和代码级对照。
 
 ### 候选 A：设备对抗表征
 
