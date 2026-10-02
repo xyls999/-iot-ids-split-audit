@@ -13,10 +13,10 @@ target:
   manuscript_type: null
 
 workflow:
-  current_stage: bounded_submission_readiness_review
-  current_task: "review the 《物联网学报》 v0.2 manuscript against official format and claim boundaries, then complete OpenWrt lineage adjudication before submission"
+  current_stage: algorithm_paper_preflight
+  current_task: "run CORAL/GroupDRO/Mixup baselines under the frozen device-held-out protocol before proposing any new IoT IDS method"
   auto_continue: false
-  status: submission_ready_bounded_report_high_level_novelty_unconfirmed
+  status: algorithm_route_preflight_no_method_claim_yet
 
 completed_tasks:
   - task_id: setup-scaffold
@@ -150,6 +150,10 @@ artifacts:
   nbaiot_blinded_cross_case_gate: reviews/nbaiot-blind-adjudication-and-cross-case-gate-2026-10-01.md
   esst_methods_report_draft: drafts/evidence-sensitivity-stress-test-methods-report-draft-zh.md
   wlwxb_submission_draft_v02: drafts/wlwxb-submission-draft-v0.2-zh.md
+  nbaiot_algorithm_preflight: reports/nbaiot-algorithm-preflight-results-2026-10-01.md
+  nbaiot_algorithm_plan: plans/nbaiot-algorithm-paper-research-plan-zh.md
+  nbaiot_algorithm_script: tools/run_nbaiot_device_robust_baselines.py
+  nbaiot_algorithm_results: artifacts/nbaiot-device-robust-baselines.json
   project_current_state_summary: reports/project-current-state-summary-zh.md
   esst_experiment_plan: plans/evidence-sensitivity-stress-test-experiment-plan-zh.md
   wlwxb_official_fit_check: literature/venue-wlwxb-fit-check-2026-10-01.md

@@ -2,7 +2,7 @@
 
 **更新时间：** 2026-10-01  
 **目标期刊假设：** 截图中的《物联网学报》；如果目标不是该刊，需要重新核验。  
-**当前状态：** `submission_ready_bounded_report_high_level_novelty_unconfirmed`
+**当前状态：** `algorithm_route_preflight_no_method_claim_yet`
 
 ---
 
@@ -398,7 +398,23 @@ N-BaIoT 的 random-row/LODO 比较不是新 IDS 方法，也不是首次发现 s
 
 ---
 
-# 8. 当前状态和下一步
+# 8. 算法路线最新预研
+
+由于《物联网学报》近期文章以明确算法和实验为主，项目已正式转向算法论文预研。第一轮比较了标准 MLP 与 DANN-style 设备对抗 MLP：
+
+| 方法 | random-row Macro-F1 | mean LODO Macro-F1 | gap |
+|---|---:|---:|---:|
+| MLP | 0.6994 | 0.6551 | 0.0443 |
+| DANN λ=0.01 | 0.6985 | 0.6467 | 0.0519 |
+| DANN λ=0.05 | 0.7000 | 0.6483 | 0.0517 |
+| DANN λ=0.10 | 0.6996 | 0.6497 | 0.0499 |
+| DANN λ=0.20 | 0.6997 | 0.6554 | 0.0443 |
+
+结论：当前 DANN-style 原型没有稳定改善，不能称为新算法。下一步先做 CORAL、GroupDRO、Mixup 等已有 baseline；只有出现稳定、跨窗口、跨种子的 LODO 改善，才设计新的资源约束算法。
+
+详细结果：`reports/nbaiot-algorithm-preflight-results-2026-10-01.md`。算法计划：`plans/nbaiot-algorithm-paper-research-plan-zh.md`。
+
+# 9. 当前状态和下一步
 
 当前状态不是“已经成功发表”，而是：
 
@@ -427,7 +443,7 @@ reproducible technical report / bounded case study
 
 ---
 
-# 9. 你现在最应该先看的三个文件
+# 10. 你现在最应该先看的三个文件
 
 如果不想被大量文件分散，先只看这三个：
 
