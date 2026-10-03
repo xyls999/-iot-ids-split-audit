@@ -1,0 +1,245 @@
+{
+  "status": "unlabeled_target_moment_tta_nbaIoT_device_heldout_exploratory",
+  "protocol": {
+    "rows_per_cell": 600,
+    "target_labels_unused": true,
+    "seed": 20260930
+  },
+  "summary": {
+    "extra_trees:source_only": {
+      "mean_lodo_macro_f1": 0.8131458799082009,
+      "std_lodo_macro_f1": 0.1074617962462292
+    },
+    "extra_trees:target_moment_align": {
+      "mean_lodo_macro_f1": 0.48618280073596026,
+      "std_lodo_macro_f1": 0.14934702586335427
+    },
+    "hist_gradient_boosting:source_only": {
+      "mean_lodo_macro_f1": 0.8076121240069128,
+      "std_lodo_macro_f1": 0.1295652719189753
+    },
+    "hist_gradient_boosting:target_moment_align": {
+      "mean_lodo_macro_f1": 0.17094934365529182,
+      "std_lodo_macro_f1": 0.10746792929138722
+    }
+  },
+  "folds": [
+    {
+      "held_device": 1,
+      "model": "extra_trees",
+      "variant": "source_only",
+      "macro_f1": 0.7549412251673909
+    },
+    {
+      "held_device": 1,
+      "model": "extra_trees",
+      "variant": "target_moment_align",
+      "macro_f1": 0.4424647808629065
+    },
+    {
+      "held_device": 1,
+      "model": "hist_gradient_boosting",
+      "variant": "source_only",
+      "macro_f1": 0.8499210801140008
+    },
+    {
+      "held_device": 1,
+      "model": "hist_gradient_boosting",
+      "variant": "target_moment_align",
+      "macro_f1": 0.13582835871886034
+    },
+    {
+      "held_device": 2,
+      "model": "extra_trees",
+      "variant": "source_only",
+      "macro_f1": 0.6605085942996765
+    },
+    {
+      "held_device": 2,
+      "model": "extra_trees",
+      "variant": "target_moment_align",
+      "macro_f1": 0.5504764949113362
+    },
+    {
+      "held_device": 2,
+      "model": "hist_gradient_boosting",
+      "variant": "source_only",
+      "macro_f1": 0.7762163815731205
+    },
+    {
+      "held_device": 2,
+      "model": "hist_gradient_boosting",
+      "variant": "target_moment_align",
+      "macro_f1": 0.18977391836090673
+    },
+    {
+      "held_device": 3,
+      "model": "extra_trees",
+      "variant": "source_only",
+      "macro_f1": 0.7807138573389113
+    },
+    {
+      "held_device": 3,
+      "model": "extra_trees",
+      "variant": "target_moment_align",
+      "macro_f1": 0.5600520098432944
+    },
+    {
+      "held_device": 3,
+      "model": "hist_gradient_boosting",
+      "variant": "source_only",
+      "macro_f1": 0.7802350707893444
+    },
+    {
+      "held_device": 3,
+      "model": "hist_gradient_boosting",
+      "variant": "target_moment_align",
+      "macro_f1": 0.34801031578017366
+    },
+    {
+      "held_device": 4,
+      "model": "extra_trees",
+      "variant": "source_only",
+      "macro_f1": 0.7581108724891896
+    },
+    {
+      "held_device": 4,
+      "model": "extra_trees",
+      "variant": "target_moment_align",
+      "macro_f1": 0.34455934873942207
+    },
+    {
+      "held_device": 4,
+      "model": "hist_gradient_boosting",
+      "variant": "source_only",
+      "macro_f1": 0.7794762173572479
+    },
+    {
+      "held_device": 4,
+      "model": "hist_gradient_boosting",
+      "variant": "target_moment_align",
+      "macro_f1": 0.047414820109602095
+    },
+    {
+      "held_device": 5,
+      "model": "extra_trees",
+      "variant": "source_only",
+      "macro_f1": 0.7798276572373136
+    },
+    {
+      "held_device": 5,
+      "model": "extra_trees",
+      "variant": "target_moment_align",
+      "macro_f1": 0.7117192454782287
+    },
+    {
+      "held_device": 5,
+      "model": "hist_gradient_boosting",
+      "variant": "source_only",
+      "macro_f1": 0.7457522822264747
+    },
+    {
+      "held_device": 5,
+      "model": "hist_gradient_boosting",
+      "variant": "target_moment_align",
+      "macro_f1": 0.1970855671687494
+    },
+    {
+      "held_device": 6,
+      "model": "extra_trees",
+      "variant": "source_only",
+      "macro_f1": 0.9974999149276608
+    },
+    {
+      "held_device": 6,
+      "model": "extra_trees",
+      "variant": "target_moment_align",
+      "macro_f1": 0.6447748542788587
+    },
+    {
+      "held_device": 6,
+      "model": "hist_gradient_boosting",
+      "variant": "source_only",
+      "macro_f1": 0.9969443589863024
+    },
+    {
+      "held_device": 6,
+      "model": "hist_gradient_boosting",
+      "variant": "target_moment_align",
+      "macro_f1": 0.3360256251920333
+    },
+    {
+      "held_device": 7,
+      "model": "extra_trees",
+      "variant": "source_only",
+      "macro_f1": 0.8349786403724223
+    },
+    {
+      "held_device": 7,
+      "model": "extra_trees",
+      "variant": "target_moment_align",
+      "macro_f1": 0.5505075953057842
+    },
+    {
+      "held_device": 7,
+      "model": "hist_gradient_boosting",
+      "variant": "source_only",
+      "macro_f1": 0.8149071594390654
+    },
+    {
+      "held_device": 7,
+      "model": "hist_gradient_boosting",
+      "variant": "target_moment_align",
+      "macro_f1": 0.17807615830753062
+    },
+    {
+      "held_device": 8,
+      "model": "extra_trees",
+      "variant": "source_only",
+      "macro_f1": 0.9977777222208332
+    },
+    {
+      "held_device": 8,
+      "model": "extra_trees",
+      "variant": "target_moment_align",
+      "macro_f1": 0.3507968443628489
+    },
+    {
+      "held_device": 8,
+      "model": "hist_gradient_boosting",
+      "variant": "source_only",
+      "macro_f1": 0.9894378531504374
+    },
+    {
+      "held_device": 8,
+      "model": "hist_gradient_boosting",
+      "variant": "target_moment_align",
+      "macro_f1": 0.05585299715395595
+    },
+    {
+      "held_device": 9,
+      "model": "extra_trees",
+      "variant": "source_only",
+      "macro_f1": 0.7539544351204092
+    },
+    {
+      "held_device": 9,
+      "model": "extra_trees",
+      "variant": "target_moment_align",
+      "macro_f1": 0.2202940328409617
+    },
+    {
+      "held_device": 9,
+      "model": "hist_gradient_boosting",
+      "variant": "source_only",
+      "macro_f1": 0.5356187124262223
+    },
+    {
+      "held_device": 9,
+      "model": "hist_gradient_boosting",
+      "variant": "target_moment_align",
+      "macro_f1": 0.05047633210581448
+    }
+  ],
+  "runtime_seconds": 39.39846205711365
+}

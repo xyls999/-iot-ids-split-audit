@@ -1,0 +1,266 @@
+{
+  "status": "unlabeled_target_moment_tta_scenario_proxy_not_device_heldout",
+  "protocol": {
+    "max_per_class": 1000,
+    "target_labels_unused_for_alignment": true,
+    "numeric_features": [
+      "orig_p",
+      "resp_p",
+      "duration",
+      "orig_bytes",
+      "resp_bytes",
+      "missed_bytes",
+      "orig_pkts",
+      "orig_ip_bytes",
+      "resp_pkts",
+      "resp_ip_bytes"
+    ],
+    "categorical_features": [
+      "proto",
+      "service",
+      "conn_state",
+      "history"
+    ]
+  },
+  "summary": {
+    "extra_trees:source_only": {
+      "mean_macro_f1": 0.5985587170021236,
+      "std_macro_f1": 0.2878863682837719,
+      "mean_fpr": 0.081
+    },
+    "hist_gradient_boosting:source_only": {
+      "mean_macro_f1": 0.5335485451224594,
+      "std_macro_f1": 0.19874457607315343,
+      "mean_fpr": 0.082
+    },
+    "extra_trees:target_moment_align": {
+      "mean_macro_f1": 0.6369000226869739,
+      "std_macro_f1": 0.29618696975974634,
+      "mean_fpr": 0.08383333333333333
+    },
+    "hist_gradient_boosting:target_moment_align": {
+      "mean_macro_f1": 0.6529035323828826,
+      "std_macro_f1": 0.27687342327438286,
+      "mean_fpr": 0.07116666666666667
+    }
+  },
+  "folds": [
+    {
+      "held_scenario": "malware8",
+      "model": "extra_trees",
+      "variant": "source_only",
+      "metrics": {
+        "macro_f1": 0.3333333333333333,
+        "fpr": 0.0
+      }
+    },
+    {
+      "held_scenario": "malware8",
+      "model": "extra_trees",
+      "variant": "target_moment_align",
+      "metrics": {
+        "macro_f1": 0.3333333333333333,
+        "fpr": 0.0
+      }
+    },
+    {
+      "held_scenario": "malware8",
+      "model": "hist_gradient_boosting",
+      "variant": "source_only",
+      "metrics": {
+        "macro_f1": 0.3333333333333333,
+        "fpr": 0.0
+      }
+    },
+    {
+      "held_scenario": "malware8",
+      "model": "hist_gradient_boosting",
+      "variant": "target_moment_align",
+      "metrics": {
+        "macro_f1": 0.3333333333333333,
+        "fpr": 0.0
+      }
+    },
+    {
+      "held_scenario": "malware20",
+      "model": "extra_trees",
+      "variant": "source_only",
+      "metrics": {
+        "macro_f1": 0.9836210926794667,
+        "fpr": 0.0
+      }
+    },
+    {
+      "held_scenario": "malware20",
+      "model": "extra_trees",
+      "variant": "target_moment_align",
+      "metrics": {
+        "macro_f1": 0.9836210926794667,
+        "fpr": 0.0
+      }
+    },
+    {
+      "held_scenario": "malware20",
+      "model": "hist_gradient_boosting",
+      "variant": "source_only",
+      "metrics": {
+        "macro_f1": 0.7353602803627667,
+        "fpr": 0.0
+      }
+    },
+    {
+      "held_scenario": "malware20",
+      "model": "hist_gradient_boosting",
+      "variant": "target_moment_align",
+      "metrics": {
+        "macro_f1": 0.9475269853839929,
+        "fpr": 0.0
+      }
+    },
+    {
+      "held_scenario": "malware21",
+      "model": "extra_trees",
+      "variant": "source_only",
+      "metrics": {
+        "macro_f1": 0.9812316064190127,
+        "fpr": 0.0
+      }
+    },
+    {
+      "held_scenario": "malware21",
+      "model": "extra_trees",
+      "variant": "target_moment_align",
+      "metrics": {
+        "macro_f1": 0.9812316064190127,
+        "fpr": 0.0
+      }
+    },
+    {
+      "held_scenario": "malware21",
+      "model": "hist_gradient_boosting",
+      "variant": "source_only",
+      "metrics": {
+        "macro_f1": 0.6737356305028227,
+        "fpr": 0.0
+      }
+    },
+    {
+      "held_scenario": "malware21",
+      "model": "hist_gradient_boosting",
+      "variant": "target_moment_align",
+      "metrics": {
+        "macro_f1": 1.0,
+        "fpr": 0.0
+      }
+    },
+    {
+      "held_scenario": "malware34",
+      "model": "extra_trees",
+      "variant": "source_only",
+      "metrics": {
+        "macro_f1": 0.32252781248083573,
+        "fpr": 0.057
+      }
+    },
+    {
+      "held_scenario": "malware34",
+      "model": "extra_trees",
+      "variant": "target_moment_align",
+      "metrics": {
+        "macro_f1": 0.33478101296794716,
+        "fpr": 0.058
+      }
+    },
+    {
+      "held_scenario": "malware34",
+      "model": "hist_gradient_boosting",
+      "variant": "source_only",
+      "metrics": {
+        "macro_f1": 0.3269230769230769,
+        "fpr": 0.038
+      }
+    },
+    {
+      "held_scenario": "malware34",
+      "model": "hist_gradient_boosting",
+      "variant": "target_moment_align",
+      "metrics": {
+        "macro_f1": 0.4552821672457263,
+        "fpr": 0.0
+      }
+    },
+    {
+      "held_scenario": "malware42",
+      "model": "extra_trees",
+      "variant": "source_only",
+      "metrics": {
+        "macro_f1": 0.36207989854153455,
+        "fpr": 0.429
+      }
+    },
+    {
+      "held_scenario": "malware42",
+      "model": "extra_trees",
+      "variant": "target_moment_align",
+      "metrics": {
+        "macro_f1": 0.3700422861243817,
+        "fpr": 0.445
+      }
+    },
+    {
+      "held_scenario": "malware42",
+      "model": "hist_gradient_boosting",
+      "variant": "source_only",
+      "metrics": {
+        "macro_f1": 0.35180412371134023,
+        "fpr": 0.454
+      }
+    },
+    {
+      "held_scenario": "malware42",
+      "model": "hist_gradient_boosting",
+      "variant": "target_moment_align",
+      "metrics": {
+        "macro_f1": 0.3628879037365421,
+        "fpr": 0.427
+      }
+    },
+    {
+      "held_scenario": "malware44",
+      "model": "extra_trees",
+      "variant": "source_only",
+      "metrics": {
+        "macro_f1": 0.6085585585585586,
+        "fpr": 0.0
+      }
+    },
+    {
+      "held_scenario": "malware44",
+      "model": "extra_trees",
+      "variant": "target_moment_align",
+      "metrics": {
+        "macro_f1": 0.8183908045977011,
+        "fpr": 0.0
+      }
+    },
+    {
+      "held_scenario": "malware44",
+      "model": "hist_gradient_boosting",
+      "variant": "source_only",
+      "metrics": {
+        "macro_f1": 0.7801348259014163,
+        "fpr": 0.0
+      }
+    },
+    {
+      "held_scenario": "malware44",
+      "model": "hist_gradient_boosting",
+      "variant": "target_moment_align",
+      "metrics": {
+        "macro_f1": 0.8183908045977011,
+        "fpr": 0.0
+      }
+    }
+  ],
+  "runtime_seconds": 3.9334213733673096
+}

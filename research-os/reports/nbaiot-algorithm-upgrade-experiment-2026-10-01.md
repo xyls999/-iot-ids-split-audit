@@ -32,3 +32,16 @@ device 9: blend 0.7    0.7527
 
 新增脚本：`research-os/tools/run_nbaiot_nested_tree_tuning.py`
 新增证据：`research-os/artifacts/nbaiot-nested-tree-tuning.json`
+
+## 无标签 moment alignment 的反例
+
+将 IoT-23 上的无标签 target moment alignment 直接迁移到 N-BaIoT 后，结果明显恶化：
+
+```text
+ExtraTrees source-only：       0.8131
+ExtraTrees moment alignment：  0.4862
+HGB source-only：              0.8076
+HGB moment alignment：         0.1709
+```
+
+因此均值/方差对齐不是通用升级算法；它可能破坏 N-BaIoT 中有判别力的绝对流量尺度。该失败结果保留，不能只报告 IoT-23 的正向窗口。

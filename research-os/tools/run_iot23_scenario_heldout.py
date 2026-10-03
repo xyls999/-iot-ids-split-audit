@@ -43,9 +43,11 @@ def read_scenario(name,path,max_per_class,seed):
    vals={'orig_p':float(t[3]),'resp_p':float(t[5]),'duration':float(t[8]) if t[8]!='-' else np.nan,'orig_bytes':float(t[9]) if t[9]!='-' else np.nan,'resp_bytes':float(t[10]) if t[10]!='-' else np.nan,'missed_bytes':float(t[14]) if t[14]!='-' else np.nan,'orig_pkts':float(t[16]) if t[16]!='-' else np.nan,'orig_ip_bytes':float(t[17]) if t[17]!='-' else np.nan,'resp_pkts':float(t[18]) if t[18]!='-' else np.nan,'resp_ip_bytes':float(t[19]) if t[19]!='-' else np.nan,'proto':t[6],'service':t[7],'conn_state':t[11],'history':t[15]}
    rows.append((vals,1 if label=='malicious' else 0))
   except (ValueError,IndexError):continue
- rng=np.random.default_rng(seed);out=[]
+ rng=np.random.default_rng(seed);selected=[]
  for cls in (0,1):
-  a=[r for r in rows if r[1]==cls];rng.shuffle(a);out.extend(a[:max_per_class])
+  ids=[i for i,r in enumerate(rows) if r[1]==cls];rng.shuffle(ids);selected.extend(ids[:max_per_class])
+ # Preserve official log order after class-cap sampling so prefix adaptation is meaningful.
+ selected.sort();out=[rows[i] for i in selected]
  X=[r[0] for r in out]; y=np.array([r[1] for r in out],dtype=int)
  return X,y
 

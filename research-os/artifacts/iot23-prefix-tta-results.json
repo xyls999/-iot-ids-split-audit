@@ -1,0 +1,303 @@
+{
+  "status": "prefix_only_unlabeled_tta_scenario_proxy_not_device_heldout",
+  "protocol": {
+    "max_per_class": 1000,
+    "adapt_fractions": [
+      0.0,
+      0.05,
+      0.1,
+      0.25
+    ],
+    "target_labels_unused": true,
+    "model": "HistGradientBoosting"
+  },
+  "summary": {
+    "0.0": {
+      "mean_macro_f1": 0.5335485451224594,
+      "std_macro_f1": 0.19874457607315343,
+      "mean_fpr": 0.082
+    },
+    "0.05": {
+      "mean_macro_f1": 0.6118282050371799,
+      "std_macro_f1": 0.27548564901506695,
+      "mean_fpr": 0.0697350069735007
+    },
+    "0.1": {
+      "mean_macro_f1": 0.635443282196572,
+      "std_macro_f1": 0.29789866132435794,
+      "mean_fpr": 0.059786607799852835
+    },
+    "0.25": {
+      "mean_macro_f1": 0.5653970187627709,
+      "std_macro_f1": 0.26911542587019854,
+      "mean_fpr": 0.05320088300220751
+    }
+  },
+  "folds": [
+    {
+      "held_scenario": "malware8",
+      "adapt_fraction": 0.0,
+      "adapt_rows": 0,
+      "metrics": {
+        "macro_f1": 0.3333333333333333,
+        "fpr": 0.0,
+        "n": 2000
+      },
+      "eval_rows": 2000
+    },
+    {
+      "held_scenario": "malware8",
+      "adapt_fraction": 0.05,
+      "adapt_rows": 100,
+      "metrics": {
+        "macro_f1": 0.32790944464096217,
+        "fpr": 0.0,
+        "n": 1900
+      },
+      "eval_rows": 1900
+    },
+    {
+      "held_scenario": "malware8",
+      "adapt_fraction": 0.1,
+      "adapt_rows": 200,
+      "metrics": {
+        "macro_f1": 0.32860872808653485,
+        "fpr": 0.0,
+        "n": 1800
+      },
+      "eval_rows": 1800
+    },
+    {
+      "held_scenario": "malware8",
+      "adapt_fraction": 0.25,
+      "adapt_rows": 500,
+      "metrics": {
+        "macro_f1": 0.3258426966292135,
+        "fpr": 0.0,
+        "n": 1500
+      },
+      "eval_rows": 1500
+    },
+    {
+      "held_scenario": "malware20",
+      "adapt_fraction": 0.0,
+      "adapt_rows": 0,
+      "metrics": {
+        "macro_f1": 0.7353602803627667,
+        "fpr": 0.0,
+        "n": 1016
+      },
+      "eval_rows": 1016
+    },
+    {
+      "held_scenario": "malware20",
+      "adapt_fraction": 0.05,
+      "adapt_rows": 50,
+      "metrics": {
+        "macro_f1": 0.862855520325588,
+        "fpr": 0.0,
+        "n": 966
+      },
+      "eval_rows": 966
+    },
+    {
+      "held_scenario": "malware20",
+      "adapt_fraction": 0.1,
+      "adapt_rows": 101,
+      "metrics": {
+        "macro_f1": 1.0,
+        "fpr": 0.0,
+        "n": 915
+      },
+      "eval_rows": 915
+    },
+    {
+      "held_scenario": "malware20",
+      "adapt_fraction": 0.25,
+      "adapt_rows": 254,
+      "metrics": {
+        "macro_f1": 0.862644955837289,
+        "fpr": 0.0,
+        "n": 762
+      },
+      "eval_rows": 762
+    },
+    {
+      "held_scenario": "malware21",
+      "adapt_fraction": 0.0,
+      "adapt_rows": 0,
+      "metrics": {
+        "macro_f1": 0.6737356305028227,
+        "fpr": 0.0,
+        "n": 1014
+      },
+      "eval_rows": 1014
+    },
+    {
+      "held_scenario": "malware21",
+      "adapt_fraction": 0.05,
+      "adapt_rows": 50,
+      "metrics": {
+        "macro_f1": 0.9759282842659874,
+        "fpr": 0.0,
+        "n": 964
+      },
+      "eval_rows": 964
+    },
+    {
+      "held_scenario": "malware21",
+      "adapt_fraction": 0.1,
+      "adapt_rows": 101,
+      "metrics": {
+        "macro_f1": 1.0,
+        "fpr": 0.0,
+        "n": 913
+      },
+      "eval_rows": 913
+    },
+    {
+      "held_scenario": "malware21",
+      "adapt_fraction": 0.25,
+      "adapt_rows": 253,
+      "metrics": {
+        "macro_f1": 1.0,
+        "fpr": 0.0,
+        "n": 761
+      },
+      "eval_rows": 761
+    },
+    {
+      "held_scenario": "malware34",
+      "adapt_fraction": 0.0,
+      "adapt_rows": 0,
+      "metrics": {
+        "macro_f1": 0.3269230769230769,
+        "fpr": 0.038,
+        "n": 2000
+      },
+      "eval_rows": 2000
+    },
+    {
+      "held_scenario": "malware34",
+      "adapt_fraction": 0.05,
+      "adapt_rows": 100,
+      "metrics": {
+        "macro_f1": 0.32767162066525124,
+        "fpr": 0.0,
+        "n": 1900
+      },
+      "eval_rows": 1900
+    },
+    {
+      "held_scenario": "malware34",
+      "adapt_fraction": 0.1,
+      "adapt_rows": 200,
+      "metrics": {
+        "macro_f1": 0.3265993265993266,
+        "fpr": 0.0,
+        "n": 1800
+      },
+      "eval_rows": 1800
+    },
+    {
+      "held_scenario": "malware34",
+      "adapt_fraction": 0.25,
+      "adapt_rows": 500,
+      "metrics": {
+        "macro_f1": 0.3016759776536313,
+        "fpr": 0.0,
+        "n": 1500
+      },
+      "eval_rows": 1500
+    },
+    {
+      "held_scenario": "malware42",
+      "adapt_fraction": 0.0,
+      "adapt_rows": 0,
+      "metrics": {
+        "macro_f1": 0.35180412371134023,
+        "fpr": 0.454,
+        "n": 1006
+      },
+      "eval_rows": 1006
+    },
+    {
+      "held_scenario": "malware42",
+      "adapt_fraction": 0.05,
+      "adapt_rows": 50,
+      "metrics": {
+        "macro_f1": 0.36772486772486773,
+        "fpr": 0.41841004184100417,
+        "n": 956
+      },
+      "eval_rows": 956
+    },
+    {
+      "held_scenario": "malware42",
+      "adapt_fraction": 0.1,
+      "adapt_rows": 100,
+      "metrics": {
+        "macro_f1": 0.39071956960322796,
+        "fpr": 0.358719646799117,
+        "n": 906
+      },
+      "eval_rows": 906
+    },
+    {
+      "held_scenario": "malware42",
+      "adapt_fraction": 0.25,
+      "adapt_rows": 251,
+      "metrics": {
+        "macro_f1": 0.40504334121355395,
+        "fpr": 0.31920529801324504,
+        "n": 755
+      },
+      "eval_rows": 755
+    },
+    {
+      "held_scenario": "malware44",
+      "adapt_fraction": 0.0,
+      "adapt_rows": 0,
+      "metrics": {
+        "macro_f1": 0.7801348259014163,
+        "fpr": 0.0,
+        "n": 237
+      },
+      "eval_rows": 237
+    },
+    {
+      "held_scenario": "malware44",
+      "adapt_fraction": 0.05,
+      "adapt_rows": 11,
+      "metrics": {
+        "macro_f1": 0.8088794926004228,
+        "fpr": 0.0,
+        "n": 226
+      },
+      "eval_rows": 226
+    },
+    {
+      "held_scenario": "malware44",
+      "adapt_fraction": 0.1,
+      "adapt_rows": 23,
+      "metrics": {
+        "macro_f1": 0.7667320688903423,
+        "fpr": 0.0,
+        "n": 214
+      },
+      "eval_rows": 214
+    },
+    {
+      "held_scenario": "malware44",
+      "adapt_fraction": 0.25,
+      "adapt_rows": 59,
+      "metrics": {
+        "macro_f1": 0.4971751412429379,
+        "fpr": 0.0,
+        "n": 178
+      },
+      "eval_rows": 178
+    }
+  ],
+  "runtime_seconds": 2.447361946105957
+}
