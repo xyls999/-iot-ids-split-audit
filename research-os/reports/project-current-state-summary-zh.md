@@ -410,7 +410,7 @@ N-BaIoT 的 random-row/LODO 比较不是新 IDS 方法，也不是首次发现 s
 | DANN λ=0.10 | 0.6996 | 0.6497 | 0.0499 |
 | DANN λ=0.20 | 0.6997 | 0.6554 | 0.0443 |
 
-结论：当前 DANN-style 原型没有稳定改善，不能称为新算法。现代方向筛选和首轮实验证明，TTA、CORAL、GroupDRO、Mixup 在当前协议下没有稳定优势；异构 ExtraTrees + HistGradientBoosting 集成在 5 seeds × 9 device-held-out folds 上达到 mean Macro-F1=0.8107，而 MLP=0.6465、DANN=0.6518。该结果支持“有效升级 baseline”，但不等于新算法创新。新增嵌套设备留出调参后，单 seed 外层 mean Macro-F1=0.8172；固定树集成的五 seed 保守结果仍为 0.8107。下一步先完成树集成的统一 per-class/FPR/延迟审计和第二数据集复现，再决定是否针对困难设备设计 IoT-specific 方法。
+结论：当前 DANN-style 原型没有稳定改善，不能称为新算法。现代方向筛选和首轮实验证明，TTA、CORAL、GroupDRO、Mixup 在当前协议下没有稳定优势；异构 ExtraTrees + HistGradientBoosting 集成在 5 seeds × 9 device-held-out folds 上达到 mean Macro-F1=0.8107，而 MLP=0.6465、DANN=0.6518。该结果支持“有效升级 baseline”，但不等于新算法创新。新增嵌套设备留出调参后，单 seed 外层 mean Macro-F1=0.8172；固定树集成的五 seed 保守结果仍为 0.8107。IoT-23 官方逐场景小文件外部验证已完成，但只能做 scenario-held-out：ExtraTrees mean Macro-F1=0.5986，HGB=0.5335，显示跨场景泛化不稳定。因此不能把树集成写成跨数据集稳定方法，下一步应分析 scenario failure interval 或继续寻找真正有 row-level group identity 的第二数据集。
 
 详细结果：`reports/nbaiot-algorithm-preflight-results-2026-10-01.md`。算法计划：`plans/nbaiot-algorithm-paper-research-plan-zh.md`。
 
