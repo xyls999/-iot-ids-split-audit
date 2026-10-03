@@ -163,6 +163,9 @@ artifacts:
   iot23_moment_tta_artifact: artifacts/iot23-moment-tta-results.json
   iot23_prefix_tta_artifact: artifacts/iot23-prefix-tta-results.json
   nbaiot_moment_tta_artifact: artifacts/nbaiot-moment-tta-tree.json
+  iot23_quantile_tta_artifact: artifacts/iot23-quantile-tta-results.json
+  iot23_prefix_quantile_artifact: artifacts/iot23-prefix-quantile-tta-results.json
+  nbaiot_quantile_tta_artifact: artifacts/nbaiot-quantile-tta-20260930.json
   nbaiot_algorithm_script: tools/run_nbaiot_device_robust_baselines.py
   nbaiot_algorithm_results: artifacts/nbaiot-device-robust-baselines.json
   project_current_state_summary: reports/project-current-state-summary-zh.md

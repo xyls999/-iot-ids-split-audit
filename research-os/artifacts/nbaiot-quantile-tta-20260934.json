@@ -1,0 +1,245 @@
+{
+  "status": "unlabeled_domain_quantile_tta_nbaIoT_device_heldout_exploratory",
+  "protocol": {
+    "rows_per_cell": 600,
+    "target_labels_unused": true,
+    "seed": 20260934
+  },
+  "summary": {
+    "extra_trees:source_only": {
+      "mean_lodo_macro_f1": 0.8110183150899606,
+      "std_lodo_macro_f1": 0.10817417780219186
+    },
+    "extra_trees:domain_quantile": {
+      "mean_lodo_macro_f1": 0.7959336289436377,
+      "std_lodo_macro_f1": 0.10267835087035015
+    },
+    "hist_gradient_boosting:source_only": {
+      "mean_lodo_macro_f1": 0.8144349199738942,
+      "std_lodo_macro_f1": 0.1301028216017639
+    },
+    "hist_gradient_boosting:domain_quantile": {
+      "mean_lodo_macro_f1": 0.7540726508606942,
+      "std_lodo_macro_f1": 0.11718036322403556
+    }
+  },
+  "folds": [
+    {
+      "held_device": 1,
+      "model": "extra_trees",
+      "variant": "source_only",
+      "macro_f1": 0.7549412251673909
+    },
+    {
+      "held_device": 1,
+      "model": "extra_trees",
+      "variant": "domain_quantile",
+      "macro_f1": 0.8304592114292203
+    },
+    {
+      "held_device": 1,
+      "model": "hist_gradient_boosting",
+      "variant": "source_only",
+      "macro_f1": 0.848145542009099
+    },
+    {
+      "held_device": 1,
+      "model": "hist_gradient_boosting",
+      "variant": "domain_quantile",
+      "macro_f1": 0.841984967992695
+    },
+    {
+      "held_device": 2,
+      "model": "extra_trees",
+      "variant": "source_only",
+      "macro_f1": 0.6631625204752684
+    },
+    {
+      "held_device": 2,
+      "model": "extra_trees",
+      "variant": "domain_quantile",
+      "macro_f1": 0.7452899557370462
+    },
+    {
+      "held_device": 2,
+      "model": "hist_gradient_boosting",
+      "variant": "source_only",
+      "macro_f1": 0.7787883083712043
+    },
+    {
+      "held_device": 2,
+      "model": "hist_gradient_boosting",
+      "variant": "domain_quantile",
+      "macro_f1": 0.7342713183842223
+    },
+    {
+      "held_device": 3,
+      "model": "extra_trees",
+      "variant": "source_only",
+      "macro_f1": 0.7807138573389113
+    },
+    {
+      "held_device": 3,
+      "model": "extra_trees",
+      "variant": "domain_quantile",
+      "macro_f1": 0.7161722194201005
+    },
+    {
+      "held_device": 3,
+      "model": "hist_gradient_boosting",
+      "variant": "source_only",
+      "macro_f1": 0.7796027408265328
+    },
+    {
+      "held_device": 3,
+      "model": "hist_gradient_boosting",
+      "variant": "domain_quantile",
+      "macro_f1": 0.6884351196203596
+    },
+    {
+      "held_device": 4,
+      "model": "extra_trees",
+      "variant": "source_only",
+      "macro_f1": 0.7392584335523812
+    },
+    {
+      "held_device": 4,
+      "model": "extra_trees",
+      "variant": "domain_quantile",
+      "macro_f1": 0.7678844334963296
+    },
+    {
+      "held_device": 4,
+      "model": "hist_gradient_boosting",
+      "variant": "source_only",
+      "macro_f1": 0.7796771912401198
+    },
+    {
+      "held_device": 4,
+      "model": "hist_gradient_boosting",
+      "variant": "domain_quantile",
+      "macro_f1": 0.7326036721777055
+    },
+    {
+      "held_device": 5,
+      "model": "extra_trees",
+      "variant": "source_only",
+      "macro_f1": 0.7798276572373136
+    },
+    {
+      "held_device": 5,
+      "model": "extra_trees",
+      "variant": "domain_quantile",
+      "macro_f1": 0.6452134243382049
+    },
+    {
+      "held_device": 5,
+      "model": "hist_gradient_boosting",
+      "variant": "source_only",
+      "macro_f1": 0.7518567865683736
+    },
+    {
+      "held_device": 5,
+      "model": "hist_gradient_boosting",
+      "variant": "domain_quantile",
+      "macro_f1": 0.6687256801122173
+    },
+    {
+      "held_device": 6,
+      "model": "extra_trees",
+      "variant": "source_only",
+      "macro_f1": 0.9974999149276608
+    },
+    {
+      "held_device": 6,
+      "model": "extra_trees",
+      "variant": "domain_quantile",
+      "macro_f1": 0.994997721101876
+    },
+    {
+      "held_device": 6,
+      "model": "hist_gradient_boosting",
+      "variant": "source_only",
+      "macro_f1": 0.9969443589863024
+    },
+    {
+      "held_device": 6,
+      "model": "hist_gradient_boosting",
+      "variant": "domain_quantile",
+      "macro_f1": 0.9657683209544942
+    },
+    {
+      "held_device": 7,
+      "model": "extra_trees",
+      "variant": "source_only",
+      "macro_f1": 0.8314873601596537
+    },
+    {
+      "held_device": 7,
+      "model": "extra_trees",
+      "variant": "domain_quantile",
+      "macro_f1": 0.7968821022802107
+    },
+    {
+      "held_device": 7,
+      "model": "hist_gradient_boosting",
+      "variant": "source_only",
+      "macro_f1": 0.8763242221691586
+    },
+    {
+      "held_device": 7,
+      "model": "hist_gradient_boosting",
+      "variant": "domain_quantile",
+      "macro_f1": 0.6508216990908684
+    },
+    {
+      "held_device": 8,
+      "model": "extra_trees",
+      "variant": "source_only",
+      "macro_f1": 0.9977777222208332
+    },
+    {
+      "held_device": 8,
+      "model": "extra_trees",
+      "variant": "domain_quantile",
+      "macro_f1": 0.9303364826751978
+    },
+    {
+      "held_device": 8,
+      "model": "hist_gradient_boosting",
+      "variant": "source_only",
+      "macro_f1": 0.9833118546963279
+    },
+    {
+      "held_device": 8,
+      "model": "hist_gradient_boosting",
+      "variant": "domain_quantile",
+      "macro_f1": 0.9068164549911701
+    },
+    {
+      "held_device": 9,
+      "model": "extra_trees",
+      "variant": "source_only",
+      "macro_f1": 0.7544961447302317
+    },
+    {
+      "held_device": 9,
+      "model": "extra_trees",
+      "variant": "domain_quantile",
+      "macro_f1": 0.7361671100145526
+    },
+    {
+      "held_device": 9,
+      "model": "hist_gradient_boosting",
+      "variant": "source_only",
+      "macro_f1": 0.535263274897929
+    },
+    {
+      "held_device": 9,
+      "model": "hist_gradient_boosting",
+      "variant": "domain_quantile",
+      "macro_f1": 0.5972266244225153
+    }
+  ],
+  "runtime_seconds": 92.27500700950623
+}
